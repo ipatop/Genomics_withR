@@ -1,0 +1,11 @@
+---
+title: "Introduction to R and RStudio"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R 
+
