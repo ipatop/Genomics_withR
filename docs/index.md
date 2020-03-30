@@ -1,22 +1,21 @@
 --- 
 title: "Genomics with R for biologists"
-author: "Ines Patop"
+author: "Ines Lucia Patop: inespatop@brandeis.edu"
 date: "2020-03-29"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a template. Use it to start a new course book."
+description: "This is the index for the coursebook"
 ---
-
 
 
 
 
 # Overview {-}
 
-This book contains some usefull resources for Genomic Analysis in R.
+The idea of the practical part will be to give you tools to be able to manage regular data-analysis in molecular biology labs. Also we think that this training in basic programing and statistics will be of high value for your future projects.
 
 ## Course Aims
 
