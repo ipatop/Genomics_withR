@@ -29,5 +29,9 @@ By the end of this course students will be able to:
 
 * Create your own R code.
 * Do basic and complex analysis.
-* Read and understand code.
+* Read and understand R code.
+
+## Acknowledgments
+
+
 

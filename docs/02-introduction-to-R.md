@@ -18,8 +18,7 @@ output:
 
 After this section you should be able to:
 
-1. Do data manipulation
-2. Do basic statistical analysis and plots
+1. Load, explore and manioulate data in R
 
 
 ## Introduction
@@ -442,8 +441,24 @@ head(ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$T
 ## [1] 103 124 155 153 175 184
 ```
 
+## Activity: 
+
+This activity integrates knowledge from the previous chapter.
+
+**1. Remove the first and last row of the ChickWeight data frame**
+**2. Create a vector with the second column from the data frame**
+
 
 # Visualization and Statistical test
+
+## Objectives
+
+After this section you should be able to:
+
+1. Plot and explore the data in many ways.
+2. Do statistical tests on the data.
+
+## Introduction
 
 We will use the same data we already explored in last chapter. Remember: chickens weight, age (Time) for different diets.
 
@@ -491,14 +506,26 @@ qplot(data=ChickWeight,x = weight, y=Time, geom = c("line","point"), colour=Diet
 The same using ggplot
 
 ```r
-ggplot(data = ChickWeight, aes(x = weight, y=Time,colour=Diet))+ #data and basic things about the plot
+ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic things about the plot
   geom_point() + #add the type of plot
   scale_colour_brewer(palette = "Set1") #add a colot pallet
 ```
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-34-1.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-34)Point and line plots</p>
+<p class="caption">(\#fig:unnamed-chunk-341)Point and line plots</p>
+</div>
+
+```r
+ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic things about the plot
+  geom_point() + #add the type of plot
+  geom_smooth() + #add a trend line of mean plus se
+  scale_colour_brewer(palette = "Set1")
+```
+
+<div class="figure" style="text-align: center">
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-34-2.png" alt="Point and line plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-342)Point and line plots</p>
 </div>
 ### Historgam and density plots
 
