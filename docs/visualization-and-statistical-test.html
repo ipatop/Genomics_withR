@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 3 Visualization and Statistical test | 02 Data manipulation in R</title>
+  <meta name="description" content="This is the index for the coursebook" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lab 3 Visualization and Statistical test | 02 Data manipulation in R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the index for the coursebook" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lab 3 Visualization and Statistical test | 02 Data manipulation in R" />
+  
+  <meta name="twitter:description" content="This is the index for the coursebook" />
+  
+
+<meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
+
+
+<meta name="date" content="2020-03-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-manipulation.html"/>
+
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Genomics with R for biologists</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-aims"><i class="fa fa-check"></i><b>0.1</b> Course Aims</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>0.2</b> Intended Learning Outcomes</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>1.2</b> Introduction</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#rstudio-world"><i class="fa fa-check"></i><b>1.3</b> RStudio world</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#create-a-project"><i class="fa fa-check"></i><b>1.4</b> Create a project</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-shortcuts-in-rstudio"><i class="fa fa-check"></i><b>1.5</b> Useful shortcuts in RStudio:</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-and-loading-packages"><i class="fa fa-check"></i><b>1.6</b> Installing and loading packages</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-objects"><i class="fa fa-check"></i><b>1.7</b> Creating objects</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-as-a-calculator"><i class="fa fa-check"></i><b>1.8</b> R as a calculator</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#functions"><i class="fa fa-check"></i><b>1.9</b> Functions</a></li>
+<li class="chapter" data-level="1.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#loops"><i class="fa fa-check"></i><b>1.10</b> Loops</a></li>
+<li class="chapter" data-level="1.11" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#conditions"><i class="fa fa-check"></i><b>1.11</b> Conditions</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#character-objects"><i class="fa fa-check"></i><b>1.12</b> Character objects</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#identify"><i class="fa fa-check"></i><b>1.13</b> Identify</a></li>
+<li class="chapter" data-level="1.14" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#modify"><i class="fa fa-check"></i><b>1.14</b> Modify</a></li>
+<li class="chapter" data-level="1.15" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-resources"><i class="fa fa-check"></i><b>1.15</b> Useful resources</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>1.16</b> Activity:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#objectives-1"><i class="fa fa-check"></i><b>2.1</b> Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#load-data"><i class="fa fa-check"></i><b>2.3</b> Load data</a></li>
+<li class="chapter" data-level="2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#data-exploration"><i class="fa fa-check"></i><b>2.4</b> Data exploration</a></li>
+<li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#subsetting"><i class="fa fa-check"></i><b>2.5</b> Subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html"><i class="fa fa-check"></i><b>3</b> Visualization and Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>3.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.1.1</b> Line and points</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.1.2</b> Historgam and density plots</a></li>
+<li class="chapter" data-level="3.1.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.1.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.2</b> Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.2.1</b> Descriptive statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.3</b> T-test/Wilcoxon</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.3.1</b> Anova/Kruskal–Wallis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>3.4</b> Activity:</a></li>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.5</b> Resources</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">02 Data manipulation in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualization-and-statistical-test" class="section level1" number="3">
+<h1><span class="header-section-number">Lab 3</span> Visualization and Statistical test</h1>
+<p>We will use the same data we already explored in last chapter. Remember: chickens weight, age (Time) for different diets.</p>
+<p>There are many things we can explore in this data. Each question we might want to answer will be better addressed using different plots.
+For example:
+1. If the chickens are older we expect them to be bigger. This can be visualized using a dotplot.
+2. We might want to see the distribution of weight separated by diet. This can be addressed by a histogram.</p>
+<p><code>ggplot</code> is a very useful function that allows us to manipulate the colors, the plot type, etc. I know it can be difficult to understand it at the beginning but after a while it becomes really intuitive. Important things to consider:
+1. We will be able to plot anything that is a column in the data matrix.
+2. Everything is or can be a layer in the plot.
+3. When you decide to color or shape by a factor that separates your data this will impact the plot.</p>
+<div id="plots" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Plots</h2>
+<p>Columns we can plot:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="visualization-and-statistical-test.html#cb106-1"></a><span class="kw">names</span>(ChickWeight)</span></code></pre></div>
+<pre><code>## [1] &quot;weight&quot; &quot;Time&quot;   &quot;Chick&quot;  &quot;Diet&quot;</code></pre>
+<div id="line-and-points" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Line and points</h3>
+<p>Dot plot with basic qplot (from ggplot but les complex)</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="visualization-and-statistical-test.html#cb108-1"></a><span class="kw">qplot</span>(<span class="dt">data=</span>ChickWeight,<span class="dt">x =</span> weight, <span class="dt">y=</span>Time, <span class="dt">geom =</span> <span class="kw">c</span>(<span class="st">&quot;line&quot;</span>,<span class="st">&quot;point&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-231"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-23-1.png" alt="Point and line plots" width="100%" />
+<p class="caption">
+Figure 3.1: Point and line plots
+</p>
+</div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="visualization-and-statistical-test.html#cb109-1"></a><span class="kw">qplot</span>(<span class="dt">data=</span>ChickWeight,<span class="dt">x =</span> weight, <span class="dt">y=</span>Time, <span class="dt">geom =</span> <span class="kw">c</span>(<span class="st">&quot;line&quot;</span>,<span class="st">&quot;point&quot;</span>), <span class="dt">colour=</span>Diet) <span class="co">#adding the color helps to separate the data</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-232"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-23-2.png" alt="Point and line plots" width="100%" />
+<p class="caption">
+Figure 3.2: Point and line plots
+</p>
+</div>
+<p>The same using ggplot</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="visualization-and-statistical-test.html#cb110-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y=</span>Time,<span class="dt">colour=</span>Diet))<span class="op">+</span><span class="st"> </span><span class="co">#data and basic things about the plot</span></span>
+<span id="cb110-2"><a href="visualization-and-statistical-test.html#cb110-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="co">#add the type of plot</span></span>
+<span id="cb110-3"><a href="visualization-and-statistical-test.html#cb110-3"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="co">#add a colot pallet</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-24-1.png" alt="Point and line plots" width="100%" />
+<p class="caption">
+Figure 3.3: Point and line plots
+</p>
+</div>
+</div>
+<div id="historgam-and-density-plots" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Historgam and density plots</h3>
+<p>Histograms are used to represent the distribution of a variable over the population. If you want to read more you can go to this <a href="https://en.wikipedia.org/wiki/Histogram">link</a>. Other way to represent the same thing is to use cumulative plots we are not going to explore them now but if you are interested in doing them with ggplot you can go to this <a href="https://stackoverflow.com/questions/15844919/cumulative-plot-using-ggplot2">link</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Density_estimation">Density plots</a> are similar to histograms but implies a more complex treatment of the data. They look like smooth histogram. They are the probability density function of the variable.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="visualization-and-statistical-test.html#cb111-1"></a><span class="kw">qplot</span>(<span class="dt">data =</span> ChickWeight,<span class="dt">x=</span>weight, <span class="dt">binwith=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-251"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-25-1.png" alt="Histogram and Density plots" width="100%" />
+<p class="caption">
+Figure 3.4: Histogram and Density plots
+</p>
+</div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="visualization-and-statistical-test.html#cb112-1"></a><span class="kw">qplot</span>(<span class="dt">data =</span> ChickWeight,<span class="dt">x=</span>weight, <span class="dt">binwith=</span><span class="dv">10</span>, <span class="dt">colour=</span>Diet) <span class="co">#the color separates the data</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-252"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-25-2.png" alt="Histogram and Density plots" width="100%" />
+<p class="caption">
+Figure 3.5: Histogram and Density plots
+</p>
+</div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="visualization-and-statistical-test.html#cb113-1"></a><span class="kw">qplot</span>(<span class="dt">data =</span> ChickWeight,<span class="dt">x=</span>weight, <span class="dt">geom =</span> <span class="st">&quot;density&quot;</span>, <span class="dt">colour=</span>Diet)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-253"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-25-3.png" alt="Histogram and Density plots" width="100%" />
+<p class="caption">
+Figure 3.6: Histogram and Density plots
+</p>
+</div>
+<p>With ggplot</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="visualization-and-statistical-test.html#cb114-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">x=</span>weight,<span class="dt">color=</span>Diet))<span class="op">+</span></span>
+<span id="cb114-2"><a href="visualization-and-statistical-test.html#cb114-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">fill=</span><span class="st">&quot;white&quot;</span>, <span class="dt">alpha=</span><span class="fl">0.5</span>, <span class="dt">position=</span><span class="st">&quot;identity&quot;</span>)<span class="op">+</span></span>
+<span id="cb114-3"><a href="visualization-and-statistical-test.html#cb114-3"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-261"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-26-1.png" alt="Point and line plots" width="100%" />
+<p class="caption">
+Figure 3.7: Point and line plots
+</p>
+</div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="visualization-and-statistical-test.html#cb115-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">x=</span>weight,<span class="dt">fill=</span>Diet))<span class="op">+</span></span>
+<span id="cb115-2"><a href="visualization-and-statistical-test.html#cb115-2"></a><span class="st">  </span><span class="kw">geom_density</span>( <span class="dt">alpha=</span><span class="fl">0.5</span>)<span class="op">+</span></span>
+<span id="cb115-3"><a href="visualization-and-statistical-test.html#cb115-3"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-262"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-26-2.png" alt="Point and line plots" width="100%" />
+<p class="caption">
+Figure 3.8: Point and line plots
+</p>
+</div>
+</div>
+<div id="boxplot" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Boxplot</h3>
+<p>Boxplots are a nice way to visualize the data distribution and to get and intuition of how this is different between conditions. As you can see in this figure, it summarizes a LOT of information:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<img src="images/boxplot.jpg" alt="Boxplot description. Figrue affapted from https://www.simplypsychology.org/boxplots.html" width="500px" />
+<p class="caption">
+Figure 3.9: Boxplot description. Figrue affapted from <a href="https://www.simplypsychology.org/boxplots.html" class="uri">https://www.simplypsychology.org/boxplots.html</a>
+</p>
+</div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="visualization-and-statistical-test.html#cb116-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">y=</span>weight,<span class="dt">x=</span><span class="kw">as.factor</span>(Time),<span class="dt">fill=</span>Diet))<span class="op">+</span><span class="st"> </span><span class="co">#Note how the x, y and color changes</span></span>
+<span id="cb116-2"><a href="visualization-and-statistical-test.html#cb116-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="st"> </span><span class="co">#this is adding the  boxplot</span></span>
+<span id="cb116-3"><a href="visualization-and-statistical-test.html#cb116-3"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-28-1.png" alt="Boxplot" width="100%" />
+<p class="caption">
+Figure 3.10: Boxplot
+</p>
+</div>
+<p>What happens if we do not use the <code>as.factor</code>? Again, a reminder that the data type is important!</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="visualization-and-statistical-test.html#cb117-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">y=</span>weight,<span class="dt">x=</span>Time,<span class="dt">fill=</span>Diet))<span class="op">+</span><span class="st"> </span><span class="co">#Note how the x, y and color changes</span></span>
+<span id="cb117-2"><a href="visualization-and-statistical-test.html#cb117-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="st"> </span><span class="co">#this is adding the  boxplot</span></span>
+<span id="cb117-3"><a href="visualization-and-statistical-test.html#cb117-3"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-29-1.png" alt="Boxplot" width="100%" />
+<p class="caption">
+Figure 3.11: Boxplot
+</p>
+</div>
+<p>It seems interesting to separate this by age (Time). This is achieved by another layer named facet.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="visualization-and-statistical-test.html#cb118-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">x=</span>weight,<span class="dt">fill=</span>Diet))<span class="op">+</span></span>
+<span id="cb118-2"><a href="visualization-and-statistical-test.html#cb118-2"></a><span class="st">  </span><span class="kw">geom_density</span>( <span class="dt">alpha=</span><span class="fl">0.5</span>)<span class="op">+</span></span>
+<span id="cb118-3"><a href="visualization-and-statistical-test.html#cb118-3"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)<span class="op">+</span></span>
+<span id="cb118-4"><a href="visualization-and-statistical-test.html#cb118-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Time,<span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-301"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-30-1.png" alt="Plot sepparating by age of the chicken" width="100%" />
+<p class="caption">
+Figure 3.12: Plot sepparating by age of the chicken
+</p>
+</div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="visualization-and-statistical-test.html#cb119-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">y=</span>weight,<span class="dt">x=</span><span class="kw">as.factor</span>(Time),<span class="dt">fill=</span>Diet))<span class="op">+</span></span>
+<span id="cb119-2"><a href="visualization-and-statistical-test.html#cb119-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()<span class="op">+</span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)<span class="op">+</span></span>
+<span id="cb119-3"><a href="visualization-and-statistical-test.html#cb119-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Time,<span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-302"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-30-2.png" alt="Plot sepparating by age of the chicken" width="100%" />
+<p class="caption">
+Figure 3.13: Plot sepparating by age of the chicken
+</p>
+</div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="visualization-and-statistical-test.html#cb120-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ChickWeight, <span class="kw">aes</span>(<span class="dt">y=</span>weight,<span class="dt">x=</span><span class="kw">as.factor</span>(Time),<span class="dt">fill=</span>Diet))<span class="op">+</span></span>
+<span id="cb120-2"><a href="visualization-and-statistical-test.html#cb120-2"></a><span class="st">  </span><span class="kw">geom_violin</span>()<span class="op">+</span></span>
+<span id="cb120-3"><a href="visualization-and-statistical-test.html#cb120-3"></a><span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)<span class="op">+</span></span>
+<span id="cb120-4"><a href="visualization-and-statistical-test.html#cb120-4"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Time,<span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-303"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-30-3.png" alt="Plot sepparating by age of the chicken" width="100%" />
+<p class="caption">
+Figure 3.14: Plot sepparating by age of the chicken
+</p>
+</div>
+</div>
+</div>
+<div id="statistical-test" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Statistical test</h2>
+<div id="descriptive-statistics" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Descriptive statistics</h3>
+<p>We already saw a way to get the descriptive stats from a table by using <code>summary</code>.</p>
+<p>We will try to compare the weight of chickens under different diets without taking into account the age.</p>
+<p>First, we will now do a mean and SD table for each diet. There is one function that can do this for us.
+<code>ddply</code> is a function that first divides the data by a variable written as .(Var) and then perform an specific function. With the indication of “transform” this will create a new column in out data</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="visualization-and-statistical-test.html#cb121-1"></a>stat_ChickWeight&lt;-<span class="kw">ddply</span>(ChickWeight,  .(Diet),  transform,  <span class="dt">Mean=</span><span class="kw">mean</span>(weight,<span class="dt">na.rm =</span> T), <span class="dt">SD=</span><span class="kw">sd</span>(weight,<span class="dt">na.rm =</span> T))</span>
+<span id="cb121-2"><a href="visualization-and-statistical-test.html#cb121-2"></a></span>
+<span id="cb121-3"><a href="visualization-and-statistical-test.html#cb121-3"></a><span class="kw">as.data.frame</span>(stat_ChickWeight)</span></code></pre></div>
+<pre><code>##     weight Time Chick Diet     Mean       SD
+## 1       42    0     1    1 102.6455 56.65655
+## 2       51    2     1    1 102.6455 56.65655
+## 3       59    4     1    1 102.6455 56.65655
+## 4       64    6     1    1 102.6455 56.65655
+## 5       76    8     1    1 102.6455 56.65655
+## 6       93   10     1    1 102.6455 56.65655
+## 7      106   12     1    1 102.6455 56.65655
+## 8      125   14     1    1 102.6455 56.65655
+## 9      149   16     1    1 102.6455 56.65655
+## 10     171   18     1    1 102.6455 56.65655
+## 11     199   20     1    1 102.6455 56.65655
+## 12     205   21     1    1 102.6455 56.65655
+## 13      40    0     2    1 102.6455 56.65655
+## 14      49    2     2    1 102.6455 56.65655
+## 15      58    4     2    1 102.6455 56.65655
+## 16      72    6     2    1 102.6455 56.65655
+## 17      84    8     2    1 102.6455 56.65655
+## 18     103   10     2    1 102.6455 56.65655
+## 19     122   12     2    1 102.6455 56.65655
+## 20     138   14     2    1 102.6455 56.65655
+## 21     162   16     2    1 102.6455 56.65655
+## 22     187   18     2    1 102.6455 56.65655
+## 23     209   20     2    1 102.6455 56.65655
+## 24     215   21     2    1 102.6455 56.65655
+## 25      43    0     3    1 102.6455 56.65655
+## 26      39    2     3    1 102.6455 56.65655
+## 27      55    4     3    1 102.6455 56.65655
+## 28      67    6     3    1 102.6455 56.65655
+## 29      84    8     3    1 102.6455 56.65655
+## 30      99   10     3    1 102.6455 56.65655
+## 31     115   12     3    1 102.6455 56.65655
+## 32     138   14     3    1 102.6455 56.65655
+## 33     163   16     3    1 102.6455 56.65655
+## 34     187   18     3    1 102.6455 56.65655
+## 35     198   20     3    1 102.6455 56.65655
+## 36     202   21     3    1 102.6455 56.65655
+## 37      42    0     4    1 102.6455 56.65655
+## 38      49    2     4    1 102.6455 56.65655
+## 39      56    4     4    1 102.6455 56.65655
+## 40      67    6     4    1 102.6455 56.65655
+## 41      74    8     4    1 102.6455 56.65655
+## 42      87   10     4    1 102.6455 56.65655
+## 43     102   12     4    1 102.6455 56.65655
+## 44     108   14     4    1 102.6455 56.65655
+## 45     136   16     4    1 102.6455 56.65655
+## 46     154   18     4    1 102.6455 56.65655
+## 47     160   20     4    1 102.6455 56.65655
+## 48     157   21     4    1 102.6455 56.65655
+## 49      41    0     5    1 102.6455 56.65655
+## 50      42    2     5    1 102.6455 56.65655
+## 51      48    4     5    1 102.6455 56.65655
+## 52      60    6     5    1 102.6455 56.65655
+## 53      79    8     5    1 102.6455 56.65655
+## 54     106   10     5    1 102.6455 56.65655
+## 55     141   12     5    1 102.6455 56.65655
+## 56     164   14     5    1 102.6455 56.65655
+## 57     197   16     5    1 102.6455 56.65655
+## 58     199   18     5    1 102.6455 56.65655
+## 59     220   20     5    1 102.6455 56.65655
+## 60     223   21     5    1 102.6455 56.65655
+## 61      41    0     6    1 102.6455 56.65655
+## 62      49    2     6    1 102.6455 56.65655
+## 63      59    4     6    1 102.6455 56.65655
+## 64      74    6     6    1 102.6455 56.65655
+## 65      97    8     6    1 102.6455 56.65655
+## 66     124   10     6    1 102.6455 56.65655
+## 67     141   12     6    1 102.6455 56.65655
+## 68     148   14     6    1 102.6455 56.65655
+## 69     155   16     6    1 102.6455 56.65655
+## 70     160   18     6    1 102.6455 56.65655
+## 71     160   20     6    1 102.6455 56.65655
+## 72     157   21     6    1 102.6455 56.65655
+## 73      41    0     7    1 102.6455 56.65655
+## 74      49    2     7    1 102.6455 56.65655
+## 75      57    4     7    1 102.6455 56.65655
+## 76      71    6     7    1 102.6455 56.65655
+## 77      89    8     7    1 102.6455 56.65655
+## 78     112   10     7    1 102.6455 56.65655
+## 79     146   12     7    1 102.6455 56.65655
+## 80     174   14     7    1 102.6455 56.65655
+## 81     218   16     7    1 102.6455 56.65655
+## 82     250   18     7    1 102.6455 56.65655
+## 83     288   20     7    1 102.6455 56.65655
+## 84     305   21     7    1 102.6455 56.65655
+## 85      42    0     8    1 102.6455 56.65655
+## 86      50    2     8    1 102.6455 56.65655
+## 87      61    4     8    1 102.6455 56.65655
+## 88      71    6     8    1 102.6455 56.65655
+## 89      84    8     8    1 102.6455 56.65655
+## 90      93   10     8    1 102.6455 56.65655
+## 91     110   12     8    1 102.6455 56.65655
+## 92     116   14     8    1 102.6455 56.65655
+## 93     126   16     8    1 102.6455 56.65655
+## 94     134   18     8    1 102.6455 56.65655
+## 95     125   20     8    1 102.6455 56.65655
+## 96      42    0     9    1 102.6455 56.65655
+## 97      51    2     9    1 102.6455 56.65655
+## 98      59    4     9    1 102.6455 56.65655
+## 99      68    6     9    1 102.6455 56.65655
+## 100     85    8     9    1 102.6455 56.65655
+## 101     96   10     9    1 102.6455 56.65655
+## 102     90   12     9    1 102.6455 56.65655
+## 103     92   14     9    1 102.6455 56.65655
+## 104     93   16     9    1 102.6455 56.65655
+## 105    100   18     9    1 102.6455 56.65655
+## 106    100   20     9    1 102.6455 56.65655
+## 107     98   21     9    1 102.6455 56.65655
+## 108     41    0    10    1 102.6455 56.65655
+## 109     44    2    10    1 102.6455 56.65655
+## 110     52    4    10    1 102.6455 56.65655
+## 111     63    6    10    1 102.6455 56.65655
+## 112     74    8    10    1 102.6455 56.65655
+## 113     81   10    10    1 102.6455 56.65655
+## 114     89   12    10    1 102.6455 56.65655
+## 115     96   14    10    1 102.6455 56.65655
+## 116    101   16    10    1 102.6455 56.65655
+## 117    112   18    10    1 102.6455 56.65655
+## 118    120   20    10    1 102.6455 56.65655
+## 119    124   21    10    1 102.6455 56.65655
+## 120     43    0    11    1 102.6455 56.65655
+## 121     51    2    11    1 102.6455 56.65655
+## 122     63    4    11    1 102.6455 56.65655
+## 123     84    6    11    1 102.6455 56.65655
+## 124    112    8    11    1 102.6455 56.65655
+## 125    139   10    11    1 102.6455 56.65655
+## 126    168   12    11    1 102.6455 56.65655
+## 127    177   14    11    1 102.6455 56.65655
+## 128    182   16    11    1 102.6455 56.65655
+## 129    184   18    11    1 102.6455 56.65655
+## 130    181   20    11    1 102.6455 56.65655
+## 131    175   21    11    1 102.6455 56.65655
+## 132     41    0    12    1 102.6455 56.65655
+## 133     49    2    12    1 102.6455 56.65655
+## 134     56    4    12    1 102.6455 56.65655
+## 135     62    6    12    1 102.6455 56.65655
+## 136     72    8    12    1 102.6455 56.65655
+## 137     88   10    12    1 102.6455 56.65655
+## 138    119   12    12    1 102.6455 56.65655
+## 139    135   14    12    1 102.6455 56.65655
+## 140    162   16    12    1 102.6455 56.65655
+## 141    185   18    12    1 102.6455 56.65655
+## 142    195   20    12    1 102.6455 56.65655
+## 143    205   21    12    1 102.6455 56.65655
+## 144     41    0    13    1 102.6455 56.65655
+## 145     48    2    13    1 102.6455 56.65655
+## 146     53    4    13    1 102.6455 56.65655
+## 147     60    6    13    1 102.6455 56.65655
+## 148     65    8    13    1 102.6455 56.65655
+## 149     67   10    13    1 102.6455 56.65655
+## 150     71   12    13    1 102.6455 56.65655
+## 151     70   14    13    1 102.6455 56.65655
+## 152     71   16    13    1 102.6455 56.65655
+## 153     81   18    13    1 102.6455 56.65655
+## 154     91   20    13    1 102.6455 56.65655
+## 155     96   21    13    1 102.6455 56.65655
+## 156     41    0    14    1 102.6455 56.65655
+## 157     49    2    14    1 102.6455 56.65655
+## 158     62    4    14    1 102.6455 56.65655
+## 159     79    6    14    1 102.6455 56.65655
+## 160    101    8    14    1 102.6455 56.65655
+## 161    128   10    14    1 102.6455 56.65655
+## 162    164   12    14    1 102.6455 56.65655
+## 163    192   14    14    1 102.6455 56.65655
+## 164    227   16    14    1 102.6455 56.65655
+## 165    248   18    14    1 102.6455 56.65655
+## 166    259   20    14    1 102.6455 56.65655
+## 167    266   21    14    1 102.6455 56.65655
+## 168     41    0    15    1 102.6455 56.65655
+## 169     49    2    15    1 102.6455 56.65655
+## 170     56    4    15    1 102.6455 56.65655
+## 171     64    6    15    1 102.6455 56.65655
+## 172     68    8    15    1 102.6455 56.65655
+## 173     68   10    15    1 102.6455 56.65655
+## 174     67   12    15    1 102.6455 56.65655
+## 175     68   14    15    1 102.6455 56.65655
+## 176     41    0    16    1 102.6455 56.65655
+## 177     45    2    16    1 102.6455 56.65655
+## 178     49    4    16    1 102.6455 56.65655
+## 179     51    6    16    1 102.6455 56.65655
+## 180     57    8    16    1 102.6455 56.65655
+## 181     51   10    16    1 102.6455 56.65655
+## 182     54   12    16    1 102.6455 56.65655
+## 183     42    0    17    1 102.6455 56.65655
+## 184     51    2    17    1 102.6455 56.65655
+## 185     61    4    17    1 102.6455 56.65655
+## 186     72    6    17    1 102.6455 56.65655
+## 187     83    8    17    1 102.6455 56.65655
+## 188     89   10    17    1 102.6455 56.65655
+## 189     98   12    17    1 102.6455 56.65655
+## 190    103   14    17    1 102.6455 56.65655
+## 191    113   16    17    1 102.6455 56.65655
+## 192    123   18    17    1 102.6455 56.65655
+## 193    133   20    17    1 102.6455 56.65655
+## 194    142   21    17    1 102.6455 56.65655
+## 195     39    0    18    1 102.6455 56.65655
+## 196     35    2    18    1 102.6455 56.65655
+## 197     43    0    19    1 102.6455 56.65655
+## 198     48    2    19    1 102.6455 56.65655
+## 199     55    4    19    1 102.6455 56.65655
+## 200     62    6    19    1 102.6455 56.65655
+## 201     65    8    19    1 102.6455 56.65655
+## 202     71   10    19    1 102.6455 56.65655
+## 203     82   12    19    1 102.6455 56.65655
+## 204     88   14    19    1 102.6455 56.65655
+## 205    106   16    19    1 102.6455 56.65655
+## 206    120   18    19    1 102.6455 56.65655
+## 207    144   20    19    1 102.6455 56.65655
+## 208    157   21    19    1 102.6455 56.65655
+## 209     41    0    20    1 102.6455 56.65655
+## 210     47    2    20    1 102.6455 56.65655
+## 211     54    4    20    1 102.6455 56.65655
+## 212     58    6    20    1 102.6455 56.65655
+## 213     65    8    20    1 102.6455 56.65655
+## 214     73   10    20    1 102.6455 56.65655
+## 215     77   12    20    1 102.6455 56.65655
+## 216     89   14    20    1 102.6455 56.65655
+## 217     98   16    20    1 102.6455 56.65655
+## 218    107   18    20    1 102.6455 56.65655
+## 219    115   20    20    1 102.6455 56.65655
+## 220    117   21    20    1 102.6455 56.65655
+## 221     40    0    21    2 122.6167 71.60749
+## 222     50    2    21    2 122.6167 71.60749
+## 223     62    4    21    2 122.6167 71.60749
+## 224     86    6    21    2 122.6167 71.60749
+## 225    125    8    21    2 122.6167 71.60749
+## 226    163   10    21    2 122.6167 71.60749
+## 227    217   12    21    2 122.6167 71.60749
+## 228    240   14    21    2 122.6167 71.60749
+## 229    275   16    21    2 122.6167 71.60749
+## 230    307   18    21    2 122.6167 71.60749
+## 231    318   20    21    2 122.6167 71.60749
+## 232    331   21    21    2 122.6167 71.60749
+## 233     41    0    22    2 122.6167 71.60749
+## 234     55    2    22    2 122.6167 71.60749
+## 235     64    4    22    2 122.6167 71.60749
+## 236     77    6    22    2 122.6167 71.60749
+## 237     90    8    22    2 122.6167 71.60749
+## 238     95   10    22    2 122.6167 71.60749
+## 239    108   12    22    2 122.6167 71.60749
+## 240    111   14    22    2 122.6167 71.60749
+## 241    131   16    22    2 122.6167 71.60749
+## 242    148   18    22    2 122.6167 71.60749
+## 243    164   20    22    2 122.6167 71.60749
+## 244    167   21    22    2 122.6167 71.60749
+## 245     43    0    23    2 122.6167 71.60749
+## 246     52    2    23    2 122.6167 71.60749
+## 247     61    4    23    2 122.6167 71.60749
+## 248     73    6    23    2 122.6167 71.60749
+## 249     90    8    23    2 122.6167 71.60749
+## 250    103   10    23    2 122.6167 71.60749
+## 251    127   12    23    2 122.6167 71.60749
+## 252    135   14    23    2 122.6167 71.60749
+## 253    145   16    23    2 122.6167 71.60749
+## 254    163   18    23    2 122.6167 71.60749
+## 255    170   20    23    2 122.6167 71.60749
+## 256    175   21    23    2 122.6167 71.60749
+## 257     42    0    24    2 122.6167 71.60749
+## 258     52    2    24    2 122.6167 71.60749
+## 259     58    4    24    2 122.6167 71.60749
+## 260     74    6    24    2 122.6167 71.60749
+## 261     66    8    24    2 122.6167 71.60749
+## 262     68   10    24    2 122.6167 71.60749
+## 263     70   12    24    2 122.6167 71.60749
+## 264     71   14    24    2 122.6167 71.60749
+## 265     72   16    24    2 122.6167 71.60749
+## 266     72   18    24    2 122.6167 71.60749
+## 267     76   20    24    2 122.6167 71.60749
+## 268     74   21    24    2 122.6167 71.60749
+## 269     40    0    25    2 122.6167 71.60749
+## 270     49    2    25    2 122.6167 71.60749
+## 271     62    4    25    2 122.6167 71.60749
+## 272     78    6    25    2 122.6167 71.60749
+## 273    102    8    25    2 122.6167 71.60749
+## 274    124   10    25    2 122.6167 71.60749
+## 275    146   12    25    2 122.6167 71.60749
+## 276    164   14    25    2 122.6167 71.60749
+## 277    197   16    25    2 122.6167 71.60749
+## 278    231   18    25    2 122.6167 71.60749
+## 279    259   20    25    2 122.6167 71.60749
+## 280    265   21    25    2 122.6167 71.60749
+## 281     42    0    26    2 122.6167 71.60749
+## 282     48    2    26    2 122.6167 71.60749
+## 283     57    4    26    2 122.6167 71.60749
+## 284     74    6    26    2 122.6167 71.60749
+## 285     93    8    26    2 122.6167 71.60749
+## 286    114   10    26    2 122.6167 71.60749
+## 287    136   12    26    2 122.6167 71.60749
+## 288    147   14    26    2 122.6167 71.60749
+## 289    169   16    26    2 122.6167 71.60749
+## 290    205   18    26    2 122.6167 71.60749
+## 291    236   20    26    2 122.6167 71.60749
+## 292    251   21    26    2 122.6167 71.60749
+## 293     39    0    27    2 122.6167 71.60749
+## 294     46    2    27    2 122.6167 71.60749
+## 295     58    4    27    2 122.6167 71.60749
+## 296     73    6    27    2 122.6167 71.60749
+## 297     87    8    27    2 122.6167 71.60749
+## 298    100   10    27    2 122.6167 71.60749
+## 299    115   12    27    2 122.6167 71.60749
+## 300    123   14    27    2 122.6167 71.60749
+## 301    144   16    27    2 122.6167 71.60749
+## 302    163   18    27    2 122.6167 71.60749
+## 303    185   20    27    2 122.6167 71.60749
+## 304    192   21    27    2 122.6167 71.60749
+## 305     39    0    28    2 122.6167 71.60749
+## 306     46    2    28    2 122.6167 71.60749
+## 307     58    4    28    2 122.6167 71.60749
+## 308     73    6    28    2 122.6167 71.60749
+## 309     92    8    28    2 122.6167 71.60749
+## 310    114   10    28    2 122.6167 71.60749
+## 311    145   12    28    2 122.6167 71.60749
+## 312    156   14    28    2 122.6167 71.60749
+## 313    184   16    28    2 122.6167 71.60749
+## 314    207   18    28    2 122.6167 71.60749
+## 315    212   20    28    2 122.6167 71.60749
+## 316    233   21    28    2 122.6167 71.60749
+## 317     39    0    29    2 122.6167 71.60749
+## 318     48    2    29    2 122.6167 71.60749
+## 319     59    4    29    2 122.6167 71.60749
+## 320     74    6    29    2 122.6167 71.60749
+## 321     87    8    29    2 122.6167 71.60749
+## 322    106   10    29    2 122.6167 71.60749
+## 323    134   12    29    2 122.6167 71.60749
+## 324    150   14    29    2 122.6167 71.60749
+## 325    187   16    29    2 122.6167 71.60749
+## 326    230   18    29    2 122.6167 71.60749
+## 327    279   20    29    2 122.6167 71.60749
+## 328    309   21    29    2 122.6167 71.60749
+## 329     42    0    30    2 122.6167 71.60749
+## 330     48    2    30    2 122.6167 71.60749
+## 331     59    4    30    2 122.6167 71.60749
+## 332     72    6    30    2 122.6167 71.60749
+## 333     85    8    30    2 122.6167 71.60749
+## 334     98   10    30    2 122.6167 71.60749
+## 335    115   12    30    2 122.6167 71.60749
+## 336    122   14    30    2 122.6167 71.60749
+## 337    143   16    30    2 122.6167 71.60749
+## 338    151   18    30    2 122.6167 71.60749
+## 339    157   20    30    2 122.6167 71.60749
+## 340    150   21    30    2 122.6167 71.60749
+## 341     42    0    31    3 142.9500 86.54176
+## 342     53    2    31    3 142.9500 86.54176
+## 343     62    4    31    3 142.9500 86.54176
+## 344     73    6    31    3 142.9500 86.54176
+## 345     85    8    31    3 142.9500 86.54176
+## 346    102   10    31    3 142.9500 86.54176
+## 347    123   12    31    3 142.9500 86.54176
+## 348    138   14    31    3 142.9500 86.54176
+## 349    170   16    31    3 142.9500 86.54176
+## 350    204   18    31    3 142.9500 86.54176
+## 351    235   20    31    3 142.9500 86.54176
+## 352    256   21    31    3 142.9500 86.54176
+## 353     41    0    32    3 142.9500 86.54176
+## 354     49    2    32    3 142.9500 86.54176
+## 355     65    4    32    3 142.9500 86.54176
+## 356     82    6    32    3 142.9500 86.54176
+## 357    107    8    32    3 142.9500 86.54176
+## 358    129   10    32    3 142.9500 86.54176
+## 359    159   12    32    3 142.9500 86.54176
+## 360    179   14    32    3 142.9500 86.54176
+## 361    221   16    32    3 142.9500 86.54176
+## 362    263   18    32    3 142.9500 86.54176
+## 363    291   20    32    3 142.9500 86.54176
+## 364    305   21    32    3 142.9500 86.54176
+## 365     39    0    33    3 142.9500 86.54176
+## 366     50    2    33    3 142.9500 86.54176
+## 367     63    4    33    3 142.9500 86.54176
+## 368     77    6    33    3 142.9500 86.54176
+## 369     96    8    33    3 142.9500 86.54176
+## 370    111   10    33    3 142.9500 86.54176
+## 371    137   12    33    3 142.9500 86.54176
+## 372    144   14    33    3 142.9500 86.54176
+## 373    151   16    33    3 142.9500 86.54176
+## 374    146   18    33    3 142.9500 86.54176
+## 375    156   20    33    3 142.9500 86.54176
+## 376    147   21    33    3 142.9500 86.54176
+## 377     41    0    34    3 142.9500 86.54176
+## 378     49    2    34    3 142.9500 86.54176
+## 379     63    4    34    3 142.9500 86.54176
+## 380     85    6    34    3 142.9500 86.54176
+## 381    107    8    34    3 142.9500 86.54176
+## 382    134   10    34    3 142.9500 86.54176
+## 383    164   12    34    3 142.9500 86.54176
+## 384    186   14    34    3 142.9500 86.54176
+## 385    235   16    34    3 142.9500 86.54176
+## 386    294   18    34    3 142.9500 86.54176
+## 387    327   20    34    3 142.9500 86.54176
+## 388    341   21    34    3 142.9500 86.54176
+## 389     41    0    35    3 142.9500 86.54176
+## 390     53    2    35    3 142.9500 86.54176
+## 391     64    4    35    3 142.9500 86.54176
+## 392     87    6    35    3 142.9500 86.54176
+## 393    123    8    35    3 142.9500 86.54176
+## 394    158   10    35    3 142.9500 86.54176
+## 395    201   12    35    3 142.9500 86.54176
+## 396    238   14    35    3 142.9500 86.54176
+## 397    287   16    35    3 142.9500 86.54176
+## 398    332   18    35    3 142.9500 86.54176
+## 399    361   20    35    3 142.9500 86.54176
+## 400    373   21    35    3 142.9500 86.54176
+## 401     39    0    36    3 142.9500 86.54176
+## 402     48    2    36    3 142.9500 86.54176
+## 403     61    4    36    3 142.9500 86.54176
+## 404     76    6    36    3 142.9500 86.54176
+## 405     98    8    36    3 142.9500 86.54176
+## 406    116   10    36    3 142.9500 86.54176
+## 407    145   12    36    3 142.9500 86.54176
+## 408    166   14    36    3 142.9500 86.54176
+## 409    198   16    36    3 142.9500 86.54176
+## 410    227   18    36    3 142.9500 86.54176
+## 411    225   20    36    3 142.9500 86.54176
+## 412    220   21    36    3 142.9500 86.54176
+## 413     41    0    37    3 142.9500 86.54176
+## 414     48    2    37    3 142.9500 86.54176
+## 415     56    4    37    3 142.9500 86.54176
+## 416     68    6    37    3 142.9500 86.54176
+## 417     80    8    37    3 142.9500 86.54176
+## 418     83   10    37    3 142.9500 86.54176
+## 419    103   12    37    3 142.9500 86.54176
+## 420    112   14    37    3 142.9500 86.54176
+## 421    135   16    37    3 142.9500 86.54176
+## 422    157   18    37    3 142.9500 86.54176
+## 423    169   20    37    3 142.9500 86.54176
+## 424    178   21    37    3 142.9500 86.54176
+## 425     41    0    38    3 142.9500 86.54176
+## 426     49    2    38    3 142.9500 86.54176
+## 427     61    4    38    3 142.9500 86.54176
+## 428     74    6    38    3 142.9500 86.54176
+## 429     98    8    38    3 142.9500 86.54176
+## 430    109   10    38    3 142.9500 86.54176
+## 431    128   12    38    3 142.9500 86.54176
+## 432    154   14    38    3 142.9500 86.54176
+## 433    192   16    38    3 142.9500 86.54176
+## 434    232   18    38    3 142.9500 86.54176
+## 435    280   20    38    3 142.9500 86.54176
+## 436    290   21    38    3 142.9500 86.54176
+## 437     42    0    39    3 142.9500 86.54176
+## 438     50    2    39    3 142.9500 86.54176
+## 439     61    4    39    3 142.9500 86.54176
+## 440     78    6    39    3 142.9500 86.54176
+## 441     89    8    39    3 142.9500 86.54176
+## 442    109   10    39    3 142.9500 86.54176
+## 443    130   12    39    3 142.9500 86.54176
+## 444    146   14    39    3 142.9500 86.54176
+## 445    170   16    39    3 142.9500 86.54176
+## 446    214   18    39    3 142.9500 86.54176
+## 447    250   20    39    3 142.9500 86.54176
+## 448    272   21    39    3 142.9500 86.54176
+## 449     41    0    40    3 142.9500 86.54176
+## 450     55    2    40    3 142.9500 86.54176
+## 451     66    4    40    3 142.9500 86.54176
+## 452     79    6    40    3 142.9500 86.54176
+## 453    101    8    40    3 142.9500 86.54176
+## 454    120   10    40    3 142.9500 86.54176
+## 455    154   12    40    3 142.9500 86.54176
+## 456    182   14    40    3 142.9500 86.54176
+## 457    215   16    40    3 142.9500 86.54176
+## 458    262   18    40    3 142.9500 86.54176
+## 459    295   20    40    3 142.9500 86.54176
+## 460    321   21    40    3 142.9500 86.54176
+## 461     42    0    41    4 135.2627 68.82871
+## 462     51    2    41    4 135.2627 68.82871
+## 463     66    4    41    4 135.2627 68.82871
+## 464     85    6    41    4 135.2627 68.82871
+## 465    103    8    41    4 135.2627 68.82871
+## 466    124   10    41    4 135.2627 68.82871
+## 467    155   12    41    4 135.2627 68.82871
+## 468    153   14    41    4 135.2627 68.82871
+## 469    175   16    41    4 135.2627 68.82871
+## 470    184   18    41    4 135.2627 68.82871
+## 471    199   20    41    4 135.2627 68.82871
+## 472    204   21    41    4 135.2627 68.82871
+## 473     42    0    42    4 135.2627 68.82871
+## 474     49    2    42    4 135.2627 68.82871
+## 475     63    4    42    4 135.2627 68.82871
+## 476     84    6    42    4 135.2627 68.82871
+## 477    103    8    42    4 135.2627 68.82871
+## 478    126   10    42    4 135.2627 68.82871
+## 479    160   12    42    4 135.2627 68.82871
+## 480    174   14    42    4 135.2627 68.82871
+## 481    204   16    42    4 135.2627 68.82871
+## 482    234   18    42    4 135.2627 68.82871
+## 483    269   20    42    4 135.2627 68.82871
+## 484    281   21    42    4 135.2627 68.82871
+## 485     42    0    43    4 135.2627 68.82871
+## 486     55    2    43    4 135.2627 68.82871
+## 487     69    4    43    4 135.2627 68.82871
+## 488     96    6    43    4 135.2627 68.82871
+## 489    131    8    43    4 135.2627 68.82871
+## 490    157   10    43    4 135.2627 68.82871
+## 491    184   12    43    4 135.2627 68.82871
+## 492    188   14    43    4 135.2627 68.82871
+## 493    197   16    43    4 135.2627 68.82871
+## 494    198   18    43    4 135.2627 68.82871
+## 495    199   20    43    4 135.2627 68.82871
+## 496    200   21    43    4 135.2627 68.82871
+## 497     42    0    44    4 135.2627 68.82871
+## 498     51    2    44    4 135.2627 68.82871
+## 499     65    4    44    4 135.2627 68.82871
+## 500     86    6    44    4 135.2627 68.82871
+## 501    103    8    44    4 135.2627 68.82871
+## 502    118   10    44    4 135.2627 68.82871
+## 503    127   12    44    4 135.2627 68.82871
+## 504    138   14    44    4 135.2627 68.82871
+## 505    145   16    44    4 135.2627 68.82871
+## 506    146   18    44    4 135.2627 68.82871
+## 507     41    0    45    4 135.2627 68.82871
+## 508     50    2    45    4 135.2627 68.82871
+## 509     61    4    45    4 135.2627 68.82871
+## 510     78    6    45    4 135.2627 68.82871
+## 511     98    8    45    4 135.2627 68.82871
+## 512    117   10    45    4 135.2627 68.82871
+## 513    135   12    45    4 135.2627 68.82871
+## 514    141   14    45    4 135.2627 68.82871
+## 515    147   16    45    4 135.2627 68.82871
+## 516    174   18    45    4 135.2627 68.82871
+## 517    197   20    45    4 135.2627 68.82871
+## 518    196   21    45    4 135.2627 68.82871
+## 519     40    0    46    4 135.2627 68.82871
+## 520     52    2    46    4 135.2627 68.82871
+## 521     62    4    46    4 135.2627 68.82871
+## 522     82    6    46    4 135.2627 68.82871
+## 523    101    8    46    4 135.2627 68.82871
+## 524    120   10    46    4 135.2627 68.82871
+## 525    144   12    46    4 135.2627 68.82871
+## 526    156   14    46    4 135.2627 68.82871
+## 527    173   16    46    4 135.2627 68.82871
+## 528    210   18    46    4 135.2627 68.82871
+## 529    231   20    46    4 135.2627 68.82871
+## 530    238   21    46    4 135.2627 68.82871
+## 531     41    0    47    4 135.2627 68.82871
+## 532     53    2    47    4 135.2627 68.82871
+## 533     66    4    47    4 135.2627 68.82871
+## 534     79    6    47    4 135.2627 68.82871
+## 535    100    8    47    4 135.2627 68.82871
+## 536    123   10    47    4 135.2627 68.82871
+## 537    148   12    47    4 135.2627 68.82871
+## 538    157   14    47    4 135.2627 68.82871
+## 539    168   16    47    4 135.2627 68.82871
+## 540    185   18    47    4 135.2627 68.82871
+## 541    210   20    47    4 135.2627 68.82871
+## 542    205   21    47    4 135.2627 68.82871
+## 543     39    0    48    4 135.2627 68.82871
+## 544     50    2    48    4 135.2627 68.82871
+## 545     62    4    48    4 135.2627 68.82871
+## 546     80    6    48    4 135.2627 68.82871
+## 547    104    8    48    4 135.2627 68.82871
+## 548    125   10    48    4 135.2627 68.82871
+## 549    154   12    48    4 135.2627 68.82871
+## 550    170   14    48    4 135.2627 68.82871
+## 551    222   16    48    4 135.2627 68.82871
+## 552    261   18    48    4 135.2627 68.82871
+## 553    303   20    48    4 135.2627 68.82871
+## 554    322   21    48    4 135.2627 68.82871
+## 555     40    0    49    4 135.2627 68.82871
+## 556     53    2    49    4 135.2627 68.82871
+## 557     64    4    49    4 135.2627 68.82871
+## 558     85    6    49    4 135.2627 68.82871
+## 559    108    8    49    4 135.2627 68.82871
+## 560    128   10    49    4 135.2627 68.82871
+## 561    152   12    49    4 135.2627 68.82871
+## 562    166   14    49    4 135.2627 68.82871
+## 563    184   16    49    4 135.2627 68.82871
+## 564    203   18    49    4 135.2627 68.82871
+## 565    233   20    49    4 135.2627 68.82871
+## 566    237   21    49    4 135.2627 68.82871
+## 567     41    0    50    4 135.2627 68.82871
+## 568     54    2    50    4 135.2627 68.82871
+## 569     67    4    50    4 135.2627 68.82871
+## 570     84    6    50    4 135.2627 68.82871
+## 571    105    8    50    4 135.2627 68.82871
+## 572    122   10    50    4 135.2627 68.82871
+## 573    155   12    50    4 135.2627 68.82871
+## 574    175   14    50    4 135.2627 68.82871
+## 575    205   16    50    4 135.2627 68.82871
+## 576    234   18    50    4 135.2627 68.82871
+## 577    264   20    50    4 135.2627 68.82871
+## 578    264   21    50    4 135.2627 68.82871</code></pre>
+<p>What happens if instead of “transform” we use “summarize”? Check <code>?ddply</code></p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="visualization-and-statistical-test.html#cb123-1"></a>statWeight_ChickWeight&lt;-<span class="kw">ddply</span>(ChickWeight,  .(Diet),  summarise,  <span class="dt">Mean=</span><span class="kw">mean</span>(weight,<span class="dt">na.rm =</span> T), <span class="dt">SD=</span><span class="kw">sd</span>(weight,<span class="dt">na.rm =</span> T))</span>
+<span id="cb123-2"><a href="visualization-and-statistical-test.html#cb123-2"></a></span>
+<span id="cb123-3"><a href="visualization-and-statistical-test.html#cb123-3"></a><span class="kw">as.data.frame</span>(statWeight_ChickWeight)</span></code></pre></div>
+<pre><code>##   Diet     Mean       SD
+## 1    1 102.6455 56.65655
+## 2    2 122.6167 71.60749
+## 3    3 142.9500 86.54176
+## 4    4 135.2627 68.82871</code></pre>
+<p>This is usefull for ploting, here a good plot:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="visualization-and-statistical-test.html#cb125-1"></a><span class="kw">ggplot</span>(statWeight_ChickWeight, <span class="kw">aes</span>(<span class="dt">x=</span>Diet, <span class="dt">y=</span>Mean, <span class="dt">fill=</span>Diet)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb125-2"><a href="visualization-and-statistical-test.html#cb125-2"></a><span class="st">   </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span></span>
+<span id="cb125-3"><a href="visualization-and-statistical-test.html#cb125-3"></a><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin=</span>Mean<span class="op">-</span>SD, <span class="dt">ymax=</span>Mean<span class="op">+</span>SD), <span class="dt">width=</span>.<span class="dv">2</span>,</span>
+<span id="cb125-4"><a href="visualization-and-statistical-test.html#cb125-4"></a>                 <span class="dt">position=</span><span class="kw">position_dodge</span>(.<span class="dv">9</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-33-1.png" alt="Boxplot" width="100%" />
+<p class="caption">
+Figure 3.15: Boxplot
+</p>
+</div>
+</div>
+</div>
+<div id="t-testwilcoxon" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> T-test/Wilcoxon</h2>
+<p>To compare means we can do a T test but to do this we need to test the assumptions of this test: <strong>Normality</strong> of the data and Homoscedasticity (ie, the variance is similar between the two groups we want to compare)</p>
+<p><em>Question</em> : Is there any significant difference in the weights between diet 1 and 3?
+Preliminary test to check independent t-test assumptions</p>
+<p><em>Assumption 1</em>: Are the two samples independents?
+Yes, they are two different samples</p>
+<p><em>Assumption 2</em>: Are the data from each of the 2 groups follow a normal distribution?</p>
+<p>Shapiro-Wilk normality test for the different diets</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="visualization-and-statistical-test.html#cb126-1"></a><span class="kw">shapiro.test</span>(ChickWeight<span class="op">$</span>weight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  ChickWeight$weight[ChickWeight$Diet == 1]
+## W = 0.89336, p-value = 2.211e-11</code></pre>
+<p>The function with allows us to do a simpler writing</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="visualization-and-statistical-test.html#cb128-1"></a><span class="kw">with</span>(ChickWeight, <span class="kw">shapiro.test</span>(weight[Diet <span class="op">==</span><span class="st"> </span><span class="dv">1</span>]))</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  weight[Diet == 1]
+## W = 0.89336, p-value = 2.211e-11</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="visualization-and-statistical-test.html#cb130-1"></a><span class="kw">with</span>(ChickWeight, <span class="kw">shapiro.test</span>(weight[Diet <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]))</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  weight[Diet == 2]
+## W = 0.90399, p-value = 3.159e-07</code></pre>
+<p>pvalue &lt; 0.05, these are not normally distributed. We can NOT use t-test here. If we remember the histograms, this makes sense.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="visualization-and-statistical-test.html#cb132-1"></a><span class="kw">qplot</span>(<span class="dt">data=</span>ChickWeight, <span class="dt">x =</span> weight, <span class="dt">facets =</span> <span class="st">&quot;Diet&quot;</span>,<span class="dt">geom =</span> <span class="st">&quot;density&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-37-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 3.16: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p><em>Assumption 3</em>: Do the two populations have the same variances?</p>
+<p>We’ll use F-test to test for homogeneity in variances. This is implemented by a function named <code>var.test</code>. This will require you to have which variable you want to test and separated by which variable.
+This is clearly also not homoscedastic.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="visualization-and-statistical-test.html#cb133-1"></a><span class="kw">var.test</span>(weight<span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> ChickWeight[ChickWeight<span class="op">$</span>Diet <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),])</span></code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  weight by Diet
+## F = 0.62601, num df = 219, denom df = 119, p-value = 0.002928
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.4525703 0.8530014
+## sample estimates:
+## ratio of variances 
+##           0.626013</code></pre>
+<blockquote>
+<p>What happens if you try to run this <code>var.test(weight~ Diet, data = ChickWeight)</code>?</p>
+</blockquote>
+<p>We will use then Wilcoxon.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="visualization-and-statistical-test.html#cb135-1"></a><span class="kw">wilcox.test</span>(weight<span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> ChickWeight[ChickWeight<span class="op">$</span>Diet <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),],<span class="dt">exact =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  weight by Diet
+## W = 11213, p-value = 0.02181
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<blockquote>
+<p>Are them different?</p>
+</blockquote>
+<div id="anovakruskalwallis" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Anova/Kruskal–Wallis</h3>
+<p>Another way to test differences is to do an <a href="https://en.wikipedia.org/wiki/Analysis_of_variance">ANOVA</a> or its non-parametric alternative <a href="https://en.wikipedia.org/wiki/Kruskal–Wallis_one-way_analysis_of_variance">Kruskal–Wallis</a>. We already know that this data cannot be analyzed using parametric test as anova. But let’s explore just for fun.</p>
+<p>Let’s check all the diets together</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="visualization-and-statistical-test.html#cb137-1"></a><span class="co"># Compute the analysis of variance</span></span>
+<span id="cb137-2"><a href="visualization-and-statistical-test.html#cb137-2"></a>res.aov &lt;-<span class="st"> </span><span class="kw">aov</span>(weight<span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> ChickWeight)</span>
+<span id="cb137-3"><a href="visualization-and-statistical-test.html#cb137-3"></a><span class="co"># Summary of the analysis</span></span>
+<span id="cb137-4"><a href="visualization-and-statistical-test.html#cb137-4"></a><span class="kw">summary</span>(res.aov)</span></code></pre></div>
+<pre><code>##              Df  Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Diet          3  155863   51954   10.81 6.43e-07 ***
+## Residuals   574 2758693    4806                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>We see that the diet is a significant component of the variance of the data. Now we should know from where it is coming. We need to do a multiple pairwise-comparison. We will use Tukey Honest Significant Difference for this.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="visualization-and-statistical-test.html#cb139-1"></a><span class="kw">TukeyHSD</span>(res.aov)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = weight ~ Diet, data = ChickWeight)
+## 
+## $Diet
+##          diff         lwr      upr     p adj
+## 2-1 19.971212  -0.2998092 40.24223 0.0552271
+## 3-1 40.304545  20.0335241 60.57557 0.0000025
+## 4-1 32.617257  12.2353820 52.99913 0.0002501
+## 3-2 20.333333  -2.7268370 43.39350 0.1058474
+## 4-2 12.646045 -10.5116315 35.80372 0.4954239
+## 4-3 -7.687288 -30.8449649 15.47039 0.8277810</code></pre>
+<p>However, you should be screaming at me now: I did not check the assumptions!</p>
+<ol style="list-style-type: decimal">
+<li><em>Homogeneity of variances</em>:</li>
+</ol>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="visualization-and-statistical-test.html#cb141-1"></a><span class="kw">plot</span>(res.aov, <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-42-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 3.17: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="visualization-and-statistical-test.html#cb142-1"></a><span class="kw">leveneTest</span>(weight<span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> ChickWeight)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##        Df F value    Pr(&gt;F)    
+## group   3  9.6001 3.418e-06 ***
+##       574                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>We have just found what we already know. The variance is not homogeneous. The variance across groups is statistically significantly different.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><em>Normality of the residuals</em>:</li>
+</ol>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="visualization-and-statistical-test.html#cb144-1"></a><span class="kw">plot</span>(res.aov, <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-44-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 3.18: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="visualization-and-statistical-test.html#cb145-1"></a><span class="co"># Extract the residuals</span></span>
+<span id="cb145-2"><a href="visualization-and-statistical-test.html#cb145-2"></a>aov_residuals &lt;-<span class="st"> </span><span class="kw">residuals</span>(<span class="dt">object =</span> res.aov )</span>
+<span id="cb145-3"><a href="visualization-and-statistical-test.html#cb145-3"></a><span class="co"># Run Shapiro-Wilk test</span></span>
+<span id="cb145-4"><a href="visualization-and-statistical-test.html#cb145-4"></a><span class="kw">shapiro.test</span>(<span class="dt">x =</span> aov_residuals )</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  aov_residuals
+## W = 0.94065, p-value = 2.014e-14</code></pre>
+<p>Non parametric then:</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="visualization-and-statistical-test.html#cb147-1"></a><span class="kw">kruskal.test</span>(weight<span class="op">~</span><span class="st"> </span>Diet, <span class="dt">data =</span> ChickWeight)</span></code></pre></div>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  weight by Diet
+## Kruskal-Wallis chi-squared = 24.45, df = 3, p-value = 2.012e-05</code></pre>
+<blockquote>
+<p>What would you conclude about this data?</p>
+</blockquote>
+</div>
+</div>
+<div id="activity-1" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Activity:</h2>
+<p><strong>Find another thing you want to test with this data. Solve this in a graphical and statistical way.</strong></p>
+</div>
+<div id="resources" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Resources</h2>
+<ul>
+<li>Statistics with R: <a href="https://cran.r-project.org/doc/contrib/Seefeld_StatsRBio.pdf" class="uri">https://cran.r-project.org/doc/contrib/Seefeld_StatsRBio.pdf</a></li>
+<li>Stat and plots with R: <a href="http://www.sthda.com/english/" class="uri">http://www.sthda.com/english/</a></li>
+</ul>
+
+</div>
+</div>
+
+
+
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-manipulation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 1 Introduction to R and RStudio | 02 Data manipulation in R</title>
+  <meta name="description" content="This is the index for the coursebook" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lab 1 Introduction to R and RStudio | 02 Data manipulation in R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the index for the coursebook" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lab 1 Introduction to R and RStudio | 02 Data manipulation in R" />
+  
+  <meta name="twitter:description" content="This is the index for the coursebook" />
+  
+
+<meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
+
+
+<meta name="date" content="2020-03-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="data-manipulation.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Genomics with R for biologists</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-aims"><i class="fa fa-check"></i><b>0.1</b> Course Aims</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>0.2</b> Intended Learning Outcomes</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>1.2</b> Introduction</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#rstudio-world"><i class="fa fa-check"></i><b>1.3</b> RStudio world</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#create-a-project"><i class="fa fa-check"></i><b>1.4</b> Create a project</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-shortcuts-in-rstudio"><i class="fa fa-check"></i><b>1.5</b> Useful shortcuts in RStudio:</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-and-loading-packages"><i class="fa fa-check"></i><b>1.6</b> Installing and loading packages</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-objects"><i class="fa fa-check"></i><b>1.7</b> Creating objects</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-as-a-calculator"><i class="fa fa-check"></i><b>1.8</b> R as a calculator</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#functions"><i class="fa fa-check"></i><b>1.9</b> Functions</a></li>
+<li class="chapter" data-level="1.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#loops"><i class="fa fa-check"></i><b>1.10</b> Loops</a></li>
+<li class="chapter" data-level="1.11" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#conditions"><i class="fa fa-check"></i><b>1.11</b> Conditions</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#character-objects"><i class="fa fa-check"></i><b>1.12</b> Character objects</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#identify"><i class="fa fa-check"></i><b>1.13</b> Identify</a></li>
+<li class="chapter" data-level="1.14" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#modify"><i class="fa fa-check"></i><b>1.14</b> Modify</a></li>
+<li class="chapter" data-level="1.15" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-resources"><i class="fa fa-check"></i><b>1.15</b> Useful resources</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>1.16</b> Activity:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#objectives-1"><i class="fa fa-check"></i><b>2.1</b> Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#load-data"><i class="fa fa-check"></i><b>2.3</b> Load data</a></li>
+<li class="chapter" data-level="2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#data-exploration"><i class="fa fa-check"></i><b>2.4</b> Data exploration</a></li>
+<li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#subsetting"><i class="fa fa-check"></i><b>2.5</b> Subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html"><i class="fa fa-check"></i><b>3</b> Visualization and Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>3.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.1.1</b> Line and points</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.1.2</b> Historgam and density plots</a></li>
+<li class="chapter" data-level="3.1.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.1.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.2</b> Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.2.1</b> Descriptive statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.3</b> T-test/Wilcoxon</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.3.1</b> Anova/Kruskal–Wallis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>3.4</b> Activity:</a></li>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.5</b> Resources</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">02 Data manipulation in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-r-and-rstudio" class="section level1" number="1">
+<h1><span class="header-section-number">Lab 1</span> Introduction to R and RStudio</h1>
+<div id="objectives" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Objectives</h2>
+<p>After this section you should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Create projects and scripts in RStudio</li>
+<li>Install and load packages</li>
+<li>Do basic statistical analysis and plots</li>
+<li>Create basic for loops and if conditionals</li>
+</ol>
+</div>
+<div id="introduction" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Introduction</h2>
+<p>We will be working with R and Rstudio, a user-friendly platform to use R. So, first you will need to download both <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com/">RStudio</a>.</p>
+<p>R is open-source and free programing language. This means that everybody, and I mean all of us, can collaborate, create packages and share things with others. This also means that everything we make in R is for public use and that, vice versa, we can use everything that anybody did in R.</p>
+<p>R is “object-orientated” a programing language. This basically means that most of the “things” in the environment are objects. I will not go deeper into it, but you can read more <a href="https://cran.r-project.org/doc/contrib/Lemon-kickstart/kr_dobj.html">here</a>. You will see in this class different types of objects. Each type of object has different properties which means we can not do everything with each type of object.</p>
+<p>In this class we will give you some data and simple tasks so you can start playing around and get use to basic commands and operators. But first, we will need to establish some common language:</p>
+<p>Let’s try to see some of the definitions more commonly used so we can understand them. I recommend you to do some research on your own.</p>
+<ul>
+<li><p><em>Shell or Terminal</em>: the computer shell is a user interface to access to an operating system’s services. In linux and mac is easier to access. You can read more <a href="https://en.wikipedia.org/wiki/Shell_(computing)">here</a>.</p></li>
+<li><p><em>Programing language</em>: is a language in a wide sense, ie, it is a set of rules in which you can give orders to the computer. A computer basically, computes. Yes, that is why they are called computers. Then, you can use your computer as a calculator, as a table manager, to write text, etc. The idea is that if you know the language of a programing language you can tell your computer to do stuff for you. We will use R language.</p></li>
+<li><p><em>Script</em>: a text file that has the code (text in the programing language you are using) you will execute in the computer. In order for this to be executed you need to “copy-paste” the parts of code you wanna run into the shell. We will work in R-studio so this is done automatically with the ctr-enter command.</p></li>
+<li><p><em>Working Directory</em>: in which folder (or directory) of your computer you will be running the code. As default R will run in your base-directory. This is the core of your computer. I recommend you to have a specific folder inside the documents folder with each of you projects and to run everything there. We will learn also how to set this up.</p></li>
+<li><p><em>Environment</em>: All the objects, functions and everything you have loaded at that moment. This is a short-term memory thing. If we do not save this, everything we did will be deleted after we close the program. It would be like the words you have a in a text file if you do not save the file they will be lost.</p></li>
+<li><p><em>Functions</em>: as mathematical functions, this takes inputs and generates outputs. We will see some in this class.</p></li>
+<li><p><em>For loop, if, else</em>: this are basic logic operators that allows us to generate specific outputs. We can use it inside functions or as independent.</p></li>
+<li><p><em>Package</em>: R has the option to load many premade functions. The R package is a set of documented functions that someone did and put to be available for the rest of the community. We will use in this course many of them like: <a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html">DeSeq2</a>, <a href="https://ggplot2.tidyverse.org">ggplot2</a>, etc.</p></li>
+</ul>
+</div>
+<div id="rstudio-world" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> RStudio world</h2>
+<p>R Studio has everything integrated. You can have the script, the environment, the actual shell and a useful window to access data and to view the plots and see the manual and description of every function and package.</p>
+<p>Here we can create a project in which everything will be integrated. This might not be the most efficient thing in terms of memory use but is the simplest for now. When you start to understand the logic of the programing language I encourage you to run R in different supports like typing “R” in your computer shell and run directly from command line.</p>
+<p>Regarding RStudio see the image bellow:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="images/rstudio.png" alt="**CAPTION THIS FIGURE!!**" width="500px" />
+<p class="caption">
+Figure 1.1: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p>Upper left panel: the script. Everything you write here you can just execute by pressing CTR + ENTER.</p>
+<p>Upper right panel: the environment.</p>
+<p>Down left panel: the “console”, work exactly as the terminal. Is the representation of the terminal just for R. If you want, you can run other things that are not R in the shell (not the console), if you are interested read this nice article <a href="https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal" class="uri">https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal</a></p>
+<p>Down Right: The multi panel that allows you to see and browse the files, plots and help pages.</p>
+</div>
+<div id="create-a-project" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Create a project</h2>
+<ol style="list-style-type: decimal">
+<li>Open RStudio:</li>
+</ol>
+<p>Create a project: File &gt; New Project… &gt; Existing Directory &gt; choose the folder.</p>
+<p>Automatically this should change the working directory to this folder. However, it is nice to check this we should run the following command:</p>
+<pre><code>getwd()  #Get working  directory</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Create the script: File &gt; New File… &gt;R Script</li>
+</ol>
+<p>Now we can start putting things in the script and running them in the “console” or representation of the shell in RStudio. So, let’s check the working directory and change it if needed.</p>
+<p>To run the command, just write “getwd()” and press CTR+ENTER.</p>
+<p>This should generate this in the “Console”:</p>
+<pre><code>getwd()
+[1] &quot;/Users/skl/Documents/Class/0_class&quot; #here your working directory</code></pre>
+<p>Now we know how to run things in RStudio.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Save the script and the working directory: when you close the project it will automatically ask.</li>
+</ol>
+<p>I recommend to save at least the script everytime you can. File &gt; save</p>
+</div>
+<div id="useful-shortcuts-in-rstudio" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Useful shortcuts in RStudio:</h2>
+<ul>
+<li><p>tab: auto-complete function</p></li>
+<li><p>control + the up arrow or command + up arrow: auto-complete tool that works only in the interactive console</p></li>
+<li><p>control + enter or command + enter: executes the selected lines of code</p></li>
+<li><p>control + s : save</p></li>
+</ul>
+</div>
+<div id="installing-and-loading-packages" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Installing and loading packages</h2>
+<p>When we open R the basic package with all the basic functions is loaded but we will use other functions from other packages. For now, we will start with ggplot2. This is not installed in our computer yet so we have to install it. This is done only ONCE in the computer. Then we need to load it in the current environment. This is done EVERY TIME we reopen R.</p>
+<pre><code>install.packages(&quot;ggplot2&quot;) #only once
+
+library(&quot;ggplot2&quot;) #everytime we reopen R session</code></pre>
+<p>You might have noticed that I use “#” this a good way to add comments to the code. Any line that begins with a “#” will NOT be executed.</p>
+<p>We will be using packages that are part of <a href="https://bioconductor.org">Bioconductor</a>. This is a big repository for biological relevant packages. They are installed in this way:</p>
+<pre><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
+    install.packages(&quot;BiocManager&quot;) #only once
+
+BiocManager::install(&quot;DESeq2&quot;) #only once
+
+library(&quot;DESeq2&quot;)
+</code></pre>
+</div>
+<div id="creating-objects" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Creating objects</h2>
+<p>Objects in R are created using the assign symbols: <code>&lt;-</code> and <code>=</code> as follows: <code>object.name &lt;- Object.Assingnemet</code>.</p>
+<p>This means that objects names should start with a letter and should NOT contain spaces. You can replace them with a dot or an underscore.</p>
+<p>Objects can be of different class and will be overwritten without any warnings.</p>
+<p>If we execute the object name we will access it as better as the Console can do it. For numbers it is simple but you will notice that for other objects it is not.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-r-and-rstudio.html#cb5-1"></a>x&lt;-<span class="fl">0.5</span></span>
+<span id="cb5-2"><a href="introduction-to-r-and-rstudio.html#cb5-2"></a>x</span>
+<span id="cb5-3"><a href="introduction-to-r-and-rstudio.html#cb5-3"></a><span class="kw">class</span>(x) <span class="co">#this tells us the class of the x object</span></span></code></pre></div>
+<pre><code>## [1] 0.5
+## [1] &quot;numeric&quot;</code></pre>
+<p>If we assign other thing to <code>x</code>, it will be overwritten:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction-to-r-and-rstudio.html#cb7-1"></a>x&lt;-<span class="dv">1</span> <span class="co">#this is overwriting x</span></span>
+<span id="cb7-2"><a href="introduction-to-r-and-rstudio.html#cb7-2"></a>x</span>
+<span id="cb7-3"><a href="introduction-to-r-and-rstudio.html#cb7-3"></a><span class="kw">class</span>(x) <span class="co">#this tells us the class of the x object</span></span></code></pre></div>
+<pre><code>## [1] 1
+## [1] &quot;numeric&quot;</code></pre>
+<p>We can create as many objects as we want</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introduction-to-r-and-rstudio.html#cb9-1"></a>y&lt;-<span class="fl">2.3</span></span>
+<span id="cb9-2"><a href="introduction-to-r-and-rstudio.html#cb9-2"></a>y</span>
+<span id="cb9-3"><a href="introduction-to-r-and-rstudio.html#cb9-3"></a><span class="kw">class</span>(y)</span></code></pre></div>
+<pre><code>## [1] 2.3
+## [1] &quot;numeric&quot;</code></pre>
+</div>
+<div id="r-as-a-calculator" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> R as a calculator</h2>
+<p>R will operate as a calculator for numbers. It has a lot of prebuilt functions. Let’s see one obvious.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction-to-r-and-rstudio.html#cb11-1"></a>x<span class="op">+</span>y</span>
+<span id="cb11-2"><a href="introduction-to-r-and-rstudio.html#cb11-2"></a>(x<span class="op">+</span>y)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 3.3
+## [1] 1.65</code></pre>
+<p>We can now apply this sum a new object</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-to-r-and-rstudio.html#cb13-1"></a>z&lt;-x<span class="op">+</span>y </span>
+<span id="cb13-2"><a href="introduction-to-r-and-rstudio.html#cb13-2"></a>z</span></code></pre></div>
+<pre><code>## [1] 3.3</code></pre>
+<p>And divide it by 2.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r-and-rstudio.html#cb15-1"></a>z<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 1.65</code></pre>
+<p>Which is the same as doing the mean of x and y.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r-and-rstudio.html#cb17-1"></a><span class="kw">mean</span>(<span class="kw">c</span>(x,y))<span class="co">#what is this c()????</span></span></code></pre></div>
+<pre><code>## [1] 1.65</code></pre>
+<p>To create a vector of numbers (or anything), you can just use c(n1,n2), you can also store this vector in a new object.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r-and-rstudio.html#cb19-1"></a>v&lt;-<span class="kw">c</span>(x,y)</span>
+<span id="cb19-2"><a href="introduction-to-r-and-rstudio.html#cb19-2"></a>v</span>
+<span id="cb19-3"><a href="introduction-to-r-and-rstudio.html#cb19-3"></a><span class="kw">class</span>(v)</span></code></pre></div>
+<pre><code>## [1] 1.0 2.3
+## [1] &quot;numeric&quot;</code></pre>
+<p>You can now use it inside fucntions.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r-and-rstudio.html#cb21-1"></a><span class="kw">mean</span>(v)</span></code></pre></div>
+<pre><code>## [1] 1.65</code></pre>
+<p>We can add (append) more elemts to the vector.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r-and-rstudio.html#cb23-1"></a>t&lt;-<span class="kw">c</span>(v,<span class="dv">5</span>)</span>
+<span id="cb23-2"><a href="introduction-to-r-and-rstudio.html#cb23-2"></a>t</span>
+<span id="cb23-3"><a href="introduction-to-r-and-rstudio.html#cb23-3"></a><span class="kw">mean</span>(t)</span>
+<span id="cb23-4"><a href="introduction-to-r-and-rstudio.html#cb23-4"></a><span class="co">#...and so on</span></span></code></pre></div>
+<pre><code>## [1] 1.0 2.3 5.0
+## [1] 2.766667</code></pre>
+</div>
+<div id="functions" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Functions</h2>
+<p>We can think as functions exactly as we know mathematical functions. They take an input and generate an output.</p>
+<p><span class="math display">\[
+y=f(x)
+\]</span>
+<span class="math display">\[
+output=function(input)
+\]</span>
+In R language that looks like this: <code>nameofunction&lt;-function(x){ what the function does }</code> and the can do literally anything R can do. Math, plot, modify tables, etc.</p>
+<p>Lets create a new mean function. We will call is mean.us. This will take the mean of two numbers. They will be called <code>n1</code> and <code>n2</code>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r-and-rstudio.html#cb25-1"></a>mean.us&lt;-<span class="cf">function</span>(n1,n2){</span>
+<span id="cb25-2"><a href="introduction-to-r-and-rstudio.html#cb25-2"></a>  y&lt;-((n1<span class="op">+</span>n2)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb25-3"><a href="introduction-to-r-and-rstudio.html#cb25-3"></a>  <span class="kw">return</span>(y) <span class="co">#return is the one part of this function that actually makes it to return a value</span></span>
+<span id="cb25-4"><a href="introduction-to-r-and-rstudio.html#cb25-4"></a>}</span>
+<span id="cb25-5"><a href="introduction-to-r-and-rstudio.html#cb25-5"></a></span>
+<span id="cb25-6"><a href="introduction-to-r-and-rstudio.html#cb25-6"></a><span class="co">#lets see if this works</span></span>
+<span id="cb25-7"><a href="introduction-to-r-and-rstudio.html#cb25-7"></a><span class="kw">mean.us</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 2.5</code></pre>
+<p>We can make it even more fancy and print a message</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r-and-rstudio.html#cb27-1"></a>mean.us&lt;-<span class="cf">function</span>(n1,n2){</span>
+<span id="cb27-2"><a href="introduction-to-r-and-rstudio.html#cb27-2"></a>  y&lt;-((n1<span class="op">+</span>n2)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb27-3"><a href="introduction-to-r-and-rstudio.html#cb27-3"></a>  <span class="kw">return</span>(<span class="kw">paste0</span>(<span class="st">&quot;The mean of &quot;</span>,n1,<span class="st">&quot; and &quot;</span>,n2,<span class="st">&quot; is: &quot;</span>,y))</span>
+<span id="cb27-4"><a href="introduction-to-r-and-rstudio.html#cb27-4"></a>}</span>
+<span id="cb27-5"><a href="introduction-to-r-and-rstudio.html#cb27-5"></a></span>
+<span id="cb27-6"><a href="introduction-to-r-and-rstudio.html#cb27-6"></a><span class="kw">mean.us</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;The mean of 2 and 3 is: 2.5&quot;</code></pre>
+<p>We can do now the mean plus 1</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r-and-rstudio.html#cb29-1"></a>mean.plus1&lt;-<span class="cf">function</span>(n1,n2){</span>
+<span id="cb29-2"><a href="introduction-to-r-and-rstudio.html#cb29-2"></a>  y&lt;-((n1<span class="op">+</span>n2)<span class="op">/</span><span class="dv">2</span><span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb29-3"><a href="introduction-to-r-and-rstudio.html#cb29-3"></a>  <span class="kw">return</span>(<span class="kw">paste0</span>(<span class="st">&quot;The mean of &quot;</span>,n1,<span class="st">&quot; and &quot;</span>,n2,<span class="st">&quot; plus one is: &quot;</span>,y))</span>
+<span id="cb29-4"><a href="introduction-to-r-and-rstudio.html#cb29-4"></a>}</span>
+<span id="cb29-5"><a href="introduction-to-r-and-rstudio.html#cb29-5"></a></span>
+<span id="cb29-6"><a href="introduction-to-r-and-rstudio.html#cb29-6"></a><span class="kw">mean.plus1</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;The mean of 2 and 3 plus one is: 3.5&quot;</code></pre>
+</div>
+<div id="loops" class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> Loops</h2>
+<p>Loops are useful to apply a function or an action to multiple objects. We will see <code>for loops</code> but be aware that another common loop type is the <code>while loop</code>.</p>
+<p><em>For loops</em> will go over each element of a vector or list provided. In R language they look like this: <code>for (x in vector) { DO SOMETHING }</code>. And it literally means that it will go over each element of the vector, each time x will take the value of the element it goes that time and will do something.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-to-r-and-rstudio.html#cb31-1"></a><span class="co">#i this is a little complex so lets go one step at a time: i is an object that will be getting the value of each elemnt we go thru</span></span>
+<span id="cb31-2"><a href="introduction-to-r-and-rstudio.html#cb31-2"></a></span>
+<span id="cb31-3"><a href="introduction-to-r-and-rstudio.html#cb31-3"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)){</span>
+<span id="cb31-4"><a href="introduction-to-r-and-rstudio.html#cb31-4"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;x is: &quot;</span>,x))</span>
+<span id="cb31-5"><a href="introduction-to-r-and-rstudio.html#cb31-5"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;x is: 1&quot;
+## [1] &quot;x is: 2&quot;
+## [1] &quot;x is: 3&quot;
+## [1] &quot;x is: 4&quot;</code></pre>
+<p>We can now do something more complex inside the loop.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introduction-to-r-and-rstudio.html#cb33-1"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)){</span>
+<span id="cb33-2"><a href="introduction-to-r-and-rstudio.html#cb33-2"></a>  c=x<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb33-3"><a href="introduction-to-r-and-rstudio.html#cb33-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;c is: &quot;</span>,c))</span>
+<span id="cb33-4"><a href="introduction-to-r-and-rstudio.html#cb33-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;c is: 0.5&quot;
+## [1] &quot;c is: 1&quot;
+## [1] &quot;c is: 1.5&quot;
+## [1] &quot;c is: 2&quot;</code></pre>
+<p>We can also loop over vectors that are already in our list of objects.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="introduction-to-r-and-rstudio.html#cb35-1"></a><span class="co">#t is mande of many elements already</span></span>
+<span id="cb35-2"><a href="introduction-to-r-and-rstudio.html#cb35-2"></a>t</span>
+<span id="cb35-3"><a href="introduction-to-r-and-rstudio.html#cb35-3"></a><span class="co">#if we want to sum 1 to each element in t and print it out we can do as follows</span></span>
+<span id="cb35-4"><a href="introduction-to-r-and-rstudio.html#cb35-4"></a><span class="cf">for</span>(i <span class="cf">in</span> t){</span>
+<span id="cb35-5"><a href="introduction-to-r-and-rstudio.html#cb35-5"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb35-6"><a href="introduction-to-r-and-rstudio.html#cb35-6"></a>  c=i<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb35-7"><a href="introduction-to-r-and-rstudio.html#cb35-7"></a>  <span class="kw">print</span>(c)</span>
+<span id="cb35-8"><a href="introduction-to-r-and-rstudio.html#cb35-8"></a>}</span></code></pre></div>
+<pre><code>## [1] 1.0 2.3 5.0
+## [1] 1
+## [1] 2
+## [1] 2.3
+## [1] 3.3
+## [1] 5
+## [1] 6</code></pre>
+</div>
+<div id="conditions" class="section level2" number="1.11">
+<h2><span class="header-section-number">1.11</span> Conditions</h2>
+<p>R assigns using <code>=</code> and compares using <code>==</code>,<code>&lt;</code> and <code>&gt;</code>. It can then use <code>if</code> and <code>else</code> to generate conditions and actions. This can be more complex by adding AND, OR gates with <code>&amp;</code> and <code>|</code> respectively.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-r-and-rstudio.html#cb37-1"></a>x=<span class="dv">1</span></span>
+<span id="cb37-2"><a href="introduction-to-r-and-rstudio.html#cb37-2"></a><span class="co">#lets explore x</span></span>
+<span id="cb37-3"><a href="introduction-to-r-and-rstudio.html#cb37-3"></a>x</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Compare, equal to:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introduction-to-r-and-rstudio.html#cb39-1"></a>x<span class="op">==</span><span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Smaller than:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introduction-to-r-and-rstudio.html#cb41-1"></a>x<span class="op">&lt;</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Bigger than:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-r-and-rstudio.html#cb43-1"></a>x<span class="op">&gt;</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Apply this comparisons to an if/else:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introduction-to-r-and-rstudio.html#cb45-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>){</span>
+<span id="cb45-2"><a href="introduction-to-r-and-rstudio.html#cb45-2"></a>  c=x<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb45-3"><a href="introduction-to-r-and-rstudio.html#cb45-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;c is: &quot;</span>, c))</span>
+<span id="cb45-4"><a href="introduction-to-r-and-rstudio.html#cb45-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb45-5"><a href="introduction-to-r-and-rstudio.html#cb45-5"></a>  <span class="kw">print</span>(<span class="st">&quot;x is too big&quot;</span>)</span>
+<span id="cb45-6"><a href="introduction-to-r-and-rstudio.html#cb45-6"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;c is: 2&quot;</code></pre>
+<p>Change the condition:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introduction-to-r-and-rstudio.html#cb47-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb47-2"><a href="introduction-to-r-and-rstudio.html#cb47-2"></a>  c=x<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb47-3"><a href="introduction-to-r-and-rstudio.html#cb47-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;c is: &quot;</span>, c))</span>
+<span id="cb47-4"><a href="introduction-to-r-and-rstudio.html#cb47-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb47-5"><a href="introduction-to-r-and-rstudio.html#cb47-5"></a>  <span class="kw">print</span>(<span class="st">&quot;x is too big&quot;</span>)</span>
+<span id="cb47-6"><a href="introduction-to-r-and-rstudio.html#cb47-6"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;x is too big&quot;</code></pre>
+</div>
+<div id="character-objects" class="section level2" number="1.12">
+<h2><span class="header-section-number">1.12</span> Character objects</h2>
+<p>So far, we saw opperations with numbers. But R can have objects with words or characters.</p>
+<p>We can have a complex phrase</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introduction-to-r-and-rstudio.html#cb49-1"></a>phrase&lt;-<span class="st">&quot;I am a beatufill phrase. Hello world&quot;</span></span>
+<span id="cb49-2"><a href="introduction-to-r-and-rstudio.html#cb49-2"></a>phrase</span></code></pre></div>
+<pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;</code></pre>
+<p>Or a vector of character elements:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="introduction-to-r-and-rstudio.html#cb51-1"></a>chrvec&lt;-<span class="kw">c</span>(phrase,<span class="st">&quot;abcde&quot;</span>,<span class="st">&quot;67&quot;</span>)</span>
+<span id="cb51-2"><a href="introduction-to-r-and-rstudio.html#cb51-2"></a>chrvec</span></code></pre></div>
+<pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;
+## [2] &quot;abcde&quot;                               
+## [3] &quot;67&quot;</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="introduction-to-r-and-rstudio.html#cb53-1"></a><span class="kw">class</span>(chrvec)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="identify" class="section level2" number="1.13">
+<h2><span class="header-section-number">1.13</span> Identify</h2>
+<p>We can operate over them. For example, we can select the elemnt that has certain characteristic. For this we will use <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/grep">grep</a>. This is based on <a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf">regualar expression</a>.</p>
+<p>Lets select the elemnts that have the letter d.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="introduction-to-r-and-rstudio.html#cb55-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
+<pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;
+## [2] &quot;abcde&quot;</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="introduction-to-r-and-rstudio.html#cb57-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> F) <span class="co">#What changed between the previous one and this one?</span></span></code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<p>Clearly, the fist two elements have the letter d. What if we want to select the one that has it at the end?</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="introduction-to-r-and-rstudio.html#cb59-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d$&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
+<pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;</code></pre>
+<p>The same can be done for the begining. This of course gives us an empty result.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="introduction-to-r-and-rstudio.html#cb61-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;^d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
+<pre><code>## character(0)</code></pre>
+</div>
+<div id="modify" class="section level2" number="1.14">
+<h2><span class="header-section-number">1.14</span> Modify</h2>
+<p>We can modify the objects. We will use <a href="https://stackoverflow.com/questions/35655485/replace-with-space-using-gsub-in-r">gsub</a></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="introduction-to-r-and-rstudio.html#cb63-1"></a><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">replacement =</span> <span class="st">&quot;I am replacing d&quot;</span>,<span class="dt">x =</span> chrvec)</span></code></pre></div>
+<pre><code>## [1] &quot;I am a beatufill phrase. Hello worlI am replacing d&quot;
+## [2] &quot;abcI am replacing de&quot;                               
+## [3] &quot;67&quot;</code></pre>
+</div>
+<div id="useful-resources" class="section level2" number="1.15">
+<h2><span class="header-section-number">1.15</span> Useful resources</h2>
+<ul>
+<li>R for data science: <a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a></li>
+<li>A package to learn R</li>
+</ul>
+</div>
+<div id="activity" class="section level2" number="1.16">
+<h2><span class="header-section-number">1.16</span> Activity:</h2>
+<p><strong>Create a new funciton that has inside a for loop and other that has an if/else condition.</strong></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="introduction-to-r-and-rstudio.html#cb65-1"></a>plus.one.onlyifpos &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb65-2"><a href="introduction-to-r-and-rstudio.html#cb65-2"></a>  <span class="cf">if</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb65-3"><a href="introduction-to-r-and-rstudio.html#cb65-3"></a>    <span class="kw">return</span>(n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb65-4"><a href="introduction-to-r-and-rstudio.html#cb65-4"></a>  } <span class="cf">else</span> {</span>
+<span id="cb65-5"><a href="introduction-to-r-and-rstudio.html#cb65-5"></a>    <span class="kw">return</span>(<span class="st">&quot;number is negative&quot;</span>)</span>
+<span id="cb65-6"><a href="introduction-to-r-and-rstudio.html#cb65-6"></a>  }</span>
+<span id="cb65-7"><a href="introduction-to-r-and-rstudio.html#cb65-7"></a>}</span>
+<span id="cb65-8"><a href="introduction-to-r-and-rstudio.html#cb65-8"></a></span>
+<span id="cb65-9"><a href="introduction-to-r-and-rstudio.html#cb65-9"></a><span class="kw">plus.one.onlyifpos</span>(<span class="dv">20</span>)</span>
+<span id="cb65-10"><a href="introduction-to-r-and-rstudio.html#cb65-10"></a><span class="kw">plus.one.onlyifpos</span>(<span class="op">-</span><span class="dv">20</span>)</span></code></pre></div>
+
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 ---
-title: "01-getting-started"
+title: "01 Getting Started"
 author: "Ines Lucia Patop: inespatop@brandeis.edu"
 output: 
   html_document:
@@ -61,7 +61,10 @@ Here we can create a project in which everything will be integrated. This might 
 
 Regarding RStudio see the image bellow:
 
-
+<div class="figure" style="text-align: center">
+<img src="./images/rstudio.png" alt="**CAPTION THIS FIGURE!!**" width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-1)**CAPTION THIS FIGURE!!**</p>
+</div>
 
 Upper left panel: the script. Everything you write here you can just execute by pressing CTR + ENTER. 
 
@@ -145,28 +148,43 @@ This means that objects names should start with a letter and should NOT contain 
 
 Objects can be of different class and will be overwritten without any warnings.
 
-If we execute the object name we will access it as better as the Console can do it.
+If we execute the object name we will access it as better as the Console can do it. For numbers it is simple but you will notice that for other objects it is not.
 
 
 ```r
 x<-0.5
 x
 class(x) #this tells us the class of the x object
+```
 
+```
+## [1] 0.5
+## [1] "numeric"
+```
+
+If we assign other thing to `x`, it will  be overwritten:
+
+
+```r
 x<-1 #this is overwriting x
 x
 class(x) #this tells us the class of the x object
+```
 
+```
+## [1] 1
+## [1] "numeric"
+```
+
+We can create as many objects as we want
+
+```r
 y<-2.3
 y
 class(y)
 ```
 
 ```
-## [1] 0.5
-## [1] "numeric"
-## [1] 1
-## [1] "numeric"
 ## [1] 2.3
 ## [1] "numeric"
 ```
@@ -179,17 +197,75 @@ R will operate as a calculator for numbers. It has a lot of prebuilt functions. 
 ```r
 x+y
 (x+y)/2
+```
 
-z<-x+y #we can now apply this sum a new object
+```
+## [1] 3.3
+## [1] 1.65
+```
+
+We can now apply this sum a new object
+
+
+```r
+z<-x+y 
+z
+```
+
+```
+## [1] 3.3
+```
+
+And divide it by 2. 
+
+
+```r
 z/2
+```
 
+```
+## [1] 1.65
+```
+
+Which is the same as doing the mean of x and y.
+
+
+```r
 mean(c(x,y))#what is this c()????
-#to create a vector of numbers (or anything), you can just use c(n1,n2), you can also store this vector in a new object
+```
+
+```
+## [1] 1.65
+```
+
+To create a vector of numbers (or anything), you can just use c(n1,n2), you can also store this vector in a new object.
+
+
+```r
 v<-c(x,y)
 v
 class(v)
-mean(v)
+```
 
+```
+## [1] 1.0 2.3
+## [1] "numeric"
+```
+
+You can now use it inside fucntions.
+
+```r
+mean(v)
+```
+
+```
+## [1] 1.65
+```
+
+We can add (append) more elemts to the vector.
+
+
+```r
 t<-c(v,5)
 t
 mean(t)
@@ -197,13 +273,6 @@ mean(t)
 ```
 
 ```
-## [1] 3.3
-## [1] 1.65
-## [1] 1.65
-## [1] 1.65
-## [1] 1.0 2.3
-## [1] "numeric"
-## [1] 1.65
 ## [1] 1.0 2.3 5.0
 ## [1] 2.766667
 ```
@@ -230,17 +299,29 @@ mean.us<-function(n1,n2){
 
 #lets see if this works
 mean.us(2,3)
+```
 
-#We can make it even more fancy and print a message
+```
+## [1] 2.5
+```
+We can make it even more fancy and print a message
 
+
+```r
 mean.us<-function(n1,n2){
   y<-((n1+n2)/2)
   return(paste0("The mean of ",n1," and ",n2," is: ",y))
 }
 
 mean.us(2,3)
+```
 
-#we can do now the mean plus 1
+```
+## [1] "The mean of 2 and 3 is: 2.5"
+```
+We can do now the mean plus 1
+
+```r
 mean.plus1<-function(n1,n2){
   y<-((n1+n2)/2+1)
   return(paste0("The mean of ",n1," and ",n2," plus one is: ",y))
@@ -250,8 +331,6 @@ mean.plus1(2,3)
 ```
 
 ```
-## [1] 2.5
-## [1] "The mean of 2 and 3 is: 2.5"
 ## [1] "The mean of 2 and 3 plus one is: 3.5"
 ```
 
@@ -268,13 +347,35 @@ Loops are useful to apply a function or an action to multiple objects. We will s
 for(x in c(1,2,3,4)){
   print(paste0("x is: ",x))
 }
+```
 
-#We can not do something
+```
+## [1] "x is: 1"
+## [1] "x is: 2"
+## [1] "x is: 3"
+## [1] "x is: 4"
+```
+We can now do something more complex inside the loop.
+
+
+```r
 for(x in c(1,2,3,4)){
   c=x/2
   print(paste0("c is: ",c))
 }
+```
 
+```
+## [1] "c is: 0.5"
+## [1] "c is: 1"
+## [1] "c is: 1.5"
+## [1] "c is: 2"
+```
+
+We can also loop over vectors that are already in our list of objects.
+
+
+```r
 #t is mande of many elements already
 t
 #if we want to sum 1 to each element in t and print it out we can do as follows
@@ -286,14 +387,6 @@ for(i in t){
 ```
 
 ```
-## [1] "x is: 1"
-## [1] "x is: 2"
-## [1] "x is: 3"
-## [1] "x is: 4"
-## [1] "c is: 0.5"
-## [1] "c is: 1"
-## [1] "c is: 1.5"
-## [1] "c is: 2"
 ## [1] 1.0 2.3 5.0
 ## [1] 1
 ## [1] 2
@@ -312,18 +405,58 @@ R assigns using `=` and compares using `==`,`<` and `>`. It can then use `if` an
 x=1
 #lets explore x
 x
-x==1
-x<2
-x>2
+```
 
+```
+## [1] 1
+```
+Compare, equal to:
+
+```r
+x==1
+```
+
+```
+## [1] TRUE
+```
+Smaller than:
+
+```r
+x<2
+```
+
+```
+## [1] TRUE
+```
+Bigger than:
+
+```r
+x>2
+```
+
+```
+## [1] FALSE
+```
+
+Apply this comparisons to an if/else:
+
+
+```r
 if (x < 2){
   c=x+1
   print(paste0("c is: ", c))
 } else {
   print("x is too big")
 }
+```
 
-#change the condition
+```
+## [1] "c is: 2"
+```
+Change the condition:
+ 
+
+```r
 if (x < 1){
   c=x+1
   print(paste0("c is: ", c))
@@ -333,12 +466,101 @@ if (x < 1){
 ```
 
 ```
-## [1] 1
-## [1] TRUE
-## [1] TRUE
-## [1] FALSE
-## [1] "c is: 2"
 ## [1] "x is too big"
+```
+
+## Character objects
+
+So far, we saw opperations with numbers. But R can have objects with words or characters.
+
+We can have a complex phrase
+
+```r
+phrase<-"I am a beatufill phrase. Hello world"
+phrase
+```
+
+```
+## [1] "I am a beatufill phrase. Hello world"
+```
+Or a vector of character elements:
+
+```r
+chrvec<-c(phrase,"abcde","67")
+chrvec
+```
+
+```
+## [1] "I am a beatufill phrase. Hello world"
+## [2] "abcde"                               
+## [3] "67"
+```
+
+
+```r
+class(chrvec)
+```
+
+```
+## [1] "character"
+```
+## Identify
+
+We can operate over them. For example, we can select the elemnt that has certain characteristic. For this we will use [grep](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/grep). This is based on [regualar expression](https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf).
+
+Lets select the elemnts that have the letter d.
+
+
+```r
+grep(pattern = "d",x = chrvec,value = T)
+```
+
+```
+## [1] "I am a beatufill phrase. Hello world"
+## [2] "abcde"
+```
+
+
+```r
+grep(pattern = "d",x = chrvec,value = F) #What changed between the previous one and this one?
+```
+
+```
+## [1] 1 2
+```
+Clearly, the fist two elements have the letter d. What if we want to select the one that has it at the end?
+
+```r
+grep(pattern = "d$",x = chrvec,value = T)
+```
+
+```
+## [1] "I am a beatufill phrase. Hello world"
+```
+
+The same can be done for the begining. This of course gives us an empty result.
+
+
+```r
+grep(pattern = "^d",x = chrvec,value = T)
+```
+
+```
+## character(0)
+```
+## Modify
+
+We can modify the objects. We will use [gsub](https://stackoverflow.com/questions/35655485/replace-with-space-using-gsub-in-r)
+
+
+```r
+gsub(pattern = "d",replacement = "I am replacing d",x = chrvec)
+```
+
+```
+## [1] "I am a beatufill phrase. Hello worlI am replacing d"
+## [2] "abcI am replacing de"                               
+## [3] "67"
 ```
 
 ## Useful resources

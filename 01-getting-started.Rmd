@@ -1,5 +1,5 @@
 ---
-title: "01-getting-started"
+title: "01 Getting Started"
 author: "Ines Lucia Patop: inespatop@brandeis.edu"
 output: 
   html_document:
@@ -14,11 +14,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-if (!requireNamespace("webex")) {
-  stop("You must have the 'webex' package installed to knit HTML from this template.\n   devtools::install_github(\"psyteachr/webex\")")
-} else {
-  library("webex")
-}
+library("webex")
 ```
 
 # Introduction to R and RStudio
@@ -69,7 +65,7 @@ Here we can create a project in which everything will be integrated. This might 
 Regarding RStudio see the image bellow:
 
 ```{r, out.width = "500px", echo=FALSE,fig.align = "center"}
-#knitr::include_graphics("./")
+knitr::include_graphics("./images/rstudio.png")
 ```
 
 Upper left panel: the script. Everything you write here you can just execute by pressing CTR + ENTER. 
@@ -154,17 +150,24 @@ This means that objects names should start with a letter and should NOT contain 
 
 Objects can be of different class and will be overwritten without any warnings.
 
-If we execute the object name we will access it as better as the Console can do it.
+If we execute the object name we will access it as better as the Console can do it. For numbers it is simple but you will notice that for other objects it is not.
 
 ```{r warning=FALSE, message=FALSE}
 x<-0.5
 x
 class(x) #this tells us the class of the x object
+```
 
+If we assign other thing to `x`, it will  be overwritten:
+
+```{r warning=FALSE, message=FALSE}
 x<-1 #this is overwriting x
 x
 class(x) #this tells us the class of the x object
+```
 
+We can create as many objects as we want
+```{r warning=FALSE, message=FALSE}
 y<-2.3
 y
 class(y)
@@ -177,17 +180,43 @@ R will operate as a calculator for numbers. It has a lot of prebuilt functions. 
 ```{r warning=FALSE, message=FALSE}
 x+y
 (x+y)/2
+```
 
-z<-x+y #we can now apply this sum a new object
+We can now apply this sum a new object
+
+```{r warning=FALSE, message=FALSE}
+z<-x+y 
+z
+```
+
+And divide it by 2. 
+
+```{r warning=FALSE, message=FALSE}
 z/2
+```
 
+Which is the same as doing the mean of x and y.
+
+```{r warning=FALSE, message=FALSE}
 mean(c(x,y))#what is this c()????
-#to create a vector of numbers (or anything), you can just use c(n1,n2), you can also store this vector in a new object
+```
+
+To create a vector of numbers (or anything), you can just use c(n1,n2), you can also store this vector in a new object.
+
+```{r warning=FALSE, message=FALSE}
 v<-c(x,y)
 v
 class(v)
-mean(v)
+```
 
+You can now use it inside fucntions.
+```{r warning=FALSE, message=FALSE}
+mean(v)
+```
+
+We can add (append) more elemts to the vector.
+
+```{r warning=FALSE, message=FALSE}
 t<-c(v,5)
 t
 mean(t)
@@ -216,17 +245,19 @@ mean.us<-function(n1,n2){
 
 #lets see if this works
 mean.us(2,3)
+```
+We can make it even more fancy and print a message
 
-#We can make it even more fancy and print a message
-
+```{r warning=FALSE, message=FALSE}
 mean.us<-function(n1,n2){
   y<-((n1+n2)/2)
   return(paste0("The mean of ",n1," and ",n2," is: ",y))
 }
 
 mean.us(2,3)
-
-#we can do now the mean plus 1
+```
+We can do now the mean plus 1
+```{r warning=FALSE, message=FALSE}
 mean.plus1<-function(n1,n2){
   y<-((n1+n2)/2+1)
   return(paste0("The mean of ",n1," and ",n2," plus one is: ",y))
@@ -249,12 +280,19 @@ for(x in c(1,2,3,4)){
   print(paste0("x is: ",x))
 }
 
-#We can not do something
+```
+We can now do something more complex inside the loop.
+
+```{r warning=FALSE, message=FALSE}
 for(x in c(1,2,3,4)){
   c=x/2
   print(paste0("c is: ",c))
 }
+```
 
+We can also loop over vectors that are already in our list of objects.
+
+```{r warning=FALSE, message=FALSE}
 #t is mande of many elements already
 t
 #if we want to sum 1 to each element in t and print it out we can do as follows
@@ -273,10 +311,23 @@ R assigns using `=` and compares using `==`,`<` and `>`. It can then use `if` an
 x=1
 #lets explore x
 x
+```
+Compare, equal to:
+```{r warning=FALSE, message=FALSE}
 x==1
+```
+Smaller than:
+```{r warning=FALSE, message=FALSE}
 x<2
+```
+Bigger than:
+```{r warning=FALSE, message=FALSE}
 x>2
+```
 
+Apply this comparisons to an if/else:
+
+```{r warning=FALSE, message=FALSE}
 if (x < 2){
   c=x+1
   print(paste0("c is: ", c))
@@ -284,7 +335,10 @@ if (x < 2){
   print("x is too big")
 }
 
-#change the condition
+```
+Change the condition:
+ 
+```{r warning=FALSE, message=FALSE}
 if (x < 1){
   c=x+1
   print(paste0("c is: ", c))
@@ -292,6 +346,55 @@ if (x < 1){
   print("x is too big")
 }
 
+```
+
+## Character objects
+
+So far, we saw opperations with numbers. But R can have objects with words or characters.
+
+We can have a complex phrase
+```{r warning=FALSE, message=FALSE}
+phrase<-"I am a beatufill phrase. Hello world"
+phrase
+```
+Or a vector of character elements:
+```{r warning=FALSE, message=FALSE}
+chrvec<-c(phrase,"abcde","67")
+chrvec
+```
+
+```{r warning=FALSE, message=FALSE}
+class(chrvec)
+```
+## Identify
+
+We can operate over them. For example, we can select the elemnt that has certain characteristic. For this we will use [grep](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/grep). This is based on [regualar expression](https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf).
+
+Lets select the elemnts that have the letter d.
+
+```{r warning=FALSE, message=FALSE}
+grep(pattern = "d",x = chrvec,value = T)
+```
+
+```{r warning=FALSE, message=FALSE}
+grep(pattern = "d",x = chrvec,value = F) #What changed between the previous one and this one?
+```
+Clearly, the fist two elements have the letter d. What if we want to select the one that has it at the end?
+```{r warning=FALSE, message=FALSE}
+grep(pattern = "d$",x = chrvec,value = T)
+```
+
+The same can be done for the begining. This of course gives us an empty result.
+
+```{r warning=FALSE, message=FALSE}
+grep(pattern = "^d",x = chrvec,value = T)
+```
+## Modify
+
+We can modify the objects. We will use [gsub](https://stackoverflow.com/questions/35655485/replace-with-space-using-gsub-in-r)
+
+```{r warning=FALSE, message=FALSE}
+gsub(pattern = "d",replacement = "I am replacing d",x = chrvec)
 ```
 
 ## Useful resources
