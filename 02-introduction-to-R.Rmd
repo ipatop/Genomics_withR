@@ -1,5 +1,5 @@
 ---
-title: "02 Data manipulation in R"
+title: "Genomics with R for biologists"
 author: "Ines Lucia Patop: inespatop@brandeis.edu"
 output: 
   html_document:

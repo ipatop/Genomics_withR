@@ -1,5 +1,5 @@
 ---
-title: "01 Getting Started"
+title: "Genomics with R for biologists"
 author: "Ines Lucia Patop: inespatop@brandeis.edu"
 output: 
   html_document:
