@@ -97,36 +97,39 @@ To see only the beginning, we can use the head function:
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight)
 ```
-What is n doing?
+
+>What is n doing?
+
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight,n = 20) 
 ```
 
-What is the structure of the data.frame?
+> What is the structure of the data.frame?
+
 ```{r warning=FALSE, message=FALSE}
 str(ChickWeight) 
 ```
 
-With the $ operator we can explore the columns
+With the **$ operator** we can explore the columns
 ```{r warning=FALSE, message=FALSE}
 class(ChickWeight$weight)
 ```
 
-We can see the dimensions of the table for example:  how many rows it has?
+We can see the **dimensions of the table** for example:  how many **rows** it has?
 ```{r warning=FALSE, message=FALSE}
 nrow(ChickWeight)
 ```
-How many columns?
+How many **columns**?
 ```{r warning=FALSE, message=FALSE}
 ncol(ChickWeight)
 ```
 
-The names of columns
+The **names** of columns
 ```{r warning=FALSE, message=FALSE}
 names(ChickWeight)
 ```
 
-With the [] we can access the individual elements
+With the **[]** we can access the individual elements
 ```{r warning=FALSE, message=FALSE}
 names(ChickWeight)[3]
 ```
@@ -155,6 +158,7 @@ summary(ChickWeight$weight)
 ```{r warning=FALSE, message=FALSE}
 summary(ChickWeight)
 ```
+
 To see what is this exactly doing, just go to the help page:
 `?summary`
  
@@ -186,32 +190,54 @@ Subsetting means extracting part of the data. There are many different ways to d
 
 ```{r warning=FALSE, message=FALSE}
 #we can see specific columns and rows
-ChickWeight[1,] #row 1
-ChickWeight[,1] #col 1
+ChickWeight[1,1:3] #row 1, column 1:3
+```
+```{r warning=FALSE, message=FALSE}
+ChickWeight[1:3,1] #col 1, row 1:3
+```
+```{r warning=FALSE, message=FALSE}
 ChickWeight[1,1] #row1, col1
+```
+If we want to know for example only the data from the chickens taking the diet 4
+```{r warning=FALSE, message=FALSE}
+head(ChickWeight[ChickWeight$Diet==4,])
+```
+> Why == and no =?
 
-#if we want to know for example only the data from the chickens taking the diet 4
-ChickWeight[ChickWeight$Diet==4,]
-#why == and no =?
-#in R, = is an assignment, as the <-, while the == is for comparison, lests write
-ChickWeight$Diet==4
-#and
+Remeber in R, = is an assignment, as the <-, while the == is for comparison
+```{r warning=FALSE, message=FALSE}
+head(ChickWeight$Diet==4)
+```
+and
+```{r warning=FALSE, message=FALSE}
 class(ChickWeight$Diet==4)
-
-#so, when we do ChickWeight[ChickWeight$Diet==4,], R is just showing the ChickWeight for which ChickWeight$Diet==4 is TRUE
-which(ChickWeight$Diet==4)
-ChickWeight[ChickWeight$Diet==4,]
-
-#and for more conditions:
-ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6,]
-ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,]
-
-#and if I just want the weights of these...
-#ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,] # why this gives an error? because we only have one dimension now, no 2
-ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20]
-
 ```
 
+So, when we do ChickWeight[ChickWeight$Diet==4,], R is just showing the ChickWeight for which ChickWeight$Diet==4 is TRUE
+```{r warning=FALSE, message=FALSE}
+head(which(ChickWeight$Diet==4))
+```
+```{r warning=FALSE, message=FALSE}
+head(ChickWeight[ChickWeight$Diet==4,])
+```
+and for more conditions:
+```{r warning=FALSE, message=FALSE}
+head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6,])
+```
+```{r warning=FALSE, message=FALSE}
+head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,])
+```
+And if I just want the weights of these...
+
+```
+ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,] 
+```
+>why this gives an error? 
+
+because we only have one dimension now, no 2
+```{r warning=FALSE, message=FALSE}
+head(ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20])
+```
 
 
 # Visualization and Statistical test
@@ -322,13 +348,16 @@ First, we will now do a mean and SD table for each diet. There is one function t
 ```{r warning=FALSE, message=FALSE,fig.cap="Boxplot"}
 stat_ChickWeight<-ddply(ChickWeight,  .(Diet),  transform,  Mean=mean(weight,na.rm = T), SD=sd(weight,na.rm = T))
 
-as.data.frame(stat_ChickWeight)
+head(stat_ChickWeight)
 ```
-What happens if instead of "transform" we use "summarize"? Check `?ddply`
+
+> Is this what we wanted?
+What happens if instead of "transform" we use "summarize"? Check `?ddply` for more detail.
+
 ```{r warning=FALSE, message=FALSE,fig.cap="Boxplot"}
 statWeight_ChickWeight<-ddply(ChickWeight,  .(Diet),  summarise,  Mean=mean(weight,na.rm = T), SD=sd(weight,na.rm = T))
 
-as.data.frame(statWeight_ChickWeight)
+head(statWeight_ChickWeight)
 ```
 This is usefull for ploting, here a good plot:
 ```{r warning=FALSE, message=FALSE,fig.cap="Boxplot"}
@@ -337,6 +366,7 @@ ggplot(statWeight_ChickWeight, aes(x=Diet, y=Mean, fill=Diet)) +
   geom_errorbar(aes(ymin=Mean-SD, ymax=Mean+SD), width=.2,
                  position=position_dodge(.9))
 ```
+
 ## T-test/Wilcoxon
 
 To compare means we can do a T test but to do this we need to test the assumptions of this test: **Normality** of the data and Homoscedasticity (ie, the variance is similar between the two groups we want to compare)

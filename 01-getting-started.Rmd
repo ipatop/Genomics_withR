@@ -64,7 +64,7 @@ Here we can create a project in which everything will be integrated. This might 
 
 Regarding RStudio see the image bellow:
 
-```{r, out.width = "500px", echo=FALSE,fig.align = "center"}
+```{r, out.width = "500px", echo=FALSE,fig.align = "center",fig.cap="Regular RStudio setup."}
 knitr::include_graphics("./images/rstudio.png")
 ```
 

@@ -277,7 +277,9 @@ read.delim() #specific for tab delimited tables</code></pre>
 ## 4     64    6     1    1
 ## 5     76    8     1    1
 ## 6     93   10     1    1</code></pre>
+<blockquote>
 <p>What is n doing?</p>
+</blockquote>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-manipulation.html#cb73-1"></a><span class="kw">head</span>(ChickWeight,<span class="dt">n =</span> <span class="dv">20</span>) </span></code></pre></div>
 <pre><code>##    weight Time Chick Diet
 ## 1      42    0     1    1
@@ -300,26 +302,28 @@ read.delim() #specific for tab delimited tables</code></pre>
 ## 18    103   10     2    1
 ## 19    122   12     2    1
 ## 20    138   14     2    1</code></pre>
+<blockquote>
 <p>What is the structure of the data.frame?</p>
+</blockquote>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-manipulation.html#cb75-1"></a><span class="kw">str</span>(ChickWeight) </span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    578 obs. of  4 variables:
 ##  $ weight: num  42 51 59 64 76 93 106 125 149 171 ...
 ##  $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...
 ##  $ Chick : Ord.factor w/ 50 levels &quot;18&quot;&lt;&quot;16&quot;&lt;&quot;15&quot;&lt;..: 15 15 15 15 15 15 15 15 15 15 ...
 ##  $ Diet  : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<p>With the $ operator we can explore the columns</p>
+<p>With the <strong>$ operator</strong> we can explore the columns</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-manipulation.html#cb77-1"></a><span class="kw">class</span>(ChickWeight<span class="op">$</span>weight)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<p>We can see the dimensions of the table for example: how many rows it has?</p>
+<p>We can see the <strong>dimensions of the table</strong> for example: how many <strong>rows</strong> it has?</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-manipulation.html#cb79-1"></a><span class="kw">nrow</span>(ChickWeight)</span></code></pre></div>
 <pre><code>## [1] 578</code></pre>
-<p>How many columns?</p>
+<p>How many <strong>columns</strong>?</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-manipulation.html#cb81-1"></a><span class="kw">ncol</span>(ChickWeight)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<p>The names of columns</p>
+<p>The <strong>names</strong> of columns</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-manipulation.html#cb83-1"></a><span class="kw">names</span>(ChickWeight)</span></code></pre></div>
 <pre><code>## [1] &quot;weight&quot; &quot;Time&quot;   &quot;Chick&quot;  &quot;Diet&quot;</code></pre>
-<p>With the [] we can access the individual elements</p>
+<p>With the <strong>[]</strong> we can access the individual elements</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-manipulation.html#cb85-1"></a><span class="kw">names</span>(ChickWeight)[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Chick&quot;</code></pre>
 <p>We can see the levels of a factor</p>
@@ -374,504 +378,67 @@ You can see more details using: <code>?write.table</code></p>
 <p>Subsetting means extracting part of the data. There are many different ways to do this. One important notion for tables and data frames is that dimensions go as follows:
 <code>data[row,column]</code></p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-manipulation.html#cb104-1"></a><span class="co">#we can see specific columns and rows</span></span>
-<span id="cb104-2"><a href="data-manipulation.html#cb104-2"></a>ChickWeight[<span class="dv">1</span>,] <span class="co">#row 1</span></span>
-<span id="cb104-3"><a href="data-manipulation.html#cb104-3"></a>ChickWeight[,<span class="dv">1</span>] <span class="co">#col 1</span></span>
-<span id="cb104-4"><a href="data-manipulation.html#cb104-4"></a>ChickWeight[<span class="dv">1</span>,<span class="dv">1</span>] <span class="co">#row1, col1</span></span>
-<span id="cb104-5"><a href="data-manipulation.html#cb104-5"></a></span>
-<span id="cb104-6"><a href="data-manipulation.html#cb104-6"></a><span class="co">#if we want to know for example only the data from the chickens taking the diet 4</span></span>
-<span id="cb104-7"><a href="data-manipulation.html#cb104-7"></a>ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,]</span>
-<span id="cb104-8"><a href="data-manipulation.html#cb104-8"></a><span class="co">#why == and no =?</span></span>
-<span id="cb104-9"><a href="data-manipulation.html#cb104-9"></a><span class="co">#in R, = is an assignment, as the &lt;-, while the == is for comparison, lests write</span></span>
-<span id="cb104-10"><a href="data-manipulation.html#cb104-10"></a>ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span></span>
-<span id="cb104-11"><a href="data-manipulation.html#cb104-11"></a><span class="co">#and</span></span>
-<span id="cb104-12"><a href="data-manipulation.html#cb104-12"></a><span class="kw">class</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span>
-<span id="cb104-13"><a href="data-manipulation.html#cb104-13"></a></span>
-<span id="cb104-14"><a href="data-manipulation.html#cb104-14"></a><span class="co">#so, when we do ChickWeight[ChickWeight$Diet==4,], R is just showing the ChickWeight for which ChickWeight$Diet==4 is TRUE</span></span>
-<span id="cb104-15"><a href="data-manipulation.html#cb104-15"></a><span class="kw">which</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span>
-<span id="cb104-16"><a href="data-manipulation.html#cb104-16"></a>ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,]</span>
-<span id="cb104-17"><a href="data-manipulation.html#cb104-17"></a></span>
-<span id="cb104-18"><a href="data-manipulation.html#cb104-18"></a><span class="co">#and for more conditions:</span></span>
-<span id="cb104-19"><a href="data-manipulation.html#cb104-19"></a>ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span>,]</span>
-<span id="cb104-20"><a href="data-manipulation.html#cb104-20"></a>ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>,]</span>
-<span id="cb104-21"><a href="data-manipulation.html#cb104-21"></a></span>
-<span id="cb104-22"><a href="data-manipulation.html#cb104-22"></a><span class="co">#and if I just want the weights of these...</span></span>
-<span id="cb104-23"><a href="data-manipulation.html#cb104-23"></a><span class="co">#ChickWeight$weight[ChickWeight$Diet==4 &amp; ChickWeight$Time&gt;6 &amp; ChickWeight$Time&lt;20,] # why this gives an error? because we only have one dimension now, no 2</span></span>
-<span id="cb104-24"><a href="data-manipulation.html#cb104-24"></a>ChickWeight<span class="op">$</span>weight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>]</span></code></pre></div>
-<pre><code>##   weight Time Chick Diet
-## 1     42    0     1    1
-##   [1]  42  51  59  64  76  93 106 125 149 171 199 205  40  49  58  72  84 103
-##  [19] 122 138 162 187 209 215  43  39  55  67  84  99 115 138 163 187 198 202
-##  [37]  42  49  56  67  74  87 102 108 136 154 160 157  41  42  48  60  79 106
-##  [55] 141 164 197 199 220 223  41  49  59  74  97 124 141 148 155 160 160 157
-##  [73]  41  49  57  71  89 112 146 174 218 250 288 305  42  50  61  71  84  93
-##  [91] 110 116 126 134 125  42  51  59  68  85  96  90  92  93 100 100  98  41
-## [109]  44  52  63  74  81  89  96 101 112 120 124  43  51  63  84 112 139 168
-## [127] 177 182 184 181 175  41  49  56  62  72  88 119 135 162 185 195 205  41
-## [145]  48  53  60  65  67  71  70  71  81  91  96  41  49  62  79 101 128 164
-## [163] 192 227 248 259 266  41  49  56  64  68  68  67  68  41  45  49  51  57
-## [181]  51  54  42  51  61  72  83  89  98 103 113 123 133 142  39  35  43  48
-## [199]  55  62  65  71  82  88 106 120 144 157  41  47  54  58  65  73  77  89
-## [217]  98 107 115 117  40  50  62  86 125 163 217 240 275 307 318 331  41  55
-## [235]  64  77  90  95 108 111 131 148 164 167  43  52  61  73  90 103 127 135
-## [253] 145 163 170 175  42  52  58  74  66  68  70  71  72  72  76  74  40  49
-## [271]  62  78 102 124 146 164 197 231 259 265  42  48  57  74  93 114 136 147
-## [289] 169 205 236 251  39  46  58  73  87 100 115 123 144 163 185 192  39  46
-## [307]  58  73  92 114 145 156 184 207 212 233  39  48  59  74  87 106 134 150
-## [325] 187 230 279 309  42  48  59  72  85  98 115 122 143 151 157 150  42  53
-## [343]  62  73  85 102 123 138 170 204 235 256  41  49  65  82 107 129 159 179
-## [361] 221 263 291 305  39  50  63  77  96 111 137 144 151 146 156 147  41  49
-## [379]  63  85 107 134 164 186 235 294 327 341  41  53  64  87 123 158 201 238
-## [397] 287 332 361 373  39  48  61  76  98 116 145 166 198 227 225 220  41  48
-## [415]  56  68  80  83 103 112 135 157 169 178  41  49  61  74  98 109 128 154
-## [433] 192 232 280 290  42  50  61  78  89 109 130 146 170 214 250 272  41  55
-## [451]  66  79 101 120 154 182 215 262 295 321  42  51  66  85 103 124 155 153
-## [469] 175 184 199 204  42  49  63  84 103 126 160 174 204 234 269 281  42  55
-## [487]  69  96 131 157 184 188 197 198 199 200  42  51  65  86 103 118 127 138
-## [505] 145 146  41  50  61  78  98 117 135 141 147 174 197 196  40  52  62  82
-## [523] 101 120 144 156 173 210 231 238  41  53  66  79 100 123 148 157 168 185
-## [541] 210 205  39  50  62  80 104 125 154 170 222 261 303 322  40  53  64  85
-## [559] 108 128 152 166 184 203 233 237  41  54  67  84 105 122 155 175 205 234
-## [577] 264 264
-## [1] 42
-##     weight Time Chick Diet
+<span id="cb104-2"><a href="data-manipulation.html#cb104-2"></a>ChickWeight[<span class="dv">1</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co">#row 1, column 1:3</span></span></code></pre></div>
+<pre><code>##   weight Time Chick
+## 1     42    0     1</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-manipulation.html#cb106-1"></a>ChickWeight[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">1</span>] <span class="co">#col 1, row 1:3</span></span></code></pre></div>
+<pre><code>## [1] 42 51 59</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-manipulation.html#cb108-1"></a>ChickWeight[<span class="dv">1</span>,<span class="dv">1</span>] <span class="co">#row1, col1</span></span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+<p>If we want to know for example only the data from the chickens taking the diet 4</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-manipulation.html#cb110-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,])</span></code></pre></div>
+<pre><code>##     weight Time Chick Diet
 ## 461     42    0    41    4
 ## 462     51    2    41    4
 ## 463     66    4    41    4
 ## 464     85    6    41    4
 ## 465    103    8    41    4
-## 466    124   10    41    4
-## 467    155   12    41    4
-## 468    153   14    41    4
-## 469    175   16    41    4
-## 470    184   18    41    4
-## 471    199   20    41    4
-## 472    204   21    41    4
-## 473     42    0    42    4
-## 474     49    2    42    4
-## 475     63    4    42    4
-## 476     84    6    42    4
-## 477    103    8    42    4
-## 478    126   10    42    4
-## 479    160   12    42    4
-## 480    174   14    42    4
-## 481    204   16    42    4
-## 482    234   18    42    4
-## 483    269   20    42    4
-## 484    281   21    42    4
-## 485     42    0    43    4
-## 486     55    2    43    4
-## 487     69    4    43    4
-## 488     96    6    43    4
-## 489    131    8    43    4
-## 490    157   10    43    4
-## 491    184   12    43    4
-## 492    188   14    43    4
-## 493    197   16    43    4
-## 494    198   18    43    4
-## 495    199   20    43    4
-## 496    200   21    43    4
-## 497     42    0    44    4
-## 498     51    2    44    4
-## 499     65    4    44    4
-## 500     86    6    44    4
-## 501    103    8    44    4
-## 502    118   10    44    4
-## 503    127   12    44    4
-## 504    138   14    44    4
-## 505    145   16    44    4
-## 506    146   18    44    4
-## 507     41    0    45    4
-## 508     50    2    45    4
-## 509     61    4    45    4
-## 510     78    6    45    4
-## 511     98    8    45    4
-## 512    117   10    45    4
-## 513    135   12    45    4
-## 514    141   14    45    4
-## 515    147   16    45    4
-## 516    174   18    45    4
-## 517    197   20    45    4
-## 518    196   21    45    4
-## 519     40    0    46    4
-## 520     52    2    46    4
-## 521     62    4    46    4
-## 522     82    6    46    4
-## 523    101    8    46    4
-## 524    120   10    46    4
-## 525    144   12    46    4
-## 526    156   14    46    4
-## 527    173   16    46    4
-## 528    210   18    46    4
-## 529    231   20    46    4
-## 530    238   21    46    4
-## 531     41    0    47    4
-## 532     53    2    47    4
-## 533     66    4    47    4
-## 534     79    6    47    4
-## 535    100    8    47    4
-## 536    123   10    47    4
-## 537    148   12    47    4
-## 538    157   14    47    4
-## 539    168   16    47    4
-## 540    185   18    47    4
-## 541    210   20    47    4
-## 542    205   21    47    4
-## 543     39    0    48    4
-## 544     50    2    48    4
-## 545     62    4    48    4
-## 546     80    6    48    4
-## 547    104    8    48    4
-## 548    125   10    48    4
-## 549    154   12    48    4
-## 550    170   14    48    4
-## 551    222   16    48    4
-## 552    261   18    48    4
-## 553    303   20    48    4
-## 554    322   21    48    4
-## 555     40    0    49    4
-## 556     53    2    49    4
-## 557     64    4    49    4
-## 558     85    6    49    4
-## 559    108    8    49    4
-## 560    128   10    49    4
-## 561    152   12    49    4
-## 562    166   14    49    4
-## 563    184   16    49    4
-## 564    203   18    49    4
-## 565    233   20    49    4
-## 566    237   21    49    4
-## 567     41    0    50    4
-## 568     54    2    50    4
-## 569     67    4    50    4
-## 570     84    6    50    4
-## 571    105    8    50    4
-## 572    122   10    50    4
-## 573    155   12    50    4
-## 574    175   14    50    4
-## 575    205   16    50    4
-## 576    234   18    50    4
-## 577    264   20    50    4
-## 578    264   21    50    4
-##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [97] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [121] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [157] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [169] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [181] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [193] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [205] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [217] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [229] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [241] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [253] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [265] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [277] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [289] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [301] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [313] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [325] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [337] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [349] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [361] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [373] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [385] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [397] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [409] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [421] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [433] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [445] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [457] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [469]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [481]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [493]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [505]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [517]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [529]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [541]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [553]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [565]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [577]  TRUE  TRUE
-## [1] &quot;logical&quot;
-##   [1] 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478
-##  [19] 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 494 495 496
-##  [37] 497 498 499 500 501 502 503 504 505 506 507 508 509 510 511 512 513 514
-##  [55] 515 516 517 518 519 520 521 522 523 524 525 526 527 528 529 530 531 532
-##  [73] 533 534 535 536 537 538 539 540 541 542 543 544 545 546 547 548 549 550
-##  [91] 551 552 553 554 555 556 557 558 559 560 561 562 563 564 565 566 567 568
-## [109] 569 570 571 572 573 574 575 576 577 578
-##     weight Time Chick Diet
+## 466    124   10    41    4</code></pre>
+<blockquote>
+<p>Why == and no =?</p>
+</blockquote>
+<p>Remeber in R, = is an assignment, as the &lt;-, while the == is for comparison</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="data-manipulation.html#cb112-1"></a><span class="kw">head</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>and</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-manipulation.html#cb114-1"></a><span class="kw">class</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>So, when we do ChickWeight[ChickWeight$Diet==4,], R is just showing the ChickWeight for which ChickWeight$Diet==4 is TRUE</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-manipulation.html#cb116-1"></a><span class="kw">head</span>(<span class="kw">which</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>))</span></code></pre></div>
+<pre><code>## [1] 461 462 463 464 465 466</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-manipulation.html#cb118-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,])</span></code></pre></div>
+<pre><code>##     weight Time Chick Diet
 ## 461     42    0    41    4
 ## 462     51    2    41    4
 ## 463     66    4    41    4
 ## 464     85    6    41    4
 ## 465    103    8    41    4
-## 466    124   10    41    4
-## 467    155   12    41    4
-## 468    153   14    41    4
-## 469    175   16    41    4
-## 470    184   18    41    4
-## 471    199   20    41    4
-## 472    204   21    41    4
-## 473     42    0    42    4
-## 474     49    2    42    4
-## 475     63    4    42    4
-## 476     84    6    42    4
-## 477    103    8    42    4
-## 478    126   10    42    4
-## 479    160   12    42    4
-## 480    174   14    42    4
-## 481    204   16    42    4
-## 482    234   18    42    4
-## 483    269   20    42    4
-## 484    281   21    42    4
-## 485     42    0    43    4
-## 486     55    2    43    4
-## 487     69    4    43    4
-## 488     96    6    43    4
-## 489    131    8    43    4
-## 490    157   10    43    4
-## 491    184   12    43    4
-## 492    188   14    43    4
-## 493    197   16    43    4
-## 494    198   18    43    4
-## 495    199   20    43    4
-## 496    200   21    43    4
-## 497     42    0    44    4
-## 498     51    2    44    4
-## 499     65    4    44    4
-## 500     86    6    44    4
-## 501    103    8    44    4
-## 502    118   10    44    4
-## 503    127   12    44    4
-## 504    138   14    44    4
-## 505    145   16    44    4
-## 506    146   18    44    4
-## 507     41    0    45    4
-## 508     50    2    45    4
-## 509     61    4    45    4
-## 510     78    6    45    4
-## 511     98    8    45    4
-## 512    117   10    45    4
-## 513    135   12    45    4
-## 514    141   14    45    4
-## 515    147   16    45    4
-## 516    174   18    45    4
-## 517    197   20    45    4
-## 518    196   21    45    4
-## 519     40    0    46    4
-## 520     52    2    46    4
-## 521     62    4    46    4
-## 522     82    6    46    4
-## 523    101    8    46    4
-## 524    120   10    46    4
-## 525    144   12    46    4
-## 526    156   14    46    4
-## 527    173   16    46    4
-## 528    210   18    46    4
-## 529    231   20    46    4
-## 530    238   21    46    4
-## 531     41    0    47    4
-## 532     53    2    47    4
-## 533     66    4    47    4
-## 534     79    6    47    4
-## 535    100    8    47    4
-## 536    123   10    47    4
-## 537    148   12    47    4
-## 538    157   14    47    4
-## 539    168   16    47    4
-## 540    185   18    47    4
-## 541    210   20    47    4
-## 542    205   21    47    4
-## 543     39    0    48    4
-## 544     50    2    48    4
-## 545     62    4    48    4
-## 546     80    6    48    4
-## 547    104    8    48    4
-## 548    125   10    48    4
-## 549    154   12    48    4
-## 550    170   14    48    4
-## 551    222   16    48    4
-## 552    261   18    48    4
-## 553    303   20    48    4
-## 554    322   21    48    4
-## 555     40    0    49    4
-## 556     53    2    49    4
-## 557     64    4    49    4
-## 558     85    6    49    4
-## 559    108    8    49    4
-## 560    128   10    49    4
-## 561    152   12    49    4
-## 562    166   14    49    4
-## 563    184   16    49    4
-## 564    203   18    49    4
-## 565    233   20    49    4
-## 566    237   21    49    4
-## 567     41    0    50    4
-## 568     54    2    50    4
-## 569     67    4    50    4
-## 570     84    6    50    4
-## 571    105    8    50    4
-## 572    122   10    50    4
-## 573    155   12    50    4
-## 574    175   14    50    4
-## 575    205   16    50    4
-## 576    234   18    50    4
-## 577    264   20    50    4
-## 578    264   21    50    4
-##     weight Time Chick Diet
+## 466    124   10    41    4</code></pre>
+<p>and for more conditions:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-manipulation.html#cb120-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span>,])</span></code></pre></div>
+<pre><code>##     weight Time Chick Diet
 ## 465    103    8    41    4
 ## 466    124   10    41    4
 ## 467    155   12    41    4
 ## 468    153   14    41    4
 ## 469    175   16    41    4
-## 470    184   18    41    4
-## 471    199   20    41    4
-## 472    204   21    41    4
-## 477    103    8    42    4
-## 478    126   10    42    4
-## 479    160   12    42    4
-## 480    174   14    42    4
-## 481    204   16    42    4
-## 482    234   18    42    4
-## 483    269   20    42    4
-## 484    281   21    42    4
-## 489    131    8    43    4
-## 490    157   10    43    4
-## 491    184   12    43    4
-## 492    188   14    43    4
-## 493    197   16    43    4
-## 494    198   18    43    4
-## 495    199   20    43    4
-## 496    200   21    43    4
-## 501    103    8    44    4
-## 502    118   10    44    4
-## 503    127   12    44    4
-## 504    138   14    44    4
-## 505    145   16    44    4
-## 506    146   18    44    4
-## 511     98    8    45    4
-## 512    117   10    45    4
-## 513    135   12    45    4
-## 514    141   14    45    4
-## 515    147   16    45    4
-## 516    174   18    45    4
-## 517    197   20    45    4
-## 518    196   21    45    4
-## 523    101    8    46    4
-## 524    120   10    46    4
-## 525    144   12    46    4
-## 526    156   14    46    4
-## 527    173   16    46    4
-## 528    210   18    46    4
-## 529    231   20    46    4
-## 530    238   21    46    4
-## 535    100    8    47    4
-## 536    123   10    47    4
-## 537    148   12    47    4
-## 538    157   14    47    4
-## 539    168   16    47    4
-## 540    185   18    47    4
-## 541    210   20    47    4
-## 542    205   21    47    4
-## 547    104    8    48    4
-## 548    125   10    48    4
-## 549    154   12    48    4
-## 550    170   14    48    4
-## 551    222   16    48    4
-## 552    261   18    48    4
-## 553    303   20    48    4
-## 554    322   21    48    4
-## 559    108    8    49    4
-## 560    128   10    49    4
-## 561    152   12    49    4
-## 562    166   14    49    4
-## 563    184   16    49    4
-## 564    203   18    49    4
-## 565    233   20    49    4
-## 566    237   21    49    4
-## 571    105    8    50    4
-## 572    122   10    50    4
-## 573    155   12    50    4
-## 574    175   14    50    4
-## 575    205   16    50    4
-## 576    234   18    50    4
-## 577    264   20    50    4
-## 578    264   21    50    4
-##     weight Time Chick Diet
+## 470    184   18    41    4</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-manipulation.html#cb122-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>,])</span></code></pre></div>
+<pre><code>##     weight Time Chick Diet
 ## 465    103    8    41    4
 ## 466    124   10    41    4
 ## 467    155   12    41    4
 ## 468    153   14    41    4
 ## 469    175   16    41    4
-## 470    184   18    41    4
-## 477    103    8    42    4
-## 478    126   10    42    4
-## 479    160   12    42    4
-## 480    174   14    42    4
-## 481    204   16    42    4
-## 482    234   18    42    4
-## 489    131    8    43    4
-## 490    157   10    43    4
-## 491    184   12    43    4
-## 492    188   14    43    4
-## 493    197   16    43    4
-## 494    198   18    43    4
-## 501    103    8    44    4
-## 502    118   10    44    4
-## 503    127   12    44    4
-## 504    138   14    44    4
-## 505    145   16    44    4
-## 506    146   18    44    4
-## 511     98    8    45    4
-## 512    117   10    45    4
-## 513    135   12    45    4
-## 514    141   14    45    4
-## 515    147   16    45    4
-## 516    174   18    45    4
-## 523    101    8    46    4
-## 524    120   10    46    4
-## 525    144   12    46    4
-## 526    156   14    46    4
-## 527    173   16    46    4
-## 528    210   18    46    4
-## 535    100    8    47    4
-## 536    123   10    47    4
-## 537    148   12    47    4
-## 538    157   14    47    4
-## 539    168   16    47    4
-## 540    185   18    47    4
-## 547    104    8    48    4
-## 548    125   10    48    4
-## 549    154   12    48    4
-## 550    170   14    48    4
-## 551    222   16    48    4
-## 552    261   18    48    4
-## 559    108    8    49    4
-## 560    128   10    49    4
-## 561    152   12    49    4
-## 562    166   14    49    4
-## 563    184   16    49    4
-## 564    203   18    49    4
-## 571    105    8    50    4
-## 572    122   10    50    4
-## 573    155   12    50    4
-## 574    175   14    50    4
-## 575    205   16    50    4
-## 576    234   18    50    4
-##  [1] 103 124 155 153 175 184 103 126 160 174 204 234 131 157 184 188 197 198 103
-## [20] 118 127 138 145 146  98 117 135 141 147 174 101 120 144 156 173 210 100 123
-## [39] 148 157 168 185 104 125 154 170 222 261 108 128 152 166 184 203 105 122 155
-## [58] 175 205 234</code></pre>
+## 470    184   18    41    4</code></pre>
+<p>And if I just want the weights of these…</p>
+<pre><code>ChickWeight$weight[ChickWeight$Diet==4 &amp; ChickWeight$Time&gt;6 &amp; ChickWeight$Time&lt;20,] </code></pre>
+<blockquote>
+<p>why this gives an error?</p>
+</blockquote>
+<p>because we only have one dimension now, no 2</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-manipulation.html#cb125-1"></a><span class="kw">head</span>(ChickWeight<span class="op">$</span>weight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>])</span></code></pre></div>
+<pre><code>## [1] 103 124 155 153 175 184</code></pre>
 </div>
 </div>
 <div class="psyteachr_footer">

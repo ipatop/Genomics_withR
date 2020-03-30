@@ -62,8 +62,8 @@ Here we can create a project in which everything will be integrated. This might 
 Regarding RStudio see the image bellow:
 
 <div class="figure" style="text-align: center">
-<img src="./images/rstudio.png" alt="**CAPTION THIS FIGURE!!**" width="500px" />
-<p class="caption">(\#fig:unnamed-chunk-1)**CAPTION THIS FIGURE!!**</p>
+<img src="./images/rstudio.png" alt="Regular RStudio setup." width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-1)Regular RStudio setup.</p>
 </div>
 
 Upper left panel: the script. Everything you write here you can just execute by pressing CTR + ENTER. 
