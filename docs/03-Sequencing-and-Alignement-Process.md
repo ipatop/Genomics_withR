@@ -33,7 +33,7 @@ Even more important we need to understand the characteristics of the data we are
 Nowadays, there are two main types of libraries for nucleotides: short reads libraries and long reads libraries. Long-read techniques are more recently developed with two main technologies available: Pacific Biosciences’ (PacBio) single-molecule real-time (SMRT) sequencing and Oxford Nanopore Technologies’ (ONT) nanopore sequencing. In this book we will focus on short-read libraries, as the ones processed by Illumina machines. This technology is based on PCR amplification of the material and the base pairing with different fluorescently tagged nucleotides. 
 
 <div class="figure" style="text-align: center">
-<img src="./images/illumina.png" alt="Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html" width="200px" />
+<img src="./images/Illumina.png" alt="Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html" width="200px" />
 <p class="caption">(\#fig:unnamed-chunk-1)Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html</p>
 </div>
 
@@ -63,6 +63,7 @@ To study also non-polyadenylated transcripts, as lncRNA and circRNAs, we have to
 </div>
 
 Regarding sequencing itself we can choose the length of the read and if we want to read only from side of the fragment (**single-ended**) of from both sides (**paired-ended**). Both options have different advantages. To capture different splicing patterns for example, paired-end is recommended.
+
 
 ## From the sequencer machine to the sequence
 
@@ -104,10 +105,10 @@ The reads are in **fastq** format, and the genome are in **fasta** format. The f
 AAATTCGGGCCAA...
 ```
 
-Maybe you have already heard about BLAST alignment. Unfortunately, this is not fast enough to aligns the millons of reads we generate from each sequencing experiment. Therefore, new techniques were developed. There are many different really good tools available. It is not the same to align DNA that RNA. The main difference is the splicing awareness and the use of the gene annotation.
+Maybe you have already heard about BLAST alignment. Unfortunately, this is not fast enough to aligns the millions of reads we generate from each sequencing experiment. Therefore, new techniques were developed. There are many different really good tools available. To choose one we need to consider the type of molecule we are working with and the type of sequencing technique used. It is not the same to align DNA that RNA. The main difference is the splicing awareness and the use of the gene annotation. Another thing to consider the type of sequencing performed (single vs paired end). 
 
 <div class="figure" style="text-align: center">
-<img src="./images/DNAvsRNAalig.png" alt="DNA vs RNA alignement single and paired end" width="500px" />
+<img src="./images/singleendpairedend.png" alt="DNA vs RNA alignement single and paired end" width="500px" />
 <p class="caption">(\#fig:unnamed-chunk-8)DNA vs RNA alignement single and paired end</p>
 </div>
 
@@ -148,7 +149,7 @@ To load it we will need the sorted bam files. This will allow us to visualize ea
 <p class="caption">(\#fig:unnamed-chunk-9)Alignement files (.bam) loaded into the IGV genome browser</p>
 </div>
 
-As bam files are really big there are options to store only the total count visualization. These files format can be bigwig or TDF for example. It is importan to note the different scales (jusr right to the file name).
+As bam files are really big there are options to store only the total count visualization. These files format can be bigwig or TDF for example. It is importan to note the different scales (just noxt to the file name).
 
 <div class="figure" style="text-align: center">
 <img src="./images/IGVbw.png" alt="Bigwig files (.bw) loaded into the IGV genome browser. " width="200px" />
