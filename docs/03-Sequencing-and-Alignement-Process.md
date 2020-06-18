@@ -40,7 +40,7 @@ Nowadays, there are two main types of libraries for nucleotides: short reads lib
 There are many library preparation protocols for Illumina sequencers. All of these techniques must include a step of fragmentation and adapter ligation. These adapters are essential to the inclusion of the fragments in the sequencer machine. Moreover, different samples might be pulled together by the use of different adapters with specific sample barcode. The idea of a barcode is the presence of specific sequences that can identify the origin of each sequence fragment. The process of separating each sample is called *demultiplexing*.
 
 <div class="figure" style="text-align: center">
-<img src="./images/demultiplex2.png" alt="Demultiplexing strategy" width="200px" />
+<img src="./images/demultiplex2.png" alt="Demultiplexing strategy" width="300px" />
 <p class="caption">(\#fig:unnamed-chunk-2)Demultiplexing strategy</p>
 </div>
 Depending on the molecule of interest the library preparation to detect them will be different. For DNA the addition of the Illumina adaptors can be done by ligation or by tagmentation (which does the fragmentation and tagging at the same time). In this case, as DNA has NOT an orientation (is double stranded and palindromic) we do not care which adapter get in which side of the fragment. 
@@ -145,14 +145,14 @@ Alignment files can be visualized using different tools as [UCSC genome browser]
 To load it we will need the sorted bam files. This will allow us to visualize each read with its alignment quality, gaps, etc. 
 
 <div class="figure" style="text-align: center">
-<img src="./images/IGV.png" alt="Alignement files (.bam) loaded into the IGV genome browser." width="500px" />
+<img src="./images/IGV.png" alt="Alignement files (.bam) loaded into the IGV genome browser." width="800px" />
 <p class="caption">(\#fig:unnamed-chunk-9)Alignement files (.bam) loaded into the IGV genome browser.</p>
 </div>
 
 As bam files are really big there are options to store only the total count visualization. These files format can be bigwig or TDF for example. It is importan to note the different scales (just noxt to the file name).
 
 <div class="figure" style="text-align: center">
-<img src="./images/IGVbw.png" alt="Bigwig files (.bw) loaded into the IGV genome browser." width="500px" />
+<img src="./images/IGVbw.png" alt="Bigwig files (.bw) loaded into the IGV genome browser." width="800px" />
 <p class="caption">(\#fig:unnamed-chunk-10)Bigwig files (.bw) loaded into the IGV genome browser.</p>
 </div>
 
