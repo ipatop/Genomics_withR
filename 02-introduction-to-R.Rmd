@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 After this section you should be able to:
 
-1. Load, explore and manioulate data in R
+1. Load, explore and manipulate data in R
 
 
 ## Introduction
@@ -91,8 +91,8 @@ It is important to understand the data before heading into the analysis. We will
 # As you can see this is a table, just in case we want to convert it to a data.frame
 ChickWeight<-as.data.frame(ChickWeight)
 ```
-
 To see only the beginning, we can use the head function:
+  
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight)
 ```
@@ -203,15 +203,15 @@ head(ChickWeight[ChickWeight$Diet==4,])
 ```
 > Why == and no =?
 
-Remeber in R, = is an assignment, as the <-, while the == is for comparison
+Remember in R, = is an assignment, as the <-, while the == is for comparison.
+
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight$Diet==4)
 ```
-and
+Lets explore the class: 
 ```{r warning=FALSE, message=FALSE}
 class(ChickWeight$Diet==4)
 ```
-
 So, when we do ChickWeight[ChickWeight$Diet==4,], R is just showing the ChickWeight for which ChickWeight$Diet==4 is TRUE
 ```{r warning=FALSE, message=FALSE}
 head(which(ChickWeight$Diet==4))
@@ -219,21 +219,36 @@ head(which(ChickWeight$Diet==4))
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight[ChickWeight$Diet==4,])
 ```
-and for more conditions:
+And for more conditions, we can use AND (&) to integrate them.
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6,])
 ```
+Other option is OR (|). 
+
+Remember, computers will read as things come
+$$
+condition-A AND condition-B OR condition-C
+condition-A & condition-B | condition-C
+$$
+ Is not the same as 
+
+$$
+condition A & (condition B | condition C)
+$$
+
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,])
 ```
-And if I just want the weights of these...
+And if we just want the weights of these...
 
 ```
 ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,] 
 ```
 >why this gives an error? 
 
-because we only have one dimension now, no 2
+Because we only have one dimension now, not 2. 
+ChickWeight$weight is one dimention object, so we have to use [ ], not [ , ].
+
 ```{r warning=FALSE, message=FALSE}
 head(ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20])
 ```
@@ -264,24 +279,39 @@ For example:
 1. If the chickens are older we expect them to be bigger. This can be visualized using a dotplot.
 2. We might want to see the distribution of weight separated by diet. This can be addressed by a histogram.
 
-`ggplot` is a very useful function that allows us to manipulate the colors, the plot type, etc. I know it can be difficult to understand it at the beginning but after a while it becomes really intuitive. Important things to consider:
-1. We will be able to plot anything that is a column in the data matrix.
+## Plots
+
+We will use the package `ggplot2`. It is a very useful and documented package. We will focus on the `ggplot` function. This function generates plots as *layers*. This allows us to manipulate the colors, the plot type, etc. I know it can be difficult to understand it at the beginning but after a while it becomes really intuitive. 
+
+Important things to consider:
+1. We will be able to plot anything that is a *column* in the data frame.
 2. Everything is or can be a layer in the plot.
 3. When you decide to color or shape by a factor that separates your data this will impact the plot.
 
-## Plots
+Again,we can plot any column. So lets axplore the columns. It is important to know the class of each column. It is not the same trying to plot a number, than a letter. 
 
-Columns we can plot:
-```{r warning=FALSE, message=FALSE,fig.cap="Point and line plots"}
-names(ChickWeight)
+```{r warning=FALSE, message=FALSE}
+names(ChickWeight) #names of the columns in the data frame
 ```
+
+```{r warning=FALSE, message=FALSE}
+head(ChickWeight) #head of the data frame
+```
+
+```{r warning=FALSE, message=FALSE}
+str(ChickWeight) #structure of the data frame
+```
+
 ### Line and points
+
+To see things as correlations, we usually use points and lines. We will see how to do it using different plot options.
+
 Dot plot with basic qplot (from ggplot but les complex)
 ```{r warning=FALSE, message=FALSE,fig.cap="Point and line plots"}
 qplot(data=ChickWeight,x = weight, y=Time, geom = c("line","point"))
 qplot(data=ChickWeight,x = weight, y=Time, geom = c("line","point"), colour=Diet) #adding the color helps to separate the data
 ```
-The same using ggplot
+The same using ggplot:
 ```{r warning=FALSE, message=FALSE,fig.cap="Point and line plots"}
 ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic things about the plot
   geom_point() + #add the type of plot
@@ -307,11 +337,11 @@ qplot(data = ChickWeight,x=weight, geom = "density", colour=Diet)
 With ggplot
 ```{r warning=FALSE, message=FALSE,fig.cap="Point and line plots"}
 ggplot(data = ChickWeight, aes(x=weight,color=Diet))+
-  geom_histogram(fill="white", alpha=0.5, position="identity")+
-  scale_colour_brewer(palette = "Set1")
+  geom_histogram(fill="white", position="identity")+
+  scale_colour_brewer(palette = "Set1")#this is selecting the color scheme, try taking it out, or mofyfying it
 
 ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
-  geom_density( alpha=0.5)+
+  geom_density( alpha=0.5)+ #the density plot with the option to modify the transparency of the polot solor, it goes between 0 and 1. Try modifying it.
   scale_colour_brewer(palette = "Set1")
 ```
 ### Boxplot
@@ -325,24 +355,24 @@ knitr::include_graphics("./images/boxplot.jpg")
 
 ```{r warning=FALSE, message=FALSE,fig.cap="Boxplot"}
 ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+ #Note how the x, y and color changes
-  geom_boxplot()+ #this is adding the  boxplot
-  scale_colour_brewer(palette = "Set1")
+  geom_boxplot()+ #this is adding the boxplot
+  scale_colour_brewer(palette = "Set1") 
 ```
 
 What happens if we do not use the `as.factor`? Again, a reminder that the data type is important!
 
 ```{r warning=FALSE, message=FALSE,fig.cap="Boxplot"}
-ggplot(data = ChickWeight, aes(y=weight,x=Time,fill=Diet))+ #Note how the x, y and color changes
-  geom_boxplot()+ #this is adding the  boxplot
+ggplot(data = ChickWeight, aes(y=weight,x=Time,fill=Diet))+ 
+  geom_boxplot()+ #this is adding the boxplot
   scale_colour_brewer(palette = "Set1")
 ```
 
-It seems interesting to separate this by age (Time). This is achieved by another layer named facet.
-```{r warning=FALSE, message=FALSE,fig.cap="Plot sepparating by age of the chicken"}
+It seems interesting to separate this by age (Time). This is achieved by another layer named [facet](https://plotly.com/ggplot2/facet_wrap/).
+```{r warning=FALSE, message=FALSE,fig.cap="Plot separating by age of the chicken"}
 ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
-  geom_density( alpha=0.5)+
+  geom_density( alpha=0.5)+ 
   scale_colour_brewer(palette = "Set1")+
-  facet_wrap(~Time,scales = "free")
+  facet_wrap(~Time,scales = "free") #This will separate the data into panels given the time, try looking for the meaning of the scale option
 
 ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
   geom_boxplot()+scale_colour_brewer(palette = "Set1")+
@@ -355,13 +385,54 @@ ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
 
 ```
 
+
+### Saving plots
+
+Imagine you want now to save some of these plots. You can use the button **export** in RStudio. But you can also use the `pdf` function. 
+
+This function allows us to determine the width and height of the plots. Check what happens if you modify the option in the plots below.
+
+These pdf files will be saved on your working directory with the name, width and height determined in the function. 
+
+Important things: 
+
+1. Do not forget to put the ".pdf" at the end of the file name. What do you think it will happen if you forget it?
+2. When you finish running the plots that you want to be in the pdf file, you have to run `dev.off()`. This will close the plot. If you forget this, you will not be able to open the plot.
+
+
+```{r warning=FALSE, message=FALSE,fig.cap="Plot sepparating by age of the chicken"}
+pdf("densityplot.pdf",width = 20, height = 20) #save the plot as a pdf, control width and height of the pdf
+ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
+  geom_density( alpha=0.5)+
+  scale_colour_brewer(palette = "Set1")+
+  facet_wrap(~Time,scales = "free")
+
+dev.off() #end the plot
+
+
+pdf("density_and_violin.plot.pdf",width = 20, height = 20) #save the plot as a pdf, control width and height of the pdf
+ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
+  geom_density( alpha=0.5)+
+  scale_colour_brewer(palette = "Set1")+
+  facet_wrap(~Time,scales = "free")
+
+ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
+  geom_violin()+
+  scale_colour_brewer(palette = "Set1")+
+  facet_wrap(~Time,scales = "free")
+
+dev.off() #end the plot
+
+```
+
+
 ## Statistical test
 
 ### Descriptive statistics
 
 We already saw a way to get the descriptive stats from a table by using `summary`.
 
-We will try to compare the weight of chickens under different diets without taking into account the age. 
+We will try to compare the weight of chickens under different diets without considering the age. 
 
 First, we will now do a mean and SD table for each diet. There is one function that can do this for us.
 `ddply` is a function that first divides the data by a variable written as .(Var) and then perform an specific function. With the indication of "transform" this will create a new column in out data
@@ -388,7 +459,7 @@ ggplot(statWeight_ChickWeight, aes(x=Diet, y=Mean, fill=Diet)) +
                  position=position_dodge(.9))
 ```
 
-## T-test/Wilcoxon
+### T-test/Wilcoxon
 
 To compare means we can do a T test but to do this we need to test the assumptions of this test: **Normality** of the data and Homoscedasticity (ie, the variance is similar between the two groups we want to compare)
 
@@ -493,7 +564,7 @@ kruskal.test(weight~ Diet, data = ChickWeight)
 
 ## Activity: 
 
-**Find another thing you want to test with this data. Solve this in a graphical and statistical way.**
+**Find another thing you want to test with this data. Solve this in a graphical and statistical way. Save the plots**
 
 
 ## Resources

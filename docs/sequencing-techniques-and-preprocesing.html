@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 4 Sequencing techniques and preprocesing | Genomics with R for biologists</title>
   <meta name="description" content="This is the index for the coursebook" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 4 Sequencing techniques and preprocesing | Genomics with R for biologists" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
 
 
-<meta name="date" content="2020-03-30" />
+<meta name="date" content="2020-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="visualization-and-statistical-test.html"/>
 <link rel="next" href="chip-sequencing-analysis.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -177,6 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.3.1</b> Line and points</a></li>
 <li class="chapter" data-level="3.3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.3.2</b> Historgam and density plots</a></li>
 <li class="chapter" data-level="3.3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.3.3</b> Boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#saving-plots"><i class="fa fa-check"></i><b>3.3.4</b> Saving plots</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.4</b> Statistical test</a>
 <ul>
@@ -193,22 +194,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
 <li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
-<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#different-type-of-data-dna-rna-splicing"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing)</a></li>
-<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From The sequencer machine to the sequence</a></li>
-<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignemet-bam-files-annotation-files-bowtie2-and-star"><i class="fa fa-check"></i><b>4.5</b> Alignemet (bam files, annotation files, BOWTIE2 and STAR)</a></li>
-<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#gene-counts-read-feature-counts"><i class="fa fa-check"></i><b>4.6</b> Gene counts / read (feature counts)</a></li>
-<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignement"><i class="fa fa-check"></i><b>4.7</b> Alignement</a></li>
+<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#different-type-of-data-dna-rna-splicing-single-end-paired-end"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing, single-end paired-end)</a></li>
+<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From the sequencer machine to the sequence</a></li>
+<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#general-processing"><i class="fa fa-check"></i><b>4.5</b> General processing</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#visualization-of-alignement-igv"><i class="fa fa-check"></i><b>4.5.1</b> Visualization of alignement (IGV)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#gene-counts-read-esat-feature-counts-peak-calling"><i class="fa fa-check"></i><b>4.5.2</b> Gene counts / read (esat feature counts) /peak calling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
+<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#a-bit-of-shell-comands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell comands</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#resources-1"><i class="fa fa-check"></i><b>4.8</b> Resources</a></li>
+<li class="chapter" data-level="4.9" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#bibliography"><i class="fa fa-check"></i><b>4.9</b> Bibliography</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.2</b> Initial analysis (peak-calling):</a></li>
-<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.3</b> Exploring the results:</a></li>
-<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.4</b> Annotating the peaks.</a></li>
-<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.5</b> Annotate with <code>ChIPseeker</code></a></li>
-<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.6</b> Sequence Motif analysis</a></li>
-<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.7</b> Session info: all the packages installed.</a></li>
-<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.8</b> Extra: only for the ones interested…</a></li>
+<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#objectives-4"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.3</b> Initial analysis (peak-calling):</a></li>
+<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.4</b> Exploring the results:</a></li>
+<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.5</b> Annotating the peaks.</a></li>
+<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.6</b> Annotate with <code>ChIPseeker</code></a></li>
+<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.8</b> Session info: all the packages installed.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.9</b> Extra: only for the ones interested…</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -242,28 +250,196 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>After this section you should be able to:</p>
 <ol style="list-style-type: decimal">
 <li>Have an overview of different sequencing techniques and different genomic data</li>
-<li>Understand the preprocesing of the data before loading it into R</li>
+<li>Understand the pre-procesing of the data before loading it into R</li>
 </ol>
 </div>
 <div id="introduction-3" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Introduction</h2>
-<p>Large scale sequencing techniques become</p>
+<p>Large scale sequencing techniques become more and more common as hight throuput sequencing technologies became cheeper and whidely available. The main objetive of these techniques is to quantify the levels of different molecules: DNA, RNA and proteins.
+The “central dogma of molecular biology” states the main flow from the information stated on genes in the DNA to the expression of proteins. DNA is transcribed to RNA that then is translated to proteins. <strong>DNA –&gt; RNA –&gt; Protein</strong>
+However, this straight line miss a lot of other molecules as miRNAs, lincRNAs, transposons, etc. Moreover, not only the levels but alse the quality and property of each molecule is important. One example is different RNA splicing issoforms or protein modifications.</p>
 </div>
-<div id="different-type-of-data-dna-rna-splicing" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Different type of data (DNA, RNA, splicing)</h2>
+<div id="different-type-of-data-dna-rna-splicing-single-end-paired-end" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Different type of data (DNA, RNA, splicing, single-end paired-end)</h2>
+<p>It is important to know which type of sequencing techines are available, its pros and cons and which type of molecules we are able to capture with out sequencig.
+Even more important we need to understand the characteristics of the data we are analyzing. For example, DNA and RNA libraies differe in the fact that one undergoes splicing. That will affect the way the data is processed.</p>
+<p>Nowadays, there are two main types of librarie for nucleotides: short reads libraries and long reads libraries. Long-read rechniques are more recently developed with two main technologies available: Pacific Biosciences’ (PacBio) single-molecule real-time (SMRT) sequencing and Oxford Nanopore Technologies’ (ONT) nanopore sequencing. In this book we will focus on shor-read libraries, as the ones processed by Illumina machines. This technology is based on PCR amplification of the material and the base pairing with different fluorescently tagged nucleotides.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="images/illumina.png" alt="Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html" width="200px" />
+<p class="caption">
+Figure 1.1: Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html
+</p>
+</div>
+<p>There are many library preparation protocols for Illumina sequecers. All of these techniques must include a step of fragmentation and adapter ligation. These adapters are escential to the inclusion of the fragments in the seqeuncer machine. Moreover, different samples might be pulled together by the use of different adapters with specific sample barcode. The isea of a barcode is the presence of specific sequences that can identify the origin of each sequence fragment. The precess of separating each sample is called <em>demultiplexing</em>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/demultiplex2.png" alt="Demultiplexing strategy" width="500px" />
+<p class="caption">
+Figure 4.1: Demultiplexing strategy
+</p>
+</div>
+<p>Depending on the molecule of interest the library preparation to detec them will be diferent. For DNA the addition of the illumina adaptors can be done by ligation or by tagmentation (which does the fragmentation at the same time). In this case, as DNA has NOT an orientation (is doulbe stranded and palindromic) we do not care which adapter get in which side of the fragment.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/DNAlib.png" alt="DNA library prep" width="200px" />
+<p class="caption">
+Figure 4.2: DNA library prep
+</p>
+</div>
+<p>Contrary to DNA, RNA is single stranded and have a particular direction (5´-3´). It can be produced from the sense or antisense strand of the DNA which is a key property as some parts of the DNA enconde different genes in each strand. Therefore, it is important to mantain the direction information from the RNA molecules. This is usually achieved thru the different 3´and 5´ Illumina adaptors.</p>
+<p>There are many types of RNA molecules with different biochemical properties. To capture each of them, there are different biochemical approaches.
+For small RNAs (20-30nts), usually the lirbary starts with specific small RNA extraction methods.
+To capture polyadenilated mRNAs, we can add a poly A selection step using polyT oligo beads for example. If this step is done after the RNA is fracgmented then this library will be 3´UTR selected. This type of libraries do not provide information about the splicing issoforms for example but it is usefull to asses gene expression levels and is cheeper than multiple qPCRs. Most commonly used single cell sequencing technology use this type of libraries.
+To study also non-polyadenilated transcripts, as lncRNA and circRNAs, we have to deplete the libraries from ribosomal RNA which is the majority of the RNA. This can be achieved by using DNA complenetary probes to rRNA followed by RNAseH digestion (cut RNA-DNA hybrids).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/RNA%20lib.png" alt="Different RNA librarie strategies" width="500px" />
+<p class="caption">
+Figure 4.3: Different RNA librarie strategies
+</p>
+</div>
+<p>Regarding squencing itself we can choose the length of the read and if we want to read only from side of the fragment (<strong>single-ended</strong>) of from both sides (<strong>paired-ended</strong>). Both options have different advantges. To capture different splicing patterns for example, paired-end is reccomended.</p>
 </div>
 <div id="from-the-sequencer-machine-to-the-sequence" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> From The sequencer machine to the sequence</h2>
-<p>BaseCalls Fastq and FastQC files</p>
+<h2><span class="header-section-number">4.4</span> From the sequencer machine to the sequence</h2>
+<p>Illumina sequencing machines can be thought as fluorescence microscopes. The information they generate are basically photografs in whcih each color represent one nuclotide. The first step to produce the sequences is to process these images an convert them in sequences. This is done using the Illumina progam <em>bcl2fastq</em>. This process is named <em>basecalling</em> and process the raw data form Illumina: basecalls files (BCL) and produces Fastq files.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/imagetofast.png" alt="From BCL to Fastq" width="500px" />
+<p class="caption">
+Figure 4.4: From BCL to Fastq
+</p>
 </div>
-<div id="alignemet-bam-files-annotation-files-bowtie2-and-star" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Alignemet (bam files, annotation files, BOWTIE2 and STAR)</h2>
+<p>Each fragment sequenced by the machine is named <strong>READ</strong> and all the reads together form a <strong>LIBRARY</strong>. Fastq format basically encondes the “name” of each read, the nucleotides and quality in <a href="https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html">ASQII format</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/fastqformat.png" alt="Fastq Format" width="500px" />
+<p class="caption">
+Figure 4.5: Fastq Format
+</p>
 </div>
-<div id="gene-counts-read-feature-counts" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Gene counts / read (feature counts)</h2>
+<p>The overall quality of the <em>library</em> can be assed using programs as <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>. These programs read the quality and generate a overall meassurement of them. Each time the machine sequence a read it evaluates the confidence it has to assign it to a aprticular nucleotide. This is a general idea of what the quality of each base means.</p>
+<p>Low quality reads can be filtered and low quality bases can be trimmed from reads using tools as <a href="https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/">trimgalore</a> or <a href="https://cutadapt.readthedocs.io/en/stable/">cutadapt</a>.</p>
 </div>
-<div id="alignement" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Alignement</h2>
+<div id="general-processing" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> General processing</h2>
+<p>Once we have the sequencing data in fastq format we have to find where each read comes from. This is called <strong>aligninement</strong>. The next step is to <strong>quantify</strong> how many reads comes from each place in the genome.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="images/general%20processing.png" alt="General processing" width="500px" />
+<p class="caption">
+Figure 4.6: General processing
+</p>
+</div>
+<p>###Alignemet (bam files, annotation files, BOWTIE2 and STAR)</p>
+<p>Once we have the fastq file we have to “find” which part of the genome it is comming from. This process is called <strong>alignement</strong>. Unleas we are working with uncommon organisms, most genomes are already sequenced, whcih means we already know the sequence of each part of the genoem. Therefore this step is almost trivial. We have to <strong>align</strong> the <strong>reads</strong> to the <strong>genome</strong>.</p>
+<p>The reads are in <strong>fastq</strong> format, and the genome are in <strong>fasta</strong> format. The fasta format start with <code>&gt;The name of the chromosome</code> and then it stores the sequence of the chromosome.</p>
+<pre><code>&gt;chr1
+AAATTCGGGCCAA...</code></pre>
+<p>Maybe you have already heard about BLAST alignement. Unfortunatelly this is not fast enough to aligne the millon of reads we generate from each seuqencing experiment. Therefore, new techniques were developed. There are many different really good tools available. It is not the same to aligne DNA that RNA. The main difference is the splicing awareness and the use of the gene annotation.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/DNAvsRNAalig.png" alt="DNA vs RNA alignement single and paired end" width="500px" />
+<p class="caption">
+Figure 4.7: DNA vs RNA alignement single and paired end
+</p>
+</div>
+<p>The gene annotation files contain the information about which gene is encoded in each part of the genome. It include exons, introns and different transcript variants. There are different format of annotation files. The mostly used ones are <a href="https://useast.ensembl.org/info/website/upload/gff.html">gtf</a> and <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">bed12</a>. Both contain the information about gene name, chromosoem, start, end, number of exons and where each exon start.</p>
+<p>Of course both the genome and the annotation files are updated frequently so you should considere update them as you can. Databeses commonly used are <a href="https://useast.ensembl.org/info/data/ftp/index.html">ENSEMBL</a> and <a href="https://genome.ucsc.edu/cgi-bin/hgTables">UCSC</a>.</p>
+<p>Just to show one example, gtf of fly annotation version dm6:</p>
+<pre><code>#gff-version 2
+#source-version rtracklayer 1.38.3
+#date 2018-04-23
+#genome-build . BDGP6
+chr3R   FlyBase gene    567076  2532932 .   +   .   gene_id &quot;FBgn0267431&quot;; gene_name &quot;Myo81F&quot;; gene_source &quot;FlyBase&quot;; gene_biotype &quot;protein_coding&quot;;
+chr3R   FlyBase transcript  567076  2532932 .   +   .   gene_id &quot;FBgn0267431&quot;; gene_name &quot;Myo81F&quot;; gene_source &quot;FlyBase&quot;; gene_biotype &quot;protein_coding&quot;; transcript_id &quot;FBtr0392909&quot;; transcript_name &quot;Myo81F-RB&quot;; transcript_source &quot;FlyBase&quot;; transcript_biotype &quot;protein_coding&quot;;</code></pre>
+<p>One we have aligned the data, we will have <strong>.sam</strong> files or its binary “lighter/smaller” version <strong>.bam</strong>. <a href="http://samtools.github.io/hts-specs/SAMv1.pdf">These files</a> are composed of one line per read. Each line has the read names, its sequence and the location to where it was aligned it also have enconded a lot of different quality metrics including the already discussed fastq quality. Each alignement will have diffrent alignemet quality. A perfect read with a perfect match to the reference genome would give a perfect score. The presence of gaps on the alignement would reduce the alignement quality. Reads with low quality (less than 20 for example) are usually filtered and not used in downstream analysis.</p>
+<p>Here the example for two reads of the data sets usend in next chapter.</p>
+<pre><code>SRR548157.14400783  16  chr2L   24  1   36M *   0   AGAACAGATATTTAGATTGCCTCTCATTTTCTCTCC    HHDHHHHHHHHFHHHHHHHHFHEHHHHHHHHHHHFG    AS:i:0  XS:i:0  XN:i:0  XM:i:0  XO:i:0  XG:i:0  NM:i:0  MD:Z:36 YT:Z:UU
+SRR548157.4410720   0   chr2L   247 1   36M *   0   AGTGCCAACATATTGTGCTAATGAGTGCCTCTCGTT    E@=?@BDDBDHGHGHDHGIGGIBGGDEGFGB@BEBD    AS:i:0  XS:i:0  XN:i:0  XM:i:0  XO:i:0  XG:i:0  NM:i:0  MD:Z:36 YT:Z:UU</code></pre>
+<p>Reads can be also aligning to one or multiple sites in the genome. This last option is usually called: <strong>multiple mapping</strong>. For repetitive sequences in the genome, as rRNA loci and transposons, it is expected that they will mapp to multiples places. For other loci, the multiple mapping can be an indication of low quality reads. For RNA sequencing analysis mulitple mapping reads are problematic when quantifying gene expression so sometimes they are removed from downstream analisys.</p>
+<p>Alignement files can be sorted or unsorted. This means basically if the reads are sorted in the order they were in the fastq file or in the order they appear aligned to the genome. A <strong>sorted</strong> file basically will have the reads aligned to chr1 before the ones from chr2, and so on. This is important as some tools (as the visualization) require reads to be sorted.</p>
+<div id="visualization-of-alignement-igv" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Visualization of alignement (IGV)</h3>
+<p>Alignement files can be visualized using different tools as [UCSC genome browser] (<a href="https://genome.ucsc.edu/goldenPath/help/hgTrackHubHelp.html" class="uri">https://genome.ucsc.edu/goldenPath/help/hgTrackHubHelp.html</a>) or [IGV](<a href="https://software.broadinstitute.org/software/igv/home" class="uri">https://software.broadinstitute.org/software/igv/home</a>. IGV have the option to load your own genomes and annotation data.</p>
+<p>To load it we will need the sorted bam files. This will allow us to visualize each read with its alignement quality, gaps, etc.</p>
+<p>PUT image</p>
+<p>As bam files are realy big there are options to store only the total count visualization. These files format can be bigwig or TDF for example.</p>
+<p>PUT image</p>
+</div>
+<div id="gene-counts-read-esat-feature-counts-peak-calling" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Gene counts / read (esat feature counts) /peak calling</h3>
+<p>Many times, it is important to account for the number of reads alignning to each par of the genome.</p>
+<p>One example of DNA sequencing data is ChipSeq data, in which we want to know to which parts of the DNA certain protein is binding to. In that case, the number of reads represent the level of binding of that protein. For RNA, the number of reads comming from one gene basically represents the level of expression of that gene.</p>
+</div>
+</div>
+<div id="using-the-terminal" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Using the terminal</h2>
+<p>The terminal is just a way to execute commands in your computer. Is is alternatively referred to as a computer console, root console or system console. It is a non-graphical output of the omputer cennected with the keyboard. With it you can do anything that you would do with the mouse like for example copy a file or moving it from one location to another.</p>
+<p>Different operating systems for personal computers as Unix (linux and Mac OS) or Windows have different functioning. Most of the genomic programs are written and excecuted in Unix, if you have a Windows machine you can use a terminal emulator as the ones listed <a href="https://www.puttygen.com/windows-terminal-emulators">here</a>.</p>
+<p>A list of usefull commands can be found in many places, <a href="http://mally.stanford.edu/~sr/computing/basic-unix.html">here</a> one example.</p>
+<p>The first thing I would reccomend you to try is to find which is your working directory (sometimes called <em>folder</em>). Remember, is the place in which you are located right now and where things will be executed. You can do so by typing.</p>
+<pre><code>pwd</code></pre>
+<p>If you want to know what is inside your current directory, you can <em>list</em> the elemts by</p>
+<pre><code>ls</code></pre>
+<p>There are other options to visualize this. What happens if you type this?</p>
+<pre><code>ls -l</code></pre>
+<p>Usually commands have options and this option is usally indicated by the <code>-</code> sign.</p>
+<p>Lets try now something more:</p>
+<pre><code>ls -la</code></pre>
+<p>You can see that now it appear to be extra directories inside. This is because the opton <code>-a</code> basically is exposing the hidden files and directries.</p>
+<p>The directory <code>..</code> and <code>.</code> are ways to point to the directory containing the working directory and the working idrecotyr itself. I know it is complicated, so lets see and example. What happens if you do <code>ls -l ./</code> ? and <code>ls -la</code>? Basically you will see the same elemnts because <code>./</code> is the current directory.</p>
+<p><code>../</code> is the “upper” directory, meaning the directory that contains the working directory. Try it out.</p>
+<p>To change directory, <code>cd</code> is your command. You just have to say were you wanna go. Try:
+<code>cd ../</code> and explore it with <code>ls</code>. Then you can go back into the one you were before with <code>cd ./thenameyousawbeforewithpwd</code></p>
+<p>Once you know where you are and how to move, you can start creating new directories or folders with <code>mkdir</code>. Each command has certain things you must provide. Try to run just <code>mkdir</code>. You will get an error message like this <code>usage: mkdir [-pv] [-m mode] directory ...</code>. This is literally letting you know what is the expected ways of things. Basically it needs the name of the directory you want to create. Try now</p>
+<p><code>mkdir try</code></p>
+<p>What happens if you do <code>ls</code>. Do you see it now?</p>
+<p>To copy a file we use <code>cp</code>. It wors as follows <code>cp whatyouwant towhereyouwantwiththenameyouwant</code>. For example,</p>
+<p><code>cp try trycopy</code></p>
+<p>To move the location of a file you use <code>mv what where</code>. For example:</p>
+<p><code>mv try ../</code></p>
+<p>Use</p>
+<p><code>ls ../</code></p>
+<p>to see if is there.</p>
+<p>To remove it you have to use <code>rm ../try</code>. You will get an error message as follows:
+<code>rm: try/: is a directory</code>. To avoid it you have to use the option <code>-r</code>. Basically r comes from recursive and is because you want to delete the folder with all the files inside so it “recursivelly” removes.
+Try now <code>rm -r ../try</code>. Use <code>ls ../</code> to check that it is out. You can also do <code>cd ../</code> and then <code>ls ./</code> to see that you removed it.</p>
+<p>To edit and create text files like scripts I use <a href="https://www.cs.colostate.edu/helpdocs/vi.html">vi</a> There are many tutorials you can find online. <a href="https://www.guru99.com/the-vi-editor.html">This</a> is good. Just by saying <code>vi newtext.txt</code>, you will be in your brand new text to edit it.</p>
+<p>Understanding the directories is important. There are a set of “special” directories I would like to mention so you just have them in mind.</p>
+<p><strong>/ – The Root Directory</strong>
+Is where all the things are. All you programs, folders, etc.
+Lets see some examples of the sub-directories you will find there.
+<strong>/bin – Essential User Binaries</strong>
+The /bin director contains the essential user binaries (programs) that must be present when the system is on. This means that for example, your operative system bash shell will be there but your google chrome no. Your installed programs will be in <strong>/usr/bin</strong>
+<strong>/boot – Static Boot Files</strong>
+The /boot directory contains the files needed to boot the system.
+<strong>/etc – Configuration Files</strong>
+/etc/ directory contains system-wide configuration files – user-specific configuration files are located in each user’s home directory
+<strong>/home</strong>
+The /home directory contains a home folder for each user.
+<strong>/lib – Essential Shared Libraries</strong>
+The /lib directory contains libraries needed by the essential binaries in the /bin and /sbin folder. Libraries needed by the binaries in the /usr/bin folder are located in /usr/lib.
+<strong>/tmp – Temporary Files</strong>
+Applications store temporary files in the /tmp directory.
+<strong>/usr – User Binaries &amp; Read-Only Data</strong>
+The /usr directory contains applications and files used by users, as opposed to applications and files used by the system.</p>
+</div>
+<div id="a-bit-of-shell-comands" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> A bit of shell comands</h2>
+<p><em>Shell</em> is a another language as <em>R</em>. As scripts in R, they also have a particular way of working. I am not going to go into detail with them but will try to give some ideas of for loops that can be usefull to write scripts.</p>
+<p>Shell commands ends with .sh and to rum them you just type: sh yourshellscript.sh</p>
+<p>In a shell script you can do everything that you would do directly in the terminal.</p>
+<p>You can create them by <code>vi myshellscript.sh</code> and then adding things like:</p>
+<pre><code>mkdir AAA</code></pre>
+<p>Remember, to edit the text you will have to use the insert mode (presing the key A for example). To save your changes you have to be out of the insert mode (pressing scape key) and then <code>:w</code>. This will “write” the changes. Then you can exit the editor with <code>:q</code>. If you want to quit without saving you can press <code>:q!</code>.</p>
+<p>Try it out and see what heppens using <code>ls</code> for example. Then you can execute the script by typing</p>
+<p><code>sh myshellscript.sh</code></p>
+<p>What do you expect to happened now? Do you see any changes with <code>ls</code>?</p>
+</div>
+<div id="resources-1" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Resources</h2>
+</div>
+<div id="bibliography" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Bibliography</h2>
+<p>Griffith M, Walker JR, Spies NC, Ainscough BJ, Griffith OL (2015) Informatics for RNA Sequencing: A Web Resource for Analysis on the Cloud. PLoS Comput Biol 11(8): e1004393. <a href="https://doi.org/10.1371/journal.pcbi.1004393" class="uri">https://doi.org/10.1371/journal.pcbi.1004393</a></p>
+<p>An introduction to Next-Generation Sequencing Technology, Illumina, available at www.illumina.com/technology/next-generation-sequencing.html</p>
+<p>Alberts B, Johnson A, Lewis J, et al. Molecular Biology of the Cell. 4th edition. New York: Garland Science; 2002. From DNA to RNA. Available from: <a href="https://www.ncbi.nlm.nih.gov/books/NBK26887/" class="uri">https://www.ncbi.nlm.nih.gov/books/NBK26887/</a></p>
+<p>Amarasinghe, S.L., Su, S., Dong, X. et al. Opportunities and challenges in long-read sequencing data analysis. Genome Biol 21, 30 (2020). <a href="https://doi.org/10.1186/s13059-020-1935-5" class="uri">https://doi.org/10.1186/s13059-020-1935-5</a></p>
+<p><a href="https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/" class="uri">https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/</a></p>
 
 </div>
 </div>

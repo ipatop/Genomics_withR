@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 5 Chip Sequencing Analysis | Genomics with R for biologists</title>
   <meta name="description" content="This is the index for the coursebook" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 5 Chip Sequencing Analysis | Genomics with R for biologists" />
   <meta property="og:type" content="book" />
@@ -24,16 +24,16 @@
 <meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
 
 
-<meta name="date" content="2020-03-30" />
+<meta name="date" content="2020-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sequencing-techniques-and-preprocesing.html"/>
+<link rel="prev" href="sequencing-techniques-and-preprocessing.html"/>
 
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -177,38 +177,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.3.1</b> Line and points</a></li>
 <li class="chapter" data-level="3.3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.3.2</b> Historgam and density plots</a></li>
 <li class="chapter" data-level="3.3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.3.3</b> Boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#saving-plots"><i class="fa fa-check"></i><b>3.3.4</b> Saving plots</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.4</b> Statistical test</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.4.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.4.2</b> T-test/Wilcoxon</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.4.3</b> Anova/Kruskal–Wallis</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.5</b> T-test/Wilcoxon</a>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-2"><i class="fa fa-check"></i><b>3.5</b> Activity:</a></li>
+<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocessing</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.5.1</b> Anova/Kruskal–Wallis</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-2"><i class="fa fa-check"></i><b>3.6</b> Activity:</a></li>
-<li class="chapter" data-level="3.7" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.7</b> Resources</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocesing</a>
+<li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#different-type-of-data-dna-rna-splicing-single-end-paired-end"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing, single-end paired-end)</a></li>
+<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From the sequencer machine to the sequence</a></li>
+<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#general-processing"><i class="fa fa-check"></i><b>4.5</b> General processing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
-<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#different-type-of-data-dna-rna-splicing"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing)</a></li>
-<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From The sequencer machine to the sequence</a></li>
-<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignemet-bam-files-annotation-files-bowtie2-and-star"><i class="fa fa-check"></i><b>4.5</b> Alignemet (bam files, annotation files, BOWTIE2 and STAR)</a></li>
-<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#gene-counts-read-feature-counts"><i class="fa fa-check"></i><b>4.6</b> Gene counts / read (feature counts)</a></li>
-<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignement"><i class="fa fa-check"></i><b>4.7</b> Alignement</a></li>
+<li class="chapter" data-level="4.5.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#visualization-of-alignment-igv"><i class="fa fa-check"></i><b>4.5.1</b> Visualization of alignment (IGV)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#gene-counts-read-esat-feature-counts-peak-calling"><i class="fa fa-check"></i><b>4.5.2</b> Gene counts / read (esat feature counts) /peak calling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
+<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#a-bit-of-shell-commands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell commands</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-1"><i class="fa fa-check"></i><b>4.8</b> Resources</a></li>
+<li class="chapter" data-level="4.9" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#bibliography"><i class="fa fa-check"></i><b>4.9</b> Bibliography</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.2</b> Initial analysis (peak-calling):</a></li>
-<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.3</b> Exploring the results:</a></li>
-<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.4</b> Annotating the peaks.</a></li>
-<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.5</b> Annotate with <code>ChIPseeker</code></a></li>
-<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.6</b> Sequence Motif analysis</a></li>
-<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.7</b> Session info: all the packages installed.</a></li>
-<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.8</b> Extra: only for the ones interested…</a></li>
+<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#objectives-4"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.3</b> Initial analysis (peak-calling):</a></li>
+<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.4</b> Exploring the results:</a></li>
+<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.5</b> Annotating the peaks.</a></li>
+<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.6</b> Annotate with <code>ChIPseeker</code></a></li>
+<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.8</b> Session info: all the packages installed.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.9</b> Extra: only for the ones interested…</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -237,25 +243,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="chip-sequencing-analysis" class="section level1" number="5">
 <h1><span class="header-section-number">Lab 5</span> Chip Sequencing Analysis</h1>
-<div id="introduction-4" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Introduction</h2>
-<p>We will re-analyze some data from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE77451">paper</a>.</p>
-<p>In this work the authors study genomewide the binding of two transcription factors (x and y) in the fruit fly (Drosophila melanogaster). To do so they do Chip sequencing.</p>
+<div id="objectives-4" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Objectives</h2>
+<p>After this section you should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Explore results from ChipSeq data.</li>
+<li>Modify tables and change gene names.</li>
+<li>Use different ChiSeq gene annotation packages from R.</li>
+<li>Find sequence motiff enrichement in sequencing data.</li>
+</ol>
+</div>
+<div id="introduction-4" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Introduction</h2>
+<p>We will re-analyze some data from <a href="https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1">Meireles-Filho et al 2013</a>.</p>
+<p>In this work the authors study genomewide the binding of two transcription factors (Clk and Cyc) in the fruit fly (Drosophila melanogaster). To do so they do Chip sequencing.</p>
+<p>These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="images/clkcyc.jpg" alt="Circadian clock at the molecular level. Figure adapted from Meireles-Filho  et al 2013" width="500px" />
+<p class="caption">
+Figure 1.1: Circadian clock at the molecular level. Figure adapted from Meireles-Filho et al 2013
+</p>
+</div>
+<p>The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription.</p>
+<p>Delays exist between transcription of per and tim mRNA and the localization of these proteins in the nucleus, where they can interact with transcriptional activators Clock (CLK) and Cycle (CYC).</p>
+<p>These delays are thought to be important for allowing the molecular clock to cycle with a period of ∼24 hr. Critical regulators have been identified at several steps of the cycle that are necessary for accurate timing and strength of molecular rhythms. Degradation of PER and TIM allows the cycle to start anew. Not pictured is the second feedback loop formed by PDP1 and Vrille, which produces cycling of Clk mRNA. This secondary feedback loop is thought to reinforce molecular oscillations, although cycling of the CLK protein is not necessary for rhythms. CKII, Casein Kinase II; SGG, shaggy; PP2A, Protein Phosphatase 2A; PP1, Protein Phosphatase 1; DBT, doubletime.</p>
 <p><strong>Chip-seq procedure:</strong></p>
 <p>“ChIP-seq” is short for “chromatin immunoprecipitation (ChIP) followed by sequencing”.</p>
 <p>ChipSeq data is basically DNA sequencing data in which the DNA is sequenced AFTER immunoprecipitating a protein of interest. Therefore, we expect to sequence the peaces of DNA that is interacting with the immunoprecipitated protein.</p>
 <p>If the protein of interest is a transcription factor (TF) for example, we expect to get the regions of DNA that are being regulated by this particular TF.</p>
 <p>It is important to have a control to see the probability to have a signal in a particular region just by chance. Usually as a control we use the DNA sequencing BEFORE immunoprecipitation (IP). This data is usually called input (INP).</p>
 <p>The biochemical procedure usually goes as follows:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
 <img src="macs2_analysis_p0.05/chip-sequencing-service-500x500.png" alt="ChipSeq procedure. Figure adapted" width="500px" />
 <p class="caption">
-Figure 1.1: ChipSeq procedure. Figure adapted
+Figure 4.1: ChipSeq procedure. Figure adapted
 </p>
 </div>
 </div>
-<div id="initial-analysis-peak-calling" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Initial analysis (peak-calling):</h2>
+<div id="initial-analysis-peak-calling" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Initial analysis (peak-calling):</h2>
 <p>Our goal is then to quantify signal enrichment in certain part of the genome in IP vs INP sequencing. This is achieved by comparing the ALIGNEMENT of the reads of IP vs INP.</p>
 <p>This process is called “peak calling” because it is trying to determine the “pileup” of reads along the genome forming “peaks”. As any peak the algorithm used will report high of the peak, summit location, width and finally a pvalue corresponding to the comparison of the signal in that region in IP vs INP.</p>
 <p>For this analysis we use <a href="https://github.com/taoliu/MACS">MACS</a> algorithm to assess the peaks from the sequencing data.</p>
@@ -341,13 +367,13 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 <p>The .bdg files are in bedGraph format which can be imported to UCSC genome browser or be converted into even smaller bigWig files. There are two kinds of bdg files: treat_pileup, and control_lambda.</p>
 </blockquote>
 </div>
-<div id="exploring-the-results" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Exploring the results:</h2>
+<div id="exploring-the-results" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Exploring the results:</h2>
 <p>We will see the first part of the output we get in the “NAME_peaks.xls”:</p>
 <p>We can see here that we have all the columns we expect and we cqn try to see places we know are interesting for us.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="chip-sequencing-analysis.html#cb173-1"></a><span class="co">##knitr::include_graphics(&#39;images/hex-rmarkdown.png&#39;)</span></span>
-<span id="cb173-2"><a href="chip-sequencing-analysis.html#cb173-2"></a>macs.res&lt;-<span class="kw">read.table</span>(<span class="st">&quot;./macs2_analysis_p0.05/PeakAna_clk_Ip_vs_INP_peaks_bed.txt&quot;</span>,<span class="dt">header =</span> T)</span>
-<span id="cb173-3"><a href="chip-sequencing-analysis.html#cb173-3"></a><span class="kw">head</span>(macs.res)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="chip-sequencing-analysis.html#cb194-1"></a><span class="co">##knitr::include_graphics(&#39;images/hex-rmarkdown.png&#39;)</span></span>
+<span id="cb194-2"><a href="chip-sequencing-analysis.html#cb194-2"></a>macs.res&lt;-<span class="kw">read.table</span>(<span class="st">&quot;./macs2_analysis_p0.05/PeakAna_clk_Ip_vs_INP_peaks_bed.txt&quot;</span>,<span class="dt">header =</span> T)</span>
+<span id="cb194-3"><a href="chip-sequencing-analysis.html#cb194-3"></a><span class="kw">head</span>(macs.res)</span></code></pre></div>
 <pre><code>##     chr start   end length abs_summit pileup X.log10.pvalue. fold_enrichment
 ## 1 chr2L 34224 34348    125      34306  20.88         2.75497         1.97319
 ## 2 chr2L 34965 35180    216      35108  23.26         3.33362         2.02190
@@ -363,8 +389,8 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 ## 5         9.82848 PeakAna_clk_Ip_vs_INP_peak_5
 ## 6         0.83175 PeakAna_clk_Ip_vs_INP_peak_6</code></pre>
 </div>
-<div id="annotating-the-peaks." class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Annotating the peaks.</h2>
+<div id="annotating-the-peaks." class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Annotating the peaks.</h2>
 <p>With this information we want to be able to conclude something about this transcription factor regulation.</p>
 <p>The first thing to see is genes that might be regulated. This is basically looking which is the closest gene to each peak.</p>
 <p>To do this we will just looking at the annotation file that have the information of which gene is in each region of the genome (we can think of this as the “map” of the genome).</p>
@@ -372,18 +398,18 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 <p>What problems you can think that this approach might have? Think about enhancers for example.</p>
 </blockquote>
 <p>For this we will use the following libraries:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="chip-sequencing-analysis.html#cb175-1"></a><span class="kw">library</span>(GenomicFeatures) <span class="co">##This is an R package to deal with genomic data. You can read more at https://bioconductor.org/packages/release/bioc/vignettes/GenomicFeatures/inst/doc/GenomicFeatures.pdf</span></span>
-<span id="cb175-2"><a href="chip-sequencing-analysis.html#cb175-2"></a><span class="kw">library</span>(ChIPpeakAnno) <span class="co">##This is a package to annotate Chip-Peaks data https://bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/ChIPpeakAnno.html</span></span></code></pre></div>
-<div id="read-the-annotation-file" class="section level4" number="5.4.0.1">
-<h4><span class="header-section-number">5.4.0.1</span> Read the annotation file</h4>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="chip-sequencing-analysis.html#cb196-1"></a><span class="kw">library</span>(GenomicFeatures) <span class="co">##This is an R package to deal with genomic data. You can read more at https://bioconductor.org/packages/release/bioc/vignettes/GenomicFeatures/inst/doc/GenomicFeatures.pdf</span></span>
+<span id="cb196-2"><a href="chip-sequencing-analysis.html#cb196-2"></a><span class="kw">library</span>(ChIPpeakAnno) <span class="co">##This is a package to annotate Chip-Peaks data https://bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/ChIPpeakAnno.html</span></span></code></pre></div>
+<div id="read-the-annotation-file" class="section level4" number="5.5.0.1">
+<h4><span class="header-section-number">5.5.0.1</span> Read the annotation file</h4>
 <p>In class we saw what were annotation files. Those were files that contained the “map” of the genome. This map shows us where each gene start and end and where each exon, intron and UTR is in that gene.</p>
 <p>We will work with a GTF file. Remember that annotation files can be in many formats. They can be downloaded from different places as UCSC genome browser, Ensemble, etc.</p>
 <p>To read the GTF file we will use the <code>makeTxDbFromGFF</code> function. We are doing this because it will allow us to change it to another format, sqlite.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="chip-sequencing-analysis.html#cb176-1"></a>txdb &lt;-<span class="st"> </span><span class="kw">makeTxDbFromGFF</span>(<span class="dt">file=</span><span class="st">&quot;macs2_analysis_p0.05/annot2.chr.gtf&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;gtf&quot;</span>, <span class="dt">dataSource=</span><span class="st">&quot;dm6&quot;</span>, <span class="dt">organism=</span><span class="st">&quot;Drosophila melanogaster&quot;</span>) <span class="co">##this funciton is actually reading the GTF file and creating a data base. Try reading the help documentation of this funciton.</span></span>
-<span id="cb176-2"><a href="chip-sequencing-analysis.html#cb176-2"></a></span>
-<span id="cb176-3"><a href="chip-sequencing-analysis.html#cb176-3"></a><span class="co">##Now we need to save this as an sqlite:</span></span>
-<span id="cb176-4"><a href="chip-sequencing-analysis.html#cb176-4"></a><span class="kw">saveDb</span>(txdb, <span class="dt">file=</span><span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>) <span class="co">##Look at your working directory, what happened?</span></span>
-<span id="cb176-5"><a href="chip-sequencing-analysis.html#cb176-5"></a>txdb &lt;-<span class="st"> </span><span class="kw">loadDb</span>(<span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>) <span class="co">##this is loading the sqlite directly without creating the database</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="chip-sequencing-analysis.html#cb197-1"></a>txdb &lt;-<span class="st"> </span><span class="kw">makeTxDbFromGFF</span>(<span class="dt">file=</span><span class="st">&quot;macs2_analysis_p0.05/annot2.chr.gtf&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;gtf&quot;</span>, <span class="dt">dataSource=</span><span class="st">&quot;dm6&quot;</span>, <span class="dt">organism=</span><span class="st">&quot;Drosophila melanogaster&quot;</span>) <span class="co">##this funciton is actually reading the GTF file and creating a data base. Try reading the help documentation of this funciton.</span></span>
+<span id="cb197-2"><a href="chip-sequencing-analysis.html#cb197-2"></a></span>
+<span id="cb197-3"><a href="chip-sequencing-analysis.html#cb197-3"></a><span class="co">##Now we need to save this as an sqlite:</span></span>
+<span id="cb197-4"><a href="chip-sequencing-analysis.html#cb197-4"></a><span class="kw">saveDb</span>(txdb, <span class="dt">file=</span><span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>) <span class="co">##Look at your working directory, what happened?</span></span>
+<span id="cb197-5"><a href="chip-sequencing-analysis.html#cb197-5"></a>txdb &lt;-<span class="st"> </span><span class="kw">loadDb</span>(<span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>) <span class="co">##this is loading the sqlite directly without creating the database</span></span></code></pre></div>
 <pre><code>## TxDb object:
 ## # Db type: TxDb
 ## # Supporting package: GenomicFeatures
@@ -396,18 +422,18 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-03-30 18:00:32 -0400 (Mon, 30 Mar 2020)
+## # Creation time: 2020-06-17 23:17:06 -0400 (Wed, 17 Jun 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2</code></pre>
 </div>
-<div id="get-the-genes-from-this-annotation-data-base" class="section level4" number="5.4.0.2">
-<h4><span class="header-section-number">5.4.0.2</span> Get the genes from this annotation data base</h4>
+<div id="get-the-genes-from-this-annotation-data-base" class="section level4" number="5.5.0.2">
+<h4><span class="header-section-number">5.5.0.2</span> Get the genes from this annotation data base</h4>
 <p>The function <code>genes</code> actually extract the genomic ranges (chr start, end, strand, etc) from the genes in the annotation data base we are working with <code>txdb</code>.</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="chip-sequencing-analysis.html#cb178-1"></a>ge &lt;-<span class="st"> </span><span class="kw">genes</span>(txdb, <span class="dt">columns=</span><span class="kw">c</span>(<span class="st">&quot;tx_name&quot;</span>, <span class="st">&quot;gene_id&quot;</span>, <span class="st">&quot;tx_type&quot;</span>)) <span class="co">##get the genes genomic ranges, what do you think are the options we are passing to this function? (read the help manual to check).</span></span>
-<span id="cb178-2"><a href="chip-sequencing-analysis.html#cb178-2"></a></span>
-<span id="cb178-3"><a href="chip-sequencing-analysis.html#cb178-3"></a><span class="co">##lets look at the genes:</span></span>
-<span id="cb178-4"><a href="chip-sequencing-analysis.html#cb178-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="chip-sequencing-analysis.html#cb199-1"></a>ge &lt;-<span class="st"> </span><span class="kw">genes</span>(txdb, <span class="dt">columns=</span><span class="kw">c</span>(<span class="st">&quot;tx_name&quot;</span>, <span class="st">&quot;gene_id&quot;</span>, <span class="st">&quot;tx_type&quot;</span>)) <span class="co">##get the genes genomic ranges, what do you think are the options we are passing to this function? (read the help manual to check).</span></span>
+<span id="cb199-2"><a href="chip-sequencing-analysis.html#cb199-2"></a></span>
+<span id="cb199-3"><a href="chip-sequencing-analysis.html#cb199-3"></a><span class="co">##lets look at the genes:</span></span>
+<span id="cb199-4"><a href="chip-sequencing-analysis.html#cb199-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span></code></pre></div>
 <pre><code>##             seqnames    start      end width strand      tx_name     gene_id
 ## FBgn0000003    chr3R  6822498  6822796   299      +  FBtr0081624 FBgn0000003
 ## FBgn0000008    chr2R 22136968 22172834 35867      + FBtr0071.... FBgn0000008
@@ -423,14 +449,14 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 ## FBgn0000017 transcript
 ## FBgn0000018 transcript</code></pre>
 </div>
-<div id="get-the-genomic-ranges-of-the-peaks-from-macs-and-find-which-gene-is-closer-to-them-ie.-annotate-them" class="section level4" number="5.4.0.3">
-<h4><span class="header-section-number">5.4.0.3</span> Get the genomic ranges of the peaks from MACS and find which gene is closer to them (ie. Annotate them)</h4>
+<div id="get-the-genomic-ranges-of-the-peaks-from-macs-and-find-which-gene-is-closer-to-them-ie.-annotate-them" class="section level4" number="5.5.0.3">
+<h4><span class="header-section-number">5.5.0.3</span> Get the genomic ranges of the peaks from MACS and find which gene is closer to them (ie. Annotate them)</h4>
 <p>Now we will use the function <code>GRanges</code> to actually get the genomic ranges of the peaks from MACS. And we will annotate them with the function <code>annotatedPeak</code> and the <code>genes</code> function to map them to the closer gene.</p>
 <p>Basically we are using the information about the genes (start, end, etc) to see which is the closest one to each peak.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="chip-sequencing-analysis.html#cb180-1"></a>peaksGR&lt;-<span class="kw">GRanges</span>(macs.res) <span class="co">##create the GRanges object of the macs-table.</span></span>
-<span id="cb180-2"><a href="chip-sequencing-analysis.html#cb180-2"></a>annotatedPeak &lt;-<span class="st"> </span><span class="kw">annotatePeakInBatch</span>(peaksGR, <span class="dt">AnnotationData=</span><span class="kw">genes</span>(txdb))</span>
-<span id="cb180-3"><a href="chip-sequencing-analysis.html#cb180-3"></a><span class="co">##look at the begining of the table</span></span>
-<span id="cb180-4"><a href="chip-sequencing-analysis.html#cb180-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak))</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="chip-sequencing-analysis.html#cb201-1"></a>peaksGR&lt;-<span class="kw">GRanges</span>(macs.res) <span class="co">##create the GRanges object of the macs-table.</span></span>
+<span id="cb201-2"><a href="chip-sequencing-analysis.html#cb201-2"></a>annotatedPeak &lt;-<span class="st"> </span><span class="kw">annotatePeakInBatch</span>(peaksGR, <span class="dt">AnnotationData=</span><span class="kw">genes</span>(txdb))</span>
+<span id="cb201-3"><a href="chip-sequencing-analysis.html#cb201-3"></a><span class="co">##look at the begining of the table</span></span>
+<span id="cb201-4"><a href="chip-sequencing-analysis.html#cb201-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak))</span></code></pre></div>
 <pre><code>##                    seqnames start   end width strand length abs_summit pileup
 ## X00001.FBgn0031209    chr2L 34224 34348   125      *    125      34306  20.88
 ## X00002.FBgn0031209    chr2L 34965 35180   216      *    216      35108  23.26
@@ -467,15 +493,15 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 ## X00005.FBgn0267987              3551             2601          NearestLocation
 ## X00006.FBgn0051973              3390             3265          NearestLocation</code></pre>
 </div>
-<div id="change-the-gene-format." class="section level4" number="5.4.0.4">
-<h4><span class="header-section-number">5.4.0.4</span> Change the gene format.</h4>
+<div id="change-the-gene-format." class="section level4" number="5.5.0.4">
+<h4><span class="header-section-number">5.5.0.4</span> Change the gene format.</h4>
 <p>What do you notice about the table annotatedPeak? Can you recognize any of the genes? Try to google some of them.</p>
 <p>The gene names are now in a format that is general for fly genes. This format is the one we have from flyblase.org, a database for fly genes. These names are useful for databases purposes but are not indicative of their function. Therefore, we want now to put the gene-names that we all know (no the Fb…), to do so we need to use the following packages:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="chip-sequencing-analysis.html#cb182-1"></a><span class="kw">library</span>(AnnotationDbi) <span class="co">##annotation data base package: https://bioconductor.org/packages/release/bioc/vignettes/AnnotationDbi/inst/doc/IntroToAnnotationPackages.pdf</span></span>
-<span id="cb182-2"><a href="chip-sequencing-analysis.html#cb182-2"></a><span class="kw">library</span>(org.Dm.eg.db) <span class="co">##Drosophila melanogaster (Dm) data base</span></span>
-<span id="cb182-3"><a href="chip-sequencing-analysis.html#cb182-3"></a><span class="kw">library</span>(dplyr) <span class="co">##this package allows us to manipulate better the data.frames</span></span></code></pre></div>
-<div id="get-the-names-of-the-genes" class="section level6" number="5.4.0.4.0.1">
-<h6><span class="header-section-number">5.4.0.4.0.1</span> Get the names of the genes</h6>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="chip-sequencing-analysis.html#cb203-1"></a><span class="kw">library</span>(AnnotationDbi) <span class="co">##annotation data base package: https://bioconductor.org/packages/release/bioc/vignettes/AnnotationDbi/inst/doc/IntroToAnnotationPackages.pdf</span></span>
+<span id="cb203-2"><a href="chip-sequencing-analysis.html#cb203-2"></a><span class="kw">library</span>(org.Dm.eg.db) <span class="co">##Drosophila melanogaster (Dm) data base</span></span>
+<span id="cb203-3"><a href="chip-sequencing-analysis.html#cb203-3"></a><span class="kw">library</span>(dplyr) <span class="co">##this package allows us to manipulate better the data.frames</span></span></code></pre></div>
+<div id="get-the-names-of-the-genes" class="section level6" number="5.5.0.4.0.1">
+<h6><span class="header-section-number">5.5.0.4.0.1</span> Get the names of the genes</h6>
 <p>What we need now is to build some kind of dictionary that will be able to translate between both name types: FB to Symbol.</p>
 <p>So, we first create an object with the <code>GeneNames</code> in both types. To do so we will use the <code>select</code> function.</p>
 <p>As you will notice if you try the first line of comand <code>select(org.Dm.eg.db, c(as.character(annotatedPeak$feature)), "SYMBOL", keytype = "ENSEMBL")</code>, there is a problem with this function. Basically this comes from the fact that both <code>AnnotationDbi</code> and <code>dplyr</code> have a function named <code>select</code>. R will call the function from the last package executed. To tell R which package we want to use we have to write: <code>Package::function</code>, in this case: <code>AnnotationDbi::select</code>.</p>
@@ -488,13 +514,13 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 <code>library(org.Dm.eg.db) ##Drosophila melanogaster (Dm) data base</code>
 <code>dm.select=select</code>
 <code>library(dplyr)</code></p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="chip-sequencing-analysis.html#cb183-1"></a>GeneNames =<span class="st"> </span>AnnotationDbi<span class="op">::</span><span class="kw">select</span>(org.Dm.eg.db, <span class="kw">c</span>(<span class="kw">as.character</span>(annotatedPeak<span class="op">$</span>feature)), <span class="st">&quot;SYMBOL&quot;</span>, <span class="dt">keytype =</span> <span class="st">&quot;ENSEMBL&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="chip-sequencing-analysis.html#cb204-1"></a>GeneNames =<span class="st"> </span>AnnotationDbi<span class="op">::</span><span class="kw">select</span>(org.Dm.eg.db, <span class="kw">c</span>(<span class="kw">as.character</span>(annotatedPeak<span class="op">$</span>feature)), <span class="st">&quot;SYMBOL&quot;</span>, <span class="dt">keytype =</span> <span class="st">&quot;ENSEMBL&quot;</span>)</span></code></pre></div>
 <pre><code>## &#39;select()&#39; returned many:many mapping between keys and columns</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="chip-sequencing-analysis.html#cb185-1"></a>GeneNames<span class="op">$</span>feature=GeneNames<span class="op">$</span>ENSEMBL</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="chip-sequencing-analysis.html#cb206-1"></a>GeneNames<span class="op">$</span>feature=GeneNames<span class="op">$</span>ENSEMBL</span></code></pre></div>
 <blockquote>
 <p>How does this looks like?</p>
 </blockquote>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="chip-sequencing-analysis.html#cb186-1"></a><span class="kw">head</span>(GeneNames)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="chip-sequencing-analysis.html#cb207-1"></a><span class="kw">head</span>(GeneNames)</span></code></pre></div>
 <pre><code>##       ENSEMBL SYMBOL     feature
 ## 1 FBgn0031209  Ir21a FBgn0031209
 ## 2 FBgn0031209  Ir21a FBgn0031209
@@ -502,11 +528,11 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 ## 4 FBgn0267987   &lt;NA&gt; FBgn0267987
 ## 5 FBgn0267987   &lt;NA&gt; FBgn0267987
 ## 6 FBgn0051973   Cda5 FBgn0051973</code></pre>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="chip-sequencing-analysis.html#cb188-1"></a><span class="kw">class</span>(GeneNames)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="chip-sequencing-analysis.html#cb209-1"></a><span class="kw">class</span>(GeneNames)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="chip-sequencing-analysis.html#cb190-1"></a>GeneNames=GeneNames[,<span class="op">-</span><span class="dv">1</span>] <span class="co">##what is this doing? </span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="chip-sequencing-analysis.html#cb211-1"></a>GeneNames=GeneNames[,<span class="op">-</span><span class="dv">1</span>] <span class="co">##what is this doing? </span></span></code></pre></div>
 <p>To see what happened we can look at the object again after that</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="chip-sequencing-analysis.html#cb191-1"></a><span class="kw">head</span>(GeneNames)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="chip-sequencing-analysis.html#cb212-1"></a><span class="kw">head</span>(GeneNames)</span></code></pre></div>
 <pre><code>##   SYMBOL     feature
 ## 1  Ir21a FBgn0031209
 ## 2  Ir21a FBgn0031209
@@ -515,28 +541,28 @@ Figure 1.1: ChipSeq procedure. Figure adapted
 ## 5   &lt;NA&gt; FBgn0267987
 ## 6   Cda5 FBgn0051973</code></pre>
 </div>
-<div id="create-a-data-frame-with-the-peak-annotation-and-the-new-names" class="section level6" number="5.4.0.4.0.2">
-<h6><span class="header-section-number">5.4.0.4.0.2</span> Create a data frame with the peak annotation and the NEW names</h6>
+<div id="create-a-data-frame-with-the-peak-annotation-and-the-new-names" class="section level6" number="5.5.0.4.0.2">
+<h6><span class="header-section-number">5.5.0.4.0.2</span> Create a data frame with the peak annotation and the NEW names</h6>
 <p>We will then put the names into the first table. To this end we will use <code>dplyr</code> package function by doing a <code>left_join</code>. This is actually a type of merging in which we keep everything that is in the first object. Why do you think we do this?</p>
 <p>We can explore the join options, here are some graphic explanation, and if you want to know more you can go <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join">to the manual</a> and try the examples. Also I would reccomend you to read the <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">cheatsheet</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
 <img src="macs2_analysis_p0.05/dplyr-joins.png" alt="**CAPTION THIS FIGURE!!**" width="500px" />
 <p class="caption">
 Figure 5.1: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="chip-sequencing-analysis.html#cb193-1"></a><span class="kw">class</span>(annotatedPeak) <span class="co">## this tells us the class, which type is it?</span></span>
-<span id="cb193-2"><a href="chip-sequencing-analysis.html#cb193-2"></a>annotatedPeak_df=<span class="kw">as.data.frame</span>(annotatedPeak) <span class="co">## we will change it to data.frame to have an object we can manipulate better and write to a table</span></span>
-<span id="cb193-3"><a href="chip-sequencing-analysis.html#cb193-3"></a>annotatedPeak_df=<span class="kw">left_join</span>(annotatedPeak_df,GeneNames, <span class="dt">by=</span><span class="st">&quot;feature&quot;</span>) <span class="co">##What is this doing?</span></span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="chip-sequencing-analysis.html#cb214-1"></a><span class="kw">class</span>(annotatedPeak) <span class="co">## this tells us the class, which type is it?</span></span>
+<span id="cb214-2"><a href="chip-sequencing-analysis.html#cb214-2"></a>annotatedPeak_df=<span class="kw">as.data.frame</span>(annotatedPeak) <span class="co">## we will change it to data.frame to have an object we can manipulate better and write to a table</span></span>
+<span id="cb214-3"><a href="chip-sequencing-analysis.html#cb214-3"></a>annotatedPeak_df=<span class="kw">left_join</span>(annotatedPeak_df,GeneNames, <span class="dt">by=</span><span class="st">&quot;feature&quot;</span>) <span class="co">##What is this doing?</span></span></code></pre></div>
 <pre><code>## [1] &quot;GRanges&quot;
 ## attr(,&quot;package&quot;)
 ## [1] &quot;GenomicRanges&quot;</code></pre>
 </div>
-<div id="explore-and-export-the-table" class="section level6" number="5.4.0.4.0.3">
-<h6><span class="header-section-number">5.4.0.4.0.3</span> Explore and export the table</h6>
+<div id="explore-and-export-the-table" class="section level6" number="5.5.0.4.0.3">
+<h6><span class="header-section-number">5.5.0.4.0.3</span> Explore and export the table</h6>
 <p>We can now see how the table looks like and export it as a .txt table so we can explore it outside R.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="chip-sequencing-analysis.html#cb195-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak_df))<span class="co">##how it looks?</span></span>
-<span id="cb195-2"><a href="chip-sequencing-analysis.html#cb195-2"></a><span class="kw">write.table</span>(annotatedPeak_df,<span class="dt">file =</span> <span class="st">&quot;./macs2_analysis_p0.05/ChipPeakAnno_results.xls&quot;</span>,<span class="dt">row.names =</span> T,<span class="dt">col.names =</span> T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) <span class="co">##this is writing the table, look in your directory and try opening it with excel.</span></span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="chip-sequencing-analysis.html#cb216-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak_df))<span class="co">##how it looks?</span></span>
+<span id="cb216-2"><a href="chip-sequencing-analysis.html#cb216-2"></a><span class="kw">write.table</span>(annotatedPeak_df,<span class="dt">file =</span> <span class="st">&quot;./macs2_analysis_p0.05/ChipPeakAnno_results.xls&quot;</span>,<span class="dt">row.names =</span> T,<span class="dt">col.names =</span> T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) <span class="co">##this is writing the table, look in your directory and try opening it with excel.</span></span></code></pre></div>
 <pre><code>##   seqnames start   end width strand length abs_summit pileup X.log10.pvalue.
 ## 1    chr2L 34224 34348   125      *    125      34306  20.88         2.75497
 ## 2    chr2L 34224 34348   125      *    125      34306  20.88         2.75497
@@ -568,19 +594,19 @@ Figure 5.1: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 </div>
 </div>
-<div id="annotate-with-chipseeker" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Annotate with <code>ChIPseeker</code></h2>
+<div id="annotate-with-chipseeker" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Annotate with <code>ChIPseeker</code></h2>
 <p>We are going to use now <a href="https://bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html">ChIPseeker</a>, another chip-seq annotation package. We need to do again many things, like extracting the Gene-names. Luckily we already did part of the work.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="chip-sequencing-analysis.html#cb197-1"></a><span class="kw">library</span>(ChIPseeker)</span>
-<span id="cb197-2"><a href="chip-sequencing-analysis.html#cb197-2"></a></span>
-<span id="cb197-3"><a href="chip-sequencing-analysis.html#cb197-3"></a><span class="co">##we will use the Genomic Ranges object created previously and the txdb also</span></span>
-<span id="cb197-4"><a href="chip-sequencing-analysis.html#cb197-4"></a>peakAnno &lt;-<span class="st"> </span><span class="kw">annotatePeak</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">verbose=</span><span class="ot">FALSE</span>)</span>
-<span id="cb197-5"><a href="chip-sequencing-analysis.html#cb197-5"></a>peakAnno_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(peakAnno)</span>
-<span id="cb197-6"><a href="chip-sequencing-analysis.html#cb197-6"></a></span>
-<span id="cb197-7"><a href="chip-sequencing-analysis.html#cb197-7"></a>GeneNames =<span class="st"> </span>AnnotationDbi<span class="op">::</span><span class="kw">select</span>(org.Dm.eg.db, <span class="kw">c</span>(<span class="kw">as.character</span>(peakAnno_df<span class="op">$</span>geneId)), <span class="st">&quot;SYMBOL&quot;</span>, <span class="dt">keytype =</span> <span class="st">&quot;ENSEMBL&quot;</span>)</span>
-<span id="cb197-8"><a href="chip-sequencing-analysis.html#cb197-8"></a>GeneNames<span class="op">$</span>geneId=GeneNames<span class="op">$</span>ENSEMBL</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="chip-sequencing-analysis.html#cb218-1"></a><span class="kw">library</span>(ChIPseeker)</span>
+<span id="cb218-2"><a href="chip-sequencing-analysis.html#cb218-2"></a></span>
+<span id="cb218-3"><a href="chip-sequencing-analysis.html#cb218-3"></a><span class="co">##we will use the Genomic Ranges object created previously and the txdb also</span></span>
+<span id="cb218-4"><a href="chip-sequencing-analysis.html#cb218-4"></a>peakAnno &lt;-<span class="st"> </span><span class="kw">annotatePeak</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">verbose=</span><span class="ot">FALSE</span>)</span>
+<span id="cb218-5"><a href="chip-sequencing-analysis.html#cb218-5"></a>peakAnno_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(peakAnno)</span>
+<span id="cb218-6"><a href="chip-sequencing-analysis.html#cb218-6"></a></span>
+<span id="cb218-7"><a href="chip-sequencing-analysis.html#cb218-7"></a>GeneNames =<span class="st"> </span>AnnotationDbi<span class="op">::</span><span class="kw">select</span>(org.Dm.eg.db, <span class="kw">c</span>(<span class="kw">as.character</span>(peakAnno_df<span class="op">$</span>geneId)), <span class="st">&quot;SYMBOL&quot;</span>, <span class="dt">keytype =</span> <span class="st">&quot;ENSEMBL&quot;</span>)</span>
+<span id="cb218-8"><a href="chip-sequencing-analysis.html#cb218-8"></a>GeneNames<span class="op">$</span>geneId=GeneNames<span class="op">$</span>ENSEMBL</span></code></pre></div>
 <p>explore it</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="chip-sequencing-analysis.html#cb198-1"></a><span class="kw">head</span>(GeneNames)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="chip-sequencing-analysis.html#cb219-1"></a><span class="kw">head</span>(GeneNames)</span></code></pre></div>
 <pre><code>##       ENSEMBL SYMBOL      geneId
 ## 1 FBgn0031209  Ir21a FBgn0031209
 ## 2 FBgn0031209  Ir21a FBgn0031209
@@ -589,14 +615,14 @@ Figure 5.1: <strong>CAPTION THIS FIGURE!!</strong>
 ## 5 FBgn0051973   Cda5 FBgn0051973
 ## 6 FBgn0051973   Cda5 FBgn0051973</code></pre>
 <p>modify it</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="chip-sequencing-analysis.html#cb200-1"></a>GeneNames=GeneNames[,<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb200-2"><a href="chip-sequencing-analysis.html#cb200-2"></a>peakAnno_df=peakAnno_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(GeneNames, <span class="dt">by=</span><span class="st">&quot;geneId&quot;</span>) <span class="co">##this is merging the two tables by the column Geneld</span></span></code></pre></div>
-<div id="explore-and-export-the-output" class="section level4" number="5.5.0.1">
-<h4><span class="header-section-number">5.5.0.1</span> Explore and Export the output</h4>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="chip-sequencing-analysis.html#cb221-1"></a>GeneNames=GeneNames[,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb221-2"><a href="chip-sequencing-analysis.html#cb221-2"></a>peakAnno_df=peakAnno_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(GeneNames, <span class="dt">by=</span><span class="st">&quot;geneId&quot;</span>) <span class="co">##this is merging the two tables by the column Geneld</span></span></code></pre></div>
+<div id="explore-and-export-the-output" class="section level4" number="5.6.0.1">
+<h4><span class="header-section-number">5.6.0.1</span> Explore and Export the output</h4>
 <p>If we look at the head of the file we can see that we have a <strong>different annotation format</strong> for the peaks and that we actually have a distance to the TSS.</p>
 <p>We will save this file as well.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="chip-sequencing-analysis.html#cb201-1"></a><span class="kw">head</span>(peakAnno_df)</span>
-<span id="cb201-2"><a href="chip-sequencing-analysis.html#cb201-2"></a><span class="kw">write.table</span>(peakAnno_df,<span class="dt">file =</span> <span class="st">&quot;./macs2_analysis_p0.05/ChIPseekerAnno_results.xls&quot;</span>,<span class="dt">row.names =</span> T,<span class="dt">col.names =</span> T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) <span class="co">##try looking at it on excel or any other spreadshit editor, what are the differences you see with the previous one?</span></span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="chip-sequencing-analysis.html#cb222-1"></a><span class="kw">head</span>(peakAnno_df)</span>
+<span id="cb222-2"><a href="chip-sequencing-analysis.html#cb222-2"></a><span class="kw">write.table</span>(peakAnno_df,<span class="dt">file =</span> <span class="st">&quot;./macs2_analysis_p0.05/ChIPseekerAnno_results.xls&quot;</span>,<span class="dt">row.names =</span> T,<span class="dt">col.names =</span> T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) <span class="co">##try looking at it on excel or any other spreadshit editor, what are the differences you see with the previous one?</span></span></code></pre></div>
 <pre><code>##   seqnames start   end width strand length abs_summit pileup X.log10.pvalue.
 ## 1    chr2L 34224 34348   125      *    125      34306  20.88         2.75497
 ## 2    chr2L 34224 34348   125      *    125      34306  20.88         2.75497
@@ -626,16 +652,16 @@ Figure 5.1: <strong>CAPTION THIS FIGURE!!</strong>
 ## 5        951          1 FBgn0267987  FBtr0347585        -14240   &lt;NA&gt;
 ## 6      33867          2 FBgn0051973  FBtr0078163          1839   Cda5</code></pre>
 </div>
-<div id="positive-controls." class="section level4" number="5.5.0.2">
-<h4><span class="header-section-number">5.5.0.2</span> Positive controls.</h4>
+<div id="positive-controls." class="section level4" number="5.6.0.2">
+<h4><span class="header-section-number">5.6.0.2</span> Positive controls.</h4>
 <p>We can now explore the data back at <a href="https://igv.org/app/">IGV</a> and see if the genes we get a significantly enriched for this TF are actually enriched.</p>
 <p>Lets think about some controls we can do with the data. Which is the protein we are analyzing? Is there any gene we already know that protein might be regulating?</p>
 <p>Well, yes. We are analyzing <strong>Clk</strong>, that happens to regulate <strong>tim</strong>.</p>
 <p>So, making it more genral: Other option to see if our analysis and the data in general make sense is to go to previous literature and see what genes we know that are reguated by this TF.</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="chip-sequencing-analysis.html#cb203-1"></a>peakAnno_df_tim=peakAnno_df[<span class="kw">which</span>(peakAnno_df<span class="op">$</span>SYMBOL<span class="op">==</span><span class="st">&quot;tim&quot;</span>),] <span class="co">##What we are doing here?</span></span>
-<span id="cb203-2"><a href="chip-sequencing-analysis.html#cb203-2"></a>peakAnno_df_tim=peakAnno_df_tim[<span class="kw">order</span>(peakAnno_df_tim<span class="op">$</span>X.log10.pvalue.,<span class="dt">decreasing =</span> T),] <span class="co">## we order them by log10(pval), what that really means?</span></span>
-<span id="cb203-3"><a href="chip-sequencing-analysis.html#cb203-3"></a></span>
-<span id="cb203-4"><a href="chip-sequencing-analysis.html#cb203-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peakAnno_df_tim))</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="chip-sequencing-analysis.html#cb224-1"></a>peakAnno_df_tim=peakAnno_df[<span class="kw">which</span>(peakAnno_df<span class="op">$</span>SYMBOL<span class="op">==</span><span class="st">&quot;tim&quot;</span>),] <span class="co">##What we are doing here?</span></span>
+<span id="cb224-2"><a href="chip-sequencing-analysis.html#cb224-2"></a>peakAnno_df_tim=peakAnno_df_tim[<span class="kw">order</span>(peakAnno_df_tim<span class="op">$</span>X.log10.pvalue.,<span class="dt">decreasing =</span> T),] <span class="co">## we order them by log10(pval), what that really means?</span></span>
+<span id="cb224-3"><a href="chip-sequencing-analysis.html#cb224-3"></a></span>
+<span id="cb224-4"><a href="chip-sequencing-analysis.html#cb224-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peakAnno_df_tim))</span></code></pre></div>
 <pre><code>##      seqnames   start     end width strand length abs_summit pileup
 ## 3983    chr2L 3504149 3508352  4204      *   4204    3507246 140.77
 ## 3984    chr2L 3504149 3508352  4204      *   4204    3507246 140.77
@@ -665,64 +691,64 @@ Figure 5.1: <strong>CAPTION THIS FIGURE!!</strong>
 ## 3987      13233          2 FBgn0014396  FBtr0077567             0    tim
 ## 3988      13233          2 FBgn0014396  FBtr0077567             0    tim</code></pre>
 </div>
-<div id="plots-1" class="section level4" number="5.5.0.3">
-<h4><span class="header-section-number">5.5.0.3</span> Plots</h4>
+<div id="plots-1" class="section level4" number="5.6.0.3">
+<h4><span class="header-section-number">5.6.0.3</span> Plots</h4>
 <p>This package has some useful plot functions so we can explore the results more easily.</p>
 <p>First we can see the peaks over the chromosomes. For that we use the function <code>covplot</code>. Its name comes from “coverage plot”.</p>
 <p>What do you think about the results? Do they make sense?</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="chip-sequencing-analysis.html#cb205-1"></a><span class="kw">covplot</span>(peaksGR, <span class="dt">weightCol=</span><span class="st">&quot;X.log10.pvalue.&quot;</span>,<span class="dt">chrs=</span><span class="kw">c</span>(<span class="st">&quot;chr2L&quot;</span>,<span class="st">&quot;chr2R&quot;</span>,<span class="st">&quot;chr3L&quot;</span>,<span class="st">&quot;chr3R&quot;</span>,<span class="st">&quot;chr4&quot;</span>,<span class="st">&quot;chrX&quot;</span>,<span class="st">&quot;chrY&quot;</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-21-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="chip-sequencing-analysis.html#cb226-1"></a><span class="kw">covplot</span>(peaksGR, <span class="dt">weightCol=</span><span class="st">&quot;X.log10.pvalue.&quot;</span>,<span class="dt">chrs=</span><span class="kw">c</span>(<span class="st">&quot;chr2L&quot;</span>,<span class="st">&quot;chr2R&quot;</span>,<span class="st">&quot;chr3L&quot;</span>,<span class="st">&quot;chr3R&quot;</span>,<span class="st">&quot;chr4&quot;</span>,<span class="st">&quot;chrX&quot;</span>,<span class="st">&quot;chrY&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-22-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 5.2: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <p>And then a general distribution of the peaks in relation witht he transcription start site (TSS). For that we use the function <code>peakHeatmap</code> and <code>plotAvgProf2</code>.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="chip-sequencing-analysis.html#cb206-1"></a><span class="kw">peakHeatmap</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">color=</span><span class="st">&quot;violet&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-22-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chip-sequencing-analysis.html#cb227-1"></a><span class="kw">peakHeatmap</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">color=</span><span class="st">&quot;violet&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-23-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 5.3: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-03-30 18:01:06 
-## &gt;&gt; preparing tag matrix...        2020-03-30 18:01:07 
-## &gt;&gt; generating figure...       2020-03-30 18:01:12 
-## &gt;&gt; done...            2020-03-30 18:01:15</code></pre>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="chip-sequencing-analysis.html#cb208-1"></a><span class="kw">plotAvgProf2</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">xlab=</span><span class="st">&quot;Genomic Region (5&#39;-&gt;3&#39;)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Read Count Frequency&quot;</span>) <span class="co">##Try exploring the options of this function. </span></span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-23-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<pre><code>## &gt;&gt; preparing promoter regions...  2020-06-17 23:17:51 
+## &gt;&gt; preparing tag matrix...        2020-06-17 23:17:52 
+## &gt;&gt; generating figure...       2020-06-17 23:17:58 
+## &gt;&gt; done...            2020-06-17 23:18:02</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="chip-sequencing-analysis.html#cb229-1"></a><span class="kw">plotAvgProf2</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">xlab=</span><span class="st">&quot;Genomic Region (5&#39;-&gt;3&#39;)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Read Count Frequency&quot;</span>) <span class="co">##Try exploring the options of this function. </span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-24-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 5.4: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-03-30 18:01:17 
-## &gt;&gt; preparing tag matrix...        2020-03-30 18:01:17 
-## &gt;&gt; plotting figure...             2020-03-30 18:01:20</code></pre>
+<pre><code>## &gt;&gt; preparing promoter regions...  2020-06-17 23:18:04 
+## &gt;&gt; preparing tag matrix...        2020-06-17 23:18:04 
+## &gt;&gt; plotting figure...             2020-06-17 23:18:07</code></pre>
 </div>
 </div>
-<div id="sequence-motif-analysis" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Sequence Motif analysis</h2>
+<div id="sequence-motif-analysis" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Sequence Motif analysis</h2>
 <p>Another goal now is to analyze this peaks and see a pattern enrichment and see if we can find a <strong>Binding Motif</strong> for Clk in fly head.</p>
 <p>This is basically DNA analysis, so we will have to figure out the regular DNA motifs and see if there is any specific enrichment.</p>
 <p>For this we will use:</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="chip-sequencing-analysis.html#cb210-1"></a><span class="kw">library</span>(Biostrings); <span class="kw">library</span>(seqLogo); <span class="kw">library</span>(BCRANK); <span class="kw">library</span>(gridExtra)</span></code></pre></div>
-<div id="put-the-peak-sequences-in-fasta-format" class="section level4" number="5.6.0.1">
-<h4><span class="header-section-number">5.6.0.1</span> Put the peak sequences in fasta format</h4>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="chip-sequencing-analysis.html#cb231-1"></a><span class="kw">library</span>(Biostrings); <span class="kw">library</span>(seqLogo); <span class="kw">library</span>(BCRANK); <span class="kw">library</span>(gridExtra)</span></code></pre></div>
+<div id="put-the-peak-sequences-in-fasta-format" class="section level4" number="5.7.0.1">
+<h4><span class="header-section-number">5.7.0.1</span> Put the peak sequences in fasta format</h4>
 <p>To parse the corresponding sequences from the reference genome, the <code>getSeq</code> function from the Biostrings package can be used. The following example parses the sequences for each peak set and saves the results to separate FASTA files, one for each peak set. In addition, the sequences in the FASTA files are ranked (sorted) by increasing p-values as expected by some motif discovery tools, such as BCRANK.</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="chip-sequencing-analysis.html#cb211-1"></a><span class="kw">library</span>(<span class="st">&quot;Rsamtools&quot;</span>)</span>
-<span id="cb211-2"><a href="chip-sequencing-analysis.html#cb211-2"></a></span>
-<span id="cb211-3"><a href="chip-sequencing-analysis.html#cb211-3"></a>peaksGR &lt;-<span class="st"> </span>peaksGR[<span class="kw">order</span>(peaksGR<span class="op">$</span>X.log10.pvalue., <span class="dt">decreasing=</span><span class="ot">TRUE</span>)] <span class="co">##order the peacks according to pvalue</span></span>
-<span id="cb211-4"><a href="chip-sequencing-analysis.html#cb211-4"></a></span>
-<span id="cb211-5"><a href="chip-sequencing-analysis.html#cb211-5"></a>pseq &lt;-<span class="st"> </span><span class="kw">getSeq</span>(<span class="kw">FaFile</span>(<span class="st">&quot;./macs2_analysis_p0.05/dm6.fa&quot;</span>), peaksGR) <span class="co">##extract the sequence of the peacks</span></span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="chip-sequencing-analysis.html#cb232-1"></a><span class="kw">library</span>(<span class="st">&quot;Rsamtools&quot;</span>)</span>
+<span id="cb232-2"><a href="chip-sequencing-analysis.html#cb232-2"></a></span>
+<span id="cb232-3"><a href="chip-sequencing-analysis.html#cb232-3"></a>peaksGR &lt;-<span class="st"> </span>peaksGR[<span class="kw">order</span>(peaksGR<span class="op">$</span>X.log10.pvalue., <span class="dt">decreasing=</span><span class="ot">TRUE</span>)] <span class="co">##order the peacks according to pvalue</span></span>
+<span id="cb232-4"><a href="chip-sequencing-analysis.html#cb232-4"></a></span>
+<span id="cb232-5"><a href="chip-sequencing-analysis.html#cb232-5"></a>pseq &lt;-<span class="st"> </span><span class="kw">getSeq</span>(<span class="kw">FaFile</span>(<span class="st">&quot;./macs2_analysis_p0.05/dm6.fa&quot;</span>), peaksGR) <span class="co">##extract the sequence of the peacks</span></span></code></pre></div>
 </div>
-<div id="explore-the-data" class="section level4" number="5.6.0.2">
-<h4><span class="header-section-number">5.6.0.2</span> Explore the data</h4>
+<div id="explore-the-data" class="section level4" number="5.7.0.2">
+<h4><span class="header-section-number">5.7.0.2</span> Explore the data</h4>
 <p>We can see how the <code>pseq</code> object looks like.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="chip-sequencing-analysis.html#cb212-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(pseq))</span>
-<span id="cb212-2"><a href="chip-sequencing-analysis.html#cb212-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peaksGR))</span>
-<span id="cb212-3"><a href="chip-sequencing-analysis.html#cb212-3"></a></span>
-<span id="cb212-4"><a href="chip-sequencing-analysis.html#cb212-4"></a><span class="kw">writeXStringSet</span>(pseq, <span class="st">&quot;peaksGR.fasta&quot;</span>) <span class="co">##use the names and save the peacks in fasta format, how this looks like? open it outside R.</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="chip-sequencing-analysis.html#cb233-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(pseq))</span>
+<span id="cb233-2"><a href="chip-sequencing-analysis.html#cb233-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peaksGR))</span>
+<span id="cb233-3"><a href="chip-sequencing-analysis.html#cb233-3"></a></span>
+<span id="cb233-4"><a href="chip-sequencing-analysis.html#cb233-4"></a><span class="kw">writeXStringSet</span>(pseq, <span class="st">&quot;peaksGR.fasta&quot;</span>) <span class="co">##use the names and save the peacks in fasta format, how this looks like? open it outside R.</span></span></code></pre></div>
 <pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           x
 ## 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ACCCATTAAATTGTCAATATTACTTAAGCCCTTTATGGTATTGGAAACTCCCGTTTCACATAATTAAACATGGAATGCAGCAAAAAATTTTCCGTGCAATTGCAAATGGCATTTTACGAGAGAAAATTGTTGACAATAATGAAGCTGATGAACATTTGTGGTTGTGTTCATTGTCATTGTTGCTGCGTTAGTTATTCTACCATCGGTTGGGGTGCATTTGGGCCAGTCTGGAACTGTTTGCGTCATTGTTCAGTTTTAGTTCTCTGCGGTTGCCTGAAATTGTCGTAATGCATTTACGGACATCGCACACACATGTGGCCCAAGTGCGGTTTTGTAGCTGGAAATGTTGGCTGTGTACTGTAAACAAGATTTTAGCAAACCCACTTGCATTTCTCCTGGGGGTCATGTGTCAGCACTTATAATTTTGTTTAAAGAACTAAGAGAAAAATGTCCACTATCTAGAAAATCATTACTATCAAAAAACCCAATTTATATCAGTAACGTTCGATTTCTAAACTCATATTGACATTTTTGTATGTATATTATGTATGTATATAAATGTTCATATTTGTTTCCCTTTTGGTTGCGTACCTAACCACCACCTATAAATTAGCCCGTTCTGCCAATATTAGCCCTTTCATATCTCGTTACTCATACGCCACGTGGTCACGTTTTTGCCTAAGCTCTACGTAGCTGCACTCGCTGCACTTTCCGCTTACGTTTTGTTATTATTTTCCCCAGTACTCGTTAGCCTTGTCTAGTGCCAAAATGAAATGACAATGTTTTCCCAGCGCACAGAACTCAAATCGTAAATCATTTTCTTTTTTTTGGGGTGTTGGCAAAGGTAAACAATGTCACATAGGAGCCCGCAGTTGTCTGTCAGTAGAGAAAAAGGCAAAAAGATTAGAGATATATGGACTGCGGAGAGCGGGGCAGAATGCGAGATATATAGCAACTCAAGTTTGTGTTGCCACGAACTTTGACAGTTACATGCGCTGCACCATTGCAGAATGACAAACGAAGGCGAAAAAAGCCATGAGTTGCACAAAATGTATTTATCTGTCATTCCAGTTTTCACTTTCGCAAAAAGTGGTAGATTTTGGGTTTTGTGTGGAATCATATCTAGCTTTATAGCTCTTGGGGAACTATAATATGACTTAAATACCAAATATTTATATACTCAAGTTTAATATAATACATTTCACGTAGTTTTAACGCAAAACGGAATATGCTAGAATTTATCTTTTCCACTTCGTTTCCCCTCTGATTCTCGCACTTTCCCCCAAACTCTCGGCGTTTGTGTGTGTGCCTGTCTGGCTTTTCTTTTTCGTCTCCGTTCGTGACAGCTTGTTTTTTTGGGGGCGTGGCGAGGGGCGGAAGGGGTTGGGCATTTGGGTCAACTATCGACTGCAATTTGAGCCTTTCAAACTGTCGCCGACACAAAACGAAGGGCTCAGCTGAAAAAAAAAACACACAGTCAGGCAGAGTAAAAGTTGCGGAAAGTGTGACAGCAACTCATTGCAGATGGACATTTGCCGAGTCTGCTGGGAATCCCCTCAAGTGCTCTGGAAATTTGATTTCGATTTCCATATGATTTTGATTTGGCCAGCGAAC
 ## 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           CTTCCCCTTTTATTACTGTTCCAAGGACATTCAAATTAAGCATTCATTTGCGGTGATATCACCGGCTTTAATGCTCTGAACTCCACGAAGAGTTGACTAACCTCGAACTGTGCTACATTTTTTTATGCACCTCCATCATACACACATTTTGTCGTGTAATTTGCACGCTGAGTCTATTAAATGCACTGCAACCGAGTTGTGTCAGCACCTCAGGTGTACAGAGCTTTCACTCACACTCATATACGATTCATAAACATTTGTTGTGGCGCCCAACGTGGGGCATGAAATGCGACGTGTTACACAAGTGGGAAGAAGAAGGTGCAAGTCATTAAGTAAGCTTGTTTTTGTTCTGATTTTTCTCGTTGTTTTCAGGGAAGAGGCCATAAAAGCTTCGTGCGCCACGCACACATGCACACATAATTATAATGGGCATTAAAACGGACGCCTGTGGCCTAACTCTTAGTTTGTCTTGTTCGCCAGCAGGCTTCTTAACCCTCACACTGTCCAACTTGGCTACCTCTGAGTGCTTTATGGCGCAACTGGTAGAATGATTCGCCGAGCATAATATTTAACTCGGAATTCCCTGCTAAACGCACATAATGTCTGCCCAAGACAGTCCCGGTTCCCAGCGGCGAAATTCATTTTCTTGTCGCTTACAAATTATTTTAAAGGTATTTAAAGTTAGAT
@@ -752,8 +778,8 @@ Figure 5.4: <strong>CAPTION THIS FIGURE!!</strong>
 ## 5 PeakAna_clk_Ip_vs_INP_peak_1893
 ## 6 PeakAna_clk_Ip_vs_INP_peak_2290</code></pre>
 </div>
-<div id="find-the-motifs" class="section level4" number="5.6.0.3">
-<h4><span class="header-section-number">5.6.0.3</span> Find the MOTIFS</h4>
+<div id="find-the-motifs" class="section level4" number="5.7.0.3">
+<h4><span class="header-section-number">5.7.0.3</span> Find the MOTIFS</h4>
 <p>The Bioconductor package <a href="https://www.bioconductor.org/packages//2.12/bioc/vignettes/BCRANK/inst/doc/BCRANK.pdf">BCRANK</a> is one of the many available for de novo discovery of DNA binding motifs in peak regions of ChIP-Seq.</p>
 <p>The main function we are using here is bcrank. when looking at the documentation we see that:</p>
 <p>“BCRANK uses a heuristic search strategy. First a score is computed for an initial short consensus sequence, typically selected at random. The score takes into account both the number of consensus occurrences and the rank of the genomic regions. Then all consensus sequences in a neighborhood of the start guess are evaluated and the one with highest score is kept as the starting point for the next iteration. When a local optimum is found, the algorithm is terminated and the locally optimal consensus is reported as a result. In order to increase the chance of detecting the globally optimal solution, the algorithm may be restarted several times using different random starting points. Alternatively, BCRANK can be used for assigning scores to previously established consensus sequences. The sections below describe in more detail how the neighborhood, scoring function and start guess are implemented.”</p>
@@ -766,13 +792,13 @@ contain at least n occurrences of the consensus. Then P2 = 1 − (r2/r1).</p>
 <pre><code>set.seed(0)
 BCRANKout &lt;- bcrank(&quot;peaksGR.fasta&quot;, restarts=25, use.P1=TRUE, use.P2=TRUE)</code></pre>
 </div>
-<div id="explore-the-results" class="section level4" number="5.6.0.4">
-<h4><span class="header-section-number">5.6.0.4</span> Explore the results</h4>
+<div id="explore-the-results" class="section level4" number="5.7.0.4">
+<h4><span class="header-section-number">5.7.0.4</span> Explore the results</h4>
 <p>Then we can also see the results, we will se the results that are in the top.</p>
 <p>We can first explore the results: the matrix shows the proportion of each letter in each possition for thar specific motif.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="chip-sequencing-analysis.html#cb215-1"></a><span class="kw">head</span>(<span class="kw">toptable</span>(BCRANKout))</span>
-<span id="cb215-2"><a href="chip-sequencing-analysis.html#cb215-2"></a>a&lt;-BCRANKout<span class="op">@</span>toplist</span>
-<span id="cb215-3"><a href="chip-sequencing-analysis.html#cb215-3"></a>a[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="chip-sequencing-analysis.html#cb236-1"></a><span class="kw">head</span>(<span class="kw">toptable</span>(BCRANKout))</span>
+<span id="cb236-2"><a href="chip-sequencing-analysis.html#cb236-2"></a>a&lt;-BCRANKout<span class="op">@</span>toplist</span>
+<span id="cb236-3"><a href="chip-sequencing-analysis.html#cb236-3"></a>a[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>##   Consensus    Score
 ## 1     CACGT 663.2068
 ## 2     CACGT 648.6057
@@ -810,33 +836,33 @@ BCRANKout &lt;- bcrank(&quot;peaksGR.fasta&quot;, restarts=25, use.P1=TRUE, use.
 ## 
 ## Use methods searchPath(object) and pwm(object) to access object slots.</code></pre>
 </div>
-<div id="plot-the-results" class="section level4" number="5.6.0.5">
-<h4><span class="header-section-number">5.6.0.5</span> Plot the results</h4>
+<div id="plot-the-results" class="section level4" number="5.7.0.5">
+<h4><span class="header-section-number">5.7.0.5</span> Plot the results</h4>
 <p>We can play around with the matrixes and plot them in the known DNA-Logo standard. To do this we will first store the most top motif from <code>toptable</code>. Then we will use the <code>pwa</code> function from BCRANK and the <code>seqLogo</code> function from seqLogo package.</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="chip-sequencing-analysis.html#cb217-1"></a>topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span><span class="dv">1</span>)</span>
-<span id="cb217-2"><a href="chip-sequencing-analysis.html#cb217-2"></a>weightMatrix &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb217-3"><a href="chip-sequencing-analysis.html#cb217-3"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb217-4"><a href="chip-sequencing-analysis.html#cb217-4"></a><span class="kw">seqLogo</span>(weightMatrixNormalized,<span class="dt">ic.scale =</span> T)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-29-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="chip-sequencing-analysis.html#cb238-1"></a>topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span><span class="dv">1</span>)</span>
+<span id="cb238-2"><a href="chip-sequencing-analysis.html#cb238-2"></a>weightMatrix &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb238-3"><a href="chip-sequencing-analysis.html#cb238-3"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb238-4"><a href="chip-sequencing-analysis.html#cb238-4"></a><span class="kw">seqLogo</span>(weightMatrixNormalized,<span class="dt">ic.scale =</span> T)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-30-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 5.5: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <p>We can now do the same with a different function just to show you that you can do the same things with different approaches. This is using function form the <code>seqLogo</code> package.</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="chip-sequencing-analysis.html#cb218-1"></a>p&lt;-<span class="kw">makePWM</span>(<span class="kw">as.data.frame</span>(weightMatrixNormalized))</span>
-<span id="cb218-2"><a href="chip-sequencing-analysis.html#cb218-2"></a>p<span class="op">@</span>consensus</span>
-<span id="cb218-3"><a href="chip-sequencing-analysis.html#cb218-3"></a><span class="kw">seqLogo</span>(p)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-30-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="chip-sequencing-analysis.html#cb239-1"></a>p&lt;-<span class="kw">makePWM</span>(<span class="kw">as.data.frame</span>(weightMatrixNormalized))</span>
+<span id="cb239-2"><a href="chip-sequencing-analysis.html#cb239-2"></a>p<span class="op">@</span>consensus</span>
+<span id="cb239-3"><a href="chip-sequencing-analysis.html#cb239-3"></a><span class="kw">seqLogo</span>(p)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-31-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 5.6: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <pre><code>## [1] &quot;CACGT&quot;</code></pre>
 <p>We will create a table to be able to analyze the data</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="chip-sequencing-analysis.html#cb220-1"></a>topt&lt;-<span class="kw">as.data.frame</span>(<span class="kw">toptable</span>(BCRANKout)) <span class="co">##extract the results table</span></span>
-<span id="cb220-2"><a href="chip-sequencing-analysis.html#cb220-2"></a><span class="kw">head</span>(topt)</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="chip-sequencing-analysis.html#cb241-1"></a>topt&lt;-<span class="kw">as.data.frame</span>(<span class="kw">toptable</span>(BCRANKout)) <span class="co">##extract the results table</span></span>
+<span id="cb241-2"><a href="chip-sequencing-analysis.html#cb241-2"></a><span class="kw">head</span>(topt)</span></code></pre></div>
 <pre><code>##   Consensus    Score
 ## 1     CACGT 663.2068
 ## 2     CACGT 648.6057
@@ -845,51 +871,51 @@ Figure 5.6: <strong>CAPTION THIS FIGURE!!</strong>
 ## 5    CAAAAG 491.8869
 ## 6    AAAGCG 491.6031</code></pre>
 </div>
-<div id="plotting-with-ggplot2" class="section level4" number="5.6.0.6">
-<h4><span class="header-section-number">5.6.0.6</span> Plotting with Ggplot2</h4>
+<div id="plotting-with-ggplot2" class="section level4" number="5.7.0.6">
+<h4><span class="header-section-number">5.7.0.6</span> Plotting with Ggplot2</h4>
 <p>Now with ggplot we will use a package called ggseqlogo.
 This will be nice to learn how to install packages from github (you have to use the package devtools and then the function install_github).
 <a href="http://www.bioconductor.org/packages//2.11/bioc/vignettes/seqLogo/inst/doc/seqLogo.pdf" class="uri">http://www.bioconductor.org/packages//2.11/bioc/vignettes/seqLogo/inst/doc/seqLogo.pdf</a></p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="chip-sequencing-analysis.html#cb222-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb222-2"><a href="chip-sequencing-analysis.html#cb222-2"></a><span class="co">##install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb222-3"><a href="chip-sequencing-analysis.html#cb222-3"></a><span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>) <span class="co">##this library is literally called &quot;developers tools&quot; and allow us to do more complex things as downloading packages from github</span></span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="chip-sequencing-analysis.html#cb243-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb243-2"><a href="chip-sequencing-analysis.html#cb243-2"></a><span class="co">##install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb243-3"><a href="chip-sequencing-analysis.html#cb243-3"></a><span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>) <span class="co">##this library is literally called &quot;developers tools&quot; and allow us to do more complex things as downloading packages from github</span></span></code></pre></div>
 <pre><code>## Loading required package: usethis</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="chip-sequencing-analysis.html#cb224-1"></a><span class="co">##install_github(&quot;omarwagih/ggseqlogo&quot;)</span></span>
-<span id="cb224-2"><a href="chip-sequencing-analysis.html#cb224-2"></a><span class="kw">library</span>(ggseqlogo)</span></code></pre></div>
-<div id="create-the-matrixes-for-ggplot2" class="section level6" number="5.6.0.6.0.1">
-<h6><span class="header-section-number">5.6.0.6.0.1</span> Create the matrixes for ggplot2</h6>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="chip-sequencing-analysis.html#cb245-1"></a><span class="co">##install_github(&quot;omarwagih/ggseqlogo&quot;)</span></span>
+<span id="cb245-2"><a href="chip-sequencing-analysis.html#cb245-2"></a><span class="kw">library</span>(ggseqlogo)</span></code></pre></div>
+<div id="create-the-matrixes-for-ggplot2" class="section level6" number="5.7.0.6.0.1">
+<h6><span class="header-section-number">5.7.0.6.0.1</span> Create the matrixes for ggplot2</h6>
 <p>We will first store all the matrixes in a list so we can then just plot them all together and not only one by one.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="chip-sequencing-analysis.html#cb225-1"></a><span class="co">## Some example DNA sequences, lets try to go together over what is this loop doing</span></span>
-<span id="cb225-2"><a href="chip-sequencing-analysis.html#cb225-2"></a>seqs_list=<span class="kw">list</span>() <span class="co">##first we create an empty list that we will fill up over the loop</span></span>
-<span id="cb225-3"><a href="chip-sequencing-analysis.html#cb225-3"></a><span class="cf">for</span>(e <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">16</span>){ <span class="co">##we will loop 16 times</span></span>
-<span id="cb225-4"><a href="chip-sequencing-analysis.html#cb225-4"></a>  <span class="co">##print(e) ##we will print every loop</span></span>
-<span id="cb225-5"><a href="chip-sequencing-analysis.html#cb225-5"></a>  topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span>e) <span class="co">##we get the motif number e (ie, the iteration will let us go from top motif 1 to 16)</span></span>
-<span id="cb225-6"><a href="chip-sequencing-analysis.html#cb225-6"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>) <span class="co">##do some process witht he motif</span></span>
-<span id="cb225-7"><a href="chip-sequencing-analysis.html#cb225-7"></a>seqs_list[[e]]&lt;-weightMatrixNormalized <span class="co">##add the processed motif to the list in position e (ie. the loop allow us to fill up the list)</span></span>
-<span id="cb225-8"><a href="chip-sequencing-analysis.html#cb225-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="chip-sequencing-analysis.html#cb246-1"></a><span class="co">## Some example DNA sequences, lets try to go together over what is this loop doing</span></span>
+<span id="cb246-2"><a href="chip-sequencing-analysis.html#cb246-2"></a>seqs_list=<span class="kw">list</span>() <span class="co">##first we create an empty list that we will fill up over the loop</span></span>
+<span id="cb246-3"><a href="chip-sequencing-analysis.html#cb246-3"></a><span class="cf">for</span>(e <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">16</span>){ <span class="co">##we will loop 16 times</span></span>
+<span id="cb246-4"><a href="chip-sequencing-analysis.html#cb246-4"></a>  <span class="co">##print(e) ##we will print every loop</span></span>
+<span id="cb246-5"><a href="chip-sequencing-analysis.html#cb246-5"></a>  topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span>e) <span class="co">##we get the motif number e (ie, the iteration will let us go from top motif 1 to 16)</span></span>
+<span id="cb246-6"><a href="chip-sequencing-analysis.html#cb246-6"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>) <span class="co">##do some process witht he motif</span></span>
+<span id="cb246-7"><a href="chip-sequencing-analysis.html#cb246-7"></a>seqs_list[[e]]&lt;-weightMatrixNormalized <span class="co">##add the processed motif to the list in position e (ie. the loop allow us to fill up the list)</span></span>
+<span id="cb246-8"><a href="chip-sequencing-analysis.html#cb246-8"></a>}</span></code></pre></div>
 </div>
-<div id="plot" class="section level6" number="5.6.0.6.0.2">
-<h6><span class="header-section-number">5.6.0.6.0.2</span> Plot</h6>
+<div id="plot" class="section level6" number="5.7.0.6.0.2">
+<h6><span class="header-section-number">5.7.0.6.0.2</span> Plot</h6>
 <p>We can now, either plot one by one for each position in the list.</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="chip-sequencing-analysis.html#cb226-1"></a><span class="co">## Get first set of sequences</span></span>
-<span id="cb226-2"><a href="chip-sequencing-analysis.html#cb226-2"></a>seqs_dna =<span class="st"> </span>seqs_list[[<span class="dv">1</span>]]</span>
-<span id="cb226-3"><a href="chip-sequencing-analysis.html#cb226-3"></a></span>
-<span id="cb226-4"><a href="chip-sequencing-analysis.html#cb226-4"></a><span class="co">## Plot a sequence logo with the 2 different methods avilable</span></span>
-<span id="cb226-5"><a href="chip-sequencing-analysis.html#cb226-5"></a>p1 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;prob&#39;</span> )</span>
-<span id="cb226-6"><a href="chip-sequencing-analysis.html#cb226-6"></a>p2 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;bits&#39;</span> ) <span class="op">+</span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Information Content&quot;</span>) <span class="co">##this changed the name of the `y` axes</span></span>
-<span id="cb226-7"><a href="chip-sequencing-analysis.html#cb226-7"></a><span class="kw">grid.arrange</span>(p1, p2)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-34-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="chip-sequencing-analysis.html#cb247-1"></a><span class="co">## Get first set of sequences</span></span>
+<span id="cb247-2"><a href="chip-sequencing-analysis.html#cb247-2"></a>seqs_dna =<span class="st"> </span>seqs_list[[<span class="dv">1</span>]]</span>
+<span id="cb247-3"><a href="chip-sequencing-analysis.html#cb247-3"></a></span>
+<span id="cb247-4"><a href="chip-sequencing-analysis.html#cb247-4"></a><span class="co">## Plot a sequence logo with the 2 different methods avilable</span></span>
+<span id="cb247-5"><a href="chip-sequencing-analysis.html#cb247-5"></a>p1 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;prob&#39;</span> )</span>
+<span id="cb247-6"><a href="chip-sequencing-analysis.html#cb247-6"></a>p2 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;bits&#39;</span> ) <span class="op">+</span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Information Content&quot;</span>) <span class="co">##this changed the name of the `y` axes</span></span>
+<span id="cb247-7"><a href="chip-sequencing-analysis.html#cb247-7"></a><span class="kw">grid.arrange</span>(p1, p2)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-35-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 5.7: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
 </div>
 <p>Or we can plot all together using the facet function to actually separate them.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chip-sequencing-analysis.html#cb227-1"></a><span class="co">##Plot all the first 12 sequences</span></span>
-<span id="cb227-2"><a href="chip-sequencing-analysis.html#cb227-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_logo</span>(seqs_list,<span class="dt">method =</span> <span class="st">&#39;prob&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_logo</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb227-3"><a href="chip-sequencing-analysis.html#cb227-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>seq_group, <span class="dt">ncol=</span><span class="dv">4</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-35-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="chip-sequencing-analysis.html#cb248-1"></a><span class="co">##Plot all the first 12 sequences</span></span>
+<span id="cb248-2"><a href="chip-sequencing-analysis.html#cb248-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_logo</span>(seqs_list,<span class="dt">method =</span> <span class="st">&#39;prob&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_logo</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb248-3"><a href="chip-sequencing-analysis.html#cb248-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>seq_group, <span class="dt">ncol=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-36-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
 <p class="caption">
 Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 </p>
@@ -897,14 +923,14 @@ Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 </div>
 </div>
 </div>
-<div id="session-info-all-the-packages-installed." class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Session info: all the packages installed.</h2>
+<div id="session-info-all-the-packages-installed." class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Session info: all the packages installed.</h2>
 <p>Session info</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="chip-sequencing-analysis.html#cb228-1"></a><span class="kw">toLatex</span>(<span class="kw">sessionInfo</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="chip-sequencing-analysis.html#cb249-1"></a><span class="kw">toLatex</span>(<span class="kw">sessionInfo</span>())</span></code></pre></div>
 <pre><code>## \begin{itemize}\raggedright
 ##   \item R version 3.6.2 (2019-12-12), \verb|x86_64-apple-darwin15.6.0|
 ##   \item Locale: \verb|en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8|
-##   \item Running under: \verb|macOS Mojave 10.14.5|
+##   \item Running under: \verb|macOS Mojave 10.14.6|
 ##   \item Random number generation:  \item RNG:    \verb|Mersenne-Twister|  \item Normal: \verb|Inversion|  \item Sample: \verb|Rounding|
 ##   \item Matrix products: default
 ##   \item BLAS:   \verb|/Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib|
@@ -914,75 +940,76 @@ Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 ##   \item Other packages: AnnotationDbi~1.48.0, BCRANK~1.48.0,
 ##     Biobase~2.46.0, BiocGenerics~0.32.0, BiocParallel~1.20.1,
 ##     Biostrings~2.54.0, ChIPpeakAnno~3.20.1, ChIPQC~1.22.0,
-##     ChIPseeker~1.22.1, DelayedArray~0.12.2, devtools~2.2.2,
-##     DiffBind~2.14.0, dplyr~0.8.5, forcats~0.5.0, futile.logger~1.4.3,
+##     ChIPseeker~1.22.1, DelayedArray~0.12.3, devtools~2.3.0,
+##     DiffBind~2.14.0, dplyr~1.0.0, forcats~0.5.0, futile.logger~1.4.3,
 ##     GenomeInfoDb~1.22.1, GenomicAlignments~1.22.1,
-##     GenomicFeatures~1.38.2, GenomicRanges~1.38.0, ggplot2~3.3.0,
+##     GenomicFeatures~1.38.2, GenomicRanges~1.38.0, ggplot2~3.3.1,
 ##     ggseqlogo~0.1, gridExtra~2.3, IRanges~2.20.2, matrixStats~0.56.0,
-##     org.Dm.eg.db~3.10.0, purrr~0.3.3, readr~1.3.1, Rsamtools~2.2.3,
-##     rtracklayer~1.46.0, S4Vectors~0.24.3, seqLogo~1.52.0,
+##     org.Dm.eg.db~3.10.0, purrr~0.3.4, readr~1.3.1, Rsamtools~2.2.3,
+##     rtracklayer~1.46.0, S4Vectors~0.24.4, seqLogo~1.52.0,
 ##     ShortRead~1.44.3, stringr~1.4.0, SummarizedExperiment~1.16.1,
-##     systemPipeR~1.20.0, tibble~2.1.3, tidyr~1.0.2, tidyverse~1.3.0,
-##     usethis~1.5.1, VennDiagram~1.6.20, webex~0.9.1, XVector~0.26.0
+##     systemPipeR~1.20.0, tibble~3.0.1, tidyr~1.1.0, tidyverse~1.3.0,
+##     usethis~1.6.1, VennDiagram~1.6.20, webex~0.9.1, XVector~0.26.0
 ##   \item Loaded via a namespace (and not attached): ade4~1.7-15,
 ##     amap~0.8-18, annotate~1.64.0, AnnotationFilter~1.10.0,
 ##     AnnotationForge~1.28.0, askpass~1.1, assertthat~0.2.1,
-##     backports~1.1.5, base64url~1.4, batchtools~0.9.13,
+##     backports~1.1.7, base64url~1.4, batchtools~0.9.13,
 ##     BiocFileCache~1.10.2, BiocManager~1.30.10, biomaRt~2.42.1,
-##     bit~1.1-15.2, bit64~0.9-7, bitops~1.0-6, blob~1.2.1, bookdown~0.18,
-##     boot~1.3-24, brew~1.0-6, broom~0.5.5, BSgenome~1.54.0, callr~3.4.3,
+##     bit~1.1-15.2, bit64~0.9-7, bitops~1.0-6, blob~1.2.1, bookdown~0.19,
+##     boot~1.3-25, brew~1.0-6, broom~0.5.6, BSgenome~1.54.0, callr~3.4.3,
 ##     Category~2.52.1, caTools~1.18.0, cellranger~1.1.0, checkmate~2.0.0,
 ##     chipseq~1.36.0, cli~2.0.2, colorspace~1.4-1, compiler~3.6.2,
 ##     cowplot~1.0.0, crayon~1.3.4, curl~4.3, data.table~1.12.8,
-##     DBI~1.1.0, dbplyr~1.4.2, desc~1.2.0, digest~0.6.25, DO.db~2.9,
-##     DOSE~3.12.0, edgeR~3.28.1, ellipsis~0.3.0, enrichplot~1.6.1,
-##     ensembldb~2.10.2, europepmc~0.3, evaluate~0.14, fansi~0.4.1,
-##     farver~2.0.3, fastmatch~1.1-0, fgsea~1.12.0, formatR~1.7, fs~1.3.2,
+##     DBI~1.1.0, dbplyr~1.4.4, desc~1.2.0, digest~0.6.25, DO.db~2.9,
+##     DOSE~3.12.0, edgeR~3.28.1, ellipsis~0.3.1, enrichplot~1.6.1,
+##     ensembldb~2.10.2, europepmc~0.4, evaluate~0.14, fansi~0.4.1,
+##     farver~2.0.3, fastmatch~1.1-0, fgsea~1.12.0, formatR~1.7, fs~1.4.1,
 ##     futile.options~1.0.1, gdata~2.18.0, genefilter~1.68.0,
 ##     generics~0.0.2, GenomeInfoDbData~1.2.2, ggforce~0.3.1,
-##     ggplotify~0.0.5, ggraph~2.0.2, ggrepel~0.8.2, ggridges~0.5.2,
-##     glue~1.3.2, GO.db~3.10.0, GOSemSim~2.12.1, GOstats~2.52.0,
-##     gplots~3.0.3, graph~1.64.0, graphlayouts~0.6.0, gridGraphics~0.5-0,
-##     GSEABase~1.48.0, gtable~0.3.0, gtools~3.8.1, haven~2.2.0,
+##     ggplotify~0.0.5, ggraph~2.0.3, ggrepel~0.8.2, ggridges~0.5.2,
+##     glue~1.4.1, GO.db~3.10.0, GOSemSim~2.12.1, GOstats~2.52.0,
+##     gplots~3.0.3, graph~1.64.0, graphlayouts~0.7.0, gridGraphics~0.5-0,
+##     GSEABase~1.48.0, gtable~0.3.0, gtools~3.8.2, haven~2.3.1,
 ##     highr~0.8, hms~0.5.3, htmltools~0.4.0, httr~1.4.1, hwriter~1.3.2,
 ##     idr~1.2, igraph~1.2.5, jpeg~0.1-8.1, jsonlite~1.6.1,
-##     KernSmooth~2.23-16, knitr~1.28, labeling~0.3, lambda.r~1.2.4,
-##     lattice~0.20-40, latticeExtra~0.6-29, lazyeval~0.2.2,
-##     lifecycle~0.2.0, limma~3.42.2, locfit~1.5-9.4, lubridate~1.7.4,
-##     magrittr~1.5, MASS~7.3-51.5, Matrix~1.2-18, memoise~1.1.0,
-##     modelr~0.1.6, multtest~2.42.0, munsell~0.5.0, nlme~3.1-145,
-##     Nozzle.R1~1.1-1, openssl~1.4.1, pheatmap~1.0.12, pillar~1.4.3,
-##     pkgbuild~1.0.6, pkgconfig~2.0.3, pkgload~1.0.2, plotrix~3.7-7,
+##     KernSmooth~2.23-17, knitr~1.28, labeling~0.3, lambda.r~1.2.4,
+##     lattice~0.20-41, latticeExtra~0.6-29, lazyeval~0.2.2,
+##     lifecycle~0.2.0, limma~3.42.2, locfit~1.5-9.4, lubridate~1.7.9,
+##     magrittr~1.5, MASS~7.3-51.6, Matrix~1.2-18, memoise~1.1.0,
+##     modelr~0.1.8, multtest~2.42.0, munsell~0.5.0, nlme~3.1-148,
+##     Nozzle.R1~1.1-1, openssl~1.4.1, pheatmap~1.0.12, pillar~1.4.4,
+##     pkgbuild~1.0.8, pkgconfig~2.0.3, pkgload~1.1.0, plotrix~3.7-8,
 ##     plyr~1.8.6, png~0.1-7, polyclip~1.10-0, prettyunits~1.1.1,
-##     processx~3.4.2, progress~1.2.2, ProtGenerics~1.18.0, ps~1.3.2,
+##     processx~3.4.2, progress~1.2.2, ProtGenerics~1.18.0, ps~1.3.3,
 ##     qvalue~2.18.0, R6~2.4.1, rappdirs~0.3.1, RBGL~1.62.1,
-##     RColorBrewer~1.1-2, Rcpp~1.0.4, RCurl~1.98-1.1, readxl~1.3.1,
-##     regioneR~1.18.1, remotes~2.1.1, reprex~0.3.0, reshape2~1.4.3,
-##     Rgraphviz~2.30.0, rjson~0.2.20, rlang~0.4.5, rmarkdown~2.1,
-##     rprojroot~1.3-2, RSQLite~2.2.0, rstudioapi~0.11, rvcheck~0.1.8,
-##     rvest~0.3.5, scales~1.1.0, seqinr~3.6-1, sessioninfo~1.1.1,
-##     splines~3.6.2, stringi~1.4.6, survival~3.1-11, testthat~2.3.2,
-##     tidygraph~1.1.2, tidyselect~1.0.0, tools~3.6.2, triebeard~0.3.0,
-##     tweenr~1.0.1, TxDb.Celegans.UCSC.ce6.ensGene~3.2.2,
+##     RColorBrewer~1.1-2, Rcpp~1.0.4.6, RCurl~1.98-1.2,
+##     readxl~1.3.1.9000, regioneR~1.18.1, remotes~2.1.1, reprex~0.3.0,
+##     reshape2~1.4.4, Rgraphviz~2.30.0, rjson~0.2.20, rlang~0.4.6,
+##     rmarkdown~2.2, rprojroot~1.3-2, RSQLite~2.2.0, rstudioapi~0.11,
+##     rvcheck~0.1.8, rvest~0.3.5, scales~1.1.1, seqinr~3.6-1,
+##     sessioninfo~1.1.1, splines~3.6.2, stringi~1.4.6, survival~3.1-12,
+##     testthat~2.3.2, tidygraph~1.2.0, tidyselect~1.1.0, tools~3.6.2,
+##     triebeard~0.3.0, tweenr~1.0.1,
+##     TxDb.Celegans.UCSC.ce6.ensGene~3.2.2,
 ##     TxDb.Dmelanogaster.UCSC.dm3.ensGene~3.2.2,
 ##     TxDb.Hsapiens.UCSC.hg18.knownGene~3.2.2,
 ##     TxDb.Hsapiens.UCSC.hg19.knownGene~3.2.2,
 ##     TxDb.Mmusculus.UCSC.mm10.knownGene~3.10.0,
 ##     TxDb.Mmusculus.UCSC.mm9.knownGene~3.2.2,
 ##     TxDb.Rnorvegicus.UCSC.rn4.ensGene~3.2.2, urltools~1.7.3,
-##     VariantAnnotation~1.32.0, vctrs~0.2.4, viridis~0.5.1,
-##     viridisLite~0.3.0, withr~2.1.2, xfun~0.12, XML~3.99-0.3,
-##     xml2~1.2.5, xtable~1.8-4, yaml~2.2.1, zlibbioc~1.32.0
+##     VariantAnnotation~1.32.0, vctrs~0.3.1, viridis~0.5.1,
+##     viridisLite~0.3.0, withr~2.2.0, xfun~0.14, XML~3.99-0.3,
+##     xml2~1.3.2, xtable~1.8-4, yaml~2.2.1, zlibbioc~1.32.0
 ## \end{itemize}</code></pre>
 </div>
-<div id="extra-only-for-the-ones-interested" class="section level2" number="5.8">
-<h2><span class="header-section-number">5.8</span> Extra: only for the ones interested…</h2>
+<div id="extra-only-for-the-ones-interested" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> Extra: only for the ones interested…</h2>
 <p>Lets see some regular problem and how to solve it.</p>
 <p>I will show you first a regular problem we can have: annotation files does not correlates with previously used for annotation</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="chip-sequencing-analysis.html#cb230-1"></a>txdb &lt;-<span class="st"> </span><span class="kw">makeTxDbFromGFF</span>(<span class="dt">file=</span><span class="st">&quot;./macs2_analysis_p0.05/Drosophila_melanogaster.BDGP6.92.gtf&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;gtf&quot;</span>, <span class="dt">dataSource=</span><span class="st">&quot;dm6&quot;</span>, <span class="dt">organism=</span><span class="st">&quot;Drosophila melanogaster&quot;</span>)</span>
-<span id="cb230-2"><a href="chip-sequencing-analysis.html#cb230-2"></a><span class="kw">saveDb</span>(txdb, <span class="dt">file=</span><span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>)</span>
-<span id="cb230-3"><a href="chip-sequencing-analysis.html#cb230-3"></a>txdb &lt;-<span class="st"> </span><span class="kw">loadDb</span>(<span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>)</span>
-<span id="cb230-4"><a href="chip-sequencing-analysis.html#cb230-4"></a><span class="kw">class</span>(txdb)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="chip-sequencing-analysis.html#cb251-1"></a>txdb &lt;-<span class="st"> </span><span class="kw">makeTxDbFromGFF</span>(<span class="dt">file=</span><span class="st">&quot;./macs2_analysis_p0.05/Drosophila_melanogaster.BDGP6.92.gtf&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;gtf&quot;</span>, <span class="dt">dataSource=</span><span class="st">&quot;dm6&quot;</span>, <span class="dt">organism=</span><span class="st">&quot;Drosophila melanogaster&quot;</span>)</span>
+<span id="cb251-2"><a href="chip-sequencing-analysis.html#cb251-2"></a><span class="kw">saveDb</span>(txdb, <span class="dt">file=</span><span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>)</span>
+<span id="cb251-3"><a href="chip-sequencing-analysis.html#cb251-3"></a>txdb &lt;-<span class="st"> </span><span class="kw">loadDb</span>(<span class="st">&quot;./macs2_analysis_p0.05/dm6.sqlite&quot;</span>)</span>
+<span id="cb251-4"><a href="chip-sequencing-analysis.html#cb251-4"></a><span class="kw">class</span>(txdb)</span></code></pre></div>
 <pre><code>## TxDb object:
 ## # Db type: TxDb
 ## # Supporting package: GenomicFeatures
@@ -995,7 +1022,7 @@ Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-03-30 18:01:36 -0400 (Mon, 30 Mar 2020)
+## # Creation time: 2020-06-17 23:18:30 -0400 (Wed, 17 Jun 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -1003,8 +1030,8 @@ Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 ## attr(,&quot;package&quot;)
 ## [1] &quot;GenomicFeatures&quot;</code></pre>
 <p>Now we can actually extract the gen location from the annotation that we created</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="chip-sequencing-analysis.html#cb232-1"></a>ge &lt;-<span class="st"> </span><span class="kw">genes</span>(txdb, <span class="dt">columns=</span><span class="kw">c</span>(<span class="st">&quot;tx_name&quot;</span>, <span class="st">&quot;gene_id&quot;</span>, <span class="st">&quot;tx_type&quot;</span>)) <span class="co">##get the genes genomic ranges</span></span>
-<span id="cb232-2"><a href="chip-sequencing-analysis.html#cb232-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="chip-sequencing-analysis.html#cb253-1"></a>ge &lt;-<span class="st"> </span><span class="kw">genes</span>(txdb, <span class="dt">columns=</span><span class="kw">c</span>(<span class="st">&quot;tx_name&quot;</span>, <span class="st">&quot;gene_id&quot;</span>, <span class="st">&quot;tx_type&quot;</span>)) <span class="co">##get the genes genomic ranges</span></span>
+<span id="cb253-2"><a href="chip-sequencing-analysis.html#cb253-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span></code></pre></div>
 <pre><code>##             seqnames    start      end width strand      tx_name     gene_id
 ## FBgn0000003       3R  6822498  6822796   299      +  FBtr0081624 FBgn0000003
 ## FBgn0000008       2R 22136968 22172834 35867      + FBtr0071.... FBgn0000008
@@ -1020,10 +1047,10 @@ Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 ## FBgn0000017 transcript
 ## FBgn0000018 transcript</code></pre>
 <p>Now we will use the function <code>annotatePeakInBach</code></p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="chip-sequencing-analysis.html#cb234-1"></a>?<span class="kw">annotatePeakInBatch</span>() <span class="co">##to undestand what are the features we need</span></span>
-<span id="cb234-2"><a href="chip-sequencing-analysis.html#cb234-2"></a>peaksGR&lt;-<span class="kw">GRanges</span>(macs.res) <span class="co">## create the GRanges object of the macs-table </span></span>
-<span id="cb234-3"><a href="chip-sequencing-analysis.html#cb234-3"></a>annotatedPeak &lt;-<span class="st"> </span><span class="kw">annotatePeakInBatch</span>(peaksGR, <span class="dt">AnnotationData=</span><span class="kw">genes</span>(txdb))</span>
-<span id="cb234-4"><a href="chip-sequencing-analysis.html#cb234-4"></a><span class="kw">head</span>(annotatedPeak)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="chip-sequencing-analysis.html#cb255-1"></a>?<span class="kw">annotatePeakInBatch</span>() <span class="co">##to undestand what are the features we need</span></span>
+<span id="cb255-2"><a href="chip-sequencing-analysis.html#cb255-2"></a>peaksGR&lt;-<span class="kw">GRanges</span>(macs.res) <span class="co">## create the GRanges object of the macs-table </span></span>
+<span id="cb255-3"><a href="chip-sequencing-analysis.html#cb255-3"></a>annotatedPeak &lt;-<span class="st"> </span><span class="kw">annotatePeakInBatch</span>(peaksGR, <span class="dt">AnnotationData=</span><span class="kw">genes</span>(txdb))</span>
+<span id="cb255-4"><a href="chip-sequencing-analysis.html#cb255-4"></a><span class="kw">head</span>(annotatedPeak)</span></code></pre></div>
 <pre><code>## GRanges object with 6 ranges and 16 metadata columns:
 ##             seqnames      ranges strand |    length abs_summit    pileup
 ##                &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt;  &lt;integer&gt; &lt;numeric&gt;
@@ -1068,8 +1095,8 @@ Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 ##   -------
 ##   seqinfo: 32 sequences from an unspecified genome; no seqlengths</code></pre>
 <p>Here we see that the peaks have a lot of NAs so we did something wrong. If we compare the <code>ge</code> object and the annotated peaks object we can see the problem.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="chip-sequencing-analysis.html#cb236-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span>
-<span id="cb236-2"><a href="chip-sequencing-analysis.html#cb236-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak))</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="chip-sequencing-analysis.html#cb257-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span>
+<span id="cb257-2"><a href="chip-sequencing-analysis.html#cb257-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak))</span></code></pre></div>
 <pre><code>##             seqnames    start      end width strand      tx_name     gene_id
 ## FBgn0000003       3R  6822498  6822796   299      +  FBtr0081624 FBgn0000003
 ## FBgn0000008       2R 22136968 22172834 35867      + FBtr0071.... FBgn0000008
@@ -1236,7 +1263,7 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="sequencing-techniques-and-preprocesing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sequencing-techniques-and-preprocessing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

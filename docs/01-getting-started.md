@@ -62,22 +62,21 @@ Here we can create a project in which everything will be integrated. This might 
 Regarding RStudio see the image bellow:
 
 <div class="figure" style="text-align: center">
-<img src="./images/rstudio.png" alt="Regular RStudio setup." width="500px" />
+<img src="./images/rstudio.png" alt="Regular RStudio setup." width="800px" />
 <p class="caption">(\#fig:unnamed-chunk-1)Regular RStudio setup.</p>
 </div>
 
-Upper left panel: the script. Everything you write here you can just execute by pressing CTR + ENTER. 
+*Upper left panel*: the script. Everything you write here you can just execute by pressing CTR + ENTER. 
 
-Upper right panel: the environment.
+*Upper right panel*: the environment.
 
-Down left panel: the “console”, work exactly as the terminal. Is the representation of the terminal just for R. If you want, you can run other things that are not R in the shell (not the console), if you are interested read this nice article https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal 
+*Lower left panel*: the “console”, work exactly as the terminal. Is the representation of the terminal just for R. If you want, you can run other things that are not R in the shell (not the console), if you are interested read this nice article https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal 
 
-Down Right: The multi panel that allows you to see and browse the files, plots and help pages.
-
+*Lower Right*: The multi layer panel that allows you to see and browse the files, plots and help pages.
 
 ## Create a project
 
-1. Open RStudio:
+*1. Open RStudio:*
 
 Create a project: File > New  Project... > Existing  Directory > choose the folder. 
 
@@ -87,7 +86,7 @@ Automatically this should change the working directory to this folder. However, 
 getwd()  #Get working  directory
 ```
 
-2. Create the script: File > New  File... >R Script  
+*2. Create the script:* File > New  File... >R Script  
 
 Now we can start putting things in the script and running them in the “console” or representation of the shell in RStudio. So, let’s check the working directory and change it if needed.
 
@@ -108,7 +107,7 @@ I recommend to save at least the script everytime you can. File > save
 
 ## Useful shortcuts in RStudio:
 
-* tab: auto-complete function
+* tab: auto-complete 
 
 * control + the up arrow or command + up arrow: auto-complete tool that works only in the interactive console
 
@@ -395,6 +394,35 @@ for(i in t){
 ## [1] 5
 ## [1] 6
 ```
+This is usefull for other type of lists and vectors
+
+```r
+vec<-c("a","b")
+
+for (i in c(vec)){
+  print(paste0("i is: ",i))
+}
+```
+
+```
+## [1] "i is: a"
+## [1] "i is: b"
+```
+And we can access it in differen ways:
+
+```r
+for (i in 1:length(vec)){
+  print(paste0("i is: ",i))
+  print(paste0("elemnt i is: ",vec[i]))
+}
+```
+
+```
+## [1] "i is: 1"
+## [1] "elemnt i is: a"
+## [1] "i is: 2"
+## [1] "elemnt i is: b"
+```
 
 ## Conditions
 
@@ -565,8 +593,17 @@ gsub(pattern = "d",replacement = "I am replacing d",x = chrvec)
 
 ## Useful resources
 
-* R for data science: https://r4ds.had.co.nz
-* A package to learn R 
+* A package to learn R:
+[Swirl](https://swirlstats.com/students.html)
+* Support from RStudio: 
+[Usefull resource with usefull packages in R](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages)
+* Girhub:
+[Bioinformatic resources](https://github.com/ossu/bioinformatics)
+* Free books: 
+[R for data science](https://r4ds.had.co.nz)
+[unix command line 1](https://www.grymoire.com/) 
+[unix command line 2](http://linuxcommand.org/tlcl.php) 
+[data structure with python](https://runestone.academy/runestone/books/published/pythonds/index.html)
 
 ## Activity: 
 
@@ -586,3 +623,4 @@ plus.one.onlyifpos <- function(n){
 plus.one.onlyifpos(20)
 plus.one.onlyifpos(-20)
 ```
+

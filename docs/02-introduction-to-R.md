@@ -18,7 +18,7 @@ output:
 
 After this section you should be able to:
 
-1. Load, explore and manioulate data in R
+1. Load, explore and manipulate data in R
 
 
 ## Introduction
@@ -91,8 +91,8 @@ It is important to understand the data before heading into the analysis. We will
 # As you can see this is a table, just in case we want to convert it to a data.frame
 ChickWeight<-as.data.frame(ChickWeight)
 ```
-
 To see only the beginning, we can use the head function:
+  
 
 ```r
 head(ChickWeight)
@@ -353,7 +353,8 @@ head(ChickWeight[ChickWeight$Diet==4,])
 ```
 > Why == and no =?
 
-Remeber in R, = is an assignment, as the <-, while the == is for comparison
+Remember in R, = is an assignment, as the <-, while the == is for comparison.
+
 
 ```r
 head(ChickWeight$Diet==4)
@@ -362,7 +363,7 @@ head(ChickWeight$Diet==4)
 ```
 ## [1] FALSE FALSE FALSE FALSE FALSE FALSE
 ```
-and
+Lets explore the class: 
 
 ```r
 class(ChickWeight$Diet==4)
@@ -371,7 +372,6 @@ class(ChickWeight$Diet==4)
 ```
 ## [1] "logical"
 ```
-
 So, when we do ChickWeight[ChickWeight$Diet==4,], R is just showing the ChickWeight for which ChickWeight$Diet==4 is TRUE
 
 ```r
@@ -395,7 +395,7 @@ head(ChickWeight[ChickWeight$Diet==4,])
 ## 465    103    8    41    4
 ## 466    124   10    41    4
 ```
-and for more conditions:
+And for more conditions, we can use AND (&) to integrate them.
 
 ```r
 head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6,])
@@ -410,6 +410,19 @@ head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6,])
 ## 469    175   16    41    4
 ## 470    184   18    41    4
 ```
+Other option is OR (|). 
+
+Remember, computers will read as things come
+$$
+condition-A AND condition-B OR condition-C
+condition-A & condition-B | condition-C
+$$
+ Is not the same as 
+
+$$
+condition A & (condition B | condition C)
+$$
+
 
 ```r
 head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,])
@@ -424,14 +437,16 @@ head(ChickWeight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,
 ## 469    175   16    41    4
 ## 470    184   18    41    4
 ```
-And if I just want the weights of these...
+And if we just want the weights of these...
 
 ```
 ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20,] 
 ```
 >why this gives an error? 
 
-because we only have one dimension now, no 2
+Because we only have one dimension now, not 2. 
+ChickWeight$weight is one dimention object, so we have to use [ ], not [ , ].
+
 
 ```r
 head(ChickWeight$weight[ChickWeight$Diet==4 & ChickWeight$Time>6 & ChickWeight$Time<20])
@@ -467,23 +482,58 @@ For example:
 1. If the chickens are older we expect them to be bigger. This can be visualized using a dotplot.
 2. We might want to see the distribution of weight separated by diet. This can be addressed by a histogram.
 
-`ggplot` is a very useful function that allows us to manipulate the colors, the plot type, etc. I know it can be difficult to understand it at the beginning but after a while it becomes really intuitive. Important things to consider:
-1. We will be able to plot anything that is a column in the data matrix.
+## Plots
+
+We will use the package `ggplot2`. It is a very useful and documented package. We will focus on the `ggplot` function. This function generates plots as *layers*. This allows us to manipulate the colors, the plot type, etc. I know it can be difficult to understand it at the beginning but after a while it becomes really intuitive. 
+
+Important things to consider:
+1. We will be able to plot anything that is a *column* in the data frame.
 2. Everything is or can be a layer in the plot.
 3. When you decide to color or shape by a factor that separates your data this will impact the plot.
 
-## Plots
+Again,we can plot any column. So lets axplore the columns. It is important to know the class of each column. It is not the same trying to plot a number, than a letter. 
 
-Columns we can plot:
 
 ```r
-names(ChickWeight)
+names(ChickWeight) #names of the columns in the data frame
 ```
 
 ```
 ## [1] "weight" "Time"   "Chick"  "Diet"
 ```
+
+
+```r
+head(ChickWeight) #head of the data frame
+```
+
+```
+##   weight Time Chick Diet
+## 1     42    0     1    1
+## 2     51    2     1    1
+## 3     59    4     1    1
+## 4     64    6     1    1
+## 5     76    8     1    1
+## 6     93   10     1    1
+```
+
+
+```r
+str(ChickWeight) #structure of the data frame
+```
+
+```
+## 'data.frame':	578 obs. of  4 variables:
+##  $ weight: num  42 51 59 64 76 93 106 125 149 171 ...
+##  $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...
+##  $ Chick : Ord.factor w/ 50 levels "18"<"16"<"15"<..: 15 15 15 15 15 15 15 15 15 15 ...
+##  $ Diet  : Factor w/ 4 levels "1","2","3","4": 1 1 1 1 1 1 1 1 1 1 ...
+```
+
 ### Line and points
+
+To see things as correlations, we usually use points and lines. We will see how to do it using different plot options.
+
 Dot plot with basic qplot (from ggplot but les complex)
 
 ```r
@@ -491,8 +541,8 @@ qplot(data=ChickWeight,x = weight, y=Time, geom = c("line","point"))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-33-1.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-331)Point and line plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-35-1.png" alt="Point and line plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-351)Point and line plots</p>
 </div>
 
 ```r
@@ -500,10 +550,10 @@ qplot(data=ChickWeight,x = weight, y=Time, geom = c("line","point"), colour=Diet
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-33-2.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-332)Point and line plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-35-2.png" alt="Point and line plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-352)Point and line plots</p>
 </div>
-The same using ggplot
+The same using ggplot:
 
 ```r
 ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic things about the plot
@@ -512,8 +562,8 @@ ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-34-1.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-341)Point and line plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-36-1.png" alt="Point and line plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-361)Point and line plots</p>
 </div>
 
 ```r
@@ -524,8 +574,8 @@ ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-34-2.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-342)Point and line plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-36-2.png" alt="Point and line plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-362)Point and line plots</p>
 </div>
 ### Historgam and density plots
 
@@ -539,8 +589,8 @@ qplot(data = ChickWeight,x=weight, binwith=10)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-35-1.png" alt="Histogram and Density plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-351)Histogram and Density plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-37-1.png" alt="Histogram and Density plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-371)Histogram and Density plots</p>
 </div>
 
 ```r
@@ -548,8 +598,8 @@ qplot(data = ChickWeight,x=weight, binwith=10, colour=Diet) #the color separates
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-35-2.png" alt="Histogram and Density plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-352)Histogram and Density plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-37-2.png" alt="Histogram and Density plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-372)Histogram and Density plots</p>
 </div>
 
 ```r
@@ -557,31 +607,31 @@ qplot(data = ChickWeight,x=weight, geom = "density", colour=Diet)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-35-3.png" alt="Histogram and Density plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-353)Histogram and Density plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-37-3.png" alt="Histogram and Density plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-373)Histogram and Density plots</p>
 </div>
 With ggplot
 
 ```r
 ggplot(data = ChickWeight, aes(x=weight,color=Diet))+
-  geom_histogram(fill="white", alpha=0.5, position="identity")+
-  scale_colour_brewer(palette = "Set1")
+  geom_histogram(fill="white", position="identity")+
+  scale_colour_brewer(palette = "Set1")#this is selecting the color scheme, try taking it out, or mofyfying it
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-36-1.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-361)Point and line plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-38-1.png" alt="Point and line plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-381)Point and line plots</p>
 </div>
 
 ```r
 ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
-  geom_density( alpha=0.5)+
+  geom_density( alpha=0.5)+ #the density plot with the option to modify the transparency of the polot solor, it goes between 0 and 1. Try modifying it.
   scale_colour_brewer(palette = "Set1")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-36-2.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-362)Point and line plots</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-38-2.png" alt="Point and line plots" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-382)Point and line plots</p>
 </div>
 ### Boxplot
 
@@ -589,47 +639,47 @@ Boxplots are a nice way to visualize the data distribution and to get and intuit
 
 <div class="figure" style="text-align: center">
 <img src="./images/boxplot.jpg" alt="Boxplot description. Figrue affapted from https://www.simplypsychology.org/boxplots.html" width="500px" />
-<p class="caption">(\#fig:unnamed-chunk-37)Boxplot description. Figrue affapted from https://www.simplypsychology.org/boxplots.html</p>
+<p class="caption">(\#fig:unnamed-chunk-39)Boxplot description. Figrue affapted from https://www.simplypsychology.org/boxplots.html</p>
 </div>
 
 
 ```r
 ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+ #Note how the x, y and color changes
-  geom_boxplot()+ #this is adding the  boxplot
-  scale_colour_brewer(palette = "Set1")
+  geom_boxplot()+ #this is adding the boxplot
+  scale_colour_brewer(palette = "Set1") 
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-38-1.png" alt="Boxplot" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-38)Boxplot</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-40-1.png" alt="Boxplot" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-40)Boxplot</p>
 </div>
 
 What happens if we do not use the `as.factor`? Again, a reminder that the data type is important!
 
 
 ```r
-ggplot(data = ChickWeight, aes(y=weight,x=Time,fill=Diet))+ #Note how the x, y and color changes
-  geom_boxplot()+ #this is adding the  boxplot
+ggplot(data = ChickWeight, aes(y=weight,x=Time,fill=Diet))+ 
+  geom_boxplot()+ #this is adding the boxplot
   scale_colour_brewer(palette = "Set1")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-39-1.png" alt="Boxplot" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-39)Boxplot</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-41-1.png" alt="Boxplot" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-41)Boxplot</p>
 </div>
 
-It seems interesting to separate this by age (Time). This is achieved by another layer named facet.
+It seems interesting to separate this by age (Time). This is achieved by another layer named [facet](https://plotly.com/ggplot2/facet_wrap/).
 
 ```r
 ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
-  geom_density( alpha=0.5)+
+  geom_density( alpha=0.5)+ 
   scale_colour_brewer(palette = "Set1")+
-  facet_wrap(~Time,scales = "free")
+  facet_wrap(~Time,scales = "free") #This will separate the data into panels given the time, try looking for the meaning of the scale option
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-40-1.png" alt="Plot sepparating by age of the chicken" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-401)Plot sepparating by age of the chicken</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-42-1.png" alt="Plot separating by age of the chicken" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-421)Plot separating by age of the chicken</p>
 </div>
 
 ```r
@@ -639,8 +689,8 @@ ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-40-2.png" alt="Plot sepparating by age of the chicken" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-402)Plot sepparating by age of the chicken</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-42-2.png" alt="Plot separating by age of the chicken" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-422)Plot separating by age of the chicken</p>
 </div>
 
 ```r
@@ -651,9 +701,57 @@ ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-40-3.png" alt="Plot sepparating by age of the chicken" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-403)Plot sepparating by age of the chicken</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-42-3.png" alt="Plot separating by age of the chicken" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-423)Plot separating by age of the chicken</p>
 </div>
+
+
+### Saving plots
+
+Imagine you want now to save some of these plots. You can use the button **export** in RStudio. But you can also use the `pdf` function. 
+
+This function allows us to determine the width and height of the plots. Check what happens if you modify the option in the plots below.
+
+These pdf files will be saved on your working directory with the name, width and height determined in the function. 
+
+Important things: 
+
+1. Do not forget to put the ".pdf" at the end of the file name. What do you think it will happen if you forget it?
+2. When you finish running the plots that you want to be in the pdf file, you have to run `dev.off()`. This will close the plot. If you forget this, you will not be able to open the plot.
+
+
+
+```r
+pdf("densityplot.pdf",width = 20, height = 20) #save the plot as a pdf, control width and height of the pdf
+ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
+  geom_density( alpha=0.5)+
+  scale_colour_brewer(palette = "Set1")+
+  facet_wrap(~Time,scales = "free")
+
+dev.off() #end the plot
+
+
+pdf("density_and_violin.plot.pdf",width = 20, height = 20) #save the plot as a pdf, control width and height of the pdf
+ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
+  geom_density( alpha=0.5)+
+  scale_colour_brewer(palette = "Set1")+
+  facet_wrap(~Time,scales = "free")
+
+ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
+  geom_violin()+
+  scale_colour_brewer(palette = "Set1")+
+  facet_wrap(~Time,scales = "free")
+
+dev.off() #end the plot
+```
+
+```
+## quartz_off_screen 
+##                 2 
+## quartz_off_screen 
+##                 2
+```
+
 
 ## Statistical test
 
@@ -661,7 +759,7 @@ ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
 
 We already saw a way to get the descriptive stats from a table by using `summary`.
 
-We will try to compare the weight of chickens under different diets without taking into account the age. 
+We will try to compare the weight of chickens under different diets without considering the age. 
 
 First, we will now do a mean and SD table for each diet. There is one function that can do this for us.
 `ddply` is a function that first divides the data by a variable written as .(Var) and then perform an specific function. With the indication of "transform" this will create a new column in out data
@@ -710,11 +808,11 @@ ggplot(statWeight_ChickWeight, aes(x=Diet, y=Mean, fill=Diet)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-43-1.png" alt="Boxplot" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-43)Boxplot</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-46-1.png" alt="Boxplot" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-46)Boxplot</p>
 </div>
 
-## T-test/Wilcoxon
+### T-test/Wilcoxon
 
 To compare means we can do a T test but to do this we need to test the assumptions of this test: **Normality** of the data and Homoscedasticity (ie, the variance is similar between the two groups we want to compare)
 
@@ -775,8 +873,8 @@ qplot(data=ChickWeight, x = weight, facets = "Diet",geom = "density")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-47-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-47)**CAPTION THIS FIGURE!!**</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-50-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-50)**CAPTION THIS FIGURE!!**</p>
 </div>
 
 *Assumption 3*: Do the two populations have the same variances?
@@ -876,8 +974,8 @@ plot(res.aov, 1)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-52-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-52)**CAPTION THIS FIGURE!!**</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-55-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-55)**CAPTION THIS FIGURE!!**</p>
 </div>
 
 
@@ -905,8 +1003,8 @@ plot(res.aov, 2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-54-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-54)**CAPTION THIS FIGURE!!**</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-57-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-57)**CAPTION THIS FIGURE!!**</p>
 </div>
 
 
@@ -943,7 +1041,7 @@ kruskal.test(weight~ Diet, data = ChickWeight)
 
 ## Activity: 
 
-**Find another thing you want to test with this data. Solve this in a graphical and statistical way.**
+**Find another thing you want to test with this data. Solve this in a graphical and statistical way. Save the plots**
 
 
 ## Resources

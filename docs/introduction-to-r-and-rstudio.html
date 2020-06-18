@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 1 Introduction to R and RStudio | Genomics with R for biologists</title>
   <meta name="description" content="This is the index for the coursebook" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 1 Introduction to R and RStudio | Genomics with R for biologists" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
 
 
-<meta name="date" content="2020-03-30" />
+<meta name="date" content="2020-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="data-manipulation.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -177,38 +177,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.3.1</b> Line and points</a></li>
 <li class="chapter" data-level="3.3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.3.2</b> Historgam and density plots</a></li>
 <li class="chapter" data-level="3.3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.3.3</b> Boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#saving-plots"><i class="fa fa-check"></i><b>3.3.4</b> Saving plots</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.4</b> Statistical test</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.4.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.4.2</b> T-test/Wilcoxon</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.4.3</b> Anova/Kruskal–Wallis</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.5</b> T-test/Wilcoxon</a>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-2"><i class="fa fa-check"></i><b>3.5</b> Activity:</a></li>
+<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocessing</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.5.1</b> Anova/Kruskal–Wallis</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-2"><i class="fa fa-check"></i><b>3.6</b> Activity:</a></li>
-<li class="chapter" data-level="3.7" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.7</b> Resources</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocesing</a>
+<li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#different-type-of-data-dna-rna-splicing-single-end-paired-end"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing, single-end paired-end)</a></li>
+<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From the sequencer machine to the sequence</a></li>
+<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#general-processing"><i class="fa fa-check"></i><b>4.5</b> General processing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
-<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#different-type-of-data-dna-rna-splicing"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing)</a></li>
-<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From The sequencer machine to the sequence</a></li>
-<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignemet-bam-files-annotation-files-bowtie2-and-star"><i class="fa fa-check"></i><b>4.5</b> Alignemet (bam files, annotation files, BOWTIE2 and STAR)</a></li>
-<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#gene-counts-read-feature-counts"><i class="fa fa-check"></i><b>4.6</b> Gene counts / read (feature counts)</a></li>
-<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignement"><i class="fa fa-check"></i><b>4.7</b> Alignement</a></li>
+<li class="chapter" data-level="4.5.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#visualization-of-alignment-igv"><i class="fa fa-check"></i><b>4.5.1</b> Visualization of alignment (IGV)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#gene-counts-read-esat-feature-counts-peak-calling"><i class="fa fa-check"></i><b>4.5.2</b> Gene counts / read (esat feature counts) /peak calling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
+<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#a-bit-of-shell-commands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell commands</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-1"><i class="fa fa-check"></i><b>4.8</b> Resources</a></li>
+<li class="chapter" data-level="4.9" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#bibliography"><i class="fa fa-check"></i><b>4.9</b> Bibliography</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.2</b> Initial analysis (peak-calling):</a></li>
-<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.3</b> Exploring the results:</a></li>
-<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.4</b> Annotating the peaks.</a></li>
-<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.5</b> Annotate with <code>ChIPseeker</code></a></li>
-<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.6</b> Sequence Motif analysis</a></li>
-<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.7</b> Session info: all the packages installed.</a></li>
-<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.8</b> Extra: only for the ones interested…</a></li>
+<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#objectives-4"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.3</b> Initial analysis (peak-calling):</a></li>
+<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.4</b> Exploring the results:</a></li>
+<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.5</b> Annotating the peaks.</a></li>
+<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.6</b> Annotate with <code>ChIPseeker</code></a></li>
+<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.8</b> Session info: all the packages installed.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.9</b> Extra: only for the ones interested…</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -271,27 +277,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here we can create a project in which everything will be integrated. This might not be the most efficient thing in terms of memory use but is the simplest for now. When you start to understand the logic of the programing language I encourage you to run R in different supports like typing “R” in your computer shell and run directly from command line.</p>
 <p>Regarding RStudio see the image bellow:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="images/rstudio.png" alt="Regular RStudio setup." width="500px" />
+<img src="images/rstudio.png" alt="Regular RStudio setup." width="800px" />
 <p class="caption">
 Figure 1.1: Regular RStudio setup.
 </p>
 </div>
-<p>Upper left panel: the script. Everything you write here you can just execute by pressing CTR + ENTER.</p>
-<p>Upper right panel: the environment.</p>
-<p>Down left panel: the “console”, work exactly as the terminal. Is the representation of the terminal just for R. If you want, you can run other things that are not R in the shell (not the console), if you are interested read this nice article <a href="https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal" class="uri">https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal</a></p>
-<p>Down Right: The multi panel that allows you to see and browse the files, plots and help pages.</p>
+<p><em>Upper left panel</em>: the script. Everything you write here you can just execute by pressing CTR + ENTER.</p>
+<p><em>Upper right panel</em>: the environment.</p>
+<p><em>Lower left panel</em>: the “console”, work exactly as the terminal. Is the representation of the terminal just for R. If you want, you can run other things that are not R in the shell (not the console), if you are interested read this nice article <a href="https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal" class="uri">https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal</a></p>
+<p><em>Lower Right</em>: The multi layer panel that allows you to see and browse the files, plots and help pages.</p>
 </div>
 <div id="create-a-project" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Create a project</h2>
-<ol style="list-style-type: decimal">
-<li>Open RStudio:</li>
-</ol>
+<p><em>1. Open RStudio:</em></p>
 <p>Create a project: File &gt; New Project… &gt; Existing Directory &gt; choose the folder.</p>
 <p>Automatically this should change the working directory to this folder. However, it is nice to check this we should run the following command:</p>
 <pre><code>getwd()  #Get working  directory</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Create the script: File &gt; New File… &gt;R Script</li>
-</ol>
+<p><em>2. Create the script:</em> File &gt; New File… &gt;R Script</p>
 <p>Now we can start putting things in the script and running them in the “console” or representation of the shell in RStudio. So, let’s check the working directory and change it if needed.</p>
 <p>To run the command, just write “getwd()” and press CTR+ENTER.</p>
 <p>This should generate this in the “Console”:</p>
@@ -306,7 +308,7 @@ Figure 1.1: Regular RStudio setup.
 <div id="useful-shortcuts-in-rstudio" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Useful shortcuts in RStudio:</h2>
 <ul>
-<li><p>tab: auto-complete function</p></li>
+<li><p>tab: auto-complete</p></li>
 <li><p>control + the up arrow or command + up arrow: auto-complete tool that works only in the interactive console</p></li>
 <li><p>control + enter or command + enter: executes the selected lines of code</p></li>
 <li><p>control + s : save</p></li>
@@ -460,76 +462,93 @@ In R language that looks like this: <code>nameofunction&lt;-function(x){ what th
 ## [1] 3.3
 ## [1] 5
 ## [1] 6</code></pre>
+<p>This is usefull for other type of lists and vectors</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-r-and-rstudio.html#cb37-1"></a>vec&lt;-<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
+<span id="cb37-2"><a href="introduction-to-r-and-rstudio.html#cb37-2"></a></span>
+<span id="cb37-3"><a href="introduction-to-r-and-rstudio.html#cb37-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(vec)){</span>
+<span id="cb37-4"><a href="introduction-to-r-and-rstudio.html#cb37-4"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;i is: &quot;</span>,i))</span>
+<span id="cb37-5"><a href="introduction-to-r-and-rstudio.html#cb37-5"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;i is: a&quot;
+## [1] &quot;i is: b&quot;</code></pre>
+<p>And we can access it in differen ways:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introduction-to-r-and-rstudio.html#cb39-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(vec)){</span>
+<span id="cb39-2"><a href="introduction-to-r-and-rstudio.html#cb39-2"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;i is: &quot;</span>,i))</span>
+<span id="cb39-3"><a href="introduction-to-r-and-rstudio.html#cb39-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;elemnt i is: &quot;</span>,vec[i]))</span>
+<span id="cb39-4"><a href="introduction-to-r-and-rstudio.html#cb39-4"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;i is: 1&quot;
+## [1] &quot;elemnt i is: a&quot;
+## [1] &quot;i is: 2&quot;
+## [1] &quot;elemnt i is: b&quot;</code></pre>
 </div>
 <div id="conditions" class="section level2" number="1.11">
 <h2><span class="header-section-number">1.11</span> Conditions</h2>
 <p>R assigns using <code>=</code> and compares using <code>==</code>,<code>&lt;</code> and <code>&gt;</code>. It can then use <code>if</code> and <code>else</code> to generate conditions and actions. This can be more complex by adding AND, OR gates with <code>&amp;</code> and <code>|</code> respectively.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="introduction-to-r-and-rstudio.html#cb37-1"></a>x=<span class="dv">1</span></span>
-<span id="cb37-2"><a href="introduction-to-r-and-rstudio.html#cb37-2"></a><span class="co">#lets explore x</span></span>
-<span id="cb37-3"><a href="introduction-to-r-and-rstudio.html#cb37-3"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introduction-to-r-and-rstudio.html#cb41-1"></a>x=<span class="dv">1</span></span>
+<span id="cb41-2"><a href="introduction-to-r-and-rstudio.html#cb41-2"></a><span class="co">#lets explore x</span></span>
+<span id="cb41-3"><a href="introduction-to-r-and-rstudio.html#cb41-3"></a>x</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>Compare, equal to:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="introduction-to-r-and-rstudio.html#cb39-1"></a>x<span class="op">==</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-r-and-rstudio.html#cb43-1"></a>x<span class="op">==</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Smaller than:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="introduction-to-r-and-rstudio.html#cb41-1"></a>x<span class="op">&lt;</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introduction-to-r-and-rstudio.html#cb45-1"></a>x<span class="op">&lt;</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Bigger than:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="introduction-to-r-and-rstudio.html#cb43-1"></a>x<span class="op">&gt;</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introduction-to-r-and-rstudio.html#cb47-1"></a>x<span class="op">&gt;</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Apply this comparisons to an if/else:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="introduction-to-r-and-rstudio.html#cb45-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>){</span>
-<span id="cb45-2"><a href="introduction-to-r-and-rstudio.html#cb45-2"></a>  c=x<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb45-3"><a href="introduction-to-r-and-rstudio.html#cb45-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;c is: &quot;</span>, c))</span>
-<span id="cb45-4"><a href="introduction-to-r-and-rstudio.html#cb45-4"></a>} <span class="cf">else</span> {</span>
-<span id="cb45-5"><a href="introduction-to-r-and-rstudio.html#cb45-5"></a>  <span class="kw">print</span>(<span class="st">&quot;x is too big&quot;</span>)</span>
-<span id="cb45-6"><a href="introduction-to-r-and-rstudio.html#cb45-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introduction-to-r-and-rstudio.html#cb49-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>){</span>
+<span id="cb49-2"><a href="introduction-to-r-and-rstudio.html#cb49-2"></a>  c=x<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb49-3"><a href="introduction-to-r-and-rstudio.html#cb49-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;c is: &quot;</span>, c))</span>
+<span id="cb49-4"><a href="introduction-to-r-and-rstudio.html#cb49-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb49-5"><a href="introduction-to-r-and-rstudio.html#cb49-5"></a>  <span class="kw">print</span>(<span class="st">&quot;x is too big&quot;</span>)</span>
+<span id="cb49-6"><a href="introduction-to-r-and-rstudio.html#cb49-6"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;c is: 2&quot;</code></pre>
 <p>Change the condition:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="introduction-to-r-and-rstudio.html#cb47-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>){</span>
-<span id="cb47-2"><a href="introduction-to-r-and-rstudio.html#cb47-2"></a>  c=x<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb47-3"><a href="introduction-to-r-and-rstudio.html#cb47-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;c is: &quot;</span>, c))</span>
-<span id="cb47-4"><a href="introduction-to-r-and-rstudio.html#cb47-4"></a>} <span class="cf">else</span> {</span>
-<span id="cb47-5"><a href="introduction-to-r-and-rstudio.html#cb47-5"></a>  <span class="kw">print</span>(<span class="st">&quot;x is too big&quot;</span>)</span>
-<span id="cb47-6"><a href="introduction-to-r-and-rstudio.html#cb47-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="introduction-to-r-and-rstudio.html#cb51-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb51-2"><a href="introduction-to-r-and-rstudio.html#cb51-2"></a>  c=x<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb51-3"><a href="introduction-to-r-and-rstudio.html#cb51-3"></a>  <span class="kw">print</span>(<span class="kw">paste0</span>(<span class="st">&quot;c is: &quot;</span>, c))</span>
+<span id="cb51-4"><a href="introduction-to-r-and-rstudio.html#cb51-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb51-5"><a href="introduction-to-r-and-rstudio.html#cb51-5"></a>  <span class="kw">print</span>(<span class="st">&quot;x is too big&quot;</span>)</span>
+<span id="cb51-6"><a href="introduction-to-r-and-rstudio.html#cb51-6"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is too big&quot;</code></pre>
 </div>
 <div id="character-objects" class="section level2" number="1.12">
 <h2><span class="header-section-number">1.12</span> Character objects</h2>
 <p>So far, we saw opperations with numbers. But R can have objects with words or characters.</p>
 <p>We can have a complex phrase</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="introduction-to-r-and-rstudio.html#cb49-1"></a>phrase&lt;-<span class="st">&quot;I am a beatufill phrase. Hello world&quot;</span></span>
-<span id="cb49-2"><a href="introduction-to-r-and-rstudio.html#cb49-2"></a>phrase</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="introduction-to-r-and-rstudio.html#cb53-1"></a>phrase&lt;-<span class="st">&quot;I am a beatufill phrase. Hello world&quot;</span></span>
+<span id="cb53-2"><a href="introduction-to-r-and-rstudio.html#cb53-2"></a>phrase</span></code></pre></div>
 <pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;</code></pre>
 <p>Or a vector of character elements:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="introduction-to-r-and-rstudio.html#cb51-1"></a>chrvec&lt;-<span class="kw">c</span>(phrase,<span class="st">&quot;abcde&quot;</span>,<span class="st">&quot;67&quot;</span>)</span>
-<span id="cb51-2"><a href="introduction-to-r-and-rstudio.html#cb51-2"></a>chrvec</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="introduction-to-r-and-rstudio.html#cb55-1"></a>chrvec&lt;-<span class="kw">c</span>(phrase,<span class="st">&quot;abcde&quot;</span>,<span class="st">&quot;67&quot;</span>)</span>
+<span id="cb55-2"><a href="introduction-to-r-and-rstudio.html#cb55-2"></a>chrvec</span></code></pre></div>
 <pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;
 ## [2] &quot;abcde&quot;                               
 ## [3] &quot;67&quot;</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="introduction-to-r-and-rstudio.html#cb53-1"></a><span class="kw">class</span>(chrvec)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="introduction-to-r-and-rstudio.html#cb57-1"></a><span class="kw">class</span>(chrvec)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 </div>
 <div id="identify" class="section level2" number="1.13">
 <h2><span class="header-section-number">1.13</span> Identify</h2>
 <p>We can operate over them. For example, we can select the elemnt that has certain characteristic. For this we will use <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/grep">grep</a>. This is based on <a href="https://rstudio.com/wp-content/uploads/2016/09/RegExCheatsheet.pdf">regualar expression</a>.</p>
 <p>Lets select the elemnts that have the letter d.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="introduction-to-r-and-rstudio.html#cb55-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="introduction-to-r-and-rstudio.html#cb59-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
 <pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;
 ## [2] &quot;abcde&quot;</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="introduction-to-r-and-rstudio.html#cb57-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> F) <span class="co">#What changed between the previous one and this one?</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="introduction-to-r-and-rstudio.html#cb61-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> F) <span class="co">#What changed between the previous one and this one?</span></span></code></pre></div>
 <pre><code>## [1] 1 2</code></pre>
 <p>Clearly, the fist two elements have the letter d. What if we want to select the one that has it at the end?</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="introduction-to-r-and-rstudio.html#cb59-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d$&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="introduction-to-r-and-rstudio.html#cb63-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;d$&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
 <pre><code>## [1] &quot;I am a beatufill phrase. Hello world&quot;</code></pre>
 <p>The same can be done for the begining. This of course gives us an empty result.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="introduction-to-r-and-rstudio.html#cb61-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;^d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="introduction-to-r-and-rstudio.html#cb65-1"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;^d&quot;</span>,<span class="dt">x =</span> chrvec,<span class="dt">value =</span> T)</span></code></pre></div>
 <pre><code>## character(0)</code></pre>
 </div>
 <div id="modify" class="section level2" number="1.14">
 <h2><span class="header-section-number">1.14</span> Modify</h2>
 <p>We can modify the objects. We will use <a href="https://stackoverflow.com/questions/35655485/replace-with-space-using-gsub-in-r">gsub</a></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="introduction-to-r-and-rstudio.html#cb63-1"></a><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">replacement =</span> <span class="st">&quot;I am replacing d&quot;</span>,<span class="dt">x =</span> chrvec)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="introduction-to-r-and-rstudio.html#cb67-1"></a><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;d&quot;</span>,<span class="dt">replacement =</span> <span class="st">&quot;I am replacing d&quot;</span>,<span class="dt">x =</span> chrvec)</span></code></pre></div>
 <pre><code>## [1] &quot;I am a beatufill phrase. Hello worlI am replacing d&quot;
 ## [2] &quot;abcI am replacing de&quot;                               
 ## [3] &quot;67&quot;</code></pre>
@@ -537,23 +556,32 @@ In R language that looks like this: <code>nameofunction&lt;-function(x){ what th
 <div id="useful-resources" class="section level2" number="1.15">
 <h2><span class="header-section-number">1.15</span> Useful resources</h2>
 <ul>
-<li>R for data science: <a href="https://r4ds.had.co.nz" class="uri">https://r4ds.had.co.nz</a></li>
-<li>A package to learn R</li>
+<li>A package to learn R:
+<a href="https://swirlstats.com/students.html">Swirl</a></li>
+<li>Support from RStudio:
+<a href="https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages">Usefull resource with usefull packages in R</a></li>
+<li>Girhub:
+<a href="https://github.com/ossu/bioinformatics">Bioinformatic resources</a></li>
+<li>Free books:
+<a href="https://r4ds.had.co.nz">R for data science</a>
+<a href="https://www.grymoire.com/">unix command line 1</a>
+<a href="http://linuxcommand.org/tlcl.php">unix command line 2</a>
+<a href="https://runestone.academy/runestone/books/published/pythonds/index.html">data structure with python</a></li>
 </ul>
 </div>
 <div id="activity" class="section level2" number="1.16">
 <h2><span class="header-section-number">1.16</span> Activity:</h2>
 <p><strong>Create a new funciton that has inside a for loop and other that has an if/else condition.</strong></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="introduction-to-r-and-rstudio.html#cb65-1"></a>plus.one.onlyifpos &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb65-2"><a href="introduction-to-r-and-rstudio.html#cb65-2"></a>  <span class="cf">if</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
-<span id="cb65-3"><a href="introduction-to-r-and-rstudio.html#cb65-3"></a>    <span class="kw">return</span>(n<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb65-4"><a href="introduction-to-r-and-rstudio.html#cb65-4"></a>  } <span class="cf">else</span> {</span>
-<span id="cb65-5"><a href="introduction-to-r-and-rstudio.html#cb65-5"></a>    <span class="kw">return</span>(<span class="st">&quot;number is negative&quot;</span>)</span>
-<span id="cb65-6"><a href="introduction-to-r-and-rstudio.html#cb65-6"></a>  }</span>
-<span id="cb65-7"><a href="introduction-to-r-and-rstudio.html#cb65-7"></a>}</span>
-<span id="cb65-8"><a href="introduction-to-r-and-rstudio.html#cb65-8"></a></span>
-<span id="cb65-9"><a href="introduction-to-r-and-rstudio.html#cb65-9"></a><span class="kw">plus.one.onlyifpos</span>(<span class="dv">20</span>)</span>
-<span id="cb65-10"><a href="introduction-to-r-and-rstudio.html#cb65-10"></a><span class="kw">plus.one.onlyifpos</span>(<span class="op">-</span><span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="introduction-to-r-and-rstudio.html#cb69-1"></a>plus.one.onlyifpos &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb69-2"><a href="introduction-to-r-and-rstudio.html#cb69-2"></a>  <span class="cf">if</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb69-3"><a href="introduction-to-r-and-rstudio.html#cb69-3"></a>    <span class="kw">return</span>(n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb69-4"><a href="introduction-to-r-and-rstudio.html#cb69-4"></a>  } <span class="cf">else</span> {</span>
+<span id="cb69-5"><a href="introduction-to-r-and-rstudio.html#cb69-5"></a>    <span class="kw">return</span>(<span class="st">&quot;number is negative&quot;</span>)</span>
+<span id="cb69-6"><a href="introduction-to-r-and-rstudio.html#cb69-6"></a>  }</span>
+<span id="cb69-7"><a href="introduction-to-r-and-rstudio.html#cb69-7"></a>}</span>
+<span id="cb69-8"><a href="introduction-to-r-and-rstudio.html#cb69-8"></a></span>
+<span id="cb69-9"><a href="introduction-to-r-and-rstudio.html#cb69-9"></a><span class="kw">plus.one.onlyifpos</span>(<span class="dv">20</span>)</span>
+<span id="cb69-10"><a href="introduction-to-r-and-rstudio.html#cb69-10"></a><span class="kw">plus.one.onlyifpos</span>(<span class="op">-</span><span class="dv">20</span>)</span></code></pre></div>
 
 </div>
 </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 2 Data manipulation | Genomics with R for biologists</title>
   <meta name="description" content="This is the index for the coursebook" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 2 Data manipulation | Genomics with R for biologists" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
 
 
-<meta name="date" content="2020-03-30" />
+<meta name="date" content="2020-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="introduction-to-r-and-rstudio.html"/>
 <link rel="next" href="visualization-and-statistical-test.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -177,38 +177,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.3.1</b> Line and points</a></li>
 <li class="chapter" data-level="3.3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.3.2</b> Historgam and density plots</a></li>
 <li class="chapter" data-level="3.3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.3.3</b> Boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#saving-plots"><i class="fa fa-check"></i><b>3.3.4</b> Saving plots</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.4</b> Statistical test</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.4.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.4.2</b> T-test/Wilcoxon</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.4.3</b> Anova/Kruskal–Wallis</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.5</b> T-test/Wilcoxon</a>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-2"><i class="fa fa-check"></i><b>3.5</b> Activity:</a></li>
+<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocessing</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.5.1</b> Anova/Kruskal–Wallis</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-2"><i class="fa fa-check"></i><b>3.6</b> Activity:</a></li>
-<li class="chapter" data-level="3.7" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.7</b> Resources</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocesing</a>
+<li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#different-type-of-data-dna-rna-splicing-single-end-paired-end"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing, single-end paired-end)</a></li>
+<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From the sequencer machine to the sequence</a></li>
+<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#general-processing"><i class="fa fa-check"></i><b>4.5</b> General processing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
-<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#different-type-of-data-dna-rna-splicing"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing)</a></li>
-<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From The sequencer machine to the sequence</a></li>
-<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignemet-bam-files-annotation-files-bowtie2-and-star"><i class="fa fa-check"></i><b>4.5</b> Alignemet (bam files, annotation files, BOWTIE2 and STAR)</a></li>
-<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#gene-counts-read-feature-counts"><i class="fa fa-check"></i><b>4.6</b> Gene counts / read (feature counts)</a></li>
-<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocesing.html"><a href="sequencing-techniques-and-preprocesing.html#alignement"><i class="fa fa-check"></i><b>4.7</b> Alignement</a></li>
+<li class="chapter" data-level="4.5.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#visualization-of-alignment-igv"><i class="fa fa-check"></i><b>4.5.1</b> Visualization of alignment (IGV)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#gene-counts-read-esat-feature-counts-peak-calling"><i class="fa fa-check"></i><b>4.5.2</b> Gene counts / read (esat feature counts) /peak calling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
+<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#a-bit-of-shell-commands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell commands</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-1"><i class="fa fa-check"></i><b>4.8</b> Resources</a></li>
+<li class="chapter" data-level="4.9" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#bibliography"><i class="fa fa-check"></i><b>4.9</b> Bibliography</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.2</b> Initial analysis (peak-calling):</a></li>
-<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.3</b> Exploring the results:</a></li>
-<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.4</b> Annotating the peaks.</a></li>
-<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.5</b> Annotate with <code>ChIPseeker</code></a></li>
-<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.6</b> Sequence Motif analysis</a></li>
-<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.7</b> Session info: all the packages installed.</a></li>
-<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.8</b> Extra: only for the ones interested…</a></li>
+<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#objectives-4"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#initial-analysis-peak-calling"><i class="fa fa-check"></i><b>5.3</b> Initial analysis (peak-calling):</a></li>
+<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.4</b> Exploring the results:</a></li>
+<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.5</b> Annotating the peaks.</a></li>
+<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.6</b> Annotate with <code>ChIPseeker</code></a></li>
+<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.8</b> Session info: all the packages installed.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-only-for-the-ones-interested"><i class="fa fa-check"></i><b>5.9</b> Extra: only for the ones interested…</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -241,29 +247,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.1</span> Objectives</h2>
 <p>After this section you should be able to:</p>
 <ol style="list-style-type: decimal">
-<li>Load, explore and manioulate data in R</li>
+<li>Load, explore and manipulate data in R</li>
 </ol>
 </div>
 <div id="introduction-1" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Introduction</h2>
 <p>One of the main uses of R is for data manipulation and plot. This is similar to what many of us do in any regular table editor as excel or google spread sheet.</p>
 <p>We will use the following packages. You can read in detail the manual of each of them.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-manipulation.html#cb66-1"></a><span class="co">#Install packages</span></span>
-<span id="cb66-2"><a href="data-manipulation.html#cb66-2"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
-<span id="cb66-3"><a href="data-manipulation.html#cb66-3"></a><span class="co">#install.packages(&quot;dplyr&quot;)</span></span>
-<span id="cb66-4"><a href="data-manipulation.html#cb66-4"></a><span class="co">#install.packages(&quot;plyr&quot;)</span></span>
-<span id="cb66-5"><a href="data-manipulation.html#cb66-5"></a></span>
-<span id="cb66-6"><a href="data-manipulation.html#cb66-6"></a><span class="co">#Load the package</span></span>
-<span id="cb66-7"><a href="data-manipulation.html#cb66-7"></a><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb66-8"><a href="data-manipulation.html#cb66-8"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
-<span id="cb66-9"><a href="data-manipulation.html#cb66-9"></a><span class="kw">library</span>(<span class="st">&quot;plyr&quot;</span>)</span>
-<span id="cb66-10"><a href="data-manipulation.html#cb66-10"></a><span class="kw">library</span>(RColorBrewer)</span>
-<span id="cb66-11"><a href="data-manipulation.html#cb66-11"></a><span class="kw">library</span>(car)</span>
-<span id="cb66-12"><a href="data-manipulation.html#cb66-12"></a></span>
-<span id="cb66-13"><a href="data-manipulation.html#cb66-13"></a><span class="co">#Manuals</span></span>
-<span id="cb66-14"><a href="data-manipulation.html#cb66-14"></a><span class="co">#vignette(&quot;dplyr&quot;)</span></span>
-<span id="cb66-15"><a href="data-manipulation.html#cb66-15"></a><span class="co">#?ggplot2</span></span>
-<span id="cb66-16"><a href="data-manipulation.html#cb66-16"></a><span class="co">#?plyr</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-manipulation.html#cb70-1"></a><span class="co">#Install packages</span></span>
+<span id="cb70-2"><a href="data-manipulation.html#cb70-2"></a><span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb70-3"><a href="data-manipulation.html#cb70-3"></a><span class="co">#install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb70-4"><a href="data-manipulation.html#cb70-4"></a><span class="co">#install.packages(&quot;plyr&quot;)</span></span>
+<span id="cb70-5"><a href="data-manipulation.html#cb70-5"></a></span>
+<span id="cb70-6"><a href="data-manipulation.html#cb70-6"></a><span class="co">#Load the package</span></span>
+<span id="cb70-7"><a href="data-manipulation.html#cb70-7"></a><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb70-8"><a href="data-manipulation.html#cb70-8"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb70-9"><a href="data-manipulation.html#cb70-9"></a><span class="kw">library</span>(<span class="st">&quot;plyr&quot;</span>)</span>
+<span id="cb70-10"><a href="data-manipulation.html#cb70-10"></a><span class="kw">library</span>(RColorBrewer)</span>
+<span id="cb70-11"><a href="data-manipulation.html#cb70-11"></a><span class="kw">library</span>(car)</span>
+<span id="cb70-12"><a href="data-manipulation.html#cb70-12"></a></span>
+<span id="cb70-13"><a href="data-manipulation.html#cb70-13"></a><span class="co">#Manuals</span></span>
+<span id="cb70-14"><a href="data-manipulation.html#cb70-14"></a><span class="co">#vignette(&quot;dplyr&quot;)</span></span>
+<span id="cb70-15"><a href="data-manipulation.html#cb70-15"></a><span class="co">#?ggplot2</span></span>
+<span id="cb70-16"><a href="data-manipulation.html#cb70-16"></a><span class="co">#?plyr</span></span></code></pre></div>
 </div>
 <div id="load-data" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Load data</h2>
@@ -277,23 +283,23 @@ read.delim() #specific for tab delimited tables</code></pre>
 <p>In this case we will use data that is already available in R. The package <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a> provides a handful set of data to analyze.</p>
 <p>We will use the <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ChickWeight.html">ChickWeight</a> dataset. This is data set of weight in chickens with age an different diet.</p>
 <p>This will allow us to visualize the data and to do some statistic tests.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-manipulation.html#cb69-1"></a><span class="co"># Install the package</span></span>
-<span id="cb69-2"><a href="data-manipulation.html#cb69-2"></a><span class="co">#install.packages(&quot;datasets&quot;)</span></span>
-<span id="cb69-3"><a href="data-manipulation.html#cb69-3"></a><span class="co"># For a full list of these datasets, type library(help = &quot;datasets&quot;)</span></span>
-<span id="cb69-4"><a href="data-manipulation.html#cb69-4"></a><span class="co"># Load the library and dataset</span></span>
-<span id="cb69-5"><a href="data-manipulation.html#cb69-5"></a><span class="kw">library</span>(datasets)</span>
-<span id="cb69-6"><a href="data-manipulation.html#cb69-6"></a><span class="kw">data</span>(ChickWeight) <span class="co">#What happens in the Environment section of RStudio?</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-manipulation.html#cb73-1"></a><span class="co"># Install the package</span></span>
+<span id="cb73-2"><a href="data-manipulation.html#cb73-2"></a><span class="co">#install.packages(&quot;datasets&quot;)</span></span>
+<span id="cb73-3"><a href="data-manipulation.html#cb73-3"></a><span class="co"># For a full list of these datasets, type library(help = &quot;datasets&quot;)</span></span>
+<span id="cb73-4"><a href="data-manipulation.html#cb73-4"></a><span class="co"># Load the library and dataset</span></span>
+<span id="cb73-5"><a href="data-manipulation.html#cb73-5"></a><span class="kw">library</span>(datasets)</span>
+<span id="cb73-6"><a href="data-manipulation.html#cb73-6"></a><span class="kw">data</span>(ChickWeight) <span class="co">#What happens in the Environment section of RStudio?</span></span></code></pre></div>
 </div>
 <div id="data-exploration" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Data exploration</h2>
 <p>It is important to understand the data before heading into the analysis. We will go over some techniques for this.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-manipulation.html#cb70-1"></a><span class="co"># To see the table, you can click on the environment part or run this...</span></span>
-<span id="cb70-2"><a href="data-manipulation.html#cb70-2"></a><span class="co">#View(ChickWeight)</span></span>
-<span id="cb70-3"><a href="data-manipulation.html#cb70-3"></a></span>
-<span id="cb70-4"><a href="data-manipulation.html#cb70-4"></a><span class="co"># As you can see this is a table, just in case we want to convert it to a data.frame</span></span>
-<span id="cb70-5"><a href="data-manipulation.html#cb70-5"></a>ChickWeight&lt;-<span class="kw">as.data.frame</span>(ChickWeight)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-manipulation.html#cb74-1"></a><span class="co"># To see the table, you can click on the environment part or run this...</span></span>
+<span id="cb74-2"><a href="data-manipulation.html#cb74-2"></a><span class="co">#View(ChickWeight)</span></span>
+<span id="cb74-3"><a href="data-manipulation.html#cb74-3"></a></span>
+<span id="cb74-4"><a href="data-manipulation.html#cb74-4"></a><span class="co"># As you can see this is a table, just in case we want to convert it to a data.frame</span></span>
+<span id="cb74-5"><a href="data-manipulation.html#cb74-5"></a>ChickWeight&lt;-<span class="kw">as.data.frame</span>(ChickWeight)</span></code></pre></div>
 <p>To see only the beginning, we can use the head function:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-manipulation.html#cb71-1"></a><span class="kw">head</span>(ChickWeight)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-manipulation.html#cb75-1"></a><span class="kw">head</span>(ChickWeight)</span></code></pre></div>
 <pre><code>##   weight Time Chick Diet
 ## 1     42    0     1    1
 ## 2     51    2     1    1
@@ -304,7 +310,7 @@ read.delim() #specific for tab delimited tables</code></pre>
 <blockquote>
 <p>What is n doing?</p>
 </blockquote>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-manipulation.html#cb73-1"></a><span class="kw">head</span>(ChickWeight,<span class="dt">n =</span> <span class="dv">20</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-manipulation.html#cb77-1"></a><span class="kw">head</span>(ChickWeight,<span class="dt">n =</span> <span class="dv">20</span>) </span></code></pre></div>
 <pre><code>##    weight Time Chick Diet
 ## 1      42    0     1    1
 ## 2      51    2     1    1
@@ -329,43 +335,43 @@ read.delim() #specific for tab delimited tables</code></pre>
 <blockquote>
 <p>What is the structure of the data.frame?</p>
 </blockquote>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-manipulation.html#cb75-1"></a><span class="kw">str</span>(ChickWeight) </span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-manipulation.html#cb79-1"></a><span class="kw">str</span>(ChickWeight) </span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    578 obs. of  4 variables:
 ##  $ weight: num  42 51 59 64 76 93 106 125 149 171 ...
 ##  $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...
 ##  $ Chick : Ord.factor w/ 50 levels &quot;18&quot;&lt;&quot;16&quot;&lt;&quot;15&quot;&lt;..: 15 15 15 15 15 15 15 15 15 15 ...
 ##  $ Diet  : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <p>With the <strong>$ operator</strong> we can explore the columns</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-manipulation.html#cb77-1"></a><span class="kw">class</span>(ChickWeight<span class="op">$</span>weight)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-manipulation.html#cb81-1"></a><span class="kw">class</span>(ChickWeight<span class="op">$</span>weight)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>We can see the <strong>dimensions of the table</strong> for example: how many <strong>rows</strong> it has?</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-manipulation.html#cb79-1"></a><span class="kw">nrow</span>(ChickWeight)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-manipulation.html#cb83-1"></a><span class="kw">nrow</span>(ChickWeight)</span></code></pre></div>
 <pre><code>## [1] 578</code></pre>
 <p>How many <strong>columns</strong>?</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-manipulation.html#cb81-1"></a><span class="kw">ncol</span>(ChickWeight)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-manipulation.html#cb85-1"></a><span class="kw">ncol</span>(ChickWeight)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>The <strong>names</strong> of columns</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-manipulation.html#cb83-1"></a><span class="kw">names</span>(ChickWeight)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-manipulation.html#cb87-1"></a><span class="kw">names</span>(ChickWeight)</span></code></pre></div>
 <pre><code>## [1] &quot;weight&quot; &quot;Time&quot;   &quot;Chick&quot;  &quot;Diet&quot;</code></pre>
 <p>With the <strong>[]</strong> we can access the individual elements</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-manipulation.html#cb85-1"></a><span class="kw">names</span>(ChickWeight)[<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-manipulation.html#cb89-1"></a><span class="kw">names</span>(ChickWeight)[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Chick&quot;</code></pre>
 <p>We can see the levels of a factor</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-manipulation.html#cb87-1"></a><span class="kw">levels</span>(ChickWeight<span class="op">$</span>Diet)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-manipulation.html#cb91-1"></a><span class="kw">levels</span>(ChickWeight<span class="op">$</span>Diet)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
 <p>What is the difference if we just print the column?</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-manipulation.html#cb89-1"></a>ChickWeight<span class="op">$</span>Diet[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-manipulation.html#cb93-1"></a>ChickWeight<span class="op">$</span>Diet[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 1 1 1
 ## Levels: 1 2 3 4</code></pre>
 <p>Can we see the levels of a numeric vector? This is a reminder that the data type is important.</p>
 <pre><code>levels(ChickWeight$weight) # nop</code></pre>
 <p>We can now get different basic statistics now:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-manipulation.html#cb92-1"></a><span class="kw">mean</span>(ChickWeight<span class="op">$</span>weight)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-manipulation.html#cb96-1"></a><span class="kw">mean</span>(ChickWeight<span class="op">$</span>weight)</span></code></pre></div>
 <pre><code>## [1] 121.8183</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-manipulation.html#cb94-1"></a><span class="kw">summary</span>(ChickWeight<span class="op">$</span>weight)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-manipulation.html#cb98-1"></a><span class="kw">summary</span>(ChickWeight<span class="op">$</span>weight)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    35.0    63.0   103.0   121.8   163.8   373.0</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-manipulation.html#cb96-1"></a><span class="kw">summary</span>(ChickWeight)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-manipulation.html#cb100-1"></a><span class="kw">summary</span>(ChickWeight)</span></code></pre></div>
 <pre><code>##      weight           Time           Chick     Diet   
 ##  Min.   : 35.0   Min.   : 0.00   13     : 12   1:220  
 ##  1st Qu.: 63.0   1st Qu.: 4.00   9      : 12   2:120  
@@ -377,8 +383,8 @@ read.delim() #specific for tab delimited tables</code></pre>
 <p>To see what is this exactly doing, just go to the help page:
 <code>?summary</code></p>
 <p>To save this summary table we can create an object with just the result of the summary</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-manipulation.html#cb98-1"></a>chick_sumary&lt;-<span class="kw">summary</span>(ChickWeight)</span>
-<span id="cb98-2"><a href="data-manipulation.html#cb98-2"></a>chick_sumary</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-manipulation.html#cb102-1"></a>chick_sumary&lt;-<span class="kw">summary</span>(ChickWeight)</span>
+<span id="cb102-2"><a href="data-manipulation.html#cb102-2"></a>chick_sumary</span></code></pre></div>
 <pre><code>##      weight           Time           Chick     Diet   
 ##  Min.   : 35.0   Min.   : 0.00   13     : 12   1:220  
 ##  1st Qu.: 63.0   1st Qu.: 4.00   9      : 12   2:120  
@@ -387,30 +393,30 @@ read.delim() #specific for tab delimited tables</code></pre>
 ##  3rd Qu.:163.8   3rd Qu.:16.00   17     : 12          
 ##  Max.   :373.0   Max.   :21.00   19     : 12          
 ##                                  (Other):506</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-manipulation.html#cb100-1"></a><span class="kw">class</span>(chick_sumary)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-manipulation.html#cb104-1"></a><span class="kw">class</span>(chick_sumary)</span></code></pre></div>
 <pre><code>## [1] &quot;table&quot;</code></pre>
 <p>We can change the data kind, and assign it to a different object</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-manipulation.html#cb102-1"></a>chick_sumary_df&lt;-<span class="kw">as.data.frame</span>(chick_sumary)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-manipulation.html#cb106-1"></a>chick_sumary_df&lt;-<span class="kw">as.data.frame</span>(chick_sumary)</span></code></pre></div>
 <p>This is not that useful as you can see if you inspect the data in using View(chick_sumary_df) this is because it is a complicated format, we better just save the table.
 We will see other ways to save data in R in the future chapters.
 You can see more details using: <code>?write.table</code></p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-manipulation.html#cb103-1"></a><span class="kw">write.table</span>(chick_sumary, <span class="st">&quot;mydata.txt&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names =</span> F,<span class="dt">col.names =</span> T)</span>
-<span id="cb103-2"><a href="data-manipulation.html#cb103-2"></a><span class="co">#this is clearly no perfect but for the important part, the numeric and integer columns, we have the stat</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-manipulation.html#cb107-1"></a><span class="kw">write.table</span>(chick_sumary, <span class="st">&quot;mydata.txt&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names =</span> F,<span class="dt">col.names =</span> T)</span>
+<span id="cb107-2"><a href="data-manipulation.html#cb107-2"></a><span class="co">#this is clearly no perfect but for the important part, the numeric and integer columns, we have the stat</span></span></code></pre></div>
 </div>
 <div id="subsetting" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Subsetting</h2>
 <p>Subsetting means extracting part of the data. There are many different ways to do this. One important notion for tables and data frames is that dimensions go as follows:
 <code>data[row,column]</code></p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-manipulation.html#cb104-1"></a><span class="co">#we can see specific columns and rows</span></span>
-<span id="cb104-2"><a href="data-manipulation.html#cb104-2"></a>ChickWeight[<span class="dv">1</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co">#row 1, column 1:3</span></span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-manipulation.html#cb108-1"></a><span class="co">#we can see specific columns and rows</span></span>
+<span id="cb108-2"><a href="data-manipulation.html#cb108-2"></a>ChickWeight[<span class="dv">1</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co">#row 1, column 1:3</span></span></code></pre></div>
 <pre><code>##   weight Time Chick
 ## 1     42    0     1</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-manipulation.html#cb106-1"></a>ChickWeight[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">1</span>] <span class="co">#col 1, row 1:3</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-manipulation.html#cb110-1"></a>ChickWeight[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">1</span>] <span class="co">#col 1, row 1:3</span></span></code></pre></div>
 <pre><code>## [1] 42 51 59</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-manipulation.html#cb108-1"></a>ChickWeight[<span class="dv">1</span>,<span class="dv">1</span>] <span class="co">#row1, col1</span></span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="data-manipulation.html#cb112-1"></a>ChickWeight[<span class="dv">1</span>,<span class="dv">1</span>] <span class="co">#row1, col1</span></span></code></pre></div>
 <pre><code>## [1] 42</code></pre>
 <p>If we want to know for example only the data from the chickens taking the diet 4</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-manipulation.html#cb110-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-manipulation.html#cb114-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,])</span></code></pre></div>
 <pre><code>##     weight Time Chick Diet
 ## 461     42    0    41    4
 ## 462     51    2    41    4
@@ -421,16 +427,16 @@ You can see more details using: <code>?write.table</code></p>
 <blockquote>
 <p>Why == and no =?</p>
 </blockquote>
-<p>Remeber in R, = is an assignment, as the &lt;-, while the == is for comparison</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="data-manipulation.html#cb112-1"></a><span class="kw">head</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span></code></pre></div>
+<p>Remember in R, = is an assignment, as the &lt;-, while the == is for comparison.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-manipulation.html#cb116-1"></a><span class="kw">head</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<p>and</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="data-manipulation.html#cb114-1"></a><span class="kw">class</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span></code></pre></div>
+<p>Lets explore the class:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-manipulation.html#cb118-1"></a><span class="kw">class</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <p>So, when we do ChickWeight[ChickWeight$Diet==4,], R is just showing the ChickWeight for which ChickWeight$Diet==4 is TRUE</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="data-manipulation.html#cb116-1"></a><span class="kw">head</span>(<span class="kw">which</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-manipulation.html#cb120-1"></a><span class="kw">head</span>(<span class="kw">which</span>(ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>))</span></code></pre></div>
 <pre><code>## [1] 461 462 463 464 465 466</code></pre>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="data-manipulation.html#cb118-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-manipulation.html#cb122-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span>,])</span></code></pre></div>
 <pre><code>##     weight Time Chick Diet
 ## 461     42    0    41    4
 ## 462     51    2    41    4
@@ -438,8 +444,8 @@ You can see more details using: <code>?write.table</code></p>
 ## 464     85    6    41    4
 ## 465    103    8    41    4
 ## 466    124   10    41    4</code></pre>
-<p>and for more conditions:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="data-manipulation.html#cb120-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span>,])</span></code></pre></div>
+<p>And for more conditions, we can use AND (&amp;) to integrate them.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="data-manipulation.html#cb124-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span>,])</span></code></pre></div>
 <pre><code>##     weight Time Chick Diet
 ## 465    103    8    41    4
 ## 466    124   10    41    4
@@ -447,7 +453,17 @@ You can see more details using: <code>?write.table</code></p>
 ## 468    153   14    41    4
 ## 469    175   16    41    4
 ## 470    184   18    41    4</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="data-manipulation.html#cb122-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>,])</span></code></pre></div>
+<p>Other option is OR (|).</p>
+<p>Remember, computers will read as things come
+<span class="math display">\[
+condition-A AND condition-B OR condition-C
+condition-A &amp; condition-B | condition-C
+\]</span>
+Is not the same as</p>
+<p><span class="math display">\[
+condition A &amp; (condition B | condition C)
+\]</span></p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="data-manipulation.html#cb126-1"></a><span class="kw">head</span>(ChickWeight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>,])</span></code></pre></div>
 <pre><code>##     weight Time Chick Diet
 ## 465    103    8    41    4
 ## 466    124   10    41    4
@@ -455,13 +471,14 @@ You can see more details using: <code>?write.table</code></p>
 ## 468    153   14    41    4
 ## 469    175   16    41    4
 ## 470    184   18    41    4</code></pre>
-<p>And if I just want the weights of these…</p>
+<p>And if we just want the weights of these…</p>
 <pre><code>ChickWeight$weight[ChickWeight$Diet==4 &amp; ChickWeight$Time&gt;6 &amp; ChickWeight$Time&lt;20,] </code></pre>
 <blockquote>
 <p>why this gives an error?</p>
 </blockquote>
-<p>because we only have one dimension now, no 2</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-manipulation.html#cb125-1"></a><span class="kw">head</span>(ChickWeight<span class="op">$</span>weight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>])</span></code></pre></div>
+<p>Because we only have one dimension now, not 2.
+ChickWeight$weight is one dimention object, so we have to use [ ], not [ , ].</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-manipulation.html#cb129-1"></a><span class="kw">head</span>(ChickWeight<span class="op">$</span>weight[ChickWeight<span class="op">$</span>Diet<span class="op">==</span><span class="dv">4</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&gt;</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>ChickWeight<span class="op">$</span>Time<span class="op">&lt;</span><span class="dv">20</span>])</span></code></pre></div>
 <pre><code>## [1] 103 124 155 153 175 184</code></pre>
 </div>
 <div id="activity-1" class="section level2" number="2.6">

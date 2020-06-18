@@ -30,7 +30,14 @@ bookdown::gitbook:
       instapaper: no
       vk: no
       all: ['facebook', 'google', 'twitter', 'linkedin', 'weibo', 'instapaper']
-bookdown::pdf_book:
+bookdown::html_book:
+  toc: true
+  toc_depth: 2
+  number_sections: true
+  df_print: paged
+  theme: united
+  toc_float: true
+  collapsed: false
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
