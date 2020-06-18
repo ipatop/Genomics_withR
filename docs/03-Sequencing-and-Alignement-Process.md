@@ -33,20 +33,20 @@ Even more important we need to understand the characteristics of the data we are
 Nowadays, there are two main types of libraries for nucleotides: short reads libraries and long reads libraries. Long-read techniques are more recently developed with two main technologies available: Pacific Biosciences’ (PacBio) single-molecule real-time (SMRT) sequencing and Oxford Nanopore Technologies’ (ONT) nanopore sequencing. In this book we will focus on short-read libraries, as the ones processed by Illumina machines. This technology is based on PCR amplification of the material and the base pairing with different fluorescently tagged nucleotides. 
 
 <div class="figure" style="text-align: center">
-<img src="./images/Illumina.png" alt="Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html" width="200px" />
+<img src="./images/Illumina.png" alt="Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html" width="5s00px" />
 <p class="caption">(\#fig:unnamed-chunk-1)Illumina sequencer strategy, adapted from Illumina user manual www.illumina.com/technology/next-generation-sequencing.html</p>
 </div>
 
 There are many library preparation protocols for Illumina sequencers. All of these techniques must include a step of fragmentation and adapter ligation. These adapters are essential to the inclusion of the fragments in the sequencer machine. Moreover, different samples might be pulled together by the use of different adapters with specific sample barcode. The idea of a barcode is the presence of specific sequences that can identify the origin of each sequence fragment. The process of separating each sample is called *demultiplexing*.
 
 <div class="figure" style="text-align: center">
-<img src="./images/demultiplex2.png" alt="Demultiplexing strategy" width="500px" />
+<img src="./images/demultiplex2.png" alt="Demultiplexing strategy" width="200px" />
 <p class="caption">(\#fig:unnamed-chunk-2)Demultiplexing strategy</p>
 </div>
 Depending on the molecule of interest the library preparation to detect them will be different. For DNA the addition of the Illumina adaptors can be done by ligation or by tagmentation (which does the fragmentation and tagging at the same time). In this case, as DNA has NOT an orientation (is double stranded and palindromic) we do not care which adapter get in which side of the fragment. 
 
 <div class="figure" style="text-align: center">
-<img src="./images/DNAlib.png" alt="DNA library prep" width="200px" />
+<img src="./images/DNAlib.png" alt="DNA library prep" width="150px" />
 <p class="caption">(\#fig:unnamed-chunk-3)DNA library prep</p>
 </div>
 
@@ -90,8 +90,8 @@ Low quality reads can be filtered and low-quality bases can be trimmed from read
 Once we have the sequencing data in fastq format we have to find where each read comes from. This is called **alignment**. The next step is to **quantify** how many reads comes from each place in the genome.
 
 <div class="figure" style="text-align: center">
-<img src="./images/general processing.png" alt="General processing" width="500px" />
-<p class="caption">(\#fig:unnamed-chunk-7)General processing</p>
+<img src="./images/general processing.png" alt="General pre-processing of the sequencing data." width="300px" />
+<p class="caption">(\#fig:unnamed-chunk-7)General pre-processing of the sequencing data.</p>
 </div>
 
 ###Alignment (bam files, annotation files, BOWTIE2 and STAR)
@@ -108,7 +108,7 @@ AAATTCGGGCCAA...
 Maybe you have already heard about BLAST alignment. Unfortunately, this is not fast enough to aligns the millions of reads we generate from each sequencing experiment. Therefore, new techniques were developed. There are many different really good tools available. To choose one we need to consider the type of molecule we are working with and the type of sequencing technique used. It is not the same to align DNA that RNA. The main difference is the splicing awareness and the use of the gene annotation. Another thing to consider the type of sequencing performed (single vs paired end). 
 
 <div class="figure" style="text-align: center">
-<img src="./images/singleendpairedend.png" alt="DNA vs RNA alignement single and paired end" width="500px" />
+<img src="./images/singleendpairedend.png" alt="DNA vs RNA alignement single and paired end" width="800px" />
 <p class="caption">(\#fig:unnamed-chunk-8)DNA vs RNA alignement single and paired end</p>
 </div>
 
@@ -145,15 +145,15 @@ Alignment files can be visualized using different tools as [UCSC genome browser]
 To load it we will need the sorted bam files. This will allow us to visualize each read with its alignment quality, gaps, etc. 
 
 <div class="figure" style="text-align: center">
-<img src="./images/IGV.png" alt="Alignement files (.bam) loaded into the IGV genome browser" width="200px" />
-<p class="caption">(\#fig:unnamed-chunk-9)Alignement files (.bam) loaded into the IGV genome browser</p>
+<img src="./images/IGV.png" alt="Alignement files (.bam) loaded into the IGV genome browser." width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-9)Alignement files (.bam) loaded into the IGV genome browser.</p>
 </div>
 
 As bam files are really big there are options to store only the total count visualization. These files format can be bigwig or TDF for example. It is importan to note the different scales (just noxt to the file name).
 
 <div class="figure" style="text-align: center">
-<img src="./images/IGVbw.png" alt="Bigwig files (.bw) loaded into the IGV genome browser. " width="200px" />
-<p class="caption">(\#fig:unnamed-chunk-10)Bigwig files (.bw) loaded into the IGV genome browser. </p>
+<img src="./images/IGVbw.png" alt="Bigwig files (.bw) loaded into the IGV genome browser." width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-10)Bigwig files (.bw) loaded into the IGV genome browser.</p>
 </div>
 
 ### Gene counts / read (esat feature counts) /peak calling
