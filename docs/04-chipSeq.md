@@ -37,7 +37,7 @@ But, how do we know if certain region of the genome is really interreacting with
 The biochemical procedure usually goes as follows:
 
 <div class="figure" style="text-align: center">
-<img src="../macs2_analysis_p0.05/chipseqproc.png" alt="Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest." width="500px" />
+<img src="./macs2_analysis_p0.05/chipseqproc.png" alt="Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest." width="500px" />
 <p class="caption">(\#fig:unnamed-chunk-1)Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest.</p>
 </div>
 
@@ -48,17 +48,17 @@ In this work the authors study genome-wide the binding of two transcription fact
 These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription. Clk oscilates over the day due to a set of feedback loops with other core-clock components. These set of molecular interactions generate an autonomous oscilating molecular clock with a period of almost 24 hr. This clock can be re-set by light input. We will study RNA oscilations over the day in next chapter.
 
 <div class="figure" style="text-align: center">
-<img src="../macs2_analysis_p0.05/clkcyc.png" alt="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017" width="500px" />
+<img src="./macs2_analysis_p0.05/clkcyc.png" alt="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017" width="500px" />
 <p class="caption">(\#fig:unnamed-chunk-2)Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<img src="./macs2_analysis_p0.05/clkcycosc.png" alt="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
 <p class="caption">(\#fig:unnamed-chunk-3)Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<img src="./macs2_analysis_p0.05/clkcycosc.png" alt="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
 <p class="caption">(\#fig:unnamed-chunk-4)Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013</p>
 </div>
 
@@ -72,7 +72,7 @@ This process is called “peak calling” because it is trying to determine the 
 Here we can see how the pileup reads look like in IGV. We are looking here at the promoter of the genes *tim*, a known target of CLK protein. As you can see, the peak is clear in the IP comapred with the INP.
 
 <div class="figure" style="text-align: center">
-<img src="../macs2_analysis_p0.05/IGVtim.png" alt="IGV pileup traks over tim. Upper line IP, lower line INP." width="900px" />
+<img src="./macs2_analysis_p0.05/IGVtim.png" alt="IGV pileup traks over tim. Upper line IP, lower line INP." width="900px" />
 <p class="caption">(\#fig:unnamed-chunk-5)IGV pileup traks over tim. Upper line IP, lower line INP.</p>
 </div>
 
@@ -181,7 +181,7 @@ txdb <- loadDb("../macs2_analysis_p0.05/dm6.sqlite") #this is loading the sqlite
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 18:25:34 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-08 18:49:22 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -364,7 +364,7 @@ We can explore the join options, here are some graphic explanation, and if you w
 
 
 <div class="figure" style="text-align: center">
-<img src="../macs2_analysis_p0.05/dplyr-joins.png" alt="Different joint options from dplyr. Adapted from cheatsheet." width="300px" />
+<img src="./macs2_analysis_p0.05/dplyr-joins.png" alt="Different joint options from dplyr. Adapted from cheatsheet." width="300px" />
 <p class="caption">(\#fig:unnamed-chunk-17)Different joint options from dplyr. Adapted from cheatsheet.</p>
 </div>
 
@@ -577,10 +577,10 @@ peakHeatmap(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, color="darkviole
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-08 18:26:08 
-## >> preparing tag matrix...		 2020-07-08 18:26:08 
-## >> generating figure...		 2020-07-08 18:26:13 
-## >> done...			 2020-07-08 18:26:16
+## >> preparing promoter regions...	 2020-07-08 18:49:56 
+## >> preparing tag matrix...		 2020-07-08 18:49:56 
+## >> generating figure...		 2020-07-08 18:50:01 
+## >> done...			 2020-07-08 18:50:05
 ```
 
 
@@ -594,9 +594,9 @@ plotAvgProf2(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic R
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-08 18:26:18 
-## >> preparing tag matrix...		 2020-07-08 18:26:18 
-## >> plotting figure...			 2020-07-08 18:26:21
+## >> preparing promoter regions...	 2020-07-08 18:50:06 
+## >> preparing tag matrix...		 2020-07-08 18:50:06 
+## >> plotting figure...			 2020-07-08 18:50:10
 ```
 
 ## Sequence Motif analysis
@@ -898,7 +898,7 @@ class(txdb)
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 18:26:37 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-08 18:50:26 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2

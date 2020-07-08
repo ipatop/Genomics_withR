@@ -304,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>But, how do we know if certain region of the genome is really interreacting with the protein of interest? As in any analysis, it is important to have a control to see the probability to have a signal in a particular region just by chance. Usually as a control we use the DNA sequencing BEFORE immunoprecipitation (IP). This data is usually called input (INP), as it is the input material used for the IP. What we are looking then will be “enrichment” of each region of the genome in the IP compared with the INP.</p>
 <p>The biochemical procedure usually goes as follows:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="../macs2_analysis_p0.05/chipseqproc.png" alt="Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest." width="500px" />
+<img src="macs2_analysis_p0.05/chipseqproc.png" alt="Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest." width="500px" />
 <p class="caption">
 Figure 1.1: Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest.
 </p>
@@ -313,19 +313,19 @@ Figure 1.1: Commonly used ChipSeq procedure. DNA is fragmented followed by immun
 <p>In this work the authors study genome-wide the binding of two transcription factors (Clk and Cyc) in the fruit fly (<em>Drosophila melanogaster</em>). To do so they do Chip sequencing.</p>
 <p>These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription. Clk oscilates over the day due to a set of feedback loops with other core-clock components. These set of molecular interactions generate an autonomous oscilating molecular clock with a period of almost 24 hr. This clock can be re-set by light input. We will study RNA oscilations over the day in next chapter.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
-<img src="../macs2_analysis_p0.05/clkcyc.png" alt="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017" width="500px" />
+<img src="macs2_analysis_p0.05/clkcyc.png" alt="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017" width="500px" />
 <p class="caption">
 Figure 4.1: Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
-<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<img src="macs2_analysis_p0.05/clkcycosc.png" alt="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
 <p class="caption">
 Figure 4.2: Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
-<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<img src="macs2_analysis_p0.05/clkcycosc.png" alt="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
 <p class="caption">
 Figure 4.3: Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013
 </p>
@@ -337,7 +337,7 @@ Figure 4.3: Light control of the circadian clock. Figure adapted from Alves Meir
 <p>This process is called “peak calling” because it is trying to determine the “pileup” of reads along the genome forming “peaks”. As any peak the algorithm used will report high of the peak, summit location, width and finally a pvalue corresponding to the comparison of the signal in that region in IP vs INP.</p>
 <p>Here we can see how the pileup reads look like in IGV. We are looking here at the promoter of the genes <em>tim</em>, a known target of CLK protein. As you can see, the peak is clear in the IP comapred with the INP.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
-<img src="../macs2_analysis_p0.05/IGVtim.png" alt="IGV pileup traks over tim. Upper line IP, lower line INP." width="900px" />
+<img src="macs2_analysis_p0.05/IGVtim.png" alt="IGV pileup traks over tim. Upper line IP, lower line INP." width="900px" />
 <p class="caption">
 Figure 4.4: IGV pileup traks over tim. Upper line IP, lower line INP.
 </p>
@@ -447,7 +447,7 @@ Figure 4.4: IGV pileup traks over tim. Upper line IP, lower line INP.
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 18:25:34 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-08 18:49:22 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2</code></pre>
@@ -571,7 +571,7 @@ Figure 4.4: IGV pileup traks over tim. Upper line IP, lower line INP.
 <p>We will then put the names into the first table. To this end we will use <code>dplyr</code> package function by doing a <code>left_join</code>. This is actually a type of merging in which we keep everything that is in the first object. Why do you think we do this?</p>
 <p>We can explore the join options, here are some graphic explanation, and if you want to know more you can go <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join">to the manual</a> and try the examples. Also, I would recommend you to read the <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">cheatsheet</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
-<img src="../macs2_analysis_p0.05/dplyr-joins.png" alt="Different joint options from dplyr. Adapted from cheatsheet." width="300px" />
+<img src="macs2_analysis_p0.05/dplyr-joins.png" alt="Different joint options from dplyr. Adapted from cheatsheet." width="300px" />
 <p class="caption">
 Figure 5.1: Different joint options from dplyr. Adapted from cheatsheet.
 </p>
@@ -735,10 +735,10 @@ Figure 5.2: Coverage plot.
 Figure 5.3: Peak heatmap.
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-08 18:26:08 
-## &gt;&gt; preparing tag matrix...        2020-07-08 18:26:08 
-## &gt;&gt; generating figure...       2020-07-08 18:26:13 
-## &gt;&gt; done...            2020-07-08 18:26:16</code></pre>
+<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-08 18:49:56 
+## &gt;&gt; preparing tag matrix...        2020-07-08 18:49:56 
+## &gt;&gt; generating figure...       2020-07-08 18:50:01 
+## &gt;&gt; done...            2020-07-08 18:50:05</code></pre>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chip-sequencing-analysis.html#cb227-1"></a><span class="kw">plotAvgProf2</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">xlab=</span><span class="st">&quot;Genomic Region (5&#39;-&gt;3&#39;)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Read Count Frequency&quot;</span>) <span class="co">#Try exploring the options of this function. </span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
 <img src="04-chipSeq_files/figure-html/unnamed-chunk-26-1.png" alt="Average coverage plot." width="100%" />
@@ -746,9 +746,9 @@ Figure 5.3: Peak heatmap.
 Figure 5.4: Average coverage plot.
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-08 18:26:18 
-## &gt;&gt; preparing tag matrix...        2020-07-08 18:26:18 
-## &gt;&gt; plotting figure...             2020-07-08 18:26:21</code></pre>
+<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-08 18:50:06 
+## &gt;&gt; preparing tag matrix...        2020-07-08 18:50:06 
+## &gt;&gt; plotting figure...             2020-07-08 18:50:10</code></pre>
 </div>
 </div>
 <div id="sequence-motif-analysis" class="section level2" number="5.7">
@@ -963,7 +963,7 @@ Figure 3.11: Many significant sequence logo in probability and percentage of inf
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 18:26:37 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-08 18:50:26 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2

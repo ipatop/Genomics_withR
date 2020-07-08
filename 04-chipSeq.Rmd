@@ -42,7 +42,7 @@ But, how do we know if certain region of the genome is really interreacting with
 The biochemical procedure usually goes as follows:
 
 ```{r, out.width = "500px", echo=FALSE, fig.align="center", fig.cap="Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest."}
-knitr::include_graphics("../macs2_analysis_p0.05/chipseqproc.png")
+knitr::include_graphics("./macs2_analysis_p0.05/chipseqproc.png")
 ```
 
 To study this type of data we will re-analyze the data generated in [Meireles-Filho  et al 2014](https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1).
@@ -52,15 +52,15 @@ In this work the authors study genome-wide the binding of two transcription fact
 These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription. Clk oscilates over the day due to a set of feedback loops with other core-clock components. These set of molecular interactions generate an autonomous oscilating molecular clock with a period of almost 24 hr. This clock can be re-set by light input. We will study RNA oscilations over the day in next chapter.
 
 ```{r, out.width = "500px", echo=FALSE, fig.align="center",fig.cap="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017"}
-knitr::include_graphics("../macs2_analysis_p0.05/clkcyc.png")
+knitr::include_graphics("./macs2_analysis_p0.05/clkcyc.png")
 ```
 
 ```{r, out.width = "500px", echo=FALSE, fig.align="center",fig.cap="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013"}
-knitr::include_graphics("../macs2_analysis_p0.05/clkcycosc.png")
+knitr::include_graphics("./macs2_analysis_p0.05/clkcycosc.png")
 ```
 
 ```{r, out.width = "500px", echo=FALSE, fig.align="center",fig.cap="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013"}
-knitr::include_graphics("../macs2_analysis_p0.05/clkcycosc.png")
+knitr::include_graphics("./macs2_analysis_p0.05/clkcycosc.png")
 ```
 
 
@@ -73,7 +73,7 @@ This process is called “peak calling” because it is trying to determine the 
 Here we can see how the pileup reads look like in IGV. We are looking here at the promoter of the genes *tim*, a known target of CLK protein. As you can see, the peak is clear in the IP comapred with the INP.
 
 ```{r, out.width = "900px", echo=FALSE, fig.align="center",fig.cap="IGV pileup traks over tim. Upper line IP, lower line INP."}
-knitr::include_graphics("../macs2_analysis_p0.05/IGVtim.png")
+knitr::include_graphics("./macs2_analysis_p0.05/IGVtim.png")
 ```
 
 To do this analysis genome wide, we need a tool that can do this for all the genom. There are few tools available, we use here [MACS](https://github.com/taoliu/MACS) algorithm to assess the peaks from the sequencing data.
@@ -231,7 +231,7 @@ We can explore the join options, here are some graphic explanation, and if you w
 
 
 ```{r, out.width = "300px", echo=FALSE, fig.align="center", fig.cap="Different joint options from dplyr. Adapted from cheatsheet."}
-knitr::include_graphics("../macs2_analysis_p0.05/dplyr-joins.png")
+knitr::include_graphics("./macs2_analysis_p0.05/dplyr-joins.png")
 ```
 
 ```{r }
