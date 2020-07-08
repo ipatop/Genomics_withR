@@ -181,7 +181,7 @@ txdb <- loadDb("../macs2_analysis_p0.05/dm6.sqlite") #this is loading the sqlite
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 17:02:46 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-08 18:09:51 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -577,10 +577,10 @@ peakHeatmap(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, color="darkviole
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-08 17:03:19 
-## >> preparing tag matrix...		 2020-07-08 17:03:19 
-## >> generating figure...		 2020-07-08 17:03:23 
-## >> done...			 2020-07-08 17:03:26
+## >> preparing promoter regions...	 2020-07-08 18:10:25 
+## >> preparing tag matrix...		 2020-07-08 18:10:25 
+## >> generating figure...		 2020-07-08 18:10:30 
+## >> done...			 2020-07-08 18:10:33
 ```
 
 
@@ -594,9 +594,9 @@ plotAvgProf2(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic R
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-08 17:03:28 
-## >> preparing tag matrix...		 2020-07-08 17:03:28 
-## >> plotting figure...			 2020-07-08 17:03:31
+## >> preparing promoter regions...	 2020-07-08 18:10:35 
+## >> preparing tag matrix...		 2020-07-08 18:10:35 
+## >> plotting figure...			 2020-07-08 18:10:38
 ```
 
 ## Sequence Motif analysis
@@ -898,7 +898,7 @@ class(txdb)
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 17:03:49 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-08 18:10:59 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2

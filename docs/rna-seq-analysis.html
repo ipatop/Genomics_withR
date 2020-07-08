@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 6 RNA seq analysis | RNA_seq: Differential Gene Expression (DGE) Analysis</title>
+  <title>Lab 6 RNA seq analysis | Genomics with R for biologists</title>
   <meta name="description" content="This is the index for the coursebook" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 6 RNA seq analysis | RNA_seq: Differential Gene Expression (DGE) Analysis" />
+  <meta property="og:title" content="Lab 6 RNA seq analysis | Genomics with R for biologists" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 6 RNA seq analysis | RNA_seq: Differential Gene Expression (DGE) Analysis" />
+  <meta name="twitter:title" content="Lab 6 RNA seq analysis | Genomics with R for biologists" />
   
   <meta name="twitter:description" content="This is the index for the coursebook" />
   
@@ -276,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RNA_seq: Differential Gene Expression (DGE) Analysis</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genomics with R for biologists</a>
           </h1>
         </div>
 
@@ -1192,14 +1192,14 @@ Three independent algorithms (ARS, JTK and LS) were then selected from best of b
 <span id="cb342-7"><a href="rna-seq-analysis.html#cb342-7"></a><span class="kw">write.csv</span>(DN1_gene_expression_norm, <span class="dt">file=</span><span class="st">&quot;cycDN1.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>)</span>
 <span id="cb342-8"><a href="rna-seq-analysis.html#cb342-8"></a></span>
 <span id="cb342-9"><a href="rna-seq-analysis.html#cb342-9"></a>DN1_cyc &lt;-<span class="st"> </span><span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;cycDN1.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">23</span>),<span class="dv">2</span>)),<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span></code></pre></div>
-<pre><code>## The JTK is in process from  17:04:49 07-08-2020 
+<pre><code>## The JTK is in process from  18:12:08 07-08-2020 
 ## Warning: the input &#39;maxper&#39; is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  17:05:17 07-08-2020 
-## The LS is in process from  17:05:17 07-08-2020 
-## The analysis by LS is finished at  17:10:27 07-08-2020 
+## The analysis by JTK is finished at  18:12:36 07-08-2020 
+## The LS is in process from  18:12:36 07-08-2020 
+## The analysis by LS is finished at  18:18:33 07-08-2020 
 ## DONE! The analysis about &#39; cycDN1.csv &#39;  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## &quot;Time used:&quot;    &quot;346.222&quot;     &quot;12.003&quot;    &quot;361.155&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
+## &quot;Time used:&quot;    &quot;375.193&quot;     &quot;14.918&quot;     &quot;410.56&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
 <p>As we can read in the help page <code>?meta2d</code> the output of this function is:</p>
 <p>meta2d will write analysis results in different files under outdir if set outputFile = TRUE. Files named with “ARSresult”, “JTKresult” and “LSreult” store analysis results from ARS, JTK and LS respectively. The file named with “meta2d” is the integration file, and it stores integrated values in columns with a common name tag-“meta2d”. The integration file also contains p-value, FDR value, period, phase(adjusted phase if adjustedPhase = “predictedPer”) and amplitude values calculated by each method. If outputFile = FALSE is selected, meta2d will return a list containing the following components:</p>
 <p>ARS analysis results from ARS method

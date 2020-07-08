@@ -1,5 +1,5 @@
 ---
-title: 'RNA_seq: Differential Gene Expression (DGE) Analysis'
+title: 'Genomics with R for biologists'
 author: "Ines Lucia Patop inespatop@brandeis.edu"
 output: 
   html_document:

@@ -1,5 +1,5 @@
 ---
-title: 'RNA_seq: Differential Gene Expression (DGE) Analysis'
+title: 'Genomics with R for biologists'
 author: "Ines Lucia Patop inespatop@brandeis.edu"
 output: 
   html_document:
@@ -1112,14 +1112,14 @@ DN1_cyc <- meta2d(infile="cycDN1.csv",filestyle="csv", timepoints=(rep(c(3,7,11,
 ```
 
 ```
-## The JTK is in process from  17:04:49 07-08-2020 
+## The JTK is in process from  18:12:08 07-08-2020 
 ## Warning: the input 'maxper' is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  17:05:17 07-08-2020 
-## The LS is in process from  17:05:17 07-08-2020 
-## The analysis by LS is finished at  17:10:27 07-08-2020 
+## The analysis by JTK is finished at  18:12:36 07-08-2020 
+## The LS is in process from  18:12:36 07-08-2020 
+## The analysis by LS is finished at  18:18:33 07-08-2020 
 ## DONE! The analysis about ' cycDN1.csv '  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## "Time used:"    "346.222"     "12.003"    "361.155"          "0"          "0"
+## "Time used:"    "375.193"     "14.918"     "410.56"          "0"          "0"
 ```
 
 As we can read in the help page `?meta2d` the output of this function is:

@@ -8,6 +8,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This is the index for the coursebook"
+
 ---
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
 library(DESeq2) #for differential expression analysis
@@ -37,7 +38,6 @@ knitr::write_bib(c(
 ), 'packages.bib')
 
 ```
-
 
 # Overview {-}
 
