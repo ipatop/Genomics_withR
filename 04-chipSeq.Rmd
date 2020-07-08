@@ -45,26 +45,24 @@ The biochemical procedure usually goes as follows:
 knitr::include_graphics("../macs2_analysis_p0.05/chipseqproc.png")
 ```
 
-To study this type of data we will re-analyze the data generated in [Meireles-Filho  et al 2013](https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1).
+To study this type of data we will re-analyze the data generated in [Meireles-Filho  et al 2014](https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1).
 
 In this work the authors study genome-wide the binding of two transcription factors (Clk and Cyc) in the fruit fly (*Drosophila melanogaster*). To do so they do Chip sequencing.
 
-These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription.
+These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription. Clk oscilates over the day due to a set of feedback loops with other core-clock components. These set of molecular interactions generate an autonomous oscilating molecular clock with a period of almost 24 hr. This clock can be re-set by light input. We will study RNA oscilations over the day in next chapter.
 
-```{r, out.width = "500px", echo=FALSE, fig.align="center",fig.cap="Circadian clock at the molecular level. Figure adapted from Meireles-Filho  et al 2013"}
-#knitr::include_graphics("../macs2_analysis_p0.05/clkcyc.jpg")
+```{r, out.width = "500px", echo=FALSE, fig.align="center",fig.cap="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017"}
+knitr::include_graphics("../macs2_analysis_p0.05/clkcyc.png")
 ```
 
+```{r, out.width = "500px", echo=FALSE, fig.align="center",fig.cap="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013"}
+knitr::include_graphics("../macs2_analysis_p0.05/clkcycosc.png")
+```
 
-The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. 
+```{r, out.width = "500px", echo=FALSE, fig.align="center",fig.cap="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013"}
+knitr::include_graphics("../macs2_analysis_p0.05/clkcycosc.png")
+```
 
-Delays exist between transcription of per and tim mRNA and the localization of these proteins in the nucleus, where they can interact with transcriptional activators Clock (CLK) and Cycle (CYC). 
-
-These delays are thought to be important for allowing the molecular clock to cycle with a period of ∼24 hr. Critical regulators have been identified at several steps of the cycle that are necessary for accurate timing and strength of molecular rhythms. Degradation of PER and TIM allows the cycle to start anew. Not pictured is the second feedback loop formed by PDP1 and Vrille, which produces cycling of Clk mRNA. This secondary feedback loop is thought to reinforce molecular oscillations, although cycling of the CLK protein is not necessary for rhythms. CKII, Casein Kinase II; SGG, shaggy; PP2A, Protein Phosphatase 2A; PP1, Protein Phosphatase 1; DBT, doubletime.
-
-ADD FIG HERE ON CIRCADIAN 
-
-We will study RNA oscilations over the day in next chapter.
 
 ## Data pre-processing (peak-calling): 
 
@@ -80,13 +78,16 @@ knitr::include_graphics("../macs2_analysis_p0.05/IGVtim.png")
 
 To do this analysis genome wide, we need a tool that can do this for all the genom. There are few tools available, we use here [MACS](https://github.com/taoliu/MACS) algorithm to assess the peaks from the sequencing data.
 
-If you want to read the paper, there are 2 options. One in  [Genome biolgy](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2008-9-9-r137) and the other in [nature methods](https://www.nature.com/articles/nprot.2012.101). The last resource is show a fast step-by-step protocol for analysis. 
+Basically, this analysis relies in the aligned data (.bam files). It compares the IP with the INP control. 
 
-For this analysis I run the following command in the **terminal**:
+For this analysis I aligned the data from [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE40467) with [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml), an aligner that is used for DNA data (not splice aware). 
+
+Finally ran the MACS command in the **terminal** as follows:
 
 ```
-
+macs2 callpeak -t head_clk_ip_rep1.sorted.bam head_clk_ip_rep2.sorted.bam  -c ./head_clk_input_rep1.sorted.bam ./head_clk_input_rep2.sorted.bam -g dm -n PeakAna_clk_Ip_vs_INP -B -p 0.05
 ```
+Where, -t indicates that the following arguments are the IP samples, -c the control samples, -g the genome name in this case "dm", -n the name that all the output files will have, -B indicates to the program to store visualization files (in [.bdg](https://software.broadinstitute.org/software/igv/bedgraph) format usefull to visualize in IGV).
 
 The **output** after running MACS on the shell:
 
@@ -124,7 +125,6 @@ To do this we will just looking at the annotation file that have the information
 >What problems you can think that this approach might have? Think about enhancers for example.
 
 For this we will use the following libraries: 
-
 
 ```{r, message=FALSE,warning=FALSE}
 library(GenomicFeatures) #This is an R package to deal with genomic data. You can read more at https://bioconductor.org/packages/release/bioc/vignettes/GenomicFeatures/inst/doc/GenomicFeatures.pdf
@@ -164,7 +164,6 @@ Now we will use the function `GRanges` to actually get the genomic ranges of the
 Basically we are using the information about the genes (start, end, etc) to see which is the closest one to each peak.
 
 
-
 ```{r message=FALSE,warning=FALSE}
 peaksGR<-GRanges(macs.res) #create the GRanges object of the macs-table.
 annotatedPeak <- annotatePeakInBatch(peaksGR, AnnotationData=genes(txdb))
@@ -202,8 +201,6 @@ Other solutions to this "function name collision" issue are:
 `library(org.Dm.eg.db) ##Drosophila melanogaster (Dm) data base`
 `dm.select=select`
 `library(dplyr)`
-
-
 
 ```{r }
 GeneNames = AnnotationDbi::select(org.Dm.eg.db, c(as.character(annotatedPeak$feature)), "SYMBOL", keytype = "ENSEMBL")
@@ -264,6 +261,9 @@ peakAnno_df <- as.data.frame(peakAnno)
 GeneNames = AnnotationDbi::select(org.Dm.eg.db, c(as.character(peakAnno_df$geneId)), "SYMBOL", keytype = "ENSEMBL")
 GeneNames$geneId=GeneNames$ENSEMBL
 head(GeneNames)
+```
+
+```{r message=FALSE,warning=FALSE}
 GeneNames=GeneNames[,-1]
 
 peakAnno_df=peakAnno_df %>% left_join(GeneNames, by="geneId") #this is merging the two tables by the column Geneld
@@ -305,17 +305,17 @@ First we can see the peaks over the chromosomes. For that we use the function `c
 
 What do you think about the results? Do they make sense?
 
-```{r message=FALSE,warning=FALSE}
+```{r message=FALSE,warning=FALSE, fig.cap="Coverage plot."}
 covplot(peaksGR, weightCol="X.log10.pvalue.",chrs=c("chr2L","chr2R","chr3L","chr3R","chr4","chrX","chrY"))
 ```
 
 And then a general distribution of the peaks in relation with he transcription start site (TSS). For that we use the function `peakHeatmap` and `plotAvgProf2`.
 
-```{r message=FALSE,warning=FALSE}
-peakHeatmap(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, color="violet")
+```{r message=FALSE,warning=FALSE,fig.cap="Peak heatmap."}
+peakHeatmap(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, color="darkviolet")
 ```
 
-```{r message=FALSE,warning=FALSE}
+```{r message=FALSE,warning=FALSE,fig.cap="Average coverage plot."}
 plotAvgProf2(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic Region (5'->3')", ylab = "Read Count Frequency") #Try exploring the options of this function. 
 ```
 
@@ -398,7 +398,7 @@ a[[1]]
 ### Plot the results
 We can play around with the matrixes and plot them in the known DNA-Logo standard. To do this we will first store the most top motif from `toptable`. Then we will use the `pwa` function from BCRANK and the `seqLogo` function from seqLogo package.
 
-```{r }
+```{r ,fig.cap="Most significant sequence logo."}
 topMotif <- toptable(BCRANKout, i=1)
 weightMatrix <- pwm(topMotif, normalize = FALSE)
 weightMatrixNormalized <- pwm(topMotif, normalize = TRUE)
@@ -407,7 +407,7 @@ seqLogo(weightMatrixNormalized,ic.scale = T)
 
 We can now do the same with a different function just to show you that you can do the same things with different approaches. This is using function form the `seqLogo` package. 
 
-```{r }
+```{r ,fig.cap="Most significant sequence logo."}
 p<-makePWM(as.data.frame(weightMatrixNormalized))
 p@consensus
 seqLogo(p)
@@ -448,7 +448,7 @@ seqs_list[[e]]<-weightMatrixNormalized #add the processed motif to the list in p
 #### Plot
 We can now, either plot one by one for each position in the list. 
 
-```{r }
+```{r,fig.cap="Most significant sequence logo in probability and percentage of information." }
 # Get first set of sequences
 seqs_dna = seqs_list[[1]]
 
@@ -461,7 +461,7 @@ grid.arrange(p1, p2)
 
 Or we can plot all together using the facet function to actually separate them.
 
-```{r }
+```{r ,fig.cap="Many significant sequence logo in probability and percentage of information."}
 #Plot all the first 12 sequences
 ggplot() + geom_logo(seqs_list,method = 'prob') + theme_logo() + 
   facet_wrap(~seq_group, ncol=4)
@@ -542,11 +542,27 @@ Then a pdf file NAME_model.pdf will be generated in your current directory. Note
 
 ## Activity
 
-> Slect one gene of interest and find the enrichment score
+> Slect one gene of interest and find the enrichment score. 
+> Load the aligned data in IGV and look at the peaks. Data is available in the book repository.
+> Do the same analysis in, Cyc, the other protein of interest in the paper. Data is available in the book repository. 
 
-## Bibliography
+## Resources and Bibliography
 
+Dubowy C, Sehgal A. Circadian Rhythms and Sleep in Drosophila melanogaster. Genetics. 2017;205(4):1373-1397. doi:10.1534/genetics.115.185157
 
+MEIRELES-FILHO, Antonio Carlos Alves  and  KYRIACOU, Charalambos Panayiotis. Circadian rhythms in insect disease vectors. Mem. Inst. Oswaldo Cruz [online]. 2013, vol.108, suppl.1 [cited  2020-07-08], pp.48-58.
+
+A.C.A. Meireles-Filho, A.F. Bardet, J.O. Yáñez-Cuna, G. Stampfel, A. Stark
+cis-regulatory requirements for tissue-specific programs of the circadian clock
+Curr Biol, 24 (2014), pp. 1-10
+
+Zhang, Y., Liu, T., Meyer, C.A. et al. Model-based Analysis of ChIP-Seq (MACS). Genome Biol 9, R137 (2008). https://doi.org/10.1186/gb-2008-9-9-r137
+
+Feng, J., Liu, T., Qin, B. et al. Identifying ChIP-seq enrichment using MACS. Nat Protoc 7, 1728–1740 (2012). https://doi.org/10.1038/nprot.2012.101
+
+https://bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html
+
+https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/pipeline.html
 
 ## Session info: all the packages installed.
 

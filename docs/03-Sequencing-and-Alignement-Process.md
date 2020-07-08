@@ -311,9 +311,7 @@ done
 ```
 
 
-## Resources
-
-## Bibliography
+## Resources and Bibliography
 
 Griffith M, Walker JR, Spies NC, Ainscough BJ, Griffith OL (2015) Informatics for RNA Sequencing: A Web Resource for Analysis on the Cloud. PLoS Comput Biol 11(8): e1004393. https://doi.org/10.1371/journal.pcbi.1004393
 

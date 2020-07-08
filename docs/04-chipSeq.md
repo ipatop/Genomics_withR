@@ -28,7 +28,7 @@ After this section you should be able to:
 
 __Chip-seq procedure:__
 
-“ChIP-seq” is short for “chromatin immunoprecipitation (ChIP) followed by sequencing”. ChipSeq data is basically DNA sequencing data in which the DNA is sequenced AFTER immunoprecipitating a protein of interest. Therefore, we expect to sequence the pieces of DNA that are interacting with the precipitated protein.
+“ChIP-seq” is short for “chromatin immunoprecipitation (ChIP) followed by sequencing (seq)”. ChipSeq data is basically DNA sequencing data in which the DNA is sequenced AFTER immunoprecipitating a protein of interest. Therefore, we expect to sequence the pieces of DNA that are interacting with the precipitated protein.
 
 If the protein of interest is a transcription factor (TF) for example, we expect to get the regions of DNA close to the genes that are being regulated by this particular TF (ie. the promoters of the genes). If we immunoprecipitate RNA polymerase 2, we expect to get the regions of the DNA that are being transcribed to RNA. 
 
@@ -41,21 +41,27 @@ The biochemical procedure usually goes as follows:
 <p class="caption">(\#fig:unnamed-chunk-1)Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest.</p>
 </div>
 
-To study this type of data we will re-analyze the data generated in [Meireles-Filho  et al 2013](https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1).
+To study this type of data we will re-analyze the data generated in [Meireles-Filho  et al 2014](https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1).
 
 In this work the authors study genome-wide the binding of two transcription factors (Clk and Cyc) in the fruit fly (*Drosophila melanogaster*). To do so they do Chip sequencing.
 
-These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription.
+These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription. Clk oscilates over the day due to a set of feedback loops with other core-clock components. These set of molecular interactions generate an autonomous oscilating molecular clock with a period of almost 24 hr. This clock can be re-set by light input. We will study RNA oscilations over the day in next chapter.
 
+<div class="figure" style="text-align: center">
+<img src="../macs2_analysis_p0.05/clkcyc.png" alt="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017" width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-2)Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017</p>
+</div>
 
+<div class="figure" style="text-align: center">
+<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-3)Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013</p>
+</div>
 
-The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. 
+<div class="figure" style="text-align: center">
+<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-4)Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013</p>
+</div>
 
-Delays exist between transcription of per and tim mRNA and the localization of these proteins in the nucleus, where they can interact with transcriptional activators Clock (CLK) and Cycle (CYC). 
-
-These delays are thought to be important for allowing the molecular clock to cycle with a period of ∼24 hr. Critical regulators have been identified at several steps of the cycle that are necessary for accurate timing and strength of molecular rhythms. Degradation of PER and TIM allows the cycle to start anew. Not pictured is the second feedback loop formed by PDP1 and Vrille, which produces cycling of Clk mRNA. This secondary feedback loop is thought to reinforce molecular oscillations, although cycling of the CLK protein is not necessary for rhythms. CKII, Casein Kinase II; SGG, shaggy; PP2A, Protein Phosphatase 2A; PP1, Protein Phosphatase 1; DBT, doubletime.
-
-ADD FIG HERE ON CIRCADIAN 
 
 ## Data pre-processing (peak-calling): 
 
@@ -67,18 +73,21 @@ Here we can see how the pileup reads look like in IGV. We are looking here at th
 
 <div class="figure" style="text-align: center">
 <img src="../macs2_analysis_p0.05/IGVtim.png" alt="IGV pileup traks over tim. Upper line IP, lower line INP." width="900px" />
-<p class="caption">(\#fig:unnamed-chunk-3)IGV pileup traks over tim. Upper line IP, lower line INP.</p>
+<p class="caption">(\#fig:unnamed-chunk-5)IGV pileup traks over tim. Upper line IP, lower line INP.</p>
 </div>
 
 To do this analysis genome wide, we need a tool that can do this for all the genom. There are few tools available, we use here [MACS](https://github.com/taoliu/MACS) algorithm to assess the peaks from the sequencing data.
 
-If you want to read the paper, there are 2 options. One in  [Genome biolgy](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2008-9-9-r137) and the other in [nature methods](https://www.nature.com/articles/nprot.2012.101). The last resource is show a fast step-by-step protocol for analysis. 
+Basically, this analysis relies in the aligned data (.bam files). It compares the IP with the INP control. 
 
-For this analysis I run the following command in the **terminal**:
+For this analysis I aligned the data from [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE40467) with [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml), an aligner that is used for DNA data (not splice aware). 
+
+Finally ran the MACS command in the **terminal** as follows:
 
 ```
-
+macs2 callpeak -t head_clk_ip_rep1.sorted.bam head_clk_ip_rep2.sorted.bam  -c ./head_clk_input_rep1.sorted.bam ./head_clk_input_rep2.sorted.bam -g dm -n PeakAna_clk_Ip_vs_INP -B -p 0.05
 ```
+Where, -t indicates that the following arguments are the IP samples, -c the control samples, -g the genome name in this case "dm", -n the name that all the output files will have, -B indicates to the program to store visualization files (in [.bdg](https://software.broadinstitute.org/software/igv/bedgraph) format usefull to visualize in IGV).
 
 The **output** after running MACS on the shell:
 
@@ -136,7 +145,6 @@ To do this we will just looking at the annotation file that have the information
 For this we will use the following libraries: 
 
 
-
 ```r
 library(GenomicFeatures) #This is an R package to deal with genomic data. You can read more at https://bioconductor.org/packages/release/bioc/vignettes/GenomicFeatures/inst/doc/GenomicFeatures.pdf
 library(ChIPpeakAnno) #This is a package to annotate Chip-Peaks data https://bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/ChIPpeakAnno.html
@@ -173,7 +181,7 @@ txdb <- loadDb("../macs2_analysis_p0.05/dm6.sqlite") #this is loading the sqlite
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-05 19:51:46 -0400 (Sun, 05 Jul 2020)
+## # Creation time: 2020-07-08 17:02:46 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -211,7 +219,6 @@ as.data.frame(head(ge))
 Now we will use the function `GRanges` to actually get the genomic ranges of the peaks from MACS. And we will annotate them with the function `annotatedPeak` and the `genes` function to map them to the closer gene.
 
 Basically we are using the information about the genes (start, end, etc) to see which is the closest one to each peak.
-
 
 
 
@@ -293,8 +300,6 @@ Other solutions to this "function name collision" issue are:
 `library(dplyr)`
 
 
-
-
 ```r
 GeneNames = AnnotationDbi::select(org.Dm.eg.db, c(as.character(annotatedPeak$feature)), "SYMBOL", keytype = "ENSEMBL")
 ```
@@ -360,7 +365,7 @@ We can explore the join options, here are some graphic explanation, and if you w
 
 <div class="figure" style="text-align: center">
 <img src="../macs2_analysis_p0.05/dplyr-joins.png" alt="Different joint options from dplyr. Adapted from cheatsheet." width="300px" />
-<p class="caption">(\#fig:unnamed-chunk-15)Different joint options from dplyr. Adapted from cheatsheet.</p>
+<p class="caption">(\#fig:unnamed-chunk-17)Different joint options from dplyr. Adapted from cheatsheet.</p>
 </div>
 
 
@@ -430,9 +435,6 @@ peakAnno_df <- as.data.frame(peakAnno)
 GeneNames = AnnotationDbi::select(org.Dm.eg.db, c(as.character(peakAnno_df$geneId)), "SYMBOL", keytype = "ENSEMBL")
 GeneNames$geneId=GeneNames$ENSEMBL
 head(GeneNames)
-GeneNames=GeneNames[,-1]
-
-peakAnno_df=peakAnno_df %>% left_join(GeneNames, by="geneId") #this is merging the two tables by the column Geneld
 ```
 
 ```
@@ -443,6 +445,13 @@ peakAnno_df=peakAnno_df %>% left_join(GeneNames, by="geneId") #this is merging t
 ## 4 FBgn0051973   Cda5 FBgn0051973
 ## 5 FBgn0051973   Cda5 FBgn0051973
 ## 6 FBgn0051973   Cda5 FBgn0051973
+```
+
+
+```r
+GeneNames=GeneNames[,-1]
+
+peakAnno_df=peakAnno_df %>% left_join(GeneNames, by="geneId") #this is merging the two tables by the column Geneld
 ```
 
 ### Explore and Export the output
@@ -488,18 +497,19 @@ write.table(peakAnno_df,file = "ChIPseekerAnno_results.xls",row.names = T,col.na
 ```
 
 ### Positive controls. 
-We can now explore the data back at [IGV](https://igv.org/app/) and see if the genes we get a significantly enriched for this TF are actually enriched. 
+
+We can now explore the data back at [IGV](https://igv.org/app/) and see if the genes we get a significantly enriched for this TF are actually enriched.
 
 Lets think about some controls we can do with the data. Which is the protein we are analyzing? Is there any gene we already know that protein might be regulating?
 
 Well, yes. We are analyzing __Clk__, that happens to regulate __tim__.
 
-So, making it more general: Other option to see if our analysis and the data in general make sense is to go to previous literature and see what genes we know that are regulated by this TF.
+So, making it more general: Other option to see if our analysis and the data in general make sense is to go to previous literature and see what genes we know that are regulated by this TF. Then, we expect them to be enriched in our analysis.
 
 
 
 ```r
-peakAnno_df_tim=peakAnno_df[which(peakAnno_df$SYMBOL=="tim"),] #What we are doing here?
+peakAnno_df_tim=peakAnno_df[which(peakAnno_df$SYMBOL=="tim"),] #What we are doing here?, remember Lab 2!
 peakAnno_df_tim=peakAnno_df_tim[order(peakAnno_df_tim$X.log10.pvalue.,decreasing = T),] # we order them by log10(pval), what that really means?
 
 as.data.frame(head(peakAnno_df_tim))
@@ -550,27 +560,27 @@ covplot(peaksGR, weightCol="X.log10.pvalue.",chrs=c("chr2L","chr2R","chr3L","chr
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-21-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-21)**CAPTION THIS FIGURE!!**</p>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-24-1.png" alt="Coverage plot." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-24)Coverage plot.</p>
 </div>
 
 And then a general distribution of the peaks in relation with he transcription start site (TSS). For that we use the function `peakHeatmap` and `plotAvgProf2`.
 
 
 ```r
-peakHeatmap(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, color="violet")
+peakHeatmap(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, color="darkviolet")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-22-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-22)**CAPTION THIS FIGURE!!**</p>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-25-1.png" alt="Peak heatmap." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-25)Peak heatmap.</p>
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-05 19:52:19 
-## >> preparing tag matrix...		 2020-07-05 19:52:20 
-## >> generating figure...		 2020-07-05 19:52:25 
-## >> done...			 2020-07-05 19:52:28
+## >> preparing promoter regions...	 2020-07-08 17:03:19 
+## >> preparing tag matrix...		 2020-07-08 17:03:19 
+## >> generating figure...		 2020-07-08 17:03:23 
+## >> done...			 2020-07-08 17:03:26
 ```
 
 
@@ -579,14 +589,14 @@ plotAvgProf2(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic R
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-23-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-23)**CAPTION THIS FIGURE!!**</p>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-26-1.png" alt="Average coverage plot." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-26)Average coverage plot.</p>
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-05 19:52:29 
-## >> preparing tag matrix...		 2020-07-05 19:52:29 
-## >> plotting figure...			 2020-07-05 19:52:32
+## >> preparing promoter regions...	 2020-07-08 17:03:28 
+## >> preparing tag matrix...		 2020-07-08 17:03:28 
+## >> plotting figure...			 2020-07-08 17:03:31
 ```
 
 ## Sequence Motif analysis
@@ -595,7 +605,7 @@ Another goal now is to analyze this peaks and see a pattern enrichment and see i
 
 This is basically DNA analysis, so we will have to figure out the regular DNA motifs and see if there is any specific enrichment.
 
-For this we will use: 
+For this we will use the following libraries: 
 
 
 ```r
@@ -608,33 +618,14 @@ To parse the corresponding sequences from the reference genome, the `getSeq` fun
 
 
 ```r
-library("Rsamtools")
+library("Rsamtools") #we will use the Rsamtools package for this.
 
-peaksGR <- peaksGR[order(peaksGR$X.log10.pvalue., decreasing=TRUE)] #order the peaks according to pvalue
+peaksGR <- peaksGR[order(peaksGR$X.log10.pvalue., decreasing=TRUE)] #order the peaks according to pvalue.
 
-pseq <- getSeq(FaFile("../macs2_analysis_p0.05/dm6.fa"), peaksGR) #extract the sequence of the peaks
-```
-
-### Explore the data
-
-We can see how the `pseq` object looks like.
-
-
-```r
-as.data.frame(head(pseq))
 as.data.frame(head(peaksGR))
-
-writeXStringSet(pseq, "peaksGR.fasta") #use the names and save the peaks in fasta format, how this looks like? open it outside R.
 ```
 
 ```
-##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           x
-## 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ACCCATTAAATTGTCAATATTACTTAAGCCCTTTATGGTATTGGAAACTCCCGTTTCACATAATTAAACATGGAATGCAGCAAAAAATTTTCCGTGCAATTGCAAATGGCATTTTACGAGAGAAAATTGTTGACAATAATGAAGCTGATGAACATTTGTGGTTGTGTTCATTGTCATTGTTGCTGCGTTAGTTATTCTACCATCGGTTGGGGTGCATTTGGGCCAGTCTGGAACTGTTTGCGTCATTGTTCAGTTTTAGTTCTCTGCGGTTGCCTGAAATTGTCGTAATGCATTTACGGACATCGCACACACATGTGGCCCAAGTGCGGTTTTGTAGCTGGAAATGTTGGCTGTGTACTGTAAACAAGATTTTAGCAAACCCACTTGCATTTCTCCTGGGGGTCATGTGTCAGCACTTATAATTTTGTTTAAAGAACTAAGAGAAAAATGTCCACTATCTAGAAAATCATTACTATCAAAAAACCCAATTTATATCAGTAACGTTCGATTTCTAAACTCATATTGACATTTTTGTATGTATATTATGTATGTATATAAATGTTCATATTTGTTTCCCTTTTGGTTGCGTACCTAACCACCACCTATAAATTAGCCCGTTCTGCCAATATTAGCCCTTTCATATCTCGTTACTCATACGCCACGTGGTCACGTTTTTGCCTAAGCTCTACGTAGCTGCACTCGCTGCACTTTCCGCTTACGTTTTGTTATTATTTTCCCCAGTACTCGTTAGCCTTGTCTAGTGCCAAAATGAAATGACAATGTTTTCCCAGCGCACAGAACTCAAATCGTAAATCATTTTCTTTTTTTTGGGGTGTTGGCAAAGGTAAACAATGTCACATAGGAGCCCGCAGTTGTCTGTCAGTAGAGAAAAAGGCAAAAAGATTAGAGATATATGGACTGCGGAGAGCGGGGCAGAATGCGAGATATATAGCAACTCAAGTTTGTGTTGCCACGAACTTTGACAGTTACATGCGCTGCACCATTGCAGAATGACAAACGAAGGCGAAAAAAGCCATGAGTTGCACAAAATGTATTTATCTGTCATTCCAGTTTTCACTTTCGCAAAAAGTGGTAGATTTTGGGTTTTGTGTGGAATCATATCTAGCTTTATAGCTCTTGGGGAACTATAATATGACTTAAATACCAAATATTTATATACTCAAGTTTAATATAATACATTTCACGTAGTTTTAACGCAAAACGGAATATGCTAGAATTTATCTTTTCCACTTCGTTTCCCCTCTGATTCTCGCACTTTCCCCCAAACTCTCGGCGTTTGTGTGTGTGCCTGTCTGGCTTTTCTTTTTCGTCTCCGTTCGTGACAGCTTGTTTTTTTGGGGGCGTGGCGAGGGGCGGAAGGGGTTGGGCATTTGGGTCAACTATCGACTGCAATTTGAGCCTTTCAAACTGTCGCCGACACAAAACGAAGGGCTCAGCTGAAAAAAAAAACACACAGTCAGGCAGAGTAAAAGTTGCGGAAAGTGTGACAGCAACTCATTGCAGATGGACATTTGCCGAGTCTGCTGGGAATCCCCTCAAGTGCTCTGGAAATTTGATTTCGATTTCCATATGATTTTGATTTGGCCAGCGAAC
-## 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           CTTCCCCTTTTATTACTGTTCCAAGGACATTCAAATTAAGCATTCATTTGCGGTGATATCACCGGCTTTAATGCTCTGAACTCCACGAAGAGTTGACTAACCTCGAACTGTGCTACATTTTTTTATGCACCTCCATCATACACACATTTTGTCGTGTAATTTGCACGCTGAGTCTATTAAATGCACTGCAACCGAGTTGTGTCAGCACCTCAGGTGTACAGAGCTTTCACTCACACTCATATACGATTCATAAACATTTGTTGTGGCGCCCAACGTGGGGCATGAAATGCGACGTGTTACACAAGTGGGAAGAAGAAGGTGCAAGTCATTAAGTAAGCTTGTTTTTGTTCTGATTTTTCTCGTTGTTTTCAGGGAAGAGGCCATAAAAGCTTCGTGCGCCACGCACACATGCACACATAATTATAATGGGCATTAAAACGGACGCCTGTGGCCTAACTCTTAGTTTGTCTTGTTCGCCAGCAGGCTTCTTAACCCTCACACTGTCCAACTTGGCTACCTCTGAGTGCTTTATGGCGCAACTGGTAGAATGATTCGCCGAGCATAATATTTAACTCGGAATTCCCTGCTAAACGCACATAATGTCTGCCCAAGACAGTCCCGGTTCCCAGCGGCGAAATTCATTTTCTTGTCGCTTACAAATTATTTTAAAGGTATTTAAAGTTAGAT
-## 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         AAAACAGAAGCTCTAGCATTGTTGTGATACATTAAAGAACTTTACTGACCTGGCCAATTTGTGGATAGTGCTGCAGCTCCATCTCGAGCACCCGCATGGACGGCTTGGGGGTTGTCAGCTCCTGGCCCGTGCACATCTCGTAGAGCAGGTGGCCAAAGCAGACGATGTCCACGTTCTCGATCTCGGTGACCGAGCGGGACCACATGACGGCGTTAATGCGCGAACTGAGGCCCAGGAGGCCGTTCTCCAGGCCCGATAACCTGATGGGTGAAAAACGGAATAAATGTTACGGAAAATGCATAATTAAATGGCGGACCCCTTGTGCTTTCCTTCCCTTTTGTTTCGGTCTTAATTATGCAACATATTCGATGGCTACCCTGCCGTATATTGATGGCCAACACGTGGAAACGTCGGCCGCAAAGTGTCTACTTTTATGGATTTATGTGCGAGCGAGAGGGAGCAGGTATCATCTGCTATCTCTTTCCTCACTGGCCATGTGCCTTAATGACAAAGAGCGTATGTCAGACCTGATATGACAATATTATGACACTCTACACAACACAGCGCTGTATATTGCGGATTGGTTGGGGCTTTTGGTTCGAGGGTCCTGCCGGCATTTCCTAGTATTCATTAGGCCAAATGTGGCTGACTAGTTGGAAAGGTATTCCGAATTGGCTGACAATAGAGGTTCTGAAGATGCTAGTTGTCGTGTGCTATAGTTTATTGGCTTTTGTTGCCAGTTGCCTTTGTTTATTTTATGATCATTTTAATTAGTTTTGAAAATCAGATAAGTATAAATATACGAAAAAAAATCATTTGGGCTTAAAAAAGTTCAATACAAATTGTTGAGTCAACAGGTTACTCCAGAAGTATTTGTTGTCAAATTTACTATCAAATATAAGCATGTTTTTCTTTAGCTGTTATAAAACAATAAAAGCGTTGTGCAGACATTAAATGCTTTCTTTTATTGTCATTGCAAATATCCTGAAATTCTTCACTCAATTTCACTTGAGCAAGCATTTTCTTTTCTACTTCGTCAATCAGCTTTTCAGCTTACTAAATTCCATTTTACCCGTTTTCTTCACGTTGGTCTTTCAACTTTCCTGTGGCCCTATCAATAGCTGTACGTATGTATAAGCAATTTATATGAAAATCAGCTTTTCAATGCGCACAGCGATACCCTGGCGACGAAGGCAGCAAAATTGGGTCATGCACTTGGCGCAAACTTGAACGCAGAAAATCCGCACTTTAATCGACTTTCACCTATAGGAATTCTAGCTTGCAGATCCCACCCTCTTTTAGTCCCGTCCCTGGGCTGCAATATAACCATCTTTTTCGCCGACCATTTATTTTTAAAATGGCAAAAAGCTTAAGCTTTATTTTTGTTACACCCATTCGATGTTTGCAAGTGGGTGGTTTAGTGGGTGGCGCTTACGCGTTGTCGCACAGCAGCTACATGGATAGGAGGGGGCCAGTCAGGGGCTCACGAAACAGGGACATGCATTTAAAGTGCCCTGAAATGGGCAACGATTCTGGGGAATTGCTTTTAATTTGCCATTTAGGCTGAAATCGATGTCGGTTCTATTTGGGTGAATTTTGAATGACTGAAATTTTGCAGTGGAGATAGGGGGGCAGGCCACCGATTCGATATAAAATATTGCAGCCATTATTAAATTAGTTAACAGTTGAGTGGGTCCCAATCGACAACGGACTCACCTGGCTGCCCCGTTCTGCAGGATGACATTGCCGCTGTGCAGGTGACCGTGAAGCGGAAAACCGCGCTCCTTCAGGAAGAGCAGTGCCTCCAGAATCTGTCGTCCCAGGCGCTGCACCTGGCTCACCGGTAAGCCATTTGGC
-## 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           GGCGCCAACAATCGTAATGGATCCTGGCATGAAAACGGGATGAGGAGACCCAATGGTCACCGCCCTCTAAATGCCGAAAGTCAACTGCGTCATTGTTTGGGGAGAACAGGCCAGCTCCAGCTGAATTTCCTCGATTTTCCGAGGGGTGAGATAAAGGGCCCCGGGCCAGGATGGCCAGGCCCATTTCCAGTGACCTTGCATCATTAACTTAATTGCTCAAACAGTAGTCGGTCCGTCCAATTGCCGGGCTGAATTATTCAGTTGTTCTGCTCGGCCAACTGGCAATTTTGCGTCTTTACTAATGTCACCACAAGCTCATAGAGGAAGCGCTGTCTCTCTCTATTCGGCGCTGCACTGGAAAAGCCATCCGACAGAACCGTTTTTCCATGGGGGCCGGTGAAAATCCCCCACGTGCATTCGGTGTGGTCGTTGGCCCGTTCACGTTGTCCCCCCATTTTAAAGGGGCGTCACGTGTAGCGGGGCTTAGTCCCCCCCACCACAATTTGACATTTTTTACGAAAACAAAATGCAGAGATACGAAGAGAAAAACCAGGCCCAAACAATTTTCACCGGACTAATTGGATTCAAGAGTTTTCCTGCTGCGCTTTTGTCAACGCATATTGCAACAGAAATATTCATATTTATTTATATATAAAAATTCACTGTCAGTACAGCCTAGCCTATAGTTGAATACATACCTGCATCGTCTTATCCAGTATGAAATTACAACAATTCCACCCAATATCAAACCACCTAAGGCACACCAAAAGAGGGTCTGAAAAG
-## 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               AGGAAAACTCCTAACAAGCTTTAAAAACCTAGCAAGCTAACTACCTTTTTCTTAATTCTCTGGTTCGTTTCGCACACCTGATTAATGGGTTAATGTATCTATTTTTATGCACCCAGCTGCCACTCAGTTGGCTTTGACTGGTCTCGGGGATAAGTGGCAAAGAGGCCGGCTAATCAGGCCCAAAGGTAAAGCCAAAGCCAAAGCCATGAACCAACGAACCGCCCAACAGCCCAACCACCGAAACGCCCCACCCATCCGCTGGTGACCCACTTGAGCATGCACCGCTCGTGACATTGGGCAGGGAAACGTGCAGAAGCGACGGGAAATCGACAAGAAGACAAACAAAACAGCAAAACGTGCAGAACGTCACTTTCGGGCCGCCTTTTTGTTGTTAATTTAGAGAGATGCGTCACAGCGAAAAGTGTTAAGAAAGAAATGCGCGGAAAATCAGGAAATGTAAGCGGTGAGAACTGCGCATTAAGCATCGCATTGCATCGCACGGCAAAACGCAGCCAAATAAAGCGAAACAACAGCGGAGACAGGCGCAATGTTGACAATTGTTGAAACTGACAGTTTGACGTTTTAACTCACGCGCCAAACGCCAAACGTCAAACGGCAGCAACAACCAACACAATATCAACATCAGCAACATAGTAATACGTTGTACGGCCAAACGGCAATCTAGGCAAATCCACCGAGTAGACAACTCAATGAGCCATTTTGATGGACACCTCCGACGACAGCTGTACGGCACACGAATGTATATAATGCATATTCAT
-## 6 TGGAATACTTGGAATTTATTAAGTACCTCGTTGTTATAACTAGTAGTTGTCTCCAGTTAACATAAAGCTATTATAAATGTCATAATAAACAACCGCTTATCAGTACTTAGCCGACGAGTGCTTAGGGCTCAATTAAATTAACAACAATTACGTAAATGGAAAAGAACAAAACCCACCACGTAATGTTTGGGTTTAAATACGTCATCCTAGGCGGAAAACAACAAACCAAAATACGCATACTAAATCGATTTCTCGAGCTATTTCTGTACATTCACCTGTCCTGCATTGCTAATACGCCGTGTTGCTCGCGCGTTATTTAATGTTTGAGCCATCGATGTCGATGTCGTGCTGCAATGTCAATATCAAAGACACTGCGCACAGCAAGGTTGCCGAAGCCGTAGTAGTTTACCGCCGTGCAATTGCTGAATTTCTGCTGTGCGGCTAATTGAATTTAGAGGGGCGACAGGTGCCACAATGCCAGGTATAAATGCCGGATTGCCAAAGAGCGCTAATTAATAGCCTAGTGGACCACGCAACGCGGCGTATACCATCGAGAACGAGCGCGAAACGTTAAAGGCACATCCAAAGTTTAAACTATTTCCGCAGAGATTTTGATAAACAGCTCCAAAATGGTGGTCAATTTCAAGGTGTTCAAGAAGTGTTCCCCGAACAACATGATCACGCTCTACATGAACAGGCGTGATTTTGTAGATTCCGTGACTCAGGTGGAACCCATTGGTAGGTGTCACAGACCGAAACCCTTGAGCAATGGGATTTACGAATGAGGAAATCCATCAAAAAATAAATTCGTGTAGGAATTGGTACCCATATTCGATTGAAGTATCTTATAGTTTGAAAATAACTTCAGTGTAACTTTTGTTTCAACTTAACACATTGGAATTTTTAATACCTTCCTTGAAAAGTGATATCAAATCAAAATTATATTATAAAAACTCCATTTCGAATCTGCATATGCCGACCAGCAAATATAAACTCAGGGAGTTATTCAAAATTGCATCTGAATTCAATAGCCCAGGGAGTTAAGTTAAATTGGCTGCGCTAGCAGCTAACCAAGTTCATCGATTACGCGAGCAAGCAAACCAAGAGGCTGGGCGCTTGTAAATAATATTCTCCAATTAATAAGCGTCCTCTTGCAGATGGAATCATTGTGCTGGACGATGAGTACGTGCGCCAGAACCGCAAGATCTTCGTGCAGTTGGTCTGCAATTTCCGATATGGGCGCGAGGACGACGAGATGATCGGTCTGCGGTTCCAGAAGGAACTGACCCTGGTCTCGCAGCAGGTGTGCCCACCCCAGAAGCAGGACATCCAGTTGACCAAGATGCAGGAGCGTCTGCTGAAGAAGCTTGGCTCCAATGCCTATCCCTTCGTGATGCAGATGCCACCAAGCTCGCCGGCCTCGGTGGTTCTCCAGCAGAAGGCCAGTGACGAGAGCCAGCCCTGCGGAGTCCAGTACTTCGTAAAGATCTTTACCGGAGACAGCGACTGCGATCGATCGCATCGCAGGAGCACCATTAACCTGGGCATCCGCAAGGTGCAGTACGCACCGACCAAGCAGGGCATCCAGCCCTGCACCGTCGTTCGCAAGGACTTCCTTCTGTCGCCCGGAGAGCTCGAACTGGAGGTCACCCTCGACAAGCAGCTGTACCATCACGGCGAGAAGATCTCGGTGAACATCTGCGTGCGCAACAACTCCAACAAGGTGGTGAAGAAGATCAAGGCCATGGTGCAGCAGGGCGTCGATGTGGTCCTGTTCCAGAACGGTCAGTTCCGCAACACGATCGCCTTCATGGAGACGAGCGAGGGATGTCCCCTGAACCCGGGATCCAGCCTGCAGAAGGTCATGTATCTGGTGCCCACCCTGGTGGCCAATTGCGACCGCGCAGGCATCGCCGTTGAGGGTGATATCAAGCGCAAAGACACAGCTCTGGCCTCGACCACACTGTGAGTAAAATTTATTCACATCATAGCTTAGCAGATGAAACATTAATATTATACTCTATTAAGTATCAACTTAAAATCATACCATAAAATCAATCAAATTTTAAAGTTAGGAACCTTTTTAAAAATCGTATTTTCCCGGTGACTAACAGTTCTTTAGCTAAATGTGTTTACAAAATGGCATAAAACGCATACTAATACTAAGTGAAAAATGCATATTTAAAATTCTATTTCAGTATTGCCAGTCAGGATGCGAGGGATGCCTTTGGCATAATTGTTTCATATGCTGTGAAGGTCAAGCTTTTCTTGGGAGCCCTGGGCGGCGAGCTCTGCGCTGAGCTACCATTTATTCTGATGCACCCGAAGGTAATAAAAGGTGTGCCCAAATATTTGAATAGTTATTGAAAGGCAATCAATTATTTACAGCCAAGTCGCAAGGCCCAACTGGAAGCCGAGGGCTCCATTGAGGCCTAAACTGAAAGGGCTACCTCAACCAACGAAAAAAATGGCGTATTTCTACAAGTCAAACCGATTTTTGTAGATCCTAAAAAATGCTGATGTTGCTGAAATGTTCTGAACTGCAGTCGTCGTACTTTTCCTATATAGCAAATCCAATATCCATATATTGTATGTGTGTATGTGTATTATATTTATAACTCAACTAACAATTAAATATGAACAGAGTTTATGTATGTATTTTGGAGTATTCTATTGAATTTAGCACGGTGTATTTGAAAAGGCTCCAGCATTGAAAGTTTGTATGGAATGCGCACTAAATATTTAATAATGTGCTTACGAAGGCATTTCGTAGTATTTGATATCTTGCAATGTCTGCTGATTATGTACATTGAAGTGCAATGGGGAAATCAACAGAAGCCAGTGCAATCTATTCAATTACTAATAGTGGGTCTTGCATTTGTGGCTTAGTAATTCCAATTATTGCTACTCTGAAAAGCCGAGGAGCAGCCTAATTAATACTTGGCCACTATGCTGGAGGAAGTTTACTGAACTGAATTCGAGTAAGGAAAATGGACAATAATTGATATAATATGGTGAGCTTCTTGCTGGACTTTGAAATCGTAAAATTTAAGCGAACACACTTCAAACGCATCCATTTAATTTGTGAATGTTTGCAGTCCCACTTTTAATAAGCACCCAATATTAACGATAACGCCACTCTAATCAAAATTTTCCAATAGTCAGGGTTGAAATACTGATCAATCACGCTGCCAACATTTCGGCAGACCAGGTGGGTAATGAGTTTAAAATGGTTTTGCGTAATGGGATTAATCGAATTTCATTAAGGAAGATTAGATTGCCGTCTTTGGAAGTGATCTTTTATAGTGGCTGACCATAAAAATTGCATTGCAAATACTAATTTAAGCATACATGCTATATAACCGATAAGATGGGCGAGCGTCAAGGCAAAAATAGTTGACCGTATTAATAGTTTAATCAACTAGCTTCAAGTTAATTTATAATGCGAATTAGGAAGCACTCTGGCATGCTATTAAAAACTTAAGAACTGATAAACGAAACTTAATTCCTAAAATAAAAATGTACCTAATTACTTTTATATACTATTATAAATAAAATTGTACCATGTATCGTTAAATTTGATTTAGTTACCAAGTGGTATTTGGTACGTGGCAGCATGAAATAGCTACTACTGCTAGTCTGGCTGATTAGCCAGCACTCTCAATAAACTAAGTGCAGCGTTTTGCATTTATCAGGATTTTTGGTACTCTAAACACACACTTAGATCCCAATCACCCCACAGAATAAGTTGAGCAAACCAAACCGAGCTGATTACCACAGTAGACATGATGATTAGCCGCTGCTTTATTTACTAGTGGATAATCTACTAAGCGACGCATGAATAAAAACTCGAGCGATATTTTTCCACTTTGCAGTCGCTCGAAAGCCTTTGTTTCG
 ##   seqnames    start      end width strand length abs_summit pileup
 ## 1    chr2L  3133811  3135424  1614      *   1614    3134481 140.17
 ## 2    chr2L  3136702  3137388   687      *    687    3136981 140.77
@@ -656,6 +647,33 @@ writeXStringSet(pseq, "peaksGR.fasta") #use the names and save the peaks in fast
 ## 4 PeakAna_clk_Ip_vs_INP_peak_1079
 ## 5 PeakAna_clk_Ip_vs_INP_peak_1893
 ## 6 PeakAna_clk_Ip_vs_INP_peak_2290
+```
+
+
+```r
+pseq <- getSeq(FaFile(file = "../macs2_analysis_p0.05/dm6.fa"), peaksGR) #extract the sequence of the peaks using the genome fasta file dm6.fa and the genome-ranges in the object peaksGR
+```
+
+We can now see how the `pseq` object looks like.
+
+
+```r
+as.data.frame(head(pseq))
+```
+
+```
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           x
+## 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ACCCATTAAATTGTCAATATTACTTAAGCCCTTTATGGTATTGGAAACTCCCGTTTCACATAATTAAACATGGAATGCAGCAAAAAATTTTCCGTGCAATTGCAAATGGCATTTTACGAGAGAAAATTGTTGACAATAATGAAGCTGATGAACATTTGTGGTTGTGTTCATTGTCATTGTTGCTGCGTTAGTTATTCTACCATCGGTTGGGGTGCATTTGGGCCAGTCTGGAACTGTTTGCGTCATTGTTCAGTTTTAGTTCTCTGCGGTTGCCTGAAATTGTCGTAATGCATTTACGGACATCGCACACACATGTGGCCCAAGTGCGGTTTTGTAGCTGGAAATGTTGGCTGTGTACTGTAAACAAGATTTTAGCAAACCCACTTGCATTTCTCCTGGGGGTCATGTGTCAGCACTTATAATTTTGTTTAAAGAACTAAGAGAAAAATGTCCACTATCTAGAAAATCATTACTATCAAAAAACCCAATTTATATCAGTAACGTTCGATTTCTAAACTCATATTGACATTTTTGTATGTATATTATGTATGTATATAAATGTTCATATTTGTTTCCCTTTTGGTTGCGTACCTAACCACCACCTATAAATTAGCCCGTTCTGCCAATATTAGCCCTTTCATATCTCGTTACTCATACGCCACGTGGTCACGTTTTTGCCTAAGCTCTACGTAGCTGCACTCGCTGCACTTTCCGCTTACGTTTTGTTATTATTTTCCCCAGTACTCGTTAGCCTTGTCTAGTGCCAAAATGAAATGACAATGTTTTCCCAGCGCACAGAACTCAAATCGTAAATCATTTTCTTTTTTTTGGGGTGTTGGCAAAGGTAAACAATGTCACATAGGAGCCCGCAGTTGTCTGTCAGTAGAGAAAAAGGCAAAAAGATTAGAGATATATGGACTGCGGAGAGCGGGGCAGAATGCGAGATATATAGCAACTCAAGTTTGTGTTGCCACGAACTTTGACAGTTACATGCGCTGCACCATTGCAGAATGACAAACGAAGGCGAAAAAAGCCATGAGTTGCACAAAATGTATTTATCTGTCATTCCAGTTTTCACTTTCGCAAAAAGTGGTAGATTTTGGGTTTTGTGTGGAATCATATCTAGCTTTATAGCTCTTGGGGAACTATAATATGACTTAAATACCAAATATTTATATACTCAAGTTTAATATAATACATTTCACGTAGTTTTAACGCAAAACGGAATATGCTAGAATTTATCTTTTCCACTTCGTTTCCCCTCTGATTCTCGCACTTTCCCCCAAACTCTCGGCGTTTGTGTGTGTGCCTGTCTGGCTTTTCTTTTTCGTCTCCGTTCGTGACAGCTTGTTTTTTTGGGGGCGTGGCGAGGGGCGGAAGGGGTTGGGCATTTGGGTCAACTATCGACTGCAATTTGAGCCTTTCAAACTGTCGCCGACACAAAACGAAGGGCTCAGCTGAAAAAAAAAACACACAGTCAGGCAGAGTAAAAGTTGCGGAAAGTGTGACAGCAACTCATTGCAGATGGACATTTGCCGAGTCTGCTGGGAATCCCCTCAAGTGCTCTGGAAATTTGATTTCGATTTCCATATGATTTTGATTTGGCCAGCGAAC
+## 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           CTTCCCCTTTTATTACTGTTCCAAGGACATTCAAATTAAGCATTCATTTGCGGTGATATCACCGGCTTTAATGCTCTGAACTCCACGAAGAGTTGACTAACCTCGAACTGTGCTACATTTTTTTATGCACCTCCATCATACACACATTTTGTCGTGTAATTTGCACGCTGAGTCTATTAAATGCACTGCAACCGAGTTGTGTCAGCACCTCAGGTGTACAGAGCTTTCACTCACACTCATATACGATTCATAAACATTTGTTGTGGCGCCCAACGTGGGGCATGAAATGCGACGTGTTACACAAGTGGGAAGAAGAAGGTGCAAGTCATTAAGTAAGCTTGTTTTTGTTCTGATTTTTCTCGTTGTTTTCAGGGAAGAGGCCATAAAAGCTTCGTGCGCCACGCACACATGCACACATAATTATAATGGGCATTAAAACGGACGCCTGTGGCCTAACTCTTAGTTTGTCTTGTTCGCCAGCAGGCTTCTTAACCCTCACACTGTCCAACTTGGCTACCTCTGAGTGCTTTATGGCGCAACTGGTAGAATGATTCGCCGAGCATAATATTTAACTCGGAATTCCCTGCTAAACGCACATAATGTCTGCCCAAGACAGTCCCGGTTCCCAGCGGCGAAATTCATTTTCTTGTCGCTTACAAATTATTTTAAAGGTATTTAAAGTTAGAT
+## 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         AAAACAGAAGCTCTAGCATTGTTGTGATACATTAAAGAACTTTACTGACCTGGCCAATTTGTGGATAGTGCTGCAGCTCCATCTCGAGCACCCGCATGGACGGCTTGGGGGTTGTCAGCTCCTGGCCCGTGCACATCTCGTAGAGCAGGTGGCCAAAGCAGACGATGTCCACGTTCTCGATCTCGGTGACCGAGCGGGACCACATGACGGCGTTAATGCGCGAACTGAGGCCCAGGAGGCCGTTCTCCAGGCCCGATAACCTGATGGGTGAAAAACGGAATAAATGTTACGGAAAATGCATAATTAAATGGCGGACCCCTTGTGCTTTCCTTCCCTTTTGTTTCGGTCTTAATTATGCAACATATTCGATGGCTACCCTGCCGTATATTGATGGCCAACACGTGGAAACGTCGGCCGCAAAGTGTCTACTTTTATGGATTTATGTGCGAGCGAGAGGGAGCAGGTATCATCTGCTATCTCTTTCCTCACTGGCCATGTGCCTTAATGACAAAGAGCGTATGTCAGACCTGATATGACAATATTATGACACTCTACACAACACAGCGCTGTATATTGCGGATTGGTTGGGGCTTTTGGTTCGAGGGTCCTGCCGGCATTTCCTAGTATTCATTAGGCCAAATGTGGCTGACTAGTTGGAAAGGTATTCCGAATTGGCTGACAATAGAGGTTCTGAAGATGCTAGTTGTCGTGTGCTATAGTTTATTGGCTTTTGTTGCCAGTTGCCTTTGTTTATTTTATGATCATTTTAATTAGTTTTGAAAATCAGATAAGTATAAATATACGAAAAAAAATCATTTGGGCTTAAAAAAGTTCAATACAAATTGTTGAGTCAACAGGTTACTCCAGAAGTATTTGTTGTCAAATTTACTATCAAATATAAGCATGTTTTTCTTTAGCTGTTATAAAACAATAAAAGCGTTGTGCAGACATTAAATGCTTTCTTTTATTGTCATTGCAAATATCCTGAAATTCTTCACTCAATTTCACTTGAGCAAGCATTTTCTTTTCTACTTCGTCAATCAGCTTTTCAGCTTACTAAATTCCATTTTACCCGTTTTCTTCACGTTGGTCTTTCAACTTTCCTGTGGCCCTATCAATAGCTGTACGTATGTATAAGCAATTTATATGAAAATCAGCTTTTCAATGCGCACAGCGATACCCTGGCGACGAAGGCAGCAAAATTGGGTCATGCACTTGGCGCAAACTTGAACGCAGAAAATCCGCACTTTAATCGACTTTCACCTATAGGAATTCTAGCTTGCAGATCCCACCCTCTTTTAGTCCCGTCCCTGGGCTGCAATATAACCATCTTTTTCGCCGACCATTTATTTTTAAAATGGCAAAAAGCTTAAGCTTTATTTTTGTTACACCCATTCGATGTTTGCAAGTGGGTGGTTTAGTGGGTGGCGCTTACGCGTTGTCGCACAGCAGCTACATGGATAGGAGGGGGCCAGTCAGGGGCTCACGAAACAGGGACATGCATTTAAAGTGCCCTGAAATGGGCAACGATTCTGGGGAATTGCTTTTAATTTGCCATTTAGGCTGAAATCGATGTCGGTTCTATTTGGGTGAATTTTGAATGACTGAAATTTTGCAGTGGAGATAGGGGGGCAGGCCACCGATTCGATATAAAATATTGCAGCCATTATTAAATTAGTTAACAGTTGAGTGGGTCCCAATCGACAACGGACTCACCTGGCTGCCCCGTTCTGCAGGATGACATTGCCGCTGTGCAGGTGACCGTGAAGCGGAAAACCGCGCTCCTTCAGGAAGAGCAGTGCCTCCAGAATCTGTCGTCCCAGGCGCTGCACCTGGCTCACCGGTAAGCCATTTGGC
+## 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           GGCGCCAACAATCGTAATGGATCCTGGCATGAAAACGGGATGAGGAGACCCAATGGTCACCGCCCTCTAAATGCCGAAAGTCAACTGCGTCATTGTTTGGGGAGAACAGGCCAGCTCCAGCTGAATTTCCTCGATTTTCCGAGGGGTGAGATAAAGGGCCCCGGGCCAGGATGGCCAGGCCCATTTCCAGTGACCTTGCATCATTAACTTAATTGCTCAAACAGTAGTCGGTCCGTCCAATTGCCGGGCTGAATTATTCAGTTGTTCTGCTCGGCCAACTGGCAATTTTGCGTCTTTACTAATGTCACCACAAGCTCATAGAGGAAGCGCTGTCTCTCTCTATTCGGCGCTGCACTGGAAAAGCCATCCGACAGAACCGTTTTTCCATGGGGGCCGGTGAAAATCCCCCACGTGCATTCGGTGTGGTCGTTGGCCCGTTCACGTTGTCCCCCCATTTTAAAGGGGCGTCACGTGTAGCGGGGCTTAGTCCCCCCCACCACAATTTGACATTTTTTACGAAAACAAAATGCAGAGATACGAAGAGAAAAACCAGGCCCAAACAATTTTCACCGGACTAATTGGATTCAAGAGTTTTCCTGCTGCGCTTTTGTCAACGCATATTGCAACAGAAATATTCATATTTATTTATATATAAAAATTCACTGTCAGTACAGCCTAGCCTATAGTTGAATACATACCTGCATCGTCTTATCCAGTATGAAATTACAACAATTCCACCCAATATCAAACCACCTAAGGCACACCAAAAGAGGGTCTGAAAAG
+## 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               AGGAAAACTCCTAACAAGCTTTAAAAACCTAGCAAGCTAACTACCTTTTTCTTAATTCTCTGGTTCGTTTCGCACACCTGATTAATGGGTTAATGTATCTATTTTTATGCACCCAGCTGCCACTCAGTTGGCTTTGACTGGTCTCGGGGATAAGTGGCAAAGAGGCCGGCTAATCAGGCCCAAAGGTAAAGCCAAAGCCAAAGCCATGAACCAACGAACCGCCCAACAGCCCAACCACCGAAACGCCCCACCCATCCGCTGGTGACCCACTTGAGCATGCACCGCTCGTGACATTGGGCAGGGAAACGTGCAGAAGCGACGGGAAATCGACAAGAAGACAAACAAAACAGCAAAACGTGCAGAACGTCACTTTCGGGCCGCCTTTTTGTTGTTAATTTAGAGAGATGCGTCACAGCGAAAAGTGTTAAGAAAGAAATGCGCGGAAAATCAGGAAATGTAAGCGGTGAGAACTGCGCATTAAGCATCGCATTGCATCGCACGGCAAAACGCAGCCAAATAAAGCGAAACAACAGCGGAGACAGGCGCAATGTTGACAATTGTTGAAACTGACAGTTTGACGTTTTAACTCACGCGCCAAACGCCAAACGTCAAACGGCAGCAACAACCAACACAATATCAACATCAGCAACATAGTAATACGTTGTACGGCCAAACGGCAATCTAGGCAAATCCACCGAGTAGACAACTCAATGAGCCATTTTGATGGACACCTCCGACGACAGCTGTACGGCACACGAATGTATATAATGCATATTCAT
+## 6 TGGAATACTTGGAATTTATTAAGTACCTCGTTGTTATAACTAGTAGTTGTCTCCAGTTAACATAAAGCTATTATAAATGTCATAATAAACAACCGCTTATCAGTACTTAGCCGACGAGTGCTTAGGGCTCAATTAAATTAACAACAATTACGTAAATGGAAAAGAACAAAACCCACCACGTAATGTTTGGGTTTAAATACGTCATCCTAGGCGGAAAACAACAAACCAAAATACGCATACTAAATCGATTTCTCGAGCTATTTCTGTACATTCACCTGTCCTGCATTGCTAATACGCCGTGTTGCTCGCGCGTTATTTAATGTTTGAGCCATCGATGTCGATGTCGTGCTGCAATGTCAATATCAAAGACACTGCGCACAGCAAGGTTGCCGAAGCCGTAGTAGTTTACCGCCGTGCAATTGCTGAATTTCTGCTGTGCGGCTAATTGAATTTAGAGGGGCGACAGGTGCCACAATGCCAGGTATAAATGCCGGATTGCCAAAGAGCGCTAATTAATAGCCTAGTGGACCACGCAACGCGGCGTATACCATCGAGAACGAGCGCGAAACGTTAAAGGCACATCCAAAGTTTAAACTATTTCCGCAGAGATTTTGATAAACAGCTCCAAAATGGTGGTCAATTTCAAGGTGTTCAAGAAGTGTTCCCCGAACAACATGATCACGCTCTACATGAACAGGCGTGATTTTGTAGATTCCGTGACTCAGGTGGAACCCATTGGTAGGTGTCACAGACCGAAACCCTTGAGCAATGGGATTTACGAATGAGGAAATCCATCAAAAAATAAATTCGTGTAGGAATTGGTACCCATATTCGATTGAAGTATCTTATAGTTTGAAAATAACTTCAGTGTAACTTTTGTTTCAACTTAACACATTGGAATTTTTAATACCTTCCTTGAAAAGTGATATCAAATCAAAATTATATTATAAAAACTCCATTTCGAATCTGCATATGCCGACCAGCAAATATAAACTCAGGGAGTTATTCAAAATTGCATCTGAATTCAATAGCCCAGGGAGTTAAGTTAAATTGGCTGCGCTAGCAGCTAACCAAGTTCATCGATTACGCGAGCAAGCAAACCAAGAGGCTGGGCGCTTGTAAATAATATTCTCCAATTAATAAGCGTCCTCTTGCAGATGGAATCATTGTGCTGGACGATGAGTACGTGCGCCAGAACCGCAAGATCTTCGTGCAGTTGGTCTGCAATTTCCGATATGGGCGCGAGGACGACGAGATGATCGGTCTGCGGTTCCAGAAGGAACTGACCCTGGTCTCGCAGCAGGTGTGCCCACCCCAGAAGCAGGACATCCAGTTGACCAAGATGCAGGAGCGTCTGCTGAAGAAGCTTGGCTCCAATGCCTATCCCTTCGTGATGCAGATGCCACCAAGCTCGCCGGCCTCGGTGGTTCTCCAGCAGAAGGCCAGTGACGAGAGCCAGCCCTGCGGAGTCCAGTACTTCGTAAAGATCTTTACCGGAGACAGCGACTGCGATCGATCGCATCGCAGGAGCACCATTAACCTGGGCATCCGCAAGGTGCAGTACGCACCGACCAAGCAGGGCATCCAGCCCTGCACCGTCGTTCGCAAGGACTTCCTTCTGTCGCCCGGAGAGCTCGAACTGGAGGTCACCCTCGACAAGCAGCTGTACCATCACGGCGAGAAGATCTCGGTGAACATCTGCGTGCGCAACAACTCCAACAAGGTGGTGAAGAAGATCAAGGCCATGGTGCAGCAGGGCGTCGATGTGGTCCTGTTCCAGAACGGTCAGTTCCGCAACACGATCGCCTTCATGGAGACGAGCGAGGGATGTCCCCTGAACCCGGGATCCAGCCTGCAGAAGGTCATGTATCTGGTGCCCACCCTGGTGGCCAATTGCGACCGCGCAGGCATCGCCGTTGAGGGTGATATCAAGCGCAAAGACACAGCTCTGGCCTCGACCACACTGTGAGTAAAATTTATTCACATCATAGCTTAGCAGATGAAACATTAATATTATACTCTATTAAGTATCAACTTAAAATCATACCATAAAATCAATCAAATTTTAAAGTTAGGAACCTTTTTAAAAATCGTATTTTCCCGGTGACTAACAGTTCTTTAGCTAAATGTGTTTACAAAATGGCATAAAACGCATACTAATACTAAGTGAAAAATGCATATTTAAAATTCTATTTCAGTATTGCCAGTCAGGATGCGAGGGATGCCTTTGGCATAATTGTTTCATATGCTGTGAAGGTCAAGCTTTTCTTGGGAGCCCTGGGCGGCGAGCTCTGCGCTGAGCTACCATTTATTCTGATGCACCCGAAGGTAATAAAAGGTGTGCCCAAATATTTGAATAGTTATTGAAAGGCAATCAATTATTTACAGCCAAGTCGCAAGGCCCAACTGGAAGCCGAGGGCTCCATTGAGGCCTAAACTGAAAGGGCTACCTCAACCAACGAAAAAAATGGCGTATTTCTACAAGTCAAACCGATTTTTGTAGATCCTAAAAAATGCTGATGTTGCTGAAATGTTCTGAACTGCAGTCGTCGTACTTTTCCTATATAGCAAATCCAATATCCATATATTGTATGTGTGTATGTGTATTATATTTATAACTCAACTAACAATTAAATATGAACAGAGTTTATGTATGTATTTTGGAGTATTCTATTGAATTTAGCACGGTGTATTTGAAAAGGCTCCAGCATTGAAAGTTTGTATGGAATGCGCACTAAATATTTAATAATGTGCTTACGAAGGCATTTCGTAGTATTTGATATCTTGCAATGTCTGCTGATTATGTACATTGAAGTGCAATGGGGAAATCAACAGAAGCCAGTGCAATCTATTCAATTACTAATAGTGGGTCTTGCATTTGTGGCTTAGTAATTCCAATTATTGCTACTCTGAAAAGCCGAGGAGCAGCCTAATTAATACTTGGCCACTATGCTGGAGGAAGTTTACTGAACTGAATTCGAGTAAGGAAAATGGACAATAATTGATATAATATGGTGAGCTTCTTGCTGGACTTTGAAATCGTAAAATTTAAGCGAACACACTTCAAACGCATCCATTTAATTTGTGAATGTTTGCAGTCCCACTTTTAATAAGCACCCAATATTAACGATAACGCCACTCTAATCAAAATTTTCCAATAGTCAGGGTTGAAATACTGATCAATCACGCTGCCAACATTTCGGCAGACCAGGTGGGTAATGAGTTTAAAATGGTTTTGCGTAATGGGATTAATCGAATTTCATTAAGGAAGATTAGATTGCCGTCTTTGGAAGTGATCTTTTATAGTGGCTGACCATAAAAATTGCATTGCAAATACTAATTTAAGCATACATGCTATATAACCGATAAGATGGGCGAGCGTCAAGGCAAAAATAGTTGACCGTATTAATAGTTTAATCAACTAGCTTCAAGTTAATTTATAATGCGAATTAGGAAGCACTCTGGCATGCTATTAAAAACTTAAGAACTGATAAACGAAACTTAATTCCTAAAATAAAAATGTACCTAATTACTTTTATATACTATTATAAATAAAATTGTACCATGTATCGTTAAATTTGATTTAGTTACCAAGTGGTATTTGGTACGTGGCAGCATGAAATAGCTACTACTGCTAGTCTGGCTGATTAGCCAGCACTCTCAATAAACTAAGTGCAGCGTTTTGCATTTATCAGGATTTTTGGTACTCTAAACACACACTTAGATCCCAATCACCCCACAGAATAAGTTGAGCAAACCAAACCGAGCTGATTACCACAGTAGACATGATGATTAGCCGCTGCTTTATTTACTAGTGGATAATCTACTAAGCGACGCATGAATAAAAACTCGAGCGATATTTTTCCACTTTGCAGTCGCTCGAAAGCCTTTGTTTCG
+```
+
+
+```r
+writeXStringSet(pseq, filepath = "peaksGR.fasta") #use the names and save the peaks in fasta format, how this looks like? open it outside R! you can shange the filepath to save it any place you want.
 ```
 
 ### Find the MOTIFS
@@ -745,8 +763,8 @@ seqLogo(weightMatrixNormalized,ic.scale = T)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-29-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-29)**CAPTION THIS FIGURE!!**</p>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-34-1.png" alt="Most significant sequence logo." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-34)Most significant sequence logo.</p>
 </div>
 
 We can now do the same with a different function just to show you that you can do the same things with different approaches. This is using function form the `seqLogo` package. 
@@ -759,8 +777,8 @@ seqLogo(p)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-30-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-30)**CAPTION THIS FIGURE!!**</p>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-35-1.png" alt="Most significant sequence logo." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-35)Most significant sequence logo.</p>
 </div>
 
 ```
@@ -834,8 +852,8 @@ grid.arrange(p1, p2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-34-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-34)**CAPTION THIS FIGURE!!**</p>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-39-1.png" alt="Most significant sequence logo in probability and percentage of information." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-39)Most significant sequence logo in probability and percentage of information.</p>
 </div>
 
 Or we can plot all together using the facet function to actually separate them.
@@ -848,81 +866,9 @@ ggplot() + geom_logo(seqs_list,method = 'prob') + theme_logo() +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-35-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-35)**CAPTION THIS FIGURE!!**</p>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-40-1.png" alt="Many significant sequence logo in probability and percentage of information." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-40)Many significant sequence logo in probability and percentage of information.</p>
 </div>
-
-## Session info: all the packages installed.
-
-This is useful when we want to de-bug a code or share a code or a problem with someone. 
-
-
-```r
-toLatex(sessionInfo())
-```
-
-```
-## \begin{itemize}\raggedright
-##   \item R version 3.6.2 (2019-12-12), \verb|x86_64-apple-darwin15.6.0|
-##   \item Locale: \verb|en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8|
-##   \item Running under: \verb|macOS Mojave 10.14.6|
-##   \item Random number generation:  \item RNG:    \verb|Mersenne-Twister|  \item Normal: \verb|Inversion|  \item Sample: \verb|Rounding|
-##   \item Matrix products: default
-##   \item BLAS:   \verb|/Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib|
-##   \item LAPACK: \verb|/Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib|
-##   \item Base packages: base, datasets, graphics, grDevices, grid,
-##     methods, parallel, stats, stats4, utils
-##   \item Other packages: AnnotationDbi~1.48.0, BCRANK~1.48.0,
-##     Biobase~2.46.0, BiocGenerics~0.32.0, Biostrings~2.54.0,
-##     ChIPpeakAnno~3.20.1, ChIPseeker~1.22.1, devtools~2.3.0,
-##     dplyr~1.0.0, forcats~0.5.0, futile.logger~1.4.3,
-##     GenomeInfoDb~1.22.1, GenomicFeatures~1.38.2, GenomicRanges~1.38.0,
-##     ggplot2~3.3.1, ggseqlogo~0.1, gridExtra~2.3, IRanges~2.20.2,
-##     org.Dm.eg.db~3.10.0, purrr~0.3.4, readr~1.3.1, Rsamtools~2.2.3,
-##     S4Vectors~0.24.4, seqLogo~1.52.0, stringr~1.4.0, tibble~3.0.1,
-##     tidyr~1.1.0, tidyverse~1.3.0, usethis~1.6.1, VennDiagram~1.6.20,
-##     webex~0.9.1, XVector~0.26.0
-##   \item Loaded via a namespace (and not attached): ade4~1.7-15,
-##     AnnotationFilter~1.10.0, askpass~1.1, assertthat~0.2.1,
-##     backports~1.1.7, BiocFileCache~1.10.2, BiocManager~1.30.10,
-##     BiocParallel~1.20.1, biomaRt~2.42.1, bit~1.1-15.2, bit64~0.9-7,
-##     bitops~1.0-6, blob~1.2.1, bookdown~0.19, boot~1.3-25, broom~0.5.6,
-##     BSgenome~1.54.0, callr~3.4.3, caTools~1.18.0, cellranger~1.1.0,
-##     cli~2.0.2, colorspace~1.4-1, compiler~3.6.2, cowplot~1.0.0,
-##     crayon~1.3.4, curl~4.3, data.table~1.12.8, DBI~1.1.0, dbplyr~1.4.4,
-##     DelayedArray~0.12.3, desc~1.2.0, digest~0.6.25, DO.db~2.9,
-##     DOSE~3.12.0, ellipsis~0.3.1, enrichplot~1.6.1, ensembldb~2.10.2,
-##     europepmc~0.4, evaluate~0.14, fansi~0.4.1, farver~2.0.3,
-##     fastmatch~1.1-0, fgsea~1.12.0, formatR~1.7, fs~1.4.1,
-##     futile.options~1.0.1, gdata~2.18.0, generics~0.0.2,
-##     GenomeInfoDbData~1.2.2, GenomicAlignments~1.22.1, ggforce~0.3.1,
-##     ggplotify~0.0.5, ggraph~2.0.3, ggrepel~0.8.2, ggridges~0.5.2,
-##     glue~1.4.1, GO.db~3.10.0, GOSemSim~2.12.1, gplots~3.0.3,
-##     graph~1.64.0, graphlayouts~0.7.0, gridGraphics~0.5-0, gtable~0.3.0,
-##     gtools~3.8.2, haven~2.3.1, highr~0.8, hms~0.5.3, htmltools~0.4.0,
-##     httr~1.4.1, idr~1.2, igraph~1.2.5, jsonlite~1.6.1,
-##     KernSmooth~2.23-17, knitr~1.28, labeling~0.3, lambda.r~1.2.4,
-##     lattice~0.20-41, lazyeval~0.2.2, lifecycle~0.2.0, limma~3.42.2,
-##     lubridate~1.7.9, magrittr~1.5, MASS~7.3-51.6, Matrix~1.2-18,
-##     matrixStats~0.56.0, memoise~1.1.0, modelr~0.1.8, multtest~2.42.0,
-##     munsell~0.5.0, nlme~3.1-148, openssl~1.4.1, pillar~1.4.4,
-##     pkgbuild~1.0.8, pkgconfig~2.0.3, pkgload~1.1.0, plotrix~3.7-8,
-##     plyr~1.8.6, polyclip~1.10-0, prettyunits~1.1.1, processx~3.4.2,
-##     progress~1.2.2, ProtGenerics~1.18.0, ps~1.3.3, qvalue~2.18.0,
-##     R6~2.4.1, rappdirs~0.3.1, RBGL~1.62.1, RColorBrewer~1.1-2,
-##     Rcpp~1.0.4.6, RCurl~1.98-1.2, readxl~1.3.1.9000, regioneR~1.18.1,
-##     remotes~2.1.1, reprex~0.3.0, reshape2~1.4.4, rlang~0.4.6,
-##     rmarkdown~2.2, rprojroot~1.3-2, RSQLite~2.2.0, rstudioapi~0.11,
-##     rtracklayer~1.46.0, rvcheck~0.1.8, rvest~0.3.5, scales~1.1.1,
-##     seqinr~3.6-1, sessioninfo~1.1.1, splines~3.6.2, stringi~1.4.6,
-##     SummarizedExperiment~1.16.1, survival~3.1-12, testthat~2.3.2,
-##     tidygraph~1.2.0, tidyselect~1.1.0, tools~3.6.2, triebeard~0.3.0,
-##     tweenr~1.0.1, TxDb.Hsapiens.UCSC.hg19.knownGene~3.2.2,
-##     urltools~1.7.3, vctrs~0.3.1, viridis~0.5.1, viridisLite~0.3.0,
-##     withr~2.2.0, xfun~0.14, XML~3.99-0.3, xml2~1.3.2, yaml~2.2.1,
-##     zlibbioc~1.32.0
-## \end{itemize}
-```
 
 ## Extra: How to solve some common annotation issues.  
 
@@ -952,7 +898,7 @@ class(txdb)
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-05 19:52:48 -0400 (Sun, 05 Jul 2020)
+## # Creation time: 2020-07-08 17:03:49 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -960,7 +906,7 @@ class(txdb)
 ## attr(,"package")
 ## [1] "GenomicFeatures"
 ```
-Now we can actually extract the gen location from the annotation that we created
+Now we can actually extract the gene location from the annotation that we created
 
 ```r
 ge <- genes(txdb, columns=c("tx_name", "gene_id", "tx_type")) #get the genes genomic ranges
@@ -1135,4 +1081,98 @@ Then a pdf file NAME_model.pdf will be generated in your current directory. Note
 
 > The .bdg files are in bedGraph format which can be imported to UCSC genome browser or be converted into even smaller bigWig files. There are two kinds of bdg files: treat_pileup, and control_lambda.
 
+## Activity
 
+> Slect one gene of interest and find the enrichment score. 
+> Load the aligned data in IGV and look at the peaks. Data is available in the book repository.
+> Do the same analysis in, Cyc, the other protein of interest in the paper. Data is available in the book repository. 
+
+## Resources and Bibliography
+
+Dubowy C, Sehgal A. Circadian Rhythms and Sleep in Drosophila melanogaster. Genetics. 2017;205(4):1373-1397. doi:10.1534/genetics.115.185157
+
+MEIRELES-FILHO, Antonio Carlos Alves  and  KYRIACOU, Charalambos Panayiotis. Circadian rhythms in insect disease vectors. Mem. Inst. Oswaldo Cruz [online]. 2013, vol.108, suppl.1 [cited  2020-07-08], pp.48-58.
+
+A.C.A. Meireles-Filho, A.F. Bardet, J.O. Yáñez-Cuna, G. Stampfel, A. Stark
+cis-regulatory requirements for tissue-specific programs of the circadian clock
+Curr Biol, 24 (2014), pp. 1-10
+
+Zhang, Y., Liu, T., Meyer, C.A. et al. Model-based Analysis of ChIP-Seq (MACS). Genome Biol 9, R137 (2008). https://doi.org/10.1186/gb-2008-9-9-r137
+
+Feng, J., Liu, T., Qin, B. et al. Identifying ChIP-seq enrichment using MACS. Nat Protoc 7, 1728–1740 (2012). https://doi.org/10.1038/nprot.2012.101
+
+https://bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html
+
+https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/pipeline.html
+
+## Session info: all the packages installed.
+
+This is useful when we want to de-bug a code or share a code or a problem with someone. 
+
+
+```r
+toLatex(sessionInfo())
+```
+
+```
+## \begin{itemize}\raggedright
+##   \item R version 3.6.2 (2019-12-12), \verb|x86_64-apple-darwin15.6.0|
+##   \item Locale: \verb|en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8|
+##   \item Running under: \verb|macOS Mojave 10.14.6|
+##   \item Random number generation:  \item RNG:    \verb|Mersenne-Twister|  \item Normal: \verb|Inversion|  \item Sample: \verb|Rounding|
+##   \item Matrix products: default
+##   \item BLAS:   \verb|/Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib|
+##   \item LAPACK: \verb|/Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib|
+##   \item Base packages: base, datasets, graphics, grDevices, grid,
+##     methods, parallel, stats, stats4, utils
+##   \item Other packages: AnnotationDbi~1.48.0, BCRANK~1.48.0,
+##     Biobase~2.46.0, BiocGenerics~0.32.0, Biostrings~2.54.0,
+##     ChIPpeakAnno~3.20.1, ChIPseeker~1.22.1, devtools~2.3.0,
+##     dplyr~1.0.0, forcats~0.5.0, futile.logger~1.4.3,
+##     GenomeInfoDb~1.22.1, GenomicFeatures~1.38.2, GenomicRanges~1.38.0,
+##     ggplot2~3.3.1, ggseqlogo~0.1, gridExtra~2.3, IRanges~2.20.2,
+##     org.Dm.eg.db~3.10.0, purrr~0.3.4, readr~1.3.1, Rsamtools~2.2.3,
+##     S4Vectors~0.24.4, seqLogo~1.52.0, stringr~1.4.0, tibble~3.0.1,
+##     tidyr~1.1.0, tidyverse~1.3.0, usethis~1.6.1, VennDiagram~1.6.20,
+##     webex~0.9.1, XVector~0.26.0
+##   \item Loaded via a namespace (and not attached): ade4~1.7-15,
+##     AnnotationFilter~1.10.0, askpass~1.1, assertthat~0.2.1,
+##     backports~1.1.7, BiocFileCache~1.10.2, BiocManager~1.30.10,
+##     BiocParallel~1.20.1, biomaRt~2.42.1, bit~1.1-15.2, bit64~0.9-7,
+##     bitops~1.0-6, blob~1.2.1, bookdown~0.19, boot~1.3-25, broom~0.5.6,
+##     BSgenome~1.54.0, callr~3.4.3, caTools~1.18.0, cellranger~1.1.0,
+##     cli~2.0.2, colorspace~1.4-1, compiler~3.6.2, cowplot~1.0.0,
+##     crayon~1.3.4, curl~4.3, data.table~1.12.8, DBI~1.1.0, dbplyr~1.4.4,
+##     DelayedArray~0.12.3, desc~1.2.0, digest~0.6.25, DO.db~2.9,
+##     DOSE~3.12.0, ellipsis~0.3.1, enrichplot~1.6.1, ensembldb~2.10.2,
+##     europepmc~0.4, evaluate~0.14, fansi~0.4.1, farver~2.0.3,
+##     fastmatch~1.1-0, fgsea~1.12.0, formatR~1.7, fs~1.4.1,
+##     futile.options~1.0.1, gdata~2.18.0, generics~0.0.2,
+##     GenomeInfoDbData~1.2.2, GenomicAlignments~1.22.1, ggforce~0.3.1,
+##     ggplotify~0.0.5, ggraph~2.0.3, ggrepel~0.8.2, ggridges~0.5.2,
+##     glue~1.4.1, GO.db~3.10.0, GOSemSim~2.12.1, gplots~3.0.3,
+##     graph~1.64.0, graphlayouts~0.7.0, gridGraphics~0.5-0, gtable~0.3.0,
+##     gtools~3.8.2, haven~2.3.1, highr~0.8, hms~0.5.3, htmltools~0.4.0,
+##     httr~1.4.1, idr~1.2, igraph~1.2.5, jsonlite~1.6.1,
+##     KernSmooth~2.23-17, knitr~1.28, labeling~0.3, lambda.r~1.2.4,
+##     lattice~0.20-41, lazyeval~0.2.2, lifecycle~0.2.0, limma~3.42.2,
+##     lubridate~1.7.9, magrittr~1.5, MASS~7.3-51.6, Matrix~1.2-18,
+##     matrixStats~0.56.0, memoise~1.1.0, modelr~0.1.8, multtest~2.42.0,
+##     munsell~0.5.0, nlme~3.1-148, openssl~1.4.1, pillar~1.4.4,
+##     pkgbuild~1.0.8, pkgconfig~2.0.3, pkgload~1.1.0, plotrix~3.7-8,
+##     plyr~1.8.6, polyclip~1.10-0, prettyunits~1.1.1, processx~3.4.2,
+##     progress~1.2.2, ProtGenerics~1.18.0, ps~1.3.3, qvalue~2.18.0,
+##     R6~2.4.1, rappdirs~0.3.1, RBGL~1.62.1, RColorBrewer~1.1-2,
+##     Rcpp~1.0.4.6, RCurl~1.98-1.2, readxl~1.3.1.9000, regioneR~1.18.1,
+##     remotes~2.1.1, reprex~0.3.0, reshape2~1.4.4, rlang~0.4.6,
+##     rmarkdown~2.2, rprojroot~1.3-2, RSQLite~2.2.0, rstudioapi~0.11,
+##     rtracklayer~1.46.0, rvcheck~0.1.8, rvest~0.3.5, scales~1.1.1,
+##     seqinr~3.6-1, sessioninfo~1.1.1, splines~3.6.2, stringi~1.4.6,
+##     SummarizedExperiment~1.16.1, survival~3.1-12, testthat~2.3.2,
+##     tidygraph~1.2.0, tidyselect~1.1.0, tools~3.6.2, triebeard~0.3.0,
+##     tweenr~1.0.1, TxDb.Hsapiens.UCSC.hg19.knownGene~3.2.2,
+##     urltools~1.7.3, vctrs~0.3.1, viridis~0.5.1, viridisLite~0.3.0,
+##     withr~2.2.0, xfun~0.14, XML~3.99-0.3, xml2~1.3.2, yaml~2.2.1,
+##     zlibbioc~1.32.0
+## \end{itemize}
+```

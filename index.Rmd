@@ -9,6 +9,25 @@ biblio-style: apalike
 link-citations: yes
 description: "This is the index for the coursebook"
 ---
+```{r, echo=FALSE,message=FALSE,warning=FALSE}
+library(DESeq2) #for differential expression analysis
+library(ggplot2) #for 2D graph
+library(ggrepel) #to get the names in ggplot graph 
+library(gridExtra)
+library(factoextra)
+library(plotly) #for 3D graphics
+library(plyr)#table manipulation
+library(dplyr)#table manipulation
+library(tidyr)#table manipulation
+library("RColorBrewer")
+library("pheatmap")
+library(org.Dm.eg.db)#get annotation
+library(MetaCycle) # to identify cycling genes, the successor of JTK according to JTK authors
+library(pcaExplorer)
+library(GenomicFeatures) #This is an R package to deal with genomic data. You can read more at https://bioconductor.org/packages/release/bioc/vignettes/GenomicFeatures/inst/doc/GenomicFeatures.pdf
+library(ChIPpeakAnno) 
+library(ChIPseeker)#This is a package to annotate Chip-Peaks data https://bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/ChIPpeakAnno.html
+```
 
 ```{r cite-packages, include = FALSE}
 # automatically create a bib database for R packages
@@ -38,7 +57,17 @@ By the end of this course students will be able to:
 * Do basic and complex analysis.
 * Read and understand R code.
 
+## Next steps
+
+I have a project on shell commands for biologist. Will be available soon.
+
+## Data availability
+
+All the data used in this book is publiclily available. Preprocessed files can be found in this [reposotory](https://drive.google.com/drive/folders/1AU01lWjAuXP0Ln4jNM0anWC2SAfbN6Oq?usp=sharing)
+
 ## Acknowledgments
+
+Ane Martin Anduaga and Sebastian Kadener for usefull discussion.
 
 
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 1 Introduction to R and RStudio | Genomics with R for biologists</title>
+  <title>Lab 1 Introduction to R and RStudio | RNA_seq: Differential Gene Expression (DGE) Analysis</title>
   <meta name="description" content="This is the index for the coursebook" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 1 Introduction to R and RStudio | Genomics with R for biologists" />
+  <meta property="og:title" content="Lab 1 Introduction to R and RStudio | RNA_seq: Differential Gene Expression (DGE) Analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,15 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 1 Introduction to R and RStudio | Genomics with R for biologists" />
+  <meta name="twitter:title" content="Lab 1 Introduction to R and RStudio | RNA_seq: Differential Gene Expression (DGE) Analysis" />
   
   <meta name="twitter:description" content="This is the index for the coursebook" />
   
 
-<meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
+<meta name="author" content="Ines Lucia Patop inespatop@brandeis.edu" />
 
 
-<meta name="date" content="2020-07-05" />
+<meta name="date" content="2020-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,7 +138,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-aims"><i class="fa fa-check"></i><b>0.1</b> Course Aims</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>0.2</b> Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.3</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#next-steps"><i class="fa fa-check"></i><b>0.3</b> Next steps</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>0.4</b> Data availability</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.5</b> Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
 <ul>
@@ -201,8 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
 <li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#a-bit-of-shell-commands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell commands</a></li>
-<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-1"><i class="fa fa-check"></i><b>4.8</b> Resources</a></li>
-<li class="chapter" data-level="4.9" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#bibliography"><i class="fa fa-check"></i><b>4.9</b> Bibliography</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>4.8</b> Resources and Bibliography</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
 <ul>
@@ -227,15 +228,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#put-the-peak-sequences-in-fasta-format"><i class="fa fa-check"></i><b>5.7.1</b> Put the peak sequences in fasta format</a></li>
-<li class="chapter" data-level="5.7.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-data"><i class="fa fa-check"></i><b>5.7.2</b> Explore the data</a></li>
-<li class="chapter" data-level="5.7.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#find-the-motifs"><i class="fa fa-check"></i><b>5.7.3</b> Find the MOTIFS</a></li>
-<li class="chapter" data-level="5.7.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-results"><i class="fa fa-check"></i><b>5.7.4</b> Explore the results</a></li>
-<li class="chapter" data-level="5.7.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plot-the-results"><i class="fa fa-check"></i><b>5.7.5</b> Plot the results</a></li>
-<li class="chapter" data-level="5.7.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>5.7.6</b> Plotting with Ggplot2</a></li>
+<li class="chapter" data-level="5.7.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#find-the-motifs"><i class="fa fa-check"></i><b>5.7.2</b> Find the MOTIFS</a></li>
+<li class="chapter" data-level="5.7.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-results"><i class="fa fa-check"></i><b>5.7.3</b> Explore the results</a></li>
+<li class="chapter" data-level="5.7.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plot-the-results"><i class="fa fa-check"></i><b>5.7.4</b> Plot the results</a></li>
+<li class="chapter" data-level="5.7.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>5.7.5</b> Plotting with Ggplot2</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.8</b> Session info: all the packages installed.</a></li>
-<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-how-to-solve-some-common-annotation-issues."><i class="fa fa-check"></i><b>5.9</b> Extra: How to solve some common annotation issues.</a></li>
-<li class="chapter" data-level="5.10" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-detailed-explanation-of-the-macs-output-files"><i class="fa fa-check"></i><b>5.10</b> Extra: Detailed explanation of the MACS output files</a></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-how-to-solve-some-common-annotation-issues."><i class="fa fa-check"></i><b>5.8</b> Extra: How to solve some common annotation issues.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-detailed-explanation-of-the-macs-output-files"><i class="fa fa-check"></i><b>5.9</b> Extra: Detailed explanation of the MACS output files</a></li>
+<li class="chapter" data-level="5.10" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#activity-3"><i class="fa fa-check"></i><b>5.10</b> Activity</a></li>
+<li class="chapter" data-level="5.11" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>5.11</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="5.12" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.12</b> Session info: all the packages installed.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html"><i class="fa fa-check"></i><b>6</b> RNA seq analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#objectives-5"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#introduction-5"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression"><i class="fa fa-check"></i><b>6.3</b> Differential gene expression</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#loading-the-tables"><i class="fa fa-check"></i><b>6.3.1</b> Loading the tables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#create-the-deseq2-count-matrix"><i class="fa fa-check"></i><b>6.3.2</b> Create the DeSeq2 count matrix</a></li>
+<li class="chapter" data-level="6.3.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#coldata-preparation"><i class="fa fa-check"></i><b>6.3.3</b> colData preparation</a></li>
+<li class="chapter" data-level="6.3.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#heat-map-pca-analysis"><i class="fa fa-check"></i><b>6.3.4</b> Heat-map PCA analysis</a></li>
+<li class="chapter" data-level="6.3.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression-analysis-between-zt."><i class="fa fa-check"></i><b>6.3.5</b> Differential gene expression analysis between ZT.</a></li>
+<li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.6</b> Plot counts using ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>6.4</b> Cycling genes analysis</a></li>
+<li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#activity-4"><i class="fa fa-check"></i><b>6.5</b> Activity</a></li>
+<li class="chapter" data-level="6.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-heatmap-and-pca-in-the-other-celltypes."><i class="fa fa-check"></i><b>6.6</b> Extra: Heatmap and PCA in the other celltypes.</a></li>
+<li class="chapter" data-level="6.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-advanced-cycling-genes-analysis"><i class="fa fa-check"></i><b>6.7</b> Extra: Advanced cycling genes analysis</a></li>
+<li class="chapter" data-level="6.8" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.8</b> Extra: negative binomial model</a></li>
+<li class="chapter" data-level="6.9" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#resources-and-bibliography-2"><i class="fa fa-check"></i><b>6.9</b> Resources and Bibliography</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -254,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genomics with R for biologists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RNA_seq: Differential Gene Expression (DGE) Analysis</a>
           </h1>
         </div>
 

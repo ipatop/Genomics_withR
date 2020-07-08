@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 5 Chip Sequencing Analysis | Genomics with R for biologists</title>
+  <title>Lab 5 Chip Sequencing Analysis | RNA_seq: Differential Gene Expression (DGE) Analysis</title>
   <meta name="description" content="This is the index for the coursebook" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 5 Chip Sequencing Analysis | Genomics with R for biologists" />
+  <meta property="og:title" content="Lab 5 Chip Sequencing Analysis | RNA_seq: Differential Gene Expression (DGE) Analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,15 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 5 Chip Sequencing Analysis | Genomics with R for biologists" />
+  <meta name="twitter:title" content="Lab 5 Chip Sequencing Analysis | RNA_seq: Differential Gene Expression (DGE) Analysis" />
   
   <meta name="twitter:description" content="This is the index for the coursebook" />
   
 
-<meta name="author" content="Ines Lucia Patop: inespatop@brandeis.edu" />
+<meta name="author" content="Ines Lucia Patop inespatop@brandeis.edu" />
 
 
-<meta name="date" content="2020-07-05" />
+<meta name="date" content="2020-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="sequencing-techniques-and-preprocessing.html"/>
-
+<link rel="next" href="rna-seq-analysis.html"/>
 <script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -138,7 +138,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-aims"><i class="fa fa-check"></i><b>0.1</b> Course Aims</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>0.2</b> Intended Learning Outcomes</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.3</b> Acknowledgments</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#next-steps"><i class="fa fa-check"></i><b>0.3</b> Next steps</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>0.4</b> Data availability</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.5</b> Acknowledgments</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
 <ul>
@@ -201,8 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
 <li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#a-bit-of-shell-commands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell commands</a></li>
-<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-1"><i class="fa fa-check"></i><b>4.8</b> Resources</a></li>
-<li class="chapter" data-level="4.9" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#bibliography"><i class="fa fa-check"></i><b>4.9</b> Bibliography</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>4.8</b> Resources and Bibliography</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
 <ul>
@@ -227,15 +228,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#put-the-peak-sequences-in-fasta-format"><i class="fa fa-check"></i><b>5.7.1</b> Put the peak sequences in fasta format</a></li>
-<li class="chapter" data-level="5.7.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-data"><i class="fa fa-check"></i><b>5.7.2</b> Explore the data</a></li>
-<li class="chapter" data-level="5.7.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#find-the-motifs"><i class="fa fa-check"></i><b>5.7.3</b> Find the MOTIFS</a></li>
-<li class="chapter" data-level="5.7.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-results"><i class="fa fa-check"></i><b>5.7.4</b> Explore the results</a></li>
-<li class="chapter" data-level="5.7.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plot-the-results"><i class="fa fa-check"></i><b>5.7.5</b> Plot the results</a></li>
-<li class="chapter" data-level="5.7.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>5.7.6</b> Plotting with Ggplot2</a></li>
+<li class="chapter" data-level="5.7.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#find-the-motifs"><i class="fa fa-check"></i><b>5.7.2</b> Find the MOTIFS</a></li>
+<li class="chapter" data-level="5.7.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-results"><i class="fa fa-check"></i><b>5.7.3</b> Explore the results</a></li>
+<li class="chapter" data-level="5.7.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plot-the-results"><i class="fa fa-check"></i><b>5.7.4</b> Plot the results</a></li>
+<li class="chapter" data-level="5.7.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>5.7.5</b> Plotting with Ggplot2</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.8</b> Session info: all the packages installed.</a></li>
-<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-how-to-solve-some-common-annotation-issues."><i class="fa fa-check"></i><b>5.9</b> Extra: How to solve some common annotation issues.</a></li>
-<li class="chapter" data-level="5.10" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-detailed-explanation-of-the-macs-output-files"><i class="fa fa-check"></i><b>5.10</b> Extra: Detailed explanation of the MACS output files</a></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-how-to-solve-some-common-annotation-issues."><i class="fa fa-check"></i><b>5.8</b> Extra: How to solve some common annotation issues.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-detailed-explanation-of-the-macs-output-files"><i class="fa fa-check"></i><b>5.9</b> Extra: Detailed explanation of the MACS output files</a></li>
+<li class="chapter" data-level="5.10" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#activity-3"><i class="fa fa-check"></i><b>5.10</b> Activity</a></li>
+<li class="chapter" data-level="5.11" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>5.11</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="5.12" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.12</b> Session info: all the packages installed.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html"><i class="fa fa-check"></i><b>6</b> RNA seq analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#objectives-5"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#introduction-5"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression"><i class="fa fa-check"></i><b>6.3</b> Differential gene expression</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#loading-the-tables"><i class="fa fa-check"></i><b>6.3.1</b> Loading the tables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#create-the-deseq2-count-matrix"><i class="fa fa-check"></i><b>6.3.2</b> Create the DeSeq2 count matrix</a></li>
+<li class="chapter" data-level="6.3.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#coldata-preparation"><i class="fa fa-check"></i><b>6.3.3</b> colData preparation</a></li>
+<li class="chapter" data-level="6.3.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#heat-map-pca-analysis"><i class="fa fa-check"></i><b>6.3.4</b> Heat-map PCA analysis</a></li>
+<li class="chapter" data-level="6.3.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression-analysis-between-zt."><i class="fa fa-check"></i><b>6.3.5</b> Differential gene expression analysis between ZT.</a></li>
+<li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.6</b> Plot counts using ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>6.4</b> Cycling genes analysis</a></li>
+<li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#activity-4"><i class="fa fa-check"></i><b>6.5</b> Activity</a></li>
+<li class="chapter" data-level="6.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-heatmap-and-pca-in-the-other-celltypes."><i class="fa fa-check"></i><b>6.6</b> Extra: Heatmap and PCA in the other celltypes.</a></li>
+<li class="chapter" data-level="6.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-advanced-cycling-genes-analysis"><i class="fa fa-check"></i><b>6.7</b> Extra: Advanced cycling genes analysis</a></li>
+<li class="chapter" data-level="6.8" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.8</b> Extra: negative binomial model</a></li>
+<li class="chapter" data-level="6.9" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#resources-and-bibliography-2"><i class="fa fa-check"></i><b>6.9</b> Resources and Bibliography</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -254,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genomics with R for biologists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RNA_seq: Differential Gene Expression (DGE) Analysis</a>
           </h1>
         </div>
 
@@ -277,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="introduction-4" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Introduction</h2>
 <p><strong>Chip-seq procedure:</strong></p>
-<p>“ChIP-seq” is short for “chromatin immunoprecipitation (ChIP) followed by sequencing”. ChipSeq data is basically DNA sequencing data in which the DNA is sequenced AFTER immunoprecipitating a protein of interest. Therefore, we expect to sequence the pieces of DNA that are interacting with the precipitated protein.</p>
+<p>“ChIP-seq” is short for “chromatin immunoprecipitation (ChIP) followed by sequencing (seq)”. ChipSeq data is basically DNA sequencing data in which the DNA is sequenced AFTER immunoprecipitating a protein of interest. Therefore, we expect to sequence the pieces of DNA that are interacting with the precipitated protein.</p>
 <p>If the protein of interest is a transcription factor (TF) for example, we expect to get the regions of DNA close to the genes that are being regulated by this particular TF (ie. the promoters of the genes). If we immunoprecipitate RNA polymerase 2, we expect to get the regions of the DNA that are being transcribed to RNA.</p>
 <p>But, how do we know if certain region of the genome is really interreacting with the protein of interest? As in any analysis, it is important to have a control to see the probability to have a signal in a particular region just by chance. Usually as a control we use the DNA sequencing BEFORE immunoprecipitation (IP). This data is usually called input (INP), as it is the input material used for the IP. What we are looking then will be “enrichment” of each region of the genome in the IP compared with the INP.</p>
 <p>The biochemical procedure usually goes as follows:</p>
@@ -287,29 +309,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 1.1: Commonly used ChipSeq procedure. DNA is fragmented followed by immunoprecipitation for the protein of interest. Finally, DNA library is prepared and sequenced. As you can see there is an enrichment of the DNA regions bonded to the protein of interest.
 </p>
 </div>
-<p>To study this type of data we will re-analyze the data generated in <a href="https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1">Meireles-Filho et al 2013</a>.</p>
+<p>To study this type of data we will re-analyze the data generated in <a href="https://www.cell.com/current-biology/fulltext/S0960-9822(13)01403-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0960982213014036%3Fshowall%3Dtrue1">Meireles-Filho et al 2014</a>.</p>
 <p>In this work the authors study genome-wide the binding of two transcription factors (Clk and Cyc) in the fruit fly (<em>Drosophila melanogaster</em>). To do so they do Chip sequencing.</p>
-<p>These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription.</p>
-<p>The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription.</p>
-<p>Delays exist between transcription of per and tim mRNA and the localization of these proteins in the nucleus, where they can interact with transcriptional activators Clock (CLK) and Cycle (CYC).</p>
-<p>These delays are thought to be important for allowing the molecular clock to cycle with a period of ∼24 hr. Critical regulators have been identified at several steps of the cycle that are necessary for accurate timing and strength of molecular rhythms. Degradation of PER and TIM allows the cycle to start anew. Not pictured is the second feedback loop formed by PDP1 and Vrille, which produces cycling of Clk mRNA. This secondary feedback loop is thought to reinforce molecular oscillations, although cycling of the CLK protein is not necessary for rhythms. CKII, Casein Kinase II; SGG, shaggy; PP2A, Protein Phosphatase 2A; PP1, Protein Phosphatase 1; DBT, doubletime.</p>
-<p>ADD FIG HERE ON CIRCADIAN</p>
+<p>These two transcription factors are core components of the circadian clock in animals. Just as an introduction these two transcription factors bind to specific regions on the genome and activate transcription. Clk oscilates over the day due to a set of feedback loops with other core-clock components. These set of molecular interactions generate an autonomous oscilating molecular clock with a period of almost 24 hr. This clock can be re-set by light input. We will study RNA oscilations over the day in next chapter.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="../macs2_analysis_p0.05/clkcyc.png" alt="Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017" width="500px" />
+<p class="caption">
+Figure 4.1: Circadian clock at the molecular level. The molecular feedback loop is formed by the negative feedback of Period (PER) and Timeless (TIM) on their own transcription. Figure adapted from Dubowy et al 2017
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<p class="caption">
+Figure 4.2: Cyc, Clk and Time levels over the day. Figure adapted from Alves Meireles-Filho et al 2013
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="../macs2_analysis_p0.05/clkcycosc.png" alt="Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013" width="500px" />
+<p class="caption">
+Figure 4.3: Light control of the circadian clock. Figure adapted from Alves Meireles-Filho et al 2013
+</p>
+</div>
 </div>
 <div id="data-pre-processing-peak-calling" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Data pre-processing (peak-calling):</h2>
 <p>Our goal is then to quantify signal enrichment in certain part of the genome in IP vs INP sequencing. This is achieved by comparing the ALIGNEMENT of the reads of IP vs INP.</p>
 <p>This process is called “peak calling” because it is trying to determine the “pileup” of reads along the genome forming “peaks”. As any peak the algorithm used will report high of the peak, summit location, width and finally a pvalue corresponding to the comparison of the signal in that region in IP vs INP.</p>
 <p>Here we can see how the pileup reads look like in IGV. We are looking here at the promoter of the genes <em>tim</em>, a known target of CLK protein. As you can see, the peak is clear in the IP comapred with the INP.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
 <img src="../macs2_analysis_p0.05/IGVtim.png" alt="IGV pileup traks over tim. Upper line IP, lower line INP." width="900px" />
 <p class="caption">
-Figure 4.2: IGV pileup traks over tim. Upper line IP, lower line INP.
+Figure 4.4: IGV pileup traks over tim. Upper line IP, lower line INP.
 </p>
 </div>
 <p>To do this analysis genome wide, we need a tool that can do this for all the genom. There are few tools available, we use here <a href="https://github.com/taoliu/MACS">MACS</a> algorithm to assess the peaks from the sequencing data.</p>
-<p>If you want to read the paper, there are 2 options. One in <a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2008-9-9-r137">Genome biolgy</a> and the other in <a href="https://www.nature.com/articles/nprot.2012.101">nature methods</a>. The last resource is show a fast step-by-step protocol for analysis.</p>
-<p>For this analysis I run the following command in the <strong>terminal</strong>:</p>
-<pre><code></code></pre>
+<p>Basically, this analysis relies in the aligned data (.bam files). It compares the IP with the INP control.</p>
+<p>For this analysis I aligned the data from <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE40467">GEO</a> with <a href="http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml">Bowtie2</a>, an aligner that is used for DNA data (not splice aware).</p>
+<p>Finally ran the MACS command in the <strong>terminal</strong> as follows:</p>
+<pre><code>macs2 callpeak -t head_clk_ip_rep1.sorted.bam head_clk_ip_rep2.sorted.bam  -c ./head_clk_input_rep1.sorted.bam ./head_clk_input_rep2.sorted.bam -g dm -n PeakAna_clk_Ip_vs_INP -B -p 0.05</code></pre>
+<p>Where, -t indicates that the following arguments are the IP samples, -c the control samples, -g the genome name in this case “dm”, -n the name that all the output files will have, -B indicates to the program to store visualization files (in <a href="https://software.broadinstitute.org/software/igv/bedgraph">.bdg</a> format usefull to visualize in IGV).</p>
 <p>The <strong>output</strong> after running MACS on the shell:</p>
 <table>
 <colgroup>
@@ -409,7 +447,7 @@ Figure 4.2: IGV pileup traks over tim. Upper line IP, lower line INP.
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-05 19:51:46 -0400 (Sun, 05 Jul 2020)
+## # Creation time: 2020-07-08 17:02:46 -0400 (Wed, 08 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2</code></pre>
@@ -532,7 +570,7 @@ Figure 4.2: IGV pileup traks over tim. Upper line IP, lower line INP.
 <h4><span class="header-section-number">5.5.4.2</span> Create a data frame with the peak annotation and the NEW names</h4>
 <p>We will then put the names into the first table. To this end we will use <code>dplyr</code> package function by doing a <code>left_join</code>. This is actually a type of merging in which we keep everything that is in the first object. Why do you think we do this?</p>
 <p>We can explore the join options, here are some graphic explanation, and if you want to know more you can go <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/join">to the manual</a> and try the examples. Also, I would recommend you to read the <a href="https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">cheatsheet</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
 <img src="../macs2_analysis_p0.05/dplyr-joins.png" alt="Different joint options from dplyr. Adapted from cheatsheet." width="300px" />
 <p class="caption">
 Figure 5.1: Different joint options from dplyr. Adapted from cheatsheet.
@@ -592,10 +630,7 @@ Figure 5.1: Different joint options from dplyr. Adapted from cheatsheet.
 <span id="cb217-6"><a href="chip-sequencing-analysis.html#cb217-6"></a></span>
 <span id="cb217-7"><a href="chip-sequencing-analysis.html#cb217-7"></a>GeneNames =<span class="st"> </span>AnnotationDbi<span class="op">::</span><span class="kw">select</span>(org.Dm.eg.db, <span class="kw">c</span>(<span class="kw">as.character</span>(peakAnno_df<span class="op">$</span>geneId)), <span class="st">&quot;SYMBOL&quot;</span>, <span class="dt">keytype =</span> <span class="st">&quot;ENSEMBL&quot;</span>)</span>
 <span id="cb217-8"><a href="chip-sequencing-analysis.html#cb217-8"></a>GeneNames<span class="op">$</span>geneId=GeneNames<span class="op">$</span>ENSEMBL</span>
-<span id="cb217-9"><a href="chip-sequencing-analysis.html#cb217-9"></a><span class="kw">head</span>(GeneNames)</span>
-<span id="cb217-10"><a href="chip-sequencing-analysis.html#cb217-10"></a>GeneNames=GeneNames[,<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb217-11"><a href="chip-sequencing-analysis.html#cb217-11"></a></span>
-<span id="cb217-12"><a href="chip-sequencing-analysis.html#cb217-12"></a>peakAnno_df=peakAnno_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(GeneNames, <span class="dt">by=</span><span class="st">&quot;geneId&quot;</span>) <span class="co">#this is merging the two tables by the column Geneld</span></span></code></pre></div>
+<span id="cb217-9"><a href="chip-sequencing-analysis.html#cb217-9"></a><span class="kw">head</span>(GeneNames)</span></code></pre></div>
 <pre><code>##       ENSEMBL SYMBOL      geneId
 ## 1 FBgn0031209  Ir21a FBgn0031209
 ## 2 FBgn0031209  Ir21a FBgn0031209
@@ -603,12 +638,15 @@ Figure 5.1: Different joint options from dplyr. Adapted from cheatsheet.
 ## 4 FBgn0051973   Cda5 FBgn0051973
 ## 5 FBgn0051973   Cda5 FBgn0051973
 ## 6 FBgn0051973   Cda5 FBgn0051973</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="chip-sequencing-analysis.html#cb219-1"></a>GeneNames=GeneNames[,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb219-2"><a href="chip-sequencing-analysis.html#cb219-2"></a></span>
+<span id="cb219-3"><a href="chip-sequencing-analysis.html#cb219-3"></a>peakAnno_df=peakAnno_df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(GeneNames, <span class="dt">by=</span><span class="st">&quot;geneId&quot;</span>) <span class="co">#this is merging the two tables by the column Geneld</span></span></code></pre></div>
 <div id="explore-and-export-the-output" class="section level3" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> Explore and Export the output</h3>
 <p>If we look at the head of the file we can see that we have a <strong>different annotation format</strong> for the peaks and that we actually have a distance to the TSS.</p>
 <p>We will save this file as well.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="chip-sequencing-analysis.html#cb219-1"></a><span class="kw">head</span>(peakAnno_df)</span>
-<span id="cb219-2"><a href="chip-sequencing-analysis.html#cb219-2"></a><span class="kw">write.table</span>(peakAnno_df,<span class="dt">file =</span> <span class="st">&quot;ChIPseekerAnno_results.xls&quot;</span>,<span class="dt">row.names =</span> T,<span class="dt">col.names =</span> T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) <span class="co">#try looking at it on excel or any other spreadsheet editor, what are the differences you see with the previous one?</span></span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="chip-sequencing-analysis.html#cb220-1"></a><span class="kw">head</span>(peakAnno_df)</span>
+<span id="cb220-2"><a href="chip-sequencing-analysis.html#cb220-2"></a><span class="kw">write.table</span>(peakAnno_df,<span class="dt">file =</span> <span class="st">&quot;ChIPseekerAnno_results.xls&quot;</span>,<span class="dt">row.names =</span> T,<span class="dt">col.names =</span> T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>) <span class="co">#try looking at it on excel or any other spreadsheet editor, what are the differences you see with the previous one?</span></span></code></pre></div>
 <pre><code>##   seqnames start   end width strand length abs_summit pileup X.log10.pvalue.
 ## 1    chr2L 34224 34348   125      *    125      34306  20.88         2.75497
 ## 2    chr2L 34224 34348   125      *    125      34306  20.88         2.75497
@@ -643,11 +681,11 @@ Figure 5.1: Different joint options from dplyr. Adapted from cheatsheet.
 <p>We can now explore the data back at <a href="https://igv.org/app/">IGV</a> and see if the genes we get a significantly enriched for this TF are actually enriched.</p>
 <p>Lets think about some controls we can do with the data. Which is the protein we are analyzing? Is there any gene we already know that protein might be regulating?</p>
 <p>Well, yes. We are analyzing <strong>Clk</strong>, that happens to regulate <strong>tim</strong>.</p>
-<p>So, making it more general: Other option to see if our analysis and the data in general make sense is to go to previous literature and see what genes we know that are regulated by this TF.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="chip-sequencing-analysis.html#cb221-1"></a>peakAnno_df_tim=peakAnno_df[<span class="kw">which</span>(peakAnno_df<span class="op">$</span>SYMBOL<span class="op">==</span><span class="st">&quot;tim&quot;</span>),] <span class="co">#What we are doing here?</span></span>
-<span id="cb221-2"><a href="chip-sequencing-analysis.html#cb221-2"></a>peakAnno_df_tim=peakAnno_df_tim[<span class="kw">order</span>(peakAnno_df_tim<span class="op">$</span>X.log10.pvalue.,<span class="dt">decreasing =</span> T),] <span class="co"># we order them by log10(pval), what that really means?</span></span>
-<span id="cb221-3"><a href="chip-sequencing-analysis.html#cb221-3"></a></span>
-<span id="cb221-4"><a href="chip-sequencing-analysis.html#cb221-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peakAnno_df_tim))</span></code></pre></div>
+<p>So, making it more general: Other option to see if our analysis and the data in general make sense is to go to previous literature and see what genes we know that are regulated by this TF. Then, we expect them to be enriched in our analysis.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="chip-sequencing-analysis.html#cb222-1"></a>peakAnno_df_tim=peakAnno_df[<span class="kw">which</span>(peakAnno_df<span class="op">$</span>SYMBOL<span class="op">==</span><span class="st">&quot;tim&quot;</span>),] <span class="co">#What we are doing here?, remember Lab 2!</span></span>
+<span id="cb222-2"><a href="chip-sequencing-analysis.html#cb222-2"></a>peakAnno_df_tim=peakAnno_df_tim[<span class="kw">order</span>(peakAnno_df_tim<span class="op">$</span>X.log10.pvalue.,<span class="dt">decreasing =</span> T),] <span class="co"># we order them by log10(pval), what that really means?</span></span>
+<span id="cb222-3"><a href="chip-sequencing-analysis.html#cb222-3"></a></span>
+<span id="cb222-4"><a href="chip-sequencing-analysis.html#cb222-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peakAnno_df_tim))</span></code></pre></div>
 <pre><code>##      seqnames   start     end width strand length abs_summit pileup
 ## 3983    chr2L 3504149 3508352  4204      *   4204    3507246 140.77
 ## 3984    chr2L 3504149 3508352  4204      *   4204    3507246 140.77
@@ -682,67 +720,52 @@ Figure 5.1: Different joint options from dplyr. Adapted from cheatsheet.
 <p>This package has some useful plot functions so we can explore the results more easily.</p>
 <p>First we can see the peaks over the chromosomes. For that we use the function <code>covplot</code>. Its name comes from “coverage plot”.</p>
 <p>What do you think about the results? Do they make sense?</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="chip-sequencing-analysis.html#cb223-1"></a><span class="kw">covplot</span>(peaksGR, <span class="dt">weightCol=</span><span class="st">&quot;X.log10.pvalue.&quot;</span>,<span class="dt">chrs=</span><span class="kw">c</span>(<span class="st">&quot;chr2L&quot;</span>,<span class="st">&quot;chr2R&quot;</span>,<span class="st">&quot;chr3L&quot;</span>,<span class="st">&quot;chr3R&quot;</span>,<span class="st">&quot;chr4&quot;</span>,<span class="st">&quot;chrX&quot;</span>,<span class="st">&quot;chrY&quot;</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-21-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="chip-sequencing-analysis.html#cb224-1"></a><span class="kw">covplot</span>(peaksGR, <span class="dt">weightCol=</span><span class="st">&quot;X.log10.pvalue.&quot;</span>,<span class="dt">chrs=</span><span class="kw">c</span>(<span class="st">&quot;chr2L&quot;</span>,<span class="st">&quot;chr2R&quot;</span>,<span class="st">&quot;chr3L&quot;</span>,<span class="st">&quot;chr3R&quot;</span>,<span class="st">&quot;chr4&quot;</span>,<span class="st">&quot;chrX&quot;</span>,<span class="st">&quot;chrY&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-24-1.png" alt="Coverage plot." width="100%" />
 <p class="caption">
-Figure 5.2: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 5.2: Coverage plot.
 </p>
 </div>
 <p>And then a general distribution of the peaks in relation with he transcription start site (TSS). For that we use the function <code>peakHeatmap</code> and <code>plotAvgProf2</code>.</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="chip-sequencing-analysis.html#cb224-1"></a><span class="kw">peakHeatmap</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">color=</span><span class="st">&quot;violet&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-22-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="chip-sequencing-analysis.html#cb225-1"></a><span class="kw">peakHeatmap</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">color=</span><span class="st">&quot;darkviolet&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-25-1.png" alt="Peak heatmap." width="100%" />
 <p class="caption">
-Figure 5.3: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 5.3: Peak heatmap.
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-05 19:52:19 
-## &gt;&gt; preparing tag matrix...        2020-07-05 19:52:20 
-## &gt;&gt; generating figure...       2020-07-05 19:52:25 
-## &gt;&gt; done...            2020-07-05 19:52:28</code></pre>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="chip-sequencing-analysis.html#cb226-1"></a><span class="kw">plotAvgProf2</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">xlab=</span><span class="st">&quot;Genomic Region (5&#39;-&gt;3&#39;)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Read Count Frequency&quot;</span>) <span class="co">#Try exploring the options of this function. </span></span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-23-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-08 17:03:19 
+## &gt;&gt; preparing tag matrix...        2020-07-08 17:03:19 
+## &gt;&gt; generating figure...       2020-07-08 17:03:23 
+## &gt;&gt; done...            2020-07-08 17:03:26</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chip-sequencing-analysis.html#cb227-1"></a><span class="kw">plotAvgProf2</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">xlab=</span><span class="st">&quot;Genomic Region (5&#39;-&gt;3&#39;)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Read Count Frequency&quot;</span>) <span class="co">#Try exploring the options of this function. </span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-26-1.png" alt="Average coverage plot." width="100%" />
 <p class="caption">
-Figure 5.4: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 5.4: Average coverage plot.
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-05 19:52:29 
-## &gt;&gt; preparing tag matrix...        2020-07-05 19:52:29 
-## &gt;&gt; plotting figure...             2020-07-05 19:52:32</code></pre>
+<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-08 17:03:28 
+## &gt;&gt; preparing tag matrix...        2020-07-08 17:03:28 
+## &gt;&gt; plotting figure...             2020-07-08 17:03:31</code></pre>
 </div>
 </div>
 <div id="sequence-motif-analysis" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Sequence Motif analysis</h2>
 <p>Another goal now is to analyze this peaks and see a pattern enrichment and see if we can find a <strong>Binding Motif</strong> for Clk in fly head.</p>
 <p>This is basically DNA analysis, so we will have to figure out the regular DNA motifs and see if there is any specific enrichment.</p>
-<p>For this we will use:</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="chip-sequencing-analysis.html#cb228-1"></a><span class="kw">library</span>(Biostrings); <span class="kw">library</span>(seqLogo); <span class="kw">library</span>(BCRANK); <span class="kw">library</span>(gridExtra)</span></code></pre></div>
+<p>For this we will use the following libraries:</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="chip-sequencing-analysis.html#cb229-1"></a><span class="kw">library</span>(Biostrings); <span class="kw">library</span>(seqLogo); <span class="kw">library</span>(BCRANK); <span class="kw">library</span>(gridExtra)</span></code></pre></div>
 <div id="put-the-peak-sequences-in-fasta-format" class="section level3" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> Put the peak sequences in fasta format</h3>
 <p>To parse the corresponding sequences from the reference genome, the <code>getSeq</code> function from the Biostrings package can be used. The following example parses the sequences for each peak set and saves the results to separate FASTA files, one for each peak set. In addition, the sequences in the FASTA files are ranked (sorted) by increasing p-values as expected by some motif discovery tools, such as BCRANK.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="chip-sequencing-analysis.html#cb229-1"></a><span class="kw">library</span>(<span class="st">&quot;Rsamtools&quot;</span>)</span>
-<span id="cb229-2"><a href="chip-sequencing-analysis.html#cb229-2"></a></span>
-<span id="cb229-3"><a href="chip-sequencing-analysis.html#cb229-3"></a>peaksGR &lt;-<span class="st"> </span>peaksGR[<span class="kw">order</span>(peaksGR<span class="op">$</span>X.log10.pvalue., <span class="dt">decreasing=</span><span class="ot">TRUE</span>)] <span class="co">#order the peaks according to pvalue</span></span>
-<span id="cb229-4"><a href="chip-sequencing-analysis.html#cb229-4"></a></span>
-<span id="cb229-5"><a href="chip-sequencing-analysis.html#cb229-5"></a>pseq &lt;-<span class="st"> </span><span class="kw">getSeq</span>(<span class="kw">FaFile</span>(<span class="st">&quot;../macs2_analysis_p0.05/dm6.fa&quot;</span>), peaksGR) <span class="co">#extract the sequence of the peaks</span></span></code></pre></div>
-</div>
-<div id="explore-the-data" class="section level3" number="5.7.2">
-<h3><span class="header-section-number">5.7.2</span> Explore the data</h3>
-<p>We can see how the <code>pseq</code> object looks like.</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="chip-sequencing-analysis.html#cb230-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(pseq))</span>
-<span id="cb230-2"><a href="chip-sequencing-analysis.html#cb230-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peaksGR))</span>
-<span id="cb230-3"><a href="chip-sequencing-analysis.html#cb230-3"></a></span>
-<span id="cb230-4"><a href="chip-sequencing-analysis.html#cb230-4"></a><span class="kw">writeXStringSet</span>(pseq, <span class="st">&quot;peaksGR.fasta&quot;</span>) <span class="co">#use the names and save the peaks in fasta format, how this looks like? open it outside R.</span></span></code></pre></div>
-<pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           x
-## 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ACCCATTAAATTGTCAATATTACTTAAGCCCTTTATGGTATTGGAAACTCCCGTTTCACATAATTAAACATGGAATGCAGCAAAAAATTTTCCGTGCAATTGCAAATGGCATTTTACGAGAGAAAATTGTTGACAATAATGAAGCTGATGAACATTTGTGGTTGTGTTCATTGTCATTGTTGCTGCGTTAGTTATTCTACCATCGGTTGGGGTGCATTTGGGCCAGTCTGGAACTGTTTGCGTCATTGTTCAGTTTTAGTTCTCTGCGGTTGCCTGAAATTGTCGTAATGCATTTACGGACATCGCACACACATGTGGCCCAAGTGCGGTTTTGTAGCTGGAAATGTTGGCTGTGTACTGTAAACAAGATTTTAGCAAACCCACTTGCATTTCTCCTGGGGGTCATGTGTCAGCACTTATAATTTTGTTTAAAGAACTAAGAGAAAAATGTCCACTATCTAGAAAATCATTACTATCAAAAAACCCAATTTATATCAGTAACGTTCGATTTCTAAACTCATATTGACATTTTTGTATGTATATTATGTATGTATATAAATGTTCATATTTGTTTCCCTTTTGGTTGCGTACCTAACCACCACCTATAAATTAGCCCGTTCTGCCAATATTAGCCCTTTCATATCTCGTTACTCATACGCCACGTGGTCACGTTTTTGCCTAAGCTCTACGTAGCTGCACTCGCTGCACTTTCCGCTTACGTTTTGTTATTATTTTCCCCAGTACTCGTTAGCCTTGTCTAGTGCCAAAATGAAATGACAATGTTTTCCCAGCGCACAGAACTCAAATCGTAAATCATTTTCTTTTTTTTGGGGTGTTGGCAAAGGTAAACAATGTCACATAGGAGCCCGCAGTTGTCTGTCAGTAGAGAAAAAGGCAAAAAGATTAGAGATATATGGACTGCGGAGAGCGGGGCAGAATGCGAGATATATAGCAACTCAAGTTTGTGTTGCCACGAACTTTGACAGTTACATGCGCTGCACCATTGCAGAATGACAAACGAAGGCGAAAAAAGCCATGAGTTGCACAAAATGTATTTATCTGTCATTCCAGTTTTCACTTTCGCAAAAAGTGGTAGATTTTGGGTTTTGTGTGGAATCATATCTAGCTTTATAGCTCTTGGGGAACTATAATATGACTTAAATACCAAATATTTATATACTCAAGTTTAATATAATACATTTCACGTAGTTTTAACGCAAAACGGAATATGCTAGAATTTATCTTTTCCACTTCGTTTCCCCTCTGATTCTCGCACTTTCCCCCAAACTCTCGGCGTTTGTGTGTGTGCCTGTCTGGCTTTTCTTTTTCGTCTCCGTTCGTGACAGCTTGTTTTTTTGGGGGCGTGGCGAGGGGCGGAAGGGGTTGGGCATTTGGGTCAACTATCGACTGCAATTTGAGCCTTTCAAACTGTCGCCGACACAAAACGAAGGGCTCAGCTGAAAAAAAAAACACACAGTCAGGCAGAGTAAAAGTTGCGGAAAGTGTGACAGCAACTCATTGCAGATGGACATTTGCCGAGTCTGCTGGGAATCCCCTCAAGTGCTCTGGAAATTTGATTTCGATTTCCATATGATTTTGATTTGGCCAGCGAAC
-## 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           CTTCCCCTTTTATTACTGTTCCAAGGACATTCAAATTAAGCATTCATTTGCGGTGATATCACCGGCTTTAATGCTCTGAACTCCACGAAGAGTTGACTAACCTCGAACTGTGCTACATTTTTTTATGCACCTCCATCATACACACATTTTGTCGTGTAATTTGCACGCTGAGTCTATTAAATGCACTGCAACCGAGTTGTGTCAGCACCTCAGGTGTACAGAGCTTTCACTCACACTCATATACGATTCATAAACATTTGTTGTGGCGCCCAACGTGGGGCATGAAATGCGACGTGTTACACAAGTGGGAAGAAGAAGGTGCAAGTCATTAAGTAAGCTTGTTTTTGTTCTGATTTTTCTCGTTGTTTTCAGGGAAGAGGCCATAAAAGCTTCGTGCGCCACGCACACATGCACACATAATTATAATGGGCATTAAAACGGACGCCTGTGGCCTAACTCTTAGTTTGTCTTGTTCGCCAGCAGGCTTCTTAACCCTCACACTGTCCAACTTGGCTACCTCTGAGTGCTTTATGGCGCAACTGGTAGAATGATTCGCCGAGCATAATATTTAACTCGGAATTCCCTGCTAAACGCACATAATGTCTGCCCAAGACAGTCCCGGTTCCCAGCGGCGAAATTCATTTTCTTGTCGCTTACAAATTATTTTAAAGGTATTTAAAGTTAGAT
-## 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         AAAACAGAAGCTCTAGCATTGTTGTGATACATTAAAGAACTTTACTGACCTGGCCAATTTGTGGATAGTGCTGCAGCTCCATCTCGAGCACCCGCATGGACGGCTTGGGGGTTGTCAGCTCCTGGCCCGTGCACATCTCGTAGAGCAGGTGGCCAAAGCAGACGATGTCCACGTTCTCGATCTCGGTGACCGAGCGGGACCACATGACGGCGTTAATGCGCGAACTGAGGCCCAGGAGGCCGTTCTCCAGGCCCGATAACCTGATGGGTGAAAAACGGAATAAATGTTACGGAAAATGCATAATTAAATGGCGGACCCCTTGTGCTTTCCTTCCCTTTTGTTTCGGTCTTAATTATGCAACATATTCGATGGCTACCCTGCCGTATATTGATGGCCAACACGTGGAAACGTCGGCCGCAAAGTGTCTACTTTTATGGATTTATGTGCGAGCGAGAGGGAGCAGGTATCATCTGCTATCTCTTTCCTCACTGGCCATGTGCCTTAATGACAAAGAGCGTATGTCAGACCTGATATGACAATATTATGACACTCTACACAACACAGCGCTGTATATTGCGGATTGGTTGGGGCTTTTGGTTCGAGGGTCCTGCCGGCATTTCCTAGTATTCATTAGGCCAAATGTGGCTGACTAGTTGGAAAGGTATTCCGAATTGGCTGACAATAGAGGTTCTGAAGATGCTAGTTGTCGTGTGCTATAGTTTATTGGCTTTTGTTGCCAGTTGCCTTTGTTTATTTTATGATCATTTTAATTAGTTTTGAAAATCAGATAAGTATAAATATACGAAAAAAAATCATTTGGGCTTAAAAAAGTTCAATACAAATTGTTGAGTCAACAGGTTACTCCAGAAGTATTTGTTGTCAAATTTACTATCAAATATAAGCATGTTTTTCTTTAGCTGTTATAAAACAATAAAAGCGTTGTGCAGACATTAAATGCTTTCTTTTATTGTCATTGCAAATATCCTGAAATTCTTCACTCAATTTCACTTGAGCAAGCATTTTCTTTTCTACTTCGTCAATCAGCTTTTCAGCTTACTAAATTCCATTTTACCCGTTTTCTTCACGTTGGTCTTTCAACTTTCCTGTGGCCCTATCAATAGCTGTACGTATGTATAAGCAATTTATATGAAAATCAGCTTTTCAATGCGCACAGCGATACCCTGGCGACGAAGGCAGCAAAATTGGGTCATGCACTTGGCGCAAACTTGAACGCAGAAAATCCGCACTTTAATCGACTTTCACCTATAGGAATTCTAGCTTGCAGATCCCACCCTCTTTTAGTCCCGTCCCTGGGCTGCAATATAACCATCTTTTTCGCCGACCATTTATTTTTAAAATGGCAAAAAGCTTAAGCTTTATTTTTGTTACACCCATTCGATGTTTGCAAGTGGGTGGTTTAGTGGGTGGCGCTTACGCGTTGTCGCACAGCAGCTACATGGATAGGAGGGGGCCAGTCAGGGGCTCACGAAACAGGGACATGCATTTAAAGTGCCCTGAAATGGGCAACGATTCTGGGGAATTGCTTTTAATTTGCCATTTAGGCTGAAATCGATGTCGGTTCTATTTGGGTGAATTTTGAATGACTGAAATTTTGCAGTGGAGATAGGGGGGCAGGCCACCGATTCGATATAAAATATTGCAGCCATTATTAAATTAGTTAACAGTTGAGTGGGTCCCAATCGACAACGGACTCACCTGGCTGCCCCGTTCTGCAGGATGACATTGCCGCTGTGCAGGTGACCGTGAAGCGGAAAACCGCGCTCCTTCAGGAAGAGCAGTGCCTCCAGAATCTGTCGTCCCAGGCGCTGCACCTGGCTCACCGGTAAGCCATTTGGC
-## 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           GGCGCCAACAATCGTAATGGATCCTGGCATGAAAACGGGATGAGGAGACCCAATGGTCACCGCCCTCTAAATGCCGAAAGTCAACTGCGTCATTGTTTGGGGAGAACAGGCCAGCTCCAGCTGAATTTCCTCGATTTTCCGAGGGGTGAGATAAAGGGCCCCGGGCCAGGATGGCCAGGCCCATTTCCAGTGACCTTGCATCATTAACTTAATTGCTCAAACAGTAGTCGGTCCGTCCAATTGCCGGGCTGAATTATTCAGTTGTTCTGCTCGGCCAACTGGCAATTTTGCGTCTTTACTAATGTCACCACAAGCTCATAGAGGAAGCGCTGTCTCTCTCTATTCGGCGCTGCACTGGAAAAGCCATCCGACAGAACCGTTTTTCCATGGGGGCCGGTGAAAATCCCCCACGTGCATTCGGTGTGGTCGTTGGCCCGTTCACGTTGTCCCCCCATTTTAAAGGGGCGTCACGTGTAGCGGGGCTTAGTCCCCCCCACCACAATTTGACATTTTTTACGAAAACAAAATGCAGAGATACGAAGAGAAAAACCAGGCCCAAACAATTTTCACCGGACTAATTGGATTCAAGAGTTTTCCTGCTGCGCTTTTGTCAACGCATATTGCAACAGAAATATTCATATTTATTTATATATAAAAATTCACTGTCAGTACAGCCTAGCCTATAGTTGAATACATACCTGCATCGTCTTATCCAGTATGAAATTACAACAATTCCACCCAATATCAAACCACCTAAGGCACACCAAAAGAGGGTCTGAAAAG
-## 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               AGGAAAACTCCTAACAAGCTTTAAAAACCTAGCAAGCTAACTACCTTTTTCTTAATTCTCTGGTTCGTTTCGCACACCTGATTAATGGGTTAATGTATCTATTTTTATGCACCCAGCTGCCACTCAGTTGGCTTTGACTGGTCTCGGGGATAAGTGGCAAAGAGGCCGGCTAATCAGGCCCAAAGGTAAAGCCAAAGCCAAAGCCATGAACCAACGAACCGCCCAACAGCCCAACCACCGAAACGCCCCACCCATCCGCTGGTGACCCACTTGAGCATGCACCGCTCGTGACATTGGGCAGGGAAACGTGCAGAAGCGACGGGAAATCGACAAGAAGACAAACAAAACAGCAAAACGTGCAGAACGTCACTTTCGGGCCGCCTTTTTGTTGTTAATTTAGAGAGATGCGTCACAGCGAAAAGTGTTAAGAAAGAAATGCGCGGAAAATCAGGAAATGTAAGCGGTGAGAACTGCGCATTAAGCATCGCATTGCATCGCACGGCAAAACGCAGCCAAATAAAGCGAAACAACAGCGGAGACAGGCGCAATGTTGACAATTGTTGAAACTGACAGTTTGACGTTTTAACTCACGCGCCAAACGCCAAACGTCAAACGGCAGCAACAACCAACACAATATCAACATCAGCAACATAGTAATACGTTGTACGGCCAAACGGCAATCTAGGCAAATCCACCGAGTAGACAACTCAATGAGCCATTTTGATGGACACCTCCGACGACAGCTGTACGGCACACGAATGTATATAATGCATATTCAT
-## 6 TGGAATACTTGGAATTTATTAAGTACCTCGTTGTTATAACTAGTAGTTGTCTCCAGTTAACATAAAGCTATTATAAATGTCATAATAAACAACCGCTTATCAGTACTTAGCCGACGAGTGCTTAGGGCTCAATTAAATTAACAACAATTACGTAAATGGAAAAGAACAAAACCCACCACGTAATGTTTGGGTTTAAATACGTCATCCTAGGCGGAAAACAACAAACCAAAATACGCATACTAAATCGATTTCTCGAGCTATTTCTGTACATTCACCTGTCCTGCATTGCTAATACGCCGTGTTGCTCGCGCGTTATTTAATGTTTGAGCCATCGATGTCGATGTCGTGCTGCAATGTCAATATCAAAGACACTGCGCACAGCAAGGTTGCCGAAGCCGTAGTAGTTTACCGCCGTGCAATTGCTGAATTTCTGCTGTGCGGCTAATTGAATTTAGAGGGGCGACAGGTGCCACAATGCCAGGTATAAATGCCGGATTGCCAAAGAGCGCTAATTAATAGCCTAGTGGACCACGCAACGCGGCGTATACCATCGAGAACGAGCGCGAAACGTTAAAGGCACATCCAAAGTTTAAACTATTTCCGCAGAGATTTTGATAAACAGCTCCAAAATGGTGGTCAATTTCAAGGTGTTCAAGAAGTGTTCCCCGAACAACATGATCACGCTCTACATGAACAGGCGTGATTTTGTAGATTCCGTGACTCAGGTGGAACCCATTGGTAGGTGTCACAGACCGAAACCCTTGAGCAATGGGATTTACGAATGAGGAAATCCATCAAAAAATAAATTCGTGTAGGAATTGGTACCCATATTCGATTGAAGTATCTTATAGTTTGAAAATAACTTCAGTGTAACTTTTGTTTCAACTTAACACATTGGAATTTTTAATACCTTCCTTGAAAAGTGATATCAAATCAAAATTATATTATAAAAACTCCATTTCGAATCTGCATATGCCGACCAGCAAATATAAACTCAGGGAGTTATTCAAAATTGCATCTGAATTCAATAGCCCAGGGAGTTAAGTTAAATTGGCTGCGCTAGCAGCTAACCAAGTTCATCGATTACGCGAGCAAGCAAACCAAGAGGCTGGGCGCTTGTAAATAATATTCTCCAATTAATAAGCGTCCTCTTGCAGATGGAATCATTGTGCTGGACGATGAGTACGTGCGCCAGAACCGCAAGATCTTCGTGCAGTTGGTCTGCAATTTCCGATATGGGCGCGAGGACGACGAGATGATCGGTCTGCGGTTCCAGAAGGAACTGACCCTGGTCTCGCAGCAGGTGTGCCCACCCCAGAAGCAGGACATCCAGTTGACCAAGATGCAGGAGCGTCTGCTGAAGAAGCTTGGCTCCAATGCCTATCCCTTCGTGATGCAGATGCCACCAAGCTCGCCGGCCTCGGTGGTTCTCCAGCAGAAGGCCAGTGACGAGAGCCAGCCCTGCGGAGTCCAGTACTTCGTAAAGATCTTTACCGGAGACAGCGACTGCGATCGATCGCATCGCAGGAGCACCATTAACCTGGGCATCCGCAAGGTGCAGTACGCACCGACCAAGCAGGGCATCCAGCCCTGCACCGTCGTTCGCAAGGACTTCCTTCTGTCGCCCGGAGAGCTCGAACTGGAGGTCACCCTCGACAAGCAGCTGTACCATCACGGCGAGAAGATCTCGGTGAACATCTGCGTGCGCAACAACTCCAACAAGGTGGTGAAGAAGATCAAGGCCATGGTGCAGCAGGGCGTCGATGTGGTCCTGTTCCAGAACGGTCAGTTCCGCAACACGATCGCCTTCATGGAGACGAGCGAGGGATGTCCCCTGAACCCGGGATCCAGCCTGCAGAAGGTCATGTATCTGGTGCCCACCCTGGTGGCCAATTGCGACCGCGCAGGCATCGCCGTTGAGGGTGATATCAAGCGCAAAGACACAGCTCTGGCCTCGACCACACTGTGAGTAAAATTTATTCACATCATAGCTTAGCAGATGAAACATTAATATTATACTCTATTAAGTATCAACTTAAAATCATACCATAAAATCAATCAAATTTTAAAGTTAGGAACCTTTTTAAAAATCGTATTTTCCCGGTGACTAACAGTTCTTTAGCTAAATGTGTTTACAAAATGGCATAAAACGCATACTAATACTAAGTGAAAAATGCATATTTAAAATTCTATTTCAGTATTGCCAGTCAGGATGCGAGGGATGCCTTTGGCATAATTGTTTCATATGCTGTGAAGGTCAAGCTTTTCTTGGGAGCCCTGGGCGGCGAGCTCTGCGCTGAGCTACCATTTATTCTGATGCACCCGAAGGTAATAAAAGGTGTGCCCAAATATTTGAATAGTTATTGAAAGGCAATCAATTATTTACAGCCAAGTCGCAAGGCCCAACTGGAAGCCGAGGGCTCCATTGAGGCCTAAACTGAAAGGGCTACCTCAACCAACGAAAAAAATGGCGTATTTCTACAAGTCAAACCGATTTTTGTAGATCCTAAAAAATGCTGATGTTGCTGAAATGTTCTGAACTGCAGTCGTCGTACTTTTCCTATATAGCAAATCCAATATCCATATATTGTATGTGTGTATGTGTATTATATTTATAACTCAACTAACAATTAAATATGAACAGAGTTTATGTATGTATTTTGGAGTATTCTATTGAATTTAGCACGGTGTATTTGAAAAGGCTCCAGCATTGAAAGTTTGTATGGAATGCGCACTAAATATTTAATAATGTGCTTACGAAGGCATTTCGTAGTATTTGATATCTTGCAATGTCTGCTGATTATGTACATTGAAGTGCAATGGGGAAATCAACAGAAGCCAGTGCAATCTATTCAATTACTAATAGTGGGTCTTGCATTTGTGGCTTAGTAATTCCAATTATTGCTACTCTGAAAAGCCGAGGAGCAGCCTAATTAATACTTGGCCACTATGCTGGAGGAAGTTTACTGAACTGAATTCGAGTAAGGAAAATGGACAATAATTGATATAATATGGTGAGCTTCTTGCTGGACTTTGAAATCGTAAAATTTAAGCGAACACACTTCAAACGCATCCATTTAATTTGTGAATGTTTGCAGTCCCACTTTTAATAAGCACCCAATATTAACGATAACGCCACTCTAATCAAAATTTTCCAATAGTCAGGGTTGAAATACTGATCAATCACGCTGCCAACATTTCGGCAGACCAGGTGGGTAATGAGTTTAAAATGGTTTTGCGTAATGGGATTAATCGAATTTCATTAAGGAAGATTAGATTGCCGTCTTTGGAAGTGATCTTTTATAGTGGCTGACCATAAAAATTGCATTGCAAATACTAATTTAAGCATACATGCTATATAACCGATAAGATGGGCGAGCGTCAAGGCAAAAATAGTTGACCGTATTAATAGTTTAATCAACTAGCTTCAAGTTAATTTATAATGCGAATTAGGAAGCACTCTGGCATGCTATTAAAAACTTAAGAACTGATAAACGAAACTTAATTCCTAAAATAAAAATGTACCTAATTACTTTTATATACTATTATAAATAAAATTGTACCATGTATCGTTAAATTTGATTTAGTTACCAAGTGGTATTTGGTACGTGGCAGCATGAAATAGCTACTACTGCTAGTCTGGCTGATTAGCCAGCACTCTCAATAAACTAAGTGCAGCGTTTTGCATTTATCAGGATTTTTGGTACTCTAAACACACACTTAGATCCCAATCACCCCACAGAATAAGTTGAGCAAACCAAACCGAGCTGATTACCACAGTAGACATGATGATTAGCCGCTGCTTTATTTACTAGTGGATAATCTACTAAGCGACGCATGAATAAAAACTCGAGCGATATTTTTCCACTTTGCAGTCGCTCGAAAGCCTTTGTTTCG
-##   seqnames    start      end width strand length abs_summit pileup
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="chip-sequencing-analysis.html#cb230-1"></a><span class="kw">library</span>(<span class="st">&quot;Rsamtools&quot;</span>) <span class="co">#we will use the Rsamtools package for this.</span></span>
+<span id="cb230-2"><a href="chip-sequencing-analysis.html#cb230-2"></a></span>
+<span id="cb230-3"><a href="chip-sequencing-analysis.html#cb230-3"></a>peaksGR &lt;-<span class="st"> </span>peaksGR[<span class="kw">order</span>(peaksGR<span class="op">$</span>X.log10.pvalue., <span class="dt">decreasing=</span><span class="ot">TRUE</span>)] <span class="co">#order the peaks according to pvalue.</span></span>
+<span id="cb230-4"><a href="chip-sequencing-analysis.html#cb230-4"></a></span>
+<span id="cb230-5"><a href="chip-sequencing-analysis.html#cb230-5"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(peaksGR))</span></code></pre></div>
+<pre><code>##   seqnames    start      end width strand length abs_summit pileup
 ## 1    chr2L  3133811  3135424  1614      *   1614    3134481 140.17
 ## 2    chr2L  3136702  3137388   687      *    687    3136981 140.77
 ## 3    chr2L  7649255  7651111  1857      *   1857    7649737 140.77
@@ -763,9 +786,20 @@ Figure 5.4: <strong>CAPTION THIS FIGURE!!</strong>
 ## 4 PeakAna_clk_Ip_vs_INP_peak_1079
 ## 5 PeakAna_clk_Ip_vs_INP_peak_1893
 ## 6 PeakAna_clk_Ip_vs_INP_peak_2290</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="chip-sequencing-analysis.html#cb232-1"></a>pseq &lt;-<span class="st"> </span><span class="kw">getSeq</span>(<span class="kw">FaFile</span>(<span class="dt">file =</span> <span class="st">&quot;../macs2_analysis_p0.05/dm6.fa&quot;</span>), peaksGR) <span class="co">#extract the sequence of the peaks using the genome fasta file dm6.fa and the genome-ranges in the object peaksGR</span></span></code></pre></div>
+<p>We can now see how the <code>pseq</code> object looks like.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="chip-sequencing-analysis.html#cb233-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(pseq))</span></code></pre></div>
+<pre><code>##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           x
+## 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ACCCATTAAATTGTCAATATTACTTAAGCCCTTTATGGTATTGGAAACTCCCGTTTCACATAATTAAACATGGAATGCAGCAAAAAATTTTCCGTGCAATTGCAAATGGCATTTTACGAGAGAAAATTGTTGACAATAATGAAGCTGATGAACATTTGTGGTTGTGTTCATTGTCATTGTTGCTGCGTTAGTTATTCTACCATCGGTTGGGGTGCATTTGGGCCAGTCTGGAACTGTTTGCGTCATTGTTCAGTTTTAGTTCTCTGCGGTTGCCTGAAATTGTCGTAATGCATTTACGGACATCGCACACACATGTGGCCCAAGTGCGGTTTTGTAGCTGGAAATGTTGGCTGTGTACTGTAAACAAGATTTTAGCAAACCCACTTGCATTTCTCCTGGGGGTCATGTGTCAGCACTTATAATTTTGTTTAAAGAACTAAGAGAAAAATGTCCACTATCTAGAAAATCATTACTATCAAAAAACCCAATTTATATCAGTAACGTTCGATTTCTAAACTCATATTGACATTTTTGTATGTATATTATGTATGTATATAAATGTTCATATTTGTTTCCCTTTTGGTTGCGTACCTAACCACCACCTATAAATTAGCCCGTTCTGCCAATATTAGCCCTTTCATATCTCGTTACTCATACGCCACGTGGTCACGTTTTTGCCTAAGCTCTACGTAGCTGCACTCGCTGCACTTTCCGCTTACGTTTTGTTATTATTTTCCCCAGTACTCGTTAGCCTTGTCTAGTGCCAAAATGAAATGACAATGTTTTCCCAGCGCACAGAACTCAAATCGTAAATCATTTTCTTTTTTTTGGGGTGTTGGCAAAGGTAAACAATGTCACATAGGAGCCCGCAGTTGTCTGTCAGTAGAGAAAAAGGCAAAAAGATTAGAGATATATGGACTGCGGAGAGCGGGGCAGAATGCGAGATATATAGCAACTCAAGTTTGTGTTGCCACGAACTTTGACAGTTACATGCGCTGCACCATTGCAGAATGACAAACGAAGGCGAAAAAAGCCATGAGTTGCACAAAATGTATTTATCTGTCATTCCAGTTTTCACTTTCGCAAAAAGTGGTAGATTTTGGGTTTTGTGTGGAATCATATCTAGCTTTATAGCTCTTGGGGAACTATAATATGACTTAAATACCAAATATTTATATACTCAAGTTTAATATAATACATTTCACGTAGTTTTAACGCAAAACGGAATATGCTAGAATTTATCTTTTCCACTTCGTTTCCCCTCTGATTCTCGCACTTTCCCCCAAACTCTCGGCGTTTGTGTGTGTGCCTGTCTGGCTTTTCTTTTTCGTCTCCGTTCGTGACAGCTTGTTTTTTTGGGGGCGTGGCGAGGGGCGGAAGGGGTTGGGCATTTGGGTCAACTATCGACTGCAATTTGAGCCTTTCAAACTGTCGCCGACACAAAACGAAGGGCTCAGCTGAAAAAAAAAACACACAGTCAGGCAGAGTAAAAGTTGCGGAAAGTGTGACAGCAACTCATTGCAGATGGACATTTGCCGAGTCTGCTGGGAATCCCCTCAAGTGCTCTGGAAATTTGATTTCGATTTCCATATGATTTTGATTTGGCCAGCGAAC
+## 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           CTTCCCCTTTTATTACTGTTCCAAGGACATTCAAATTAAGCATTCATTTGCGGTGATATCACCGGCTTTAATGCTCTGAACTCCACGAAGAGTTGACTAACCTCGAACTGTGCTACATTTTTTTATGCACCTCCATCATACACACATTTTGTCGTGTAATTTGCACGCTGAGTCTATTAAATGCACTGCAACCGAGTTGTGTCAGCACCTCAGGTGTACAGAGCTTTCACTCACACTCATATACGATTCATAAACATTTGTTGTGGCGCCCAACGTGGGGCATGAAATGCGACGTGTTACACAAGTGGGAAGAAGAAGGTGCAAGTCATTAAGTAAGCTTGTTTTTGTTCTGATTTTTCTCGTTGTTTTCAGGGAAGAGGCCATAAAAGCTTCGTGCGCCACGCACACATGCACACATAATTATAATGGGCATTAAAACGGACGCCTGTGGCCTAACTCTTAGTTTGTCTTGTTCGCCAGCAGGCTTCTTAACCCTCACACTGTCCAACTTGGCTACCTCTGAGTGCTTTATGGCGCAACTGGTAGAATGATTCGCCGAGCATAATATTTAACTCGGAATTCCCTGCTAAACGCACATAATGTCTGCCCAAGACAGTCCCGGTTCCCAGCGGCGAAATTCATTTTCTTGTCGCTTACAAATTATTTTAAAGGTATTTAAAGTTAGAT
+## 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         AAAACAGAAGCTCTAGCATTGTTGTGATACATTAAAGAACTTTACTGACCTGGCCAATTTGTGGATAGTGCTGCAGCTCCATCTCGAGCACCCGCATGGACGGCTTGGGGGTTGTCAGCTCCTGGCCCGTGCACATCTCGTAGAGCAGGTGGCCAAAGCAGACGATGTCCACGTTCTCGATCTCGGTGACCGAGCGGGACCACATGACGGCGTTAATGCGCGAACTGAGGCCCAGGAGGCCGTTCTCCAGGCCCGATAACCTGATGGGTGAAAAACGGAATAAATGTTACGGAAAATGCATAATTAAATGGCGGACCCCTTGTGCTTTCCTTCCCTTTTGTTTCGGTCTTAATTATGCAACATATTCGATGGCTACCCTGCCGTATATTGATGGCCAACACGTGGAAACGTCGGCCGCAAAGTGTCTACTTTTATGGATTTATGTGCGAGCGAGAGGGAGCAGGTATCATCTGCTATCTCTTTCCTCACTGGCCATGTGCCTTAATGACAAAGAGCGTATGTCAGACCTGATATGACAATATTATGACACTCTACACAACACAGCGCTGTATATTGCGGATTGGTTGGGGCTTTTGGTTCGAGGGTCCTGCCGGCATTTCCTAGTATTCATTAGGCCAAATGTGGCTGACTAGTTGGAAAGGTATTCCGAATTGGCTGACAATAGAGGTTCTGAAGATGCTAGTTGTCGTGTGCTATAGTTTATTGGCTTTTGTTGCCAGTTGCCTTTGTTTATTTTATGATCATTTTAATTAGTTTTGAAAATCAGATAAGTATAAATATACGAAAAAAAATCATTTGGGCTTAAAAAAGTTCAATACAAATTGTTGAGTCAACAGGTTACTCCAGAAGTATTTGTTGTCAAATTTACTATCAAATATAAGCATGTTTTTCTTTAGCTGTTATAAAACAATAAAAGCGTTGTGCAGACATTAAATGCTTTCTTTTATTGTCATTGCAAATATCCTGAAATTCTTCACTCAATTTCACTTGAGCAAGCATTTTCTTTTCTACTTCGTCAATCAGCTTTTCAGCTTACTAAATTCCATTTTACCCGTTTTCTTCACGTTGGTCTTTCAACTTTCCTGTGGCCCTATCAATAGCTGTACGTATGTATAAGCAATTTATATGAAAATCAGCTTTTCAATGCGCACAGCGATACCCTGGCGACGAAGGCAGCAAAATTGGGTCATGCACTTGGCGCAAACTTGAACGCAGAAAATCCGCACTTTAATCGACTTTCACCTATAGGAATTCTAGCTTGCAGATCCCACCCTCTTTTAGTCCCGTCCCTGGGCTGCAATATAACCATCTTTTTCGCCGACCATTTATTTTTAAAATGGCAAAAAGCTTAAGCTTTATTTTTGTTACACCCATTCGATGTTTGCAAGTGGGTGGTTTAGTGGGTGGCGCTTACGCGTTGTCGCACAGCAGCTACATGGATAGGAGGGGGCCAGTCAGGGGCTCACGAAACAGGGACATGCATTTAAAGTGCCCTGAAATGGGCAACGATTCTGGGGAATTGCTTTTAATTTGCCATTTAGGCTGAAATCGATGTCGGTTCTATTTGGGTGAATTTTGAATGACTGAAATTTTGCAGTGGAGATAGGGGGGCAGGCCACCGATTCGATATAAAATATTGCAGCCATTATTAAATTAGTTAACAGTTGAGTGGGTCCCAATCGACAACGGACTCACCTGGCTGCCCCGTTCTGCAGGATGACATTGCCGCTGTGCAGGTGACCGTGAAGCGGAAAACCGCGCTCCTTCAGGAAGAGCAGTGCCTCCAGAATCTGTCGTCCCAGGCGCTGCACCTGGCTCACCGGTAAGCCATTTGGC
+## 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           GGCGCCAACAATCGTAATGGATCCTGGCATGAAAACGGGATGAGGAGACCCAATGGTCACCGCCCTCTAAATGCCGAAAGTCAACTGCGTCATTGTTTGGGGAGAACAGGCCAGCTCCAGCTGAATTTCCTCGATTTTCCGAGGGGTGAGATAAAGGGCCCCGGGCCAGGATGGCCAGGCCCATTTCCAGTGACCTTGCATCATTAACTTAATTGCTCAAACAGTAGTCGGTCCGTCCAATTGCCGGGCTGAATTATTCAGTTGTTCTGCTCGGCCAACTGGCAATTTTGCGTCTTTACTAATGTCACCACAAGCTCATAGAGGAAGCGCTGTCTCTCTCTATTCGGCGCTGCACTGGAAAAGCCATCCGACAGAACCGTTTTTCCATGGGGGCCGGTGAAAATCCCCCACGTGCATTCGGTGTGGTCGTTGGCCCGTTCACGTTGTCCCCCCATTTTAAAGGGGCGTCACGTGTAGCGGGGCTTAGTCCCCCCCACCACAATTTGACATTTTTTACGAAAACAAAATGCAGAGATACGAAGAGAAAAACCAGGCCCAAACAATTTTCACCGGACTAATTGGATTCAAGAGTTTTCCTGCTGCGCTTTTGTCAACGCATATTGCAACAGAAATATTCATATTTATTTATATATAAAAATTCACTGTCAGTACAGCCTAGCCTATAGTTGAATACATACCTGCATCGTCTTATCCAGTATGAAATTACAACAATTCCACCCAATATCAAACCACCTAAGGCACACCAAAAGAGGGTCTGAAAAG
+## 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               AGGAAAACTCCTAACAAGCTTTAAAAACCTAGCAAGCTAACTACCTTTTTCTTAATTCTCTGGTTCGTTTCGCACACCTGATTAATGGGTTAATGTATCTATTTTTATGCACCCAGCTGCCACTCAGTTGGCTTTGACTGGTCTCGGGGATAAGTGGCAAAGAGGCCGGCTAATCAGGCCCAAAGGTAAAGCCAAAGCCAAAGCCATGAACCAACGAACCGCCCAACAGCCCAACCACCGAAACGCCCCACCCATCCGCTGGTGACCCACTTGAGCATGCACCGCTCGTGACATTGGGCAGGGAAACGTGCAGAAGCGACGGGAAATCGACAAGAAGACAAACAAAACAGCAAAACGTGCAGAACGTCACTTTCGGGCCGCCTTTTTGTTGTTAATTTAGAGAGATGCGTCACAGCGAAAAGTGTTAAGAAAGAAATGCGCGGAAAATCAGGAAATGTAAGCGGTGAGAACTGCGCATTAAGCATCGCATTGCATCGCACGGCAAAACGCAGCCAAATAAAGCGAAACAACAGCGGAGACAGGCGCAATGTTGACAATTGTTGAAACTGACAGTTTGACGTTTTAACTCACGCGCCAAACGCCAAACGTCAAACGGCAGCAACAACCAACACAATATCAACATCAGCAACATAGTAATACGTTGTACGGCCAAACGGCAATCTAGGCAAATCCACCGAGTAGACAACTCAATGAGCCATTTTGATGGACACCTCCGACGACAGCTGTACGGCACACGAATGTATATAATGCATATTCAT
+## 6 TGGAATACTTGGAATTTATTAAGTACCTCGTTGTTATAACTAGTAGTTGTCTCCAGTTAACATAAAGCTATTATAAATGTCATAATAAACAACCGCTTATCAGTACTTAGCCGACGAGTGCTTAGGGCTCAATTAAATTAACAACAATTACGTAAATGGAAAAGAACAAAACCCACCACGTAATGTTTGGGTTTAAATACGTCATCCTAGGCGGAAAACAACAAACCAAAATACGCATACTAAATCGATTTCTCGAGCTATTTCTGTACATTCACCTGTCCTGCATTGCTAATACGCCGTGTTGCTCGCGCGTTATTTAATGTTTGAGCCATCGATGTCGATGTCGTGCTGCAATGTCAATATCAAAGACACTGCGCACAGCAAGGTTGCCGAAGCCGTAGTAGTTTACCGCCGTGCAATTGCTGAATTTCTGCTGTGCGGCTAATTGAATTTAGAGGGGCGACAGGTGCCACAATGCCAGGTATAAATGCCGGATTGCCAAAGAGCGCTAATTAATAGCCTAGTGGACCACGCAACGCGGCGTATACCATCGAGAACGAGCGCGAAACGTTAAAGGCACATCCAAAGTTTAAACTATTTCCGCAGAGATTTTGATAAACAGCTCCAAAATGGTGGTCAATTTCAAGGTGTTCAAGAAGTGTTCCCCGAACAACATGATCACGCTCTACATGAACAGGCGTGATTTTGTAGATTCCGTGACTCAGGTGGAACCCATTGGTAGGTGTCACAGACCGAAACCCTTGAGCAATGGGATTTACGAATGAGGAAATCCATCAAAAAATAAATTCGTGTAGGAATTGGTACCCATATTCGATTGAAGTATCTTATAGTTTGAAAATAACTTCAGTGTAACTTTTGTTTCAACTTAACACATTGGAATTTTTAATACCTTCCTTGAAAAGTGATATCAAATCAAAATTATATTATAAAAACTCCATTTCGAATCTGCATATGCCGACCAGCAAATATAAACTCAGGGAGTTATTCAAAATTGCATCTGAATTCAATAGCCCAGGGAGTTAAGTTAAATTGGCTGCGCTAGCAGCTAACCAAGTTCATCGATTACGCGAGCAAGCAAACCAAGAGGCTGGGCGCTTGTAAATAATATTCTCCAATTAATAAGCGTCCTCTTGCAGATGGAATCATTGTGCTGGACGATGAGTACGTGCGCCAGAACCGCAAGATCTTCGTGCAGTTGGTCTGCAATTTCCGATATGGGCGCGAGGACGACGAGATGATCGGTCTGCGGTTCCAGAAGGAACTGACCCTGGTCTCGCAGCAGGTGTGCCCACCCCAGAAGCAGGACATCCAGTTGACCAAGATGCAGGAGCGTCTGCTGAAGAAGCTTGGCTCCAATGCCTATCCCTTCGTGATGCAGATGCCACCAAGCTCGCCGGCCTCGGTGGTTCTCCAGCAGAAGGCCAGTGACGAGAGCCAGCCCTGCGGAGTCCAGTACTTCGTAAAGATCTTTACCGGAGACAGCGACTGCGATCGATCGCATCGCAGGAGCACCATTAACCTGGGCATCCGCAAGGTGCAGTACGCACCGACCAAGCAGGGCATCCAGCCCTGCACCGTCGTTCGCAAGGACTTCCTTCTGTCGCCCGGAGAGCTCGAACTGGAGGTCACCCTCGACAAGCAGCTGTACCATCACGGCGAGAAGATCTCGGTGAACATCTGCGTGCGCAACAACTCCAACAAGGTGGTGAAGAAGATCAAGGCCATGGTGCAGCAGGGCGTCGATGTGGTCCTGTTCCAGAACGGTCAGTTCCGCAACACGATCGCCTTCATGGAGACGAGCGAGGGATGTCCCCTGAACCCGGGATCCAGCCTGCAGAAGGTCATGTATCTGGTGCCCACCCTGGTGGCCAATTGCGACCGCGCAGGCATCGCCGTTGAGGGTGATATCAAGCGCAAAGACACAGCTCTGGCCTCGACCACACTGTGAGTAAAATTTATTCACATCATAGCTTAGCAGATGAAACATTAATATTATACTCTATTAAGTATCAACTTAAAATCATACCATAAAATCAATCAAATTTTAAAGTTAGGAACCTTTTTAAAAATCGTATTTTCCCGGTGACTAACAGTTCTTTAGCTAAATGTGTTTACAAAATGGCATAAAACGCATACTAATACTAAGTGAAAAATGCATATTTAAAATTCTATTTCAGTATTGCCAGTCAGGATGCGAGGGATGCCTTTGGCATAATTGTTTCATATGCTGTGAAGGTCAAGCTTTTCTTGGGAGCCCTGGGCGGCGAGCTCTGCGCTGAGCTACCATTTATTCTGATGCACCCGAAGGTAATAAAAGGTGTGCCCAAATATTTGAATAGTTATTGAAAGGCAATCAATTATTTACAGCCAAGTCGCAAGGCCCAACTGGAAGCCGAGGGCTCCATTGAGGCCTAAACTGAAAGGGCTACCTCAACCAACGAAAAAAATGGCGTATTTCTACAAGTCAAACCGATTTTTGTAGATCCTAAAAAATGCTGATGTTGCTGAAATGTTCTGAACTGCAGTCGTCGTACTTTTCCTATATAGCAAATCCAATATCCATATATTGTATGTGTGTATGTGTATTATATTTATAACTCAACTAACAATTAAATATGAACAGAGTTTATGTATGTATTTTGGAGTATTCTATTGAATTTAGCACGGTGTATTTGAAAAGGCTCCAGCATTGAAAGTTTGTATGGAATGCGCACTAAATATTTAATAATGTGCTTACGAAGGCATTTCGTAGTATTTGATATCTTGCAATGTCTGCTGATTATGTACATTGAAGTGCAATGGGGAAATCAACAGAAGCCAGTGCAATCTATTCAATTACTAATAGTGGGTCTTGCATTTGTGGCTTAGTAATTCCAATTATTGCTACTCTGAAAAGCCGAGGAGCAGCCTAATTAATACTTGGCCACTATGCTGGAGGAAGTTTACTGAACTGAATTCGAGTAAGGAAAATGGACAATAATTGATATAATATGGTGAGCTTCTTGCTGGACTTTGAAATCGTAAAATTTAAGCGAACACACTTCAAACGCATCCATTTAATTTGTGAATGTTTGCAGTCCCACTTTTAATAAGCACCCAATATTAACGATAACGCCACTCTAATCAAAATTTTCCAATAGTCAGGGTTGAAATACTGATCAATCACGCTGCCAACATTTCGGCAGACCAGGTGGGTAATGAGTTTAAAATGGTTTTGCGTAATGGGATTAATCGAATTTCATTAAGGAAGATTAGATTGCCGTCTTTGGAAGTGATCTTTTATAGTGGCTGACCATAAAAATTGCATTGCAAATACTAATTTAAGCATACATGCTATATAACCGATAAGATGGGCGAGCGTCAAGGCAAAAATAGTTGACCGTATTAATAGTTTAATCAACTAGCTTCAAGTTAATTTATAATGCGAATTAGGAAGCACTCTGGCATGCTATTAAAAACTTAAGAACTGATAAACGAAACTTAATTCCTAAAATAAAAATGTACCTAATTACTTTTATATACTATTATAAATAAAATTGTACCATGTATCGTTAAATTTGATTTAGTTACCAAGTGGTATTTGGTACGTGGCAGCATGAAATAGCTACTACTGCTAGTCTGGCTGATTAGCCAGCACTCTCAATAAACTAAGTGCAGCGTTTTGCATTTATCAGGATTTTTGGTACTCTAAACACACACTTAGATCCCAATCACCCCACAGAATAAGTTGAGCAAACCAAACCGAGCTGATTACCACAGTAGACATGATGATTAGCCGCTGCTTTATTTACTAGTGGATAATCTACTAAGCGACGCATGAATAAAAACTCGAGCGATATTTTTCCACTTTGCAGTCGCTCGAAAGCCTTTGTTTCG</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="chip-sequencing-analysis.html#cb235-1"></a><span class="kw">writeXStringSet</span>(pseq, <span class="dt">filepath =</span> <span class="st">&quot;peaksGR.fasta&quot;</span>) <span class="co">#use the names and save the peaks in fasta format, how this looks like? open it outside R! you can shange the filepath to save it any place you want.</span></span></code></pre></div>
 </div>
-<div id="find-the-motifs" class="section level3" number="5.7.3">
-<h3><span class="header-section-number">5.7.3</span> Find the MOTIFS</h3>
+<div id="find-the-motifs" class="section level3" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Find the MOTIFS</h3>
 <p>The Bioconductor package <a href="https://www.bioconductor.org/packages//2.12/bioc/vignettes/BCRANK/inst/doc/BCRANK.pdf">BCRANK</a> is one of the many available for de novo discovery of DNA binding motifs in peak regions of ChIP-Seq.</p>
 <p>The main function we are using here is bcrank. when looking at the documentation we see that:</p>
 <p>“BCRANK uses a heuristic search strategy. First a score is computed for an initial short consensus sequence, typically selected at random. The score considers both the number of consensus occurrences and the rank of the genomic regions. Then all consensus sequences in a neighborhood of the start guess are evaluated and the one with highest score is kept as the starting point for the next iteration. When a local optimum is found, the algorithm is terminated and the locally optimal consensus is reported as a result. In order to increase the chance of detecting the globally optimal solution, the algorithm may be restarted several times using different random starting points. Alternatively, BCRANK can be used for assigning scores to previously established consensus sequences. The sections below describe in more detail how the neighborhood, scoring function and start guess are implemented.”</p>
@@ -778,13 +812,13 @@ contain at least n occurrences of the consensus. Then P2 = 1 − (r2/r1).</p>
 <pre><code>set.seed(0)
 BCRANKout &lt;- bcrank(&quot;peaksGR.fasta&quot;, restarts=25, use.P1=TRUE, use.P2=TRUE)</code></pre>
 </div>
-<div id="explore-the-results" class="section level3" number="5.7.4">
-<h3><span class="header-section-number">5.7.4</span> Explore the results</h3>
+<div id="explore-the-results" class="section level3" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Explore the results</h3>
 <p>Then we can also see the results, we will se the results that are in the top.</p>
 <p>We can first explore the results: the matrix shows the proportion of each letter in each possition for thar specific motif.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="chip-sequencing-analysis.html#cb233-1"></a><span class="kw">head</span>(<span class="kw">toptable</span>(BCRANKout))</span>
-<span id="cb233-2"><a href="chip-sequencing-analysis.html#cb233-2"></a>a&lt;-BCRANKout<span class="op">@</span>toplist</span>
-<span id="cb233-3"><a href="chip-sequencing-analysis.html#cb233-3"></a>a[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="chip-sequencing-analysis.html#cb237-1"></a><span class="kw">head</span>(<span class="kw">toptable</span>(BCRANKout))</span>
+<span id="cb237-2"><a href="chip-sequencing-analysis.html#cb237-2"></a>a&lt;-BCRANKout<span class="op">@</span>toplist</span>
+<span id="cb237-3"><a href="chip-sequencing-analysis.html#cb237-3"></a>a[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>##   Consensus    Score
 ## 1     CACGT 663.2068
 ## 2     CACGT 648.6057
@@ -822,33 +856,33 @@ BCRANKout &lt;- bcrank(&quot;peaksGR.fasta&quot;, restarts=25, use.P1=TRUE, use.
 ## 
 ## Use methods searchPath(object) and pwm(object) to access object slots.</code></pre>
 </div>
-<div id="plot-the-results" class="section level3" number="5.7.5">
-<h3><span class="header-section-number">5.7.5</span> Plot the results</h3>
+<div id="plot-the-results" class="section level3" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> Plot the results</h3>
 <p>We can play around with the matrixes and plot them in the known DNA-Logo standard. To do this we will first store the most top motif from <code>toptable</code>. Then we will use the <code>pwa</code> function from BCRANK and the <code>seqLogo</code> function from seqLogo package.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="chip-sequencing-analysis.html#cb235-1"></a>topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span><span class="dv">1</span>)</span>
-<span id="cb235-2"><a href="chip-sequencing-analysis.html#cb235-2"></a>weightMatrix &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb235-3"><a href="chip-sequencing-analysis.html#cb235-3"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb235-4"><a href="chip-sequencing-analysis.html#cb235-4"></a><span class="kw">seqLogo</span>(weightMatrixNormalized,<span class="dt">ic.scale =</span> T)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-29-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="chip-sequencing-analysis.html#cb239-1"></a>topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span><span class="dv">1</span>)</span>
+<span id="cb239-2"><a href="chip-sequencing-analysis.html#cb239-2"></a>weightMatrix &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb239-3"><a href="chip-sequencing-analysis.html#cb239-3"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb239-4"><a href="chip-sequencing-analysis.html#cb239-4"></a><span class="kw">seqLogo</span>(weightMatrixNormalized,<span class="dt">ic.scale =</span> T)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-34-1.png" alt="Most significant sequence logo." width="100%" />
 <p class="caption">
-Figure 5.5: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 5.5: Most significant sequence logo.
 </p>
 </div>
 <p>We can now do the same with a different function just to show you that you can do the same things with different approaches. This is using function form the <code>seqLogo</code> package.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="chip-sequencing-analysis.html#cb236-1"></a>p&lt;-<span class="kw">makePWM</span>(<span class="kw">as.data.frame</span>(weightMatrixNormalized))</span>
-<span id="cb236-2"><a href="chip-sequencing-analysis.html#cb236-2"></a>p<span class="op">@</span>consensus</span>
-<span id="cb236-3"><a href="chip-sequencing-analysis.html#cb236-3"></a><span class="kw">seqLogo</span>(p)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-30-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="chip-sequencing-analysis.html#cb240-1"></a>p&lt;-<span class="kw">makePWM</span>(<span class="kw">as.data.frame</span>(weightMatrixNormalized))</span>
+<span id="cb240-2"><a href="chip-sequencing-analysis.html#cb240-2"></a>p<span class="op">@</span>consensus</span>
+<span id="cb240-3"><a href="chip-sequencing-analysis.html#cb240-3"></a><span class="kw">seqLogo</span>(p)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-35-1.png" alt="Most significant sequence logo." width="100%" />
 <p class="caption">
-Figure 5.6: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 5.6: Most significant sequence logo.
 </p>
 </div>
 <pre><code>## [1] &quot;CACGT&quot;</code></pre>
 <p>We will create a table to be able to analyze the data</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="chip-sequencing-analysis.html#cb238-1"></a>topt&lt;-<span class="kw">as.data.frame</span>(<span class="kw">toptable</span>(BCRANKout)) <span class="co">#extract the results table</span></span>
-<span id="cb238-2"><a href="chip-sequencing-analysis.html#cb238-2"></a><span class="kw">head</span>(topt)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="chip-sequencing-analysis.html#cb242-1"></a>topt&lt;-<span class="kw">as.data.frame</span>(<span class="kw">toptable</span>(BCRANKout)) <span class="co">#extract the results table</span></span>
+<span id="cb242-2"><a href="chip-sequencing-analysis.html#cb242-2"></a><span class="kw">head</span>(topt)</span></code></pre></div>
 <pre><code>##   Consensus    Score
 ## 1     CACGT 663.2068
 ## 2     CACGT 648.6057
@@ -857,62 +891,267 @@ Figure 5.6: <strong>CAPTION THIS FIGURE!!</strong>
 ## 5    CAAAAG 491.8869
 ## 6    AAAGCG 491.6031</code></pre>
 </div>
-<div id="plotting-with-ggplot2" class="section level3" number="5.7.6">
-<h3><span class="header-section-number">5.7.6</span> Plotting with Ggplot2</h3>
+<div id="plotting-with-ggplot2" class="section level3" number="5.7.5">
+<h3><span class="header-section-number">5.7.5</span> Plotting with Ggplot2</h3>
 <p>Now with ggplot we will use a package called ggseqlogo.
 This will be nice to learn how to install packages from github (you have to use the package devtools and then the function install_github).
 <a href="http://www.bioconductor.org/packages//2.11/bioc/vignettes/seqLogo/inst/doc/seqLogo.pdf" class="uri">http://www.bioconductor.org/packages//2.11/bioc/vignettes/seqLogo/inst/doc/seqLogo.pdf</a></p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="chip-sequencing-analysis.html#cb240-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb240-2"><a href="chip-sequencing-analysis.html#cb240-2"></a><span class="co">#install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb240-3"><a href="chip-sequencing-analysis.html#cb240-3"></a><span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>) <span class="co">#this library is literally called &quot;developers tools&quot; and allow us to do more complex things as downloading packages from github</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="chip-sequencing-analysis.html#cb244-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb244-2"><a href="chip-sequencing-analysis.html#cb244-2"></a><span class="co">#install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb244-3"><a href="chip-sequencing-analysis.html#cb244-3"></a><span class="kw">library</span>(<span class="st">&quot;devtools&quot;</span>) <span class="co">#this library is literally called &quot;developers tools&quot; and allow us to do more complex things as downloading packages from github</span></span></code></pre></div>
 <pre><code>## Loading required package: usethis</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="chip-sequencing-analysis.html#cb242-1"></a><span class="co">#install_github(&quot;omarwagih/ggseqlogo&quot;)</span></span>
-<span id="cb242-2"><a href="chip-sequencing-analysis.html#cb242-2"></a><span class="kw">library</span>(ggseqlogo)</span></code></pre></div>
-<div id="create-the-matrixes-for-ggplot2" class="section level4" number="5.7.6.1">
-<h4><span class="header-section-number">5.7.6.1</span> Create the matrixes for ggplot2</h4>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="chip-sequencing-analysis.html#cb246-1"></a><span class="co">#install_github(&quot;omarwagih/ggseqlogo&quot;)</span></span>
+<span id="cb246-2"><a href="chip-sequencing-analysis.html#cb246-2"></a><span class="kw">library</span>(ggseqlogo)</span></code></pre></div>
+<div id="create-the-matrixes-for-ggplot2" class="section level4" number="5.7.5.1">
+<h4><span class="header-section-number">5.7.5.1</span> Create the matrixes for ggplot2</h4>
 <p>We will first store all the matrixes in a list so we can then just plot them all together and not only one by one.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="chip-sequencing-analysis.html#cb243-1"></a><span class="co"># Some example DNA sequences, lets try to go together over what is this loop doing</span></span>
-<span id="cb243-2"><a href="chip-sequencing-analysis.html#cb243-2"></a>seqs_list=<span class="kw">list</span>() <span class="co">#first we create an empty list that we will fill up over the loop</span></span>
-<span id="cb243-3"><a href="chip-sequencing-analysis.html#cb243-3"></a><span class="cf">for</span>(e <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">16</span>){ <span class="co">#we will loop 16 times</span></span>
-<span id="cb243-4"><a href="chip-sequencing-analysis.html#cb243-4"></a>  <span class="co">#print(e) #we will print every loop</span></span>
-<span id="cb243-5"><a href="chip-sequencing-analysis.html#cb243-5"></a>  topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span>e) <span class="co">#we get the motif number e (ie, the iteration will let us go from top motif 1 to 16)</span></span>
-<span id="cb243-6"><a href="chip-sequencing-analysis.html#cb243-6"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>) <span class="co">#do some process with the motif</span></span>
-<span id="cb243-7"><a href="chip-sequencing-analysis.html#cb243-7"></a>seqs_list[[e]]&lt;-weightMatrixNormalized <span class="co">#add the processed motif to the list in position e (ie. the loop allows us to fill up the list)</span></span>
-<span id="cb243-8"><a href="chip-sequencing-analysis.html#cb243-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="chip-sequencing-analysis.html#cb247-1"></a><span class="co"># Some example DNA sequences, lets try to go together over what is this loop doing</span></span>
+<span id="cb247-2"><a href="chip-sequencing-analysis.html#cb247-2"></a>seqs_list=<span class="kw">list</span>() <span class="co">#first we create an empty list that we will fill up over the loop</span></span>
+<span id="cb247-3"><a href="chip-sequencing-analysis.html#cb247-3"></a><span class="cf">for</span>(e <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">16</span>){ <span class="co">#we will loop 16 times</span></span>
+<span id="cb247-4"><a href="chip-sequencing-analysis.html#cb247-4"></a>  <span class="co">#print(e) #we will print every loop</span></span>
+<span id="cb247-5"><a href="chip-sequencing-analysis.html#cb247-5"></a>  topMotif &lt;-<span class="st"> </span><span class="kw">toptable</span>(BCRANKout, <span class="dt">i=</span>e) <span class="co">#we get the motif number e (ie, the iteration will let us go from top motif 1 to 16)</span></span>
+<span id="cb247-6"><a href="chip-sequencing-analysis.html#cb247-6"></a>weightMatrixNormalized &lt;-<span class="st"> </span><span class="kw">pwm</span>(topMotif, <span class="dt">normalize =</span> <span class="ot">TRUE</span>) <span class="co">#do some process with the motif</span></span>
+<span id="cb247-7"><a href="chip-sequencing-analysis.html#cb247-7"></a>seqs_list[[e]]&lt;-weightMatrixNormalized <span class="co">#add the processed motif to the list in position e (ie. the loop allows us to fill up the list)</span></span>
+<span id="cb247-8"><a href="chip-sequencing-analysis.html#cb247-8"></a>}</span></code></pre></div>
 </div>
-<div id="plot" class="section level4" number="5.7.6.2">
-<h4><span class="header-section-number">5.7.6.2</span> Plot</h4>
+<div id="plot" class="section level4" number="5.7.5.2">
+<h4><span class="header-section-number">5.7.5.2</span> Plot</h4>
 <p>We can now, either plot one by one for each position in the list.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="chip-sequencing-analysis.html#cb244-1"></a><span class="co"># Get first set of sequences</span></span>
-<span id="cb244-2"><a href="chip-sequencing-analysis.html#cb244-2"></a>seqs_dna =<span class="st"> </span>seqs_list[[<span class="dv">1</span>]]</span>
-<span id="cb244-3"><a href="chip-sequencing-analysis.html#cb244-3"></a></span>
-<span id="cb244-4"><a href="chip-sequencing-analysis.html#cb244-4"></a><span class="co"># Plot a sequence logo with the 2 different methods available</span></span>
-<span id="cb244-5"><a href="chip-sequencing-analysis.html#cb244-5"></a>p1 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;prob&#39;</span> )</span>
-<span id="cb244-6"><a href="chip-sequencing-analysis.html#cb244-6"></a>p2 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;bits&#39;</span> ) <span class="op">+</span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Information Content&quot;</span>) <span class="co">#this changed the name of the `y` axes</span></span>
-<span id="cb244-7"><a href="chip-sequencing-analysis.html#cb244-7"></a><span class="kw">grid.arrange</span>(p1, p2)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-34-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="chip-sequencing-analysis.html#cb248-1"></a><span class="co"># Get first set of sequences</span></span>
+<span id="cb248-2"><a href="chip-sequencing-analysis.html#cb248-2"></a>seqs_dna =<span class="st"> </span>seqs_list[[<span class="dv">1</span>]]</span>
+<span id="cb248-3"><a href="chip-sequencing-analysis.html#cb248-3"></a></span>
+<span id="cb248-4"><a href="chip-sequencing-analysis.html#cb248-4"></a><span class="co"># Plot a sequence logo with the 2 different methods available</span></span>
+<span id="cb248-5"><a href="chip-sequencing-analysis.html#cb248-5"></a>p1 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;prob&#39;</span> )</span>
+<span id="cb248-6"><a href="chip-sequencing-analysis.html#cb248-6"></a>p2 =<span class="st"> </span><span class="kw">ggseqlogo</span>( seqs_dna, <span class="dt">method =</span> <span class="st">&#39;bits&#39;</span> ) <span class="op">+</span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&quot;Information Content&quot;</span>) <span class="co">#this changed the name of the `y` axes</span></span>
+<span id="cb248-7"><a href="chip-sequencing-analysis.html#cb248-7"></a><span class="kw">grid.arrange</span>(p1, p2)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-39-1.png" alt="Most significant sequence logo in probability and percentage of information." width="100%" />
 <p class="caption">
-Figure 5.7: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 3.10: Most significant sequence logo in probability and percentage of information.
 </p>
 </div>
 <p>Or we can plot all together using the facet function to actually separate them.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="chip-sequencing-analysis.html#cb245-1"></a><span class="co">#Plot all the first 12 sequences</span></span>
-<span id="cb245-2"><a href="chip-sequencing-analysis.html#cb245-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_logo</span>(seqs_list,<span class="dt">method =</span> <span class="st">&#39;prob&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_logo</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb245-3"><a href="chip-sequencing-analysis.html#cb245-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>seq_group, <span class="dt">ncol=</span><span class="dv">4</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
-<img src="04-chipSeq_files/figure-html/unnamed-chunk-35-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="chip-sequencing-analysis.html#cb249-1"></a><span class="co">#Plot all the first 12 sequences</span></span>
+<span id="cb249-2"><a href="chip-sequencing-analysis.html#cb249-2"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_logo</span>(seqs_list,<span class="dt">method =</span> <span class="st">&#39;prob&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_logo</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb249-3"><a href="chip-sequencing-analysis.html#cb249-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>seq_group, <span class="dt">ncol=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<img src="04-chipSeq_files/figure-html/unnamed-chunk-40-1.png" alt="Many significant sequence logo in probability and percentage of information." width="100%" />
 <p class="caption">
-Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
+Figure 3.11: Many significant sequence logo in probability and percentage of information.
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="session-info-all-the-packages-installed." class="section level2" number="5.8">
-<h2><span class="header-section-number">5.8</span> Session info: all the packages installed.</h2>
+<div id="extra-how-to-solve-some-common-annotation-issues." class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Extra: How to solve some common annotation issues.</h2>
+<p>Lets see some regular problem and how to solve it.</p>
+<p>I will show you first a regular problem we can have: annotation files do not correlate with the one previously used for annotation.</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="chip-sequencing-analysis.html#cb250-1"></a>txdb &lt;-<span class="st"> </span><span class="kw">makeTxDbFromGFF</span>(<span class="dt">file=</span><span class="st">&quot;../macs2_analysis_p0.05/Drosophila_melanogaster.BDGP6.92.gtf&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;gtf&quot;</span>, <span class="dt">dataSource=</span><span class="st">&quot;dm6&quot;</span>, <span class="dt">organism=</span><span class="st">&quot;Drosophila melanogaster&quot;</span>)</span>
+<span id="cb250-2"><a href="chip-sequencing-analysis.html#cb250-2"></a><span class="kw">saveDb</span>(txdb, <span class="dt">file=</span><span class="st">&quot;./dm6.sqlite&quot;</span>)</span>
+<span id="cb250-3"><a href="chip-sequencing-analysis.html#cb250-3"></a>txdb &lt;-<span class="st"> </span><span class="kw">loadDb</span>(<span class="st">&quot;./dm6.sqlite&quot;</span>)</span>
+<span id="cb250-4"><a href="chip-sequencing-analysis.html#cb250-4"></a><span class="kw">class</span>(txdb)</span></code></pre></div>
+<pre><code>## TxDb object:
+## # Db type: TxDb
+## # Supporting package: GenomicFeatures
+## # Data source: dm6
+## # Organism: Drosophila melanogaster
+## # Taxonomy ID: 7227
+## # miRBase build ID: NA
+## # Genome: NA
+## # transcript_nrow: 34767
+## # exon_nrow: 87482
+## # cds_nrow: 62757
+## # Db created by: GenomicFeatures package from Bioconductor
+## # Creation time: 2020-07-08 17:03:49 -0400 (Wed, 08 Jul 2020)
+## # GenomicFeatures version at creation time: 1.38.2
+## # RSQLite version at creation time: 2.2.0
+## # DBSCHEMAVERSION: 1.2
+## [1] &quot;TxDb&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;GenomicFeatures&quot;</code></pre>
+<p>Now we can actually extract the gene location from the annotation that we created</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="chip-sequencing-analysis.html#cb252-1"></a>ge &lt;-<span class="st"> </span><span class="kw">genes</span>(txdb, <span class="dt">columns=</span><span class="kw">c</span>(<span class="st">&quot;tx_name&quot;</span>, <span class="st">&quot;gene_id&quot;</span>, <span class="st">&quot;tx_type&quot;</span>)) <span class="co">#get the genes genomic ranges</span></span>
+<span id="cb252-2"><a href="chip-sequencing-analysis.html#cb252-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span></code></pre></div>
+<pre><code>##             seqnames    start      end width strand      tx_name     gene_id
+## FBgn0000003       3R  6822498  6822796   299      +  FBtr0081624 FBgn0000003
+## FBgn0000008       2R 22136968 22172834 35867      + FBtr0071.... FBgn0000008
+## FBgn0000014       3R 16807214 16830049 22836      - FBtr0306.... FBgn0000014
+## FBgn0000015       3R 16927212 16972236 45025      - FBtr0415.... FBgn0000015
+## FBgn0000017       3L 16615866 16647882 32017      - FBtr0112.... FBgn0000017
+## FBgn0000018       2L 10973443 10975293  1851      -  FBtr0080168 FBgn0000018
+##                tx_type
+## FBgn0000003 transcript
+## FBgn0000008 transcript
+## FBgn0000014 transcript
+## FBgn0000015 transcript
+## FBgn0000017 transcript
+## FBgn0000018 transcript</code></pre>
+<p>Now we will use the function <code>annotatePeakInBach</code></p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="chip-sequencing-analysis.html#cb254-1"></a>?<span class="kw">annotatePeakInBatch</span>() <span class="co">#to undestand what are the features we need</span></span>
+<span id="cb254-2"><a href="chip-sequencing-analysis.html#cb254-2"></a>peaksGR&lt;-<span class="kw">GRanges</span>(macs.res) <span class="co"># create the GRanges object of the macs-table </span></span>
+<span id="cb254-3"><a href="chip-sequencing-analysis.html#cb254-3"></a>annotatedPeak &lt;-<span class="st"> </span><span class="kw">annotatePeakInBatch</span>(peaksGR, <span class="dt">AnnotationData=</span><span class="kw">genes</span>(txdb))</span>
+<span id="cb254-4"><a href="chip-sequencing-analysis.html#cb254-4"></a><span class="kw">head</span>(annotatedPeak)</span></code></pre></div>
+<pre><code>## GRanges object with 6 ranges and 16 metadata columns:
+##             seqnames      ranges strand |    length abs_summit    pileup
+##                &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt;  &lt;integer&gt; &lt;numeric&gt;
+##   X00001.NA    chr2L 34224-34348      * |       125      34306     20.88
+##   X00002.NA    chr2L 34965-35180      * |       216      35108     23.26
+##   X00003.NA    chr2L 40369-40577      * |       209      40492     30.42
+##   X00004.NA    chr2L 57282-57429      * |       148      57365     22.07
+##   X00005.NA    chr2L 58368-58696      * |       329      58541     39.37
+##   X00006.NA    chr2L 62014-62139      * |       126      62048     19.68
+##             X.log10.pvalue. fold_enrichment X.log10.qvalue.
+##                   &lt;numeric&gt;       &lt;numeric&gt;       &lt;numeric&gt;
+##   X00001.NA         2.75497         1.97319          1.1235
+##   X00002.NA         3.33362          2.0219         1.65302
+##   X00003.NA         7.01721         2.83398         5.05903
+##   X00004.NA         3.47781         2.08079          1.7735
+##   X00005.NA        12.02019         3.64098         9.82848
+##   X00006.NA         2.42109         1.86559         0.83175
+##                                     name        peak     feature start_position
+##                                 &lt;factor&gt; &lt;character&gt; &lt;character&gt;      &lt;integer&gt;
+##   X00001.NA PeakAna_clk_Ip_vs_INP_peak_1       00001        &lt;NA&gt;           &lt;NA&gt;
+##   X00002.NA PeakAna_clk_Ip_vs_INP_peak_2       00002        &lt;NA&gt;           &lt;NA&gt;
+##   X00003.NA PeakAna_clk_Ip_vs_INP_peak_3       00003        &lt;NA&gt;           &lt;NA&gt;
+##   X00004.NA PeakAna_clk_Ip_vs_INP_peak_4       00004        &lt;NA&gt;           &lt;NA&gt;
+##   X00005.NA PeakAna_clk_Ip_vs_INP_peak_5       00005        &lt;NA&gt;           &lt;NA&gt;
+##   X00006.NA PeakAna_clk_Ip_vs_INP_peak_6       00006        &lt;NA&gt;           &lt;NA&gt;
+##             end_position feature_strand insideFeature distancetoFeature
+##                &lt;integer&gt;    &lt;character&gt;      &lt;factor&gt;         &lt;numeric&gt;
+##   X00001.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
+##   X00002.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
+##   X00003.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
+##   X00004.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
+##   X00005.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
+##   X00006.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
+##             shortestDistance fromOverlappingOrNearest
+##                    &lt;integer&gt;              &lt;character&gt;
+##   X00001.NA             &lt;NA&gt;                     &lt;NA&gt;
+##   X00002.NA             &lt;NA&gt;                     &lt;NA&gt;
+##   X00003.NA             &lt;NA&gt;                     &lt;NA&gt;
+##   X00004.NA             &lt;NA&gt;                     &lt;NA&gt;
+##   X00005.NA             &lt;NA&gt;                     &lt;NA&gt;
+##   X00006.NA             &lt;NA&gt;                     &lt;NA&gt;
+##   -------
+##   seqinfo: 32 sequences from an unspecified genome; no seqlengths</code></pre>
+<p>Here we see that the peaks have a lot of NAs so we did something wrong. If we compare the <code>ge</code> object and the annotated peaks object we can see the problem.</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="chip-sequencing-analysis.html#cb256-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span>
+<span id="cb256-2"><a href="chip-sequencing-analysis.html#cb256-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak))</span></code></pre></div>
+<pre><code>##             seqnames    start      end width strand      tx_name     gene_id
+## FBgn0000003       3R  6822498  6822796   299      +  FBtr0081624 FBgn0000003
+## FBgn0000008       2R 22136968 22172834 35867      + FBtr0071.... FBgn0000008
+## FBgn0000014       3R 16807214 16830049 22836      - FBtr0306.... FBgn0000014
+## FBgn0000015       3R 16927212 16972236 45025      - FBtr0415.... FBgn0000015
+## FBgn0000017       3L 16615866 16647882 32017      - FBtr0112.... FBgn0000017
+## FBgn0000018       2L 10973443 10975293  1851      -  FBtr0080168 FBgn0000018
+##                tx_type
+## FBgn0000003 transcript
+## FBgn0000008 transcript
+## FBgn0000014 transcript
+## FBgn0000015 transcript
+## FBgn0000017 transcript
+## FBgn0000018 transcript
+##           seqnames start   end width strand length abs_summit pileup
+## X00001.NA    chr2L 34224 34348   125      *    125      34306  20.88
+## X00002.NA    chr2L 34965 35180   216      *    216      35108  23.26
+## X00003.NA    chr2L 40369 40577   209      *    209      40492  30.42
+## X00004.NA    chr2L 57282 57429   148      *    148      57365  22.07
+## X00005.NA    chr2L 58368 58696   329      *    329      58541  39.37
+## X00006.NA    chr2L 62014 62139   126      *    126      62048  19.68
+##           X.log10.pvalue. fold_enrichment X.log10.qvalue.
+## X00001.NA         2.75497         1.97319         1.12350
+## X00002.NA         3.33362         2.02190         1.65302
+## X00003.NA         7.01721         2.83398         5.05903
+## X00004.NA         3.47781         2.08079         1.77350
+## X00005.NA        12.02019         3.64098         9.82848
+## X00006.NA         2.42109         1.86559         0.83175
+##                                   name  peak feature start_position
+## X00001.NA PeakAna_clk_Ip_vs_INP_peak_1 00001    &lt;NA&gt;             NA
+## X00002.NA PeakAna_clk_Ip_vs_INP_peak_2 00002    &lt;NA&gt;             NA
+## X00003.NA PeakAna_clk_Ip_vs_INP_peak_3 00003    &lt;NA&gt;             NA
+## X00004.NA PeakAna_clk_Ip_vs_INP_peak_4 00004    &lt;NA&gt;             NA
+## X00005.NA PeakAna_clk_Ip_vs_INP_peak_5 00005    &lt;NA&gt;             NA
+## X00006.NA PeakAna_clk_Ip_vs_INP_peak_6 00006    &lt;NA&gt;             NA
+##           end_position feature_strand insideFeature distancetoFeature
+## X00001.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
+## X00002.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
+## X00003.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
+## X00004.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
+## X00005.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
+## X00006.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
+##           shortestDistance fromOverlappingOrNearest
+## X00001.NA               NA                     &lt;NA&gt;
+## X00002.NA               NA                     &lt;NA&gt;
+## X00003.NA               NA                     &lt;NA&gt;
+## X00004.NA               NA                     &lt;NA&gt;
+## X00005.NA               NA                     &lt;NA&gt;
+## X00006.NA               NA                     &lt;NA&gt;</code></pre>
+</div>
+<div id="extra-detailed-explanation-of-the-macs-output-files" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> Extra: Detailed explanation of the MACS output files</h2>
+<blockquote>
+<p>NAME_peaks.xls is a tabular file which contains information about called peaks. You can open it in excel and sort/filter using excel functions. Information include:</p>
+</blockquote>
+<pre><code>  chromosome name
+  start position of peak
+  end position of peak
+  length of peak region
+  absolute peak summit position
+  pileup height at peak summit, -log10(pvalue) for the peak summit (e.g. pvalue =1e-10, then this value should be 10)
+  fold enrichment for this peak summit against random Poisson distribution with local lambda, -log10(qvalue) at peak summit
+  Coordinates in XLS is 1-based which is different with BED format.</code></pre>
+<blockquote>
+<p>NAME_peaks.narrowPeak is BED6+4 format file which contains the peak locations together with peak summit, pvalue and qvalue. You can load it to UCSC genome browser. Definition of some specific columns are:</p>
+</blockquote>
+<pre><code>  5th: integer score for display calculated as int(-10*log10qvalue). Please note that currently this value might be out of the [0-1000] range defined in UCSC Encode narrowPeak [format](https://genome.ucsc.edu/FAQ/FAQformat.html##format12)
+  7th: fold-change
+  8th: -log10pvalue
+  9th: -log10qvalue
+  10th: relative summit position to peak start
+  The file can be loaded directly to UCSC genome browser. Remove the beginning track line if you want to analyze it by other tools.</code></pre>
+<blockquote>
+<p>NAME_summits.bed is in BED format, which contains the peak summits locations for every peaks. The 5th column in this file is -log10pvalue the same as NAME_peaks.bed. If you want to find the motifs at the binding sites, this file is recommended. The file can be loaded directly to UCSC genome browser. Remove the beginning track line if you want to analyze it by other tools.</p>
+</blockquote>
+<blockquote>
+<p>NAME_peaks.broadPeak is in BED6+3 format which is similar to narrowPeak file, except for missing the 10th column for annotating peak summits.</p>
+</blockquote>
+<blockquote>
+<p>NAME_peaks.gappedPeak is in BED12+3 format which contains both the broad region and narrow peaks. The 5th column is 10-log10qvalue, to be more compatible to show grey levels on UCSC browser. Tht 7th is the start of the first narrow peak in the region, and the 8th column is the end. The 9th column should be RGB color key, however, we keep 0 here to use the default color, so change it if you want. The 10th column tells how many blocks including the starting 1bp and ending 1bp of broad regions. The 11th column shows the length of each blocks, and 12th for the starts of each blocks. 13th: fold-change, 14th: -log10pvalue, 15th: -log10qvalue. The file can be loaded directly to UCSC genome browser.</p>
+</blockquote>
+<blockquote>
+<p>NAME_model.r is an R script which you can use to produce a PDF image about the model based on your data. Load it to R by:</p>
+</blockquote>
+<p><code>$ Rscript NAME_model.r</code></p>
+<p>Then a pdf file NAME_model.pdf will be generated in your current directory. Note, R is required to draw this figure.</p>
+<blockquote>
+<p>The .bdg files are in bedGraph format which can be imported to UCSC genome browser or be converted into even smaller bigWig files. There are two kinds of bdg files: treat_pileup, and control_lambda.</p>
+</blockquote>
+</div>
+<div id="activity-3" class="section level2" number="5.10">
+<h2><span class="header-section-number">5.10</span> Activity</h2>
+<blockquote>
+<p>Slect one gene of interest and find the enrichment score.
+Load the aligned data in IGV and look at the peaks. Data is available in the book repository.
+Do the same analysis in, Cyc, the other protein of interest in the paper. Data is available in the book repository.</p>
+</blockquote>
+</div>
+<div id="resources-and-bibliography-1" class="section level2" number="5.11">
+<h2><span class="header-section-number">5.11</span> Resources and Bibliography</h2>
+<p>Dubowy C, Sehgal A. Circadian Rhythms and Sleep in Drosophila melanogaster. Genetics. 2017;205(4):1373-1397. <a href="doi:10.1534/genetics.115.185157" class="uri">doi:10.1534/genetics.115.185157</a></p>
+<p>MEIRELES-FILHO, Antonio Carlos Alves and KYRIACOU, Charalambos Panayiotis. Circadian rhythms in insect disease vectors. Mem. Inst. Oswaldo Cruz [online]. 2013, vol.108, suppl.1 [cited 2020-07-08], pp.48-58.</p>
+<p>A.C.A. Meireles-Filho, A.F. Bardet, J.O. Yáñez-Cuna, G. Stampfel, A. Stark
+cis-regulatory requirements for tissue-specific programs of the circadian clock
+Curr Biol, 24 (2014), pp. 1-10</p>
+<p>Zhang, Y., Liu, T., Meyer, C.A. et al. Model-based Analysis of ChIP-Seq (MACS). Genome Biol 9, R137 (2008). <a href="https://doi.org/10.1186/gb-2008-9-9-r137" class="uri">https://doi.org/10.1186/gb-2008-9-9-r137</a></p>
+<p>Feng, J., Liu, T., Qin, B. et al. Identifying ChIP-seq enrichment using MACS. Nat Protoc 7, 1728–1740 (2012). <a href="https://doi.org/10.1038/nprot.2012.101" class="uri">https://doi.org/10.1038/nprot.2012.101</a></p>
+<p><a href="https://bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html" class="uri">https://bioconductor.org/packages/release/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html</a></p>
+<p><a href="https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/pipeline.html" class="uri">https://www.bioconductor.org/packages/release/bioc/vignettes/ChIPpeakAnno/inst/doc/pipeline.html</a></p>
+</div>
+<div id="session-info-all-the-packages-installed." class="section level2" number="5.12">
+<h2><span class="header-section-number">5.12</span> Session info: all the packages installed.</h2>
 <p>This is useful when we want to de-bug a code or share a code or a problem with someone.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="chip-sequencing-analysis.html#cb246-1"></a><span class="kw">toLatex</span>(<span class="kw">sessionInfo</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="chip-sequencing-analysis.html#cb260-1"></a><span class="kw">toLatex</span>(<span class="kw">sessionInfo</span>())</span></code></pre></div>
 <pre><code>## \begin{itemize}\raggedright
 ##   \item R version 3.6.2 (2019-12-12), \verb|x86_64-apple-darwin15.6.0|
 ##   \item Locale: \verb|en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8|
@@ -973,197 +1212,8 @@ Figure 5.8: <strong>CAPTION THIS FIGURE!!</strong>
 ##     withr~2.2.0, xfun~0.14, XML~3.99-0.3, xml2~1.3.2, yaml~2.2.1,
 ##     zlibbioc~1.32.0
 ## \end{itemize}</code></pre>
-</div>
-<div id="extra-how-to-solve-some-common-annotation-issues." class="section level2" number="5.9">
-<h2><span class="header-section-number">5.9</span> Extra: How to solve some common annotation issues.</h2>
-<p>Lets see some regular problem and how to solve it.</p>
-<p>I will show you first a regular problem we can have: annotation files do not correlate with the one previously used for annotation.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="chip-sequencing-analysis.html#cb248-1"></a>txdb &lt;-<span class="st"> </span><span class="kw">makeTxDbFromGFF</span>(<span class="dt">file=</span><span class="st">&quot;../macs2_analysis_p0.05/Drosophila_melanogaster.BDGP6.92.gtf&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;gtf&quot;</span>, <span class="dt">dataSource=</span><span class="st">&quot;dm6&quot;</span>, <span class="dt">organism=</span><span class="st">&quot;Drosophila melanogaster&quot;</span>)</span>
-<span id="cb248-2"><a href="chip-sequencing-analysis.html#cb248-2"></a><span class="kw">saveDb</span>(txdb, <span class="dt">file=</span><span class="st">&quot;./dm6.sqlite&quot;</span>)</span>
-<span id="cb248-3"><a href="chip-sequencing-analysis.html#cb248-3"></a>txdb &lt;-<span class="st"> </span><span class="kw">loadDb</span>(<span class="st">&quot;./dm6.sqlite&quot;</span>)</span>
-<span id="cb248-4"><a href="chip-sequencing-analysis.html#cb248-4"></a><span class="kw">class</span>(txdb)</span></code></pre></div>
-<pre><code>## TxDb object:
-## # Db type: TxDb
-## # Supporting package: GenomicFeatures
-## # Data source: dm6
-## # Organism: Drosophila melanogaster
-## # Taxonomy ID: 7227
-## # miRBase build ID: NA
-## # Genome: NA
-## # transcript_nrow: 34767
-## # exon_nrow: 87482
-## # cds_nrow: 62757
-## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-05 19:52:48 -0400 (Sun, 05 Jul 2020)
-## # GenomicFeatures version at creation time: 1.38.2
-## # RSQLite version at creation time: 2.2.0
-## # DBSCHEMAVERSION: 1.2
-## [1] &quot;TxDb&quot;
-## attr(,&quot;package&quot;)
-## [1] &quot;GenomicFeatures&quot;</code></pre>
-<p>Now we can actually extract the gen location from the annotation that we created</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="chip-sequencing-analysis.html#cb250-1"></a>ge &lt;-<span class="st"> </span><span class="kw">genes</span>(txdb, <span class="dt">columns=</span><span class="kw">c</span>(<span class="st">&quot;tx_name&quot;</span>, <span class="st">&quot;gene_id&quot;</span>, <span class="st">&quot;tx_type&quot;</span>)) <span class="co">#get the genes genomic ranges</span></span>
-<span id="cb250-2"><a href="chip-sequencing-analysis.html#cb250-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span></code></pre></div>
-<pre><code>##             seqnames    start      end width strand      tx_name     gene_id
-## FBgn0000003       3R  6822498  6822796   299      +  FBtr0081624 FBgn0000003
-## FBgn0000008       2R 22136968 22172834 35867      + FBtr0071.... FBgn0000008
-## FBgn0000014       3R 16807214 16830049 22836      - FBtr0306.... FBgn0000014
-## FBgn0000015       3R 16927212 16972236 45025      - FBtr0415.... FBgn0000015
-## FBgn0000017       3L 16615866 16647882 32017      - FBtr0112.... FBgn0000017
-## FBgn0000018       2L 10973443 10975293  1851      -  FBtr0080168 FBgn0000018
-##                tx_type
-## FBgn0000003 transcript
-## FBgn0000008 transcript
-## FBgn0000014 transcript
-## FBgn0000015 transcript
-## FBgn0000017 transcript
-## FBgn0000018 transcript</code></pre>
-<p>Now we will use the function <code>annotatePeakInBach</code></p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="chip-sequencing-analysis.html#cb252-1"></a>?<span class="kw">annotatePeakInBatch</span>() <span class="co">#to undestand what are the features we need</span></span>
-<span id="cb252-2"><a href="chip-sequencing-analysis.html#cb252-2"></a>peaksGR&lt;-<span class="kw">GRanges</span>(macs.res) <span class="co"># create the GRanges object of the macs-table </span></span>
-<span id="cb252-3"><a href="chip-sequencing-analysis.html#cb252-3"></a>annotatedPeak &lt;-<span class="st"> </span><span class="kw">annotatePeakInBatch</span>(peaksGR, <span class="dt">AnnotationData=</span><span class="kw">genes</span>(txdb))</span>
-<span id="cb252-4"><a href="chip-sequencing-analysis.html#cb252-4"></a><span class="kw">head</span>(annotatedPeak)</span></code></pre></div>
-<pre><code>## GRanges object with 6 ranges and 16 metadata columns:
-##             seqnames      ranges strand |    length abs_summit    pileup
-##                &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt;  &lt;integer&gt; &lt;numeric&gt;
-##   X00001.NA    chr2L 34224-34348      * |       125      34306     20.88
-##   X00002.NA    chr2L 34965-35180      * |       216      35108     23.26
-##   X00003.NA    chr2L 40369-40577      * |       209      40492     30.42
-##   X00004.NA    chr2L 57282-57429      * |       148      57365     22.07
-##   X00005.NA    chr2L 58368-58696      * |       329      58541     39.37
-##   X00006.NA    chr2L 62014-62139      * |       126      62048     19.68
-##             X.log10.pvalue. fold_enrichment X.log10.qvalue.
-##                   &lt;numeric&gt;       &lt;numeric&gt;       &lt;numeric&gt;
-##   X00001.NA         2.75497         1.97319          1.1235
-##   X00002.NA         3.33362          2.0219         1.65302
-##   X00003.NA         7.01721         2.83398         5.05903
-##   X00004.NA         3.47781         2.08079          1.7735
-##   X00005.NA        12.02019         3.64098         9.82848
-##   X00006.NA         2.42109         1.86559         0.83175
-##                                     name        peak     feature start_position
-##                                 &lt;factor&gt; &lt;character&gt; &lt;character&gt;      &lt;integer&gt;
-##   X00001.NA PeakAna_clk_Ip_vs_INP_peak_1       00001        &lt;NA&gt;           &lt;NA&gt;
-##   X00002.NA PeakAna_clk_Ip_vs_INP_peak_2       00002        &lt;NA&gt;           &lt;NA&gt;
-##   X00003.NA PeakAna_clk_Ip_vs_INP_peak_3       00003        &lt;NA&gt;           &lt;NA&gt;
-##   X00004.NA PeakAna_clk_Ip_vs_INP_peak_4       00004        &lt;NA&gt;           &lt;NA&gt;
-##   X00005.NA PeakAna_clk_Ip_vs_INP_peak_5       00005        &lt;NA&gt;           &lt;NA&gt;
-##   X00006.NA PeakAna_clk_Ip_vs_INP_peak_6       00006        &lt;NA&gt;           &lt;NA&gt;
-##             end_position feature_strand insideFeature distancetoFeature
-##                &lt;integer&gt;    &lt;character&gt;      &lt;factor&gt;         &lt;numeric&gt;
-##   X00001.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
-##   X00002.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
-##   X00003.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
-##   X00004.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
-##   X00005.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
-##   X00006.NA         &lt;NA&gt;           &lt;NA&gt;          &lt;NA&gt;              &lt;NA&gt;
-##             shortestDistance fromOverlappingOrNearest
-##                    &lt;integer&gt;              &lt;character&gt;
-##   X00001.NA             &lt;NA&gt;                     &lt;NA&gt;
-##   X00002.NA             &lt;NA&gt;                     &lt;NA&gt;
-##   X00003.NA             &lt;NA&gt;                     &lt;NA&gt;
-##   X00004.NA             &lt;NA&gt;                     &lt;NA&gt;
-##   X00005.NA             &lt;NA&gt;                     &lt;NA&gt;
-##   X00006.NA             &lt;NA&gt;                     &lt;NA&gt;
-##   -------
-##   seqinfo: 32 sequences from an unspecified genome; no seqlengths</code></pre>
-<p>Here we see that the peaks have a lot of NAs so we did something wrong. If we compare the <code>ge</code> object and the annotated peaks object we can see the problem.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="chip-sequencing-analysis.html#cb254-1"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ge))</span>
-<span id="cb254-2"><a href="chip-sequencing-analysis.html#cb254-2"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(annotatedPeak))</span></code></pre></div>
-<pre><code>##             seqnames    start      end width strand      tx_name     gene_id
-## FBgn0000003       3R  6822498  6822796   299      +  FBtr0081624 FBgn0000003
-## FBgn0000008       2R 22136968 22172834 35867      + FBtr0071.... FBgn0000008
-## FBgn0000014       3R 16807214 16830049 22836      - FBtr0306.... FBgn0000014
-## FBgn0000015       3R 16927212 16972236 45025      - FBtr0415.... FBgn0000015
-## FBgn0000017       3L 16615866 16647882 32017      - FBtr0112.... FBgn0000017
-## FBgn0000018       2L 10973443 10975293  1851      -  FBtr0080168 FBgn0000018
-##                tx_type
-## FBgn0000003 transcript
-## FBgn0000008 transcript
-## FBgn0000014 transcript
-## FBgn0000015 transcript
-## FBgn0000017 transcript
-## FBgn0000018 transcript
-##           seqnames start   end width strand length abs_summit pileup
-## X00001.NA    chr2L 34224 34348   125      *    125      34306  20.88
-## X00002.NA    chr2L 34965 35180   216      *    216      35108  23.26
-## X00003.NA    chr2L 40369 40577   209      *    209      40492  30.42
-## X00004.NA    chr2L 57282 57429   148      *    148      57365  22.07
-## X00005.NA    chr2L 58368 58696   329      *    329      58541  39.37
-## X00006.NA    chr2L 62014 62139   126      *    126      62048  19.68
-##           X.log10.pvalue. fold_enrichment X.log10.qvalue.
-## X00001.NA         2.75497         1.97319         1.12350
-## X00002.NA         3.33362         2.02190         1.65302
-## X00003.NA         7.01721         2.83398         5.05903
-## X00004.NA         3.47781         2.08079         1.77350
-## X00005.NA        12.02019         3.64098         9.82848
-## X00006.NA         2.42109         1.86559         0.83175
-##                                   name  peak feature start_position
-## X00001.NA PeakAna_clk_Ip_vs_INP_peak_1 00001    &lt;NA&gt;             NA
-## X00002.NA PeakAna_clk_Ip_vs_INP_peak_2 00002    &lt;NA&gt;             NA
-## X00003.NA PeakAna_clk_Ip_vs_INP_peak_3 00003    &lt;NA&gt;             NA
-## X00004.NA PeakAna_clk_Ip_vs_INP_peak_4 00004    &lt;NA&gt;             NA
-## X00005.NA PeakAna_clk_Ip_vs_INP_peak_5 00005    &lt;NA&gt;             NA
-## X00006.NA PeakAna_clk_Ip_vs_INP_peak_6 00006    &lt;NA&gt;             NA
-##           end_position feature_strand insideFeature distancetoFeature
-## X00001.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
-## X00002.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
-## X00003.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
-## X00004.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
-## X00005.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
-## X00006.NA           NA           &lt;NA&gt;          &lt;NA&gt;                NA
-##           shortestDistance fromOverlappingOrNearest
-## X00001.NA               NA                     &lt;NA&gt;
-## X00002.NA               NA                     &lt;NA&gt;
-## X00003.NA               NA                     &lt;NA&gt;
-## X00004.NA               NA                     &lt;NA&gt;
-## X00005.NA               NA                     &lt;NA&gt;
-## X00006.NA               NA                     &lt;NA&gt;</code></pre>
-</div>
-<div id="extra-detailed-explanation-of-the-macs-output-files" class="section level2" number="5.10">
-<h2><span class="header-section-number">5.10</span> Extra: Detailed explanation of the MACS output files</h2>
-<blockquote>
-<p>NAME_peaks.xls is a tabular file which contains information about called peaks. You can open it in excel and sort/filter using excel functions. Information include:</p>
-</blockquote>
-<pre><code>  chromosome name
-  start position of peak
-  end position of peak
-  length of peak region
-  absolute peak summit position
-  pileup height at peak summit, -log10(pvalue) for the peak summit (e.g. pvalue =1e-10, then this value should be 10)
-  fold enrichment for this peak summit against random Poisson distribution with local lambda, -log10(qvalue) at peak summit
-  Coordinates in XLS is 1-based which is different with BED format.</code></pre>
-<blockquote>
-<p>NAME_peaks.narrowPeak is BED6+4 format file which contains the peak locations together with peak summit, pvalue and qvalue. You can load it to UCSC genome browser. Definition of some specific columns are:</p>
-</blockquote>
-<pre><code>  5th: integer score for display calculated as int(-10*log10qvalue). Please note that currently this value might be out of the [0-1000] range defined in UCSC Encode narrowPeak [format](https://genome.ucsc.edu/FAQ/FAQformat.html##format12)
-  7th: fold-change
-  8th: -log10pvalue
-  9th: -log10qvalue
-  10th: relative summit position to peak start
-  The file can be loaded directly to UCSC genome browser. Remove the beginning track line if you want to analyze it by other tools.</code></pre>
-<blockquote>
-<p>NAME_summits.bed is in BED format, which contains the peak summits locations for every peaks. The 5th column in this file is -log10pvalue the same as NAME_peaks.bed. If you want to find the motifs at the binding sites, this file is recommended. The file can be loaded directly to UCSC genome browser. Remove the beginning track line if you want to analyze it by other tools.</p>
-</blockquote>
-<blockquote>
-<p>NAME_peaks.broadPeak is in BED6+3 format which is similar to narrowPeak file, except for missing the 10th column for annotating peak summits.</p>
-</blockquote>
-<blockquote>
-<p>NAME_peaks.gappedPeak is in BED12+3 format which contains both the broad region and narrow peaks. The 5th column is 10-log10qvalue, to be more compatible to show grey levels on UCSC browser. Tht 7th is the start of the first narrow peak in the region, and the 8th column is the end. The 9th column should be RGB color key, however, we keep 0 here to use the default color, so change it if you want. The 10th column tells how many blocks including the starting 1bp and ending 1bp of broad regions. The 11th column shows the length of each blocks, and 12th for the starts of each blocks. 13th: fold-change, 14th: -log10pvalue, 15th: -log10qvalue. The file can be loaded directly to UCSC genome browser.</p>
-</blockquote>
-<blockquote>
-<p>NAME_model.r is an R script which you can use to produce a PDF image about the model based on your data. Load it to R by:</p>
-</blockquote>
-<p><code>$ Rscript NAME_model.r</code></p>
-<p>Then a pdf file NAME_model.pdf will be generated in your current directory. Note, R is required to draw this figure.</p>
-<blockquote>
-<p>The .bdg files are in bedGraph format which can be imported to UCSC genome browser or be converted into even smaller bigWig files. There are two kinds of bdg files: treat_pileup, and control_lambda.</p>
-</blockquote>
 
 </div>
-</div>
-
-
-
 </div>
 <div class="psyteachr_footer">
   
@@ -1275,8 +1325,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="sequencing-techniques-and-preprocessing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="sequencing-techniques-and-preprocessing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rna-seq-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
