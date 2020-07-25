@@ -1,7 +1,7 @@
 --- 
 title: "Genomics with R for biologists"
 author: "Ines Lucia Patop: inespatop@brandeis.edu"
-date: "2020-07-08"
+date: "2020-07-25"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -38,7 +38,7 @@ I have a project on shell commands for biologist. Will be available soon.
 
 ## Data availability
 
-All the data used in this book is publiclily available. Preprocessed files can be found in this [reposotory](https://drive.google.com/drive/folders/1AU01lWjAuXP0Ln4jNM0anWC2SAfbN6Oq?usp=sharing)
+All the data used in this book is publiclily available. Preprocessed files can be found in this [reposotory](https://drive.google.com/drive/folders/1OcgvixGUpd3N2sU4ysnq1B-wOmi6uO27?usp=sharing)
 
 ## Acknowledgments
 

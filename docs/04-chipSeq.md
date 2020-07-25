@@ -181,7 +181,7 @@ txdb <- loadDb("../macs2_analysis_p0.05/dm6.sqlite") #this is loading the sqlite
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 18:49:22 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-25 11:26:48 -0400 (Sat, 25 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -577,10 +577,10 @@ peakHeatmap(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, color="darkviole
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-08 18:49:56 
-## >> preparing tag matrix...		 2020-07-08 18:49:56 
-## >> generating figure...		 2020-07-08 18:50:01 
-## >> done...			 2020-07-08 18:50:05
+## >> preparing promoter regions...	 2020-07-25 11:27:33 
+## >> preparing tag matrix...		 2020-07-25 11:27:34 
+## >> generating figure...		 2020-07-25 11:27:39 
+## >> done...			 2020-07-25 11:27:43
 ```
 
 
@@ -594,9 +594,9 @@ plotAvgProf2(peaksGR, TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic R
 </div>
 
 ```
-## >> preparing promoter regions...	 2020-07-08 18:50:06 
-## >> preparing tag matrix...		 2020-07-08 18:50:06 
-## >> plotting figure...			 2020-07-08 18:50:10
+## >> preparing promoter regions...	 2020-07-25 11:27:44 
+## >> preparing tag matrix...		 2020-07-25 11:27:44 
+## >> plotting figure...			 2020-07-25 11:27:48
 ```
 
 ## Sequence Motif analysis
@@ -898,7 +898,7 @@ class(txdb)
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-08 18:50:26 -0400 (Wed, 08 Jul 2020)
+## # Creation time: 2020-07-25 11:28:07 -0400 (Sat, 25 Jul 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -1130,15 +1130,15 @@ toLatex(sessionInfo())
 ##     ChIPpeakAnno~3.20.1, ChIPseeker~1.22.1, devtools~2.3.0,
 ##     dplyr~1.0.0, forcats~0.5.0, futile.logger~1.4.3,
 ##     GenomeInfoDb~1.22.1, GenomicFeatures~1.38.2, GenomicRanges~1.38.0,
-##     ggplot2~3.3.1, ggseqlogo~0.1, gridExtra~2.3, IRanges~2.20.2,
+##     ggplot2~3.3.2, ggseqlogo~0.1, gridExtra~2.3, IRanges~2.20.2,
 ##     org.Dm.eg.db~3.10.0, purrr~0.3.4, readr~1.3.1, Rsamtools~2.2.3,
-##     S4Vectors~0.24.4, seqLogo~1.52.0, stringr~1.4.0, tibble~3.0.1,
+##     S4Vectors~0.24.4, seqLogo~1.52.0, stringr~1.4.0, tibble~3.0.3,
 ##     tidyr~1.1.0, tidyverse~1.3.0, usethis~1.6.1, VennDiagram~1.6.20,
 ##     webex~0.9.1, XVector~0.26.0
 ##   \item Loaded via a namespace (and not attached): ade4~1.7-15,
 ##     AnnotationFilter~1.10.0, askpass~1.1, assertthat~0.2.1,
-##     backports~1.1.7, BiocFileCache~1.10.2, BiocManager~1.30.10,
-##     BiocParallel~1.20.1, biomaRt~2.42.1, bit~1.1-15.2, bit64~0.9-7,
+##     backports~1.1.8, BiocFileCache~1.10.2, BiocManager~1.30.10,
+##     BiocParallel~1.20.1, biomaRt~2.42.1, bit~1.1-15.2, bit64~0.9-7.1,
 ##     bitops~1.0-6, blob~1.2.1, bookdown~0.19, boot~1.3-25, broom~0.5.6,
 ##     BSgenome~1.54.0, callr~3.4.3, caTools~1.18.0, cellranger~1.1.0,
 ##     cli~2.0.2, colorspace~1.4-1, compiler~3.6.2, cowplot~1.0.0,
@@ -1152,26 +1152,26 @@ toLatex(sessionInfo())
 ##     ggplotify~0.0.5, ggraph~2.0.3, ggrepel~0.8.2, ggridges~0.5.2,
 ##     glue~1.4.1, GO.db~3.10.0, GOSemSim~2.12.1, gplots~3.0.3,
 ##     graph~1.64.0, graphlayouts~0.7.0, gridGraphics~0.5-0, gtable~0.3.0,
-##     gtools~3.8.2, haven~2.3.1, highr~0.8, hms~0.5.3, htmltools~0.4.0,
-##     httr~1.4.1, idr~1.2, igraph~1.2.5, jsonlite~1.6.1,
+##     gtools~3.8.2, haven~2.3.1, highr~0.8, hms~0.5.3, htmltools~0.5.0,
+##     httr~1.4.2, idr~1.2, igraph~1.2.5, jsonlite~1.7.0,
 ##     KernSmooth~2.23-17, knitr~1.28, labeling~0.3, lambda.r~1.2.4,
 ##     lattice~0.20-41, lazyeval~0.2.2, lifecycle~0.2.0, limma~3.42.2,
 ##     lubridate~1.7.9, magrittr~1.5, MASS~7.3-51.6, Matrix~1.2-18,
 ##     matrixStats~0.56.0, memoise~1.1.0, modelr~0.1.8, multtest~2.42.0,
-##     munsell~0.5.0, nlme~3.1-148, openssl~1.4.1, pillar~1.4.4,
-##     pkgbuild~1.0.8, pkgconfig~2.0.3, pkgload~1.1.0, plotrix~3.7-8,
-##     plyr~1.8.6, polyclip~1.10-0, prettyunits~1.1.1, processx~3.4.2,
+##     munsell~0.5.0, nlme~3.1-148, openssl~1.4.2, pillar~1.4.6,
+##     pkgbuild~1.1.0, pkgconfig~2.0.3, pkgload~1.1.0, plotrix~3.7-8,
+##     plyr~1.8.6, polyclip~1.10-0, prettyunits~1.1.1, processx~3.4.3,
 ##     progress~1.2.2, ProtGenerics~1.18.0, ps~1.3.3, qvalue~2.18.0,
 ##     R6~2.4.1, rappdirs~0.3.1, RBGL~1.62.1, RColorBrewer~1.1-2,
-##     Rcpp~1.0.4.6, RCurl~1.98-1.2, readxl~1.3.1.9000, regioneR~1.18.1,
-##     remotes~2.1.1, reprex~0.3.0, reshape2~1.4.4, rlang~0.4.6,
+##     Rcpp~1.0.5, RCurl~1.98-1.2, readxl~1.3.1.9000, regioneR~1.18.1,
+##     remotes~2.1.1, reprex~0.3.0, reshape2~1.4.4, rlang~0.4.7,
 ##     rmarkdown~2.2, rprojroot~1.3-2, RSQLite~2.2.0, rstudioapi~0.11,
 ##     rtracklayer~1.46.0, rvcheck~0.1.8, rvest~0.3.5, scales~1.1.1,
 ##     seqinr~3.6-1, sessioninfo~1.1.1, splines~3.6.2, stringi~1.4.6,
 ##     SummarizedExperiment~1.16.1, survival~3.1-12, testthat~2.3.2,
 ##     tidygraph~1.2.0, tidyselect~1.1.0, tools~3.6.2, triebeard~0.3.0,
 ##     tweenr~1.0.1, TxDb.Hsapiens.UCSC.hg19.knownGene~3.2.2,
-##     urltools~1.7.3, vctrs~0.3.1, viridis~0.5.1, viridisLite~0.3.0,
+##     urltools~1.7.3, vctrs~0.3.2, viridis~0.5.1, viridisLite~0.3.0,
 ##     withr~2.2.0, xfun~0.14, XML~3.99-0.3, xml2~1.3.2, yaml~2.2.1,
 ##     zlibbioc~1.32.0
 ## \end{itemize}

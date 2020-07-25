@@ -1112,14 +1112,14 @@ DN1_cyc <- meta2d(infile="cycDN1.csv",filestyle="csv", timepoints=(rep(c(3,7,11,
 ```
 
 ```
-## The JTK is in process from  18:51:34 07-08-2020 
+## The JTK is in process from  11:29:24 07-25-2020 
 ## Warning: the input 'maxper' is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  18:52:16 07-08-2020 
-## The LS is in process from  18:52:16 07-08-2020 
-## The analysis by LS is finished at  18:58:50 07-08-2020 
+## The analysis by JTK is finished at  11:29:56 07-25-2020 
+## The LS is in process from  11:29:56 07-25-2020 
+## The analysis by LS is finished at  11:36:54 07-25-2020 
 ## DONE! The analysis about ' cycDN1.csv '  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## "Time used:"    "395.119"     "15.845"     "468.91"          "0"          "0"
+## "Time used:"    "437.646"     "20.844"    "480.543"          "0"          "0"
 ```
 
 As we can read in the help page `?meta2d` the output of this function is:
