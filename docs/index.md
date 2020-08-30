@@ -1,7 +1,7 @@
 --- 
 title: "Genomics with R for biologists"
 author: "Ines Lucia Patop: inespatop@brandeis.edu"
-date: "2020-07-25"
+date: "2020-08-30"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

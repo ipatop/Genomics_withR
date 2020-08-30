@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 5 Chip Sequencing Analysis | Genomics with R for biologists</title>
   <meta name="description" content="This is the index for the coursebook" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 5 Chip Sequencing Analysis | Genomics with R for biologists" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ines Lucia Patop inespatop@brandeis.edu" />
 
 
-<meta name="date" content="2020-07-25" />
+<meta name="date" content="2020-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="sequencing-techniques-and-preprocessing.html"/>
 <link rel="next" href="rna-seq-analysis.html"/>
-<script src="libs/header-attrs-2.2/header-attrs.js"></script>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -163,17 +164,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Data manipulation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#objectives-1"><i class="fa fa-check"></i><b>2.1</b> Objectives</a></li>
-<li class="chapter" data-level="2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>2.1</b> Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
 <li class="chapter" data-level="2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#load-data"><i class="fa fa-check"></i><b>2.3</b> Load data</a></li>
 <li class="chapter" data-level="2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#data-exploration"><i class="fa fa-check"></i><b>2.4</b> Data exploration</a></li>
 <li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#subsetting"><i class="fa fa-check"></i><b>2.5</b> Subsetting</a></li>
-<li class="chapter" data-level="2.6" data-path="data-manipulation.html"><a href="data-manipulation.html#activity-1"><i class="fa fa-check"></i><b>2.6</b> Activity:</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>2.6</b> Activity:</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html"><i class="fa fa-check"></i><b>3</b> Visualization and Statistical test</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-2"><i class="fa fa-check"></i><b>3.1</b> Objectives</a></li>
-<li class="chapter" data-level="3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-2"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>3.1</b> Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
 <li class="chapter" data-level="3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>3.3</b> Plots</a>
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.3.1</b> Line and points</a></li>
@@ -187,13 +188,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.4.2</b> T-test/Wilcoxon</a></li>
 <li class="chapter" data-level="3.4.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.4.3</b> Anova/Kruskal–Wallis</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-2"><i class="fa fa-check"></i><b>3.5</b> Activity:</a></li>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>3.5</b> Activity:</a></li>
 <li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.6</b> Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocessing</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#objectives-3"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#introduction-3"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
 <li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#different-type-of-data-dna-rna-splicing-single-end-paired-end"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing, single-end paired-end)</a></li>
 <li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From the sequencer machine to the sequence</a></li>
 <li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#general-processing"><i class="fa fa-check"></i><b>4.5</b> General processing</a>
@@ -207,8 +208,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#objectives-4"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
-<li class="chapter" data-level="5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#introduction-4"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
 <li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#data-pre-processing-peak-calling"><i class="fa fa-check"></i><b>5.3</b> Data pre-processing (peak-calling):</a></li>
 <li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.4</b> Exploring the results:</a></li>
 <li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.5</b> Annotating the peaks.</a>
@@ -223,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-and-export-the-output"><i class="fa fa-check"></i><b>5.6.1</b> Explore and Export the output</a></li>
 <li class="chapter" data-level="5.6.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#positive-controls."><i class="fa fa-check"></i><b>5.6.2</b> Positive controls.</a></li>
-<li class="chapter" data-level="5.6.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plots-1"><i class="fa fa-check"></i><b>5.6.3</b> Plots</a></li>
+<li class="chapter" data-level="5.6.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>5.6.3</b> Plots</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a>
 <ul>
@@ -235,29 +236,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-how-to-solve-some-common-annotation-issues."><i class="fa fa-check"></i><b>5.8</b> Extra: How to solve some common annotation issues.</a></li>
 <li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-detailed-explanation-of-the-macs-output-files"><i class="fa fa-check"></i><b>5.9</b> Extra: Detailed explanation of the MACS output files</a></li>
-<li class="chapter" data-level="5.10" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#activity-3"><i class="fa fa-check"></i><b>5.10</b> Activity</a></li>
-<li class="chapter" data-level="5.11" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>5.11</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="5.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>5.10</b> Activity</a></li>
+<li class="chapter" data-level="5.11" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>5.11</b> Resources and Bibliography</a></li>
 <li class="chapter" data-level="5.12" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.12</b> Session info: all the packages installed.</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html"><i class="fa fa-check"></i><b>6</b> RNA seq analysis</a>
+<li class="chapter" data-level="6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html"><i class="fa fa-check"></i><b>6</b> RNA-seq analysis</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#objectives-5"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
-<li class="chapter" data-level="6.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#introduction-5"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
 <li class="chapter" data-level="6.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression"><i class="fa fa-check"></i><b>6.3</b> Differential gene expression</a>
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#loading-the-tables"><i class="fa fa-check"></i><b>6.3.1</b> Loading the tables</a></li>
 <li class="chapter" data-level="6.3.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#create-the-deseq2-count-matrix"><i class="fa fa-check"></i><b>6.3.2</b> Create the DeSeq2 count matrix</a></li>
-<li class="chapter" data-level="6.3.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#coldata-preparation"><i class="fa fa-check"></i><b>6.3.3</b> colData preparation</a></li>
-<li class="chapter" data-level="6.3.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#heat-map-pca-analysis"><i class="fa fa-check"></i><b>6.3.4</b> Heat-map PCA analysis</a></li>
+<li class="chapter" data-level="6.3.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#meta-data-coldata-preparation"><i class="fa fa-check"></i><b>6.3.3</b> Meta-data (colData) preparation</a></li>
+<li class="chapter" data-level="6.3.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#quality-filtering-distance-matrix-and-principal-component-analysis-pca"><i class="fa fa-check"></i><b>6.3.4</b> Quality filtering: Distance matrix and principal component analysis (PCA)</a></li>
 <li class="chapter" data-level="6.3.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression-analysis-between-zt."><i class="fa fa-check"></i><b>6.3.5</b> Differential gene expression analysis between ZT.</a></li>
-<li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.6</b> Plot counts using ggplot</a></li>
+<li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#explore-results"><i class="fa fa-check"></i><b>6.3.6</b> Explore results</a></li>
+<li class="chapter" data-level="6.3.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.7</b> Plot counts using ggplot</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>6.4</b> Cycling genes analysis</a></li>
-<li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#activity-4"><i class="fa fa-check"></i><b>6.5</b> Activity</a></li>
-<li class="chapter" data-level="6.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-heatmap-and-pca-in-the-other-celltypes."><i class="fa fa-check"></i><b>6.6</b> Extra: Heatmap and PCA in the other celltypes.</a></li>
-<li class="chapter" data-level="6.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-advanced-cycling-genes-analysis"><i class="fa fa-check"></i><b>6.7</b> Extra: Advanced cycling genes analysis</a></li>
-<li class="chapter" data-level="6.8" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.8</b> Extra: negative binomial model</a></li>
-<li class="chapter" data-level="6.9" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#resources-and-bibliography-2"><i class="fa fa-check"></i><b>6.9</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#gene-ontology-go-term-analysis"><i class="fa fa-check"></i><b>6.4</b> Gene Ontology (GO) term analysis:</a></li>
+<li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.5</b> Extra: negative binomial model</a></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>6.6</b> Activity</a></li>
+<li class="chapter" data-level="6.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>6.7</b> Resources and Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="circadian-analysis.html"><a href="circadian-analysis.html"><i class="fa fa-check"></i><b>7</b> Circadian analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>7.1</b> Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>7.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>7.3</b> Cycling genes analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis-normalizing-by-maximum"><i class="fa fa-check"></i><b>7.4</b> Cycling genes analysis normalizing by maximum</a></li>
+<li class="chapter" data-level="7.5" data-path="circadian-analysis.html"><a href="circadian-analysis.html#plot-the-data."><i class="fa fa-check"></i><b>7.5</b> Plot the data.</a></li>
+<li class="chapter" data-level="7.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.6</b> Activity</a></li>
+<li class="chapter" data-level="7.7" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.7</b> Resources and Bibliography</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -286,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="chip-sequencing-analysis" class="section level1" number="5">
 <h1><span class="header-section-number">Lab 5</span> Chip Sequencing Analysis</h1>
-<div id="objectives-4" class="section level2" number="5.1">
+<div id="objectives" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Objectives</h2>
 <p>After this section you should be able to:</p>
 <ol style="list-style-type: decimal">
@@ -296,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Find sequence motif enrichment in sequencing data.</li>
 </ol>
 </div>
-<div id="introduction-4" class="section level2" number="5.2">
+<div id="introduction" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Introduction</h2>
 <p><strong>Chip-seq procedure:</strong></p>
 <p>“ChIP-seq” is short for “chromatin immunoprecipitation (ChIP) followed by sequencing (seq)”. ChipSeq data is basically DNA sequencing data in which the DNA is sequenced AFTER immunoprecipitating a protein of interest. Therefore, we expect to sequence the pieces of DNA that are interacting with the precipitated protein.</p>
@@ -447,7 +457,7 @@ Figure 4.4: IGV pileup traks over tim. Upper line IP, lower line INP.
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-25 11:26:48 -0400 (Sat, 25 Jul 2020)
+## # Creation time: 2020-08-30 18:14:33 -0400 (Sun, 30 Aug 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2</code></pre>
@@ -715,7 +725,7 @@ Figure 5.1: Different joint options from dplyr. Adapted from cheatsheet.
 ## 3987      13233          2 FBgn0014396  FBtr0077567             0    tim
 ## 3988      13233          2 FBgn0014396  FBtr0077567             0    tim</code></pre>
 </div>
-<div id="plots-1" class="section level3" number="5.6.3">
+<div id="plots" class="section level3" number="5.6.3">
 <h3><span class="header-section-number">5.6.3</span> Plots</h3>
 <p>This package has some useful plot functions so we can explore the results more easily.</p>
 <p>First we can see the peaks over the chromosomes. For that we use the function <code>covplot</code>. Its name comes from “coverage plot”.</p>
@@ -735,10 +745,10 @@ Figure 5.2: Coverage plot.
 Figure 5.3: Peak heatmap.
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-25 11:27:33 
-## &gt;&gt; preparing tag matrix...        2020-07-25 11:27:34 
-## &gt;&gt; generating figure...       2020-07-25 11:27:39 
-## &gt;&gt; done...            2020-07-25 11:27:43</code></pre>
+<pre><code>## &gt;&gt; preparing promoter regions...	 2020-08-30 18:15:08 
+## &gt;&gt; preparing tag matrix...		 2020-08-30 18:15:08 
+## &gt;&gt; generating figure...		 2020-08-30 18:15:13 
+## &gt;&gt; done...			 2020-08-30 18:15:17</code></pre>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="chip-sequencing-analysis.html#cb227-1"></a><span class="kw">plotAvgProf2</span>(peaksGR, <span class="dt">TxDb=</span>txdb, <span class="dt">upstream=</span><span class="dv">1000</span>, <span class="dt">downstream=</span><span class="dv">1000</span>, <span class="dt">xlab=</span><span class="st">&quot;Genomic Region (5&#39;-&gt;3&#39;)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Read Count Frequency&quot;</span>) <span class="co">#Try exploring the options of this function. </span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
 <img src="04-chipSeq_files/figure-html/unnamed-chunk-26-1.png" alt="Average coverage plot." width="100%" />
@@ -746,9 +756,9 @@ Figure 5.3: Peak heatmap.
 Figure 5.4: Average coverage plot.
 </p>
 </div>
-<pre><code>## &gt;&gt; preparing promoter regions...  2020-07-25 11:27:44 
-## &gt;&gt; preparing tag matrix...        2020-07-25 11:27:44 
-## &gt;&gt; plotting figure...             2020-07-25 11:27:48</code></pre>
+<pre><code>## &gt;&gt; preparing promoter regions...	 2020-08-30 18:15:18 
+## &gt;&gt; preparing tag matrix...		 2020-08-30 18:15:18 
+## &gt;&gt; plotting figure...			 2020-08-30 18:15:22</code></pre>
 </div>
 </div>
 <div id="sequence-motif-analysis" class="section level2" number="5.7">
@@ -963,7 +973,7 @@ Figure 3.11: Many significant sequence logo in probability and percentage of inf
 ## # exon_nrow: 87482
 ## # cds_nrow: 62757
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2020-07-25 11:28:07 -0400 (Sat, 25 Jul 2020)
+## # Creation time: 2020-08-30 18:15:37 -0400 (Sun, 30 Aug 2020)
 ## # GenomicFeatures version at creation time: 1.38.2
 ## # RSQLite version at creation time: 2.2.0
 ## # DBSCHEMAVERSION: 1.2
@@ -1128,7 +1138,7 @@ Figure 3.11: Many significant sequence logo in probability and percentage of inf
 <p>The .bdg files are in bedGraph format which can be imported to UCSC genome browser or be converted into even smaller bigWig files. There are two kinds of bdg files: treat_pileup, and control_lambda.</p>
 </blockquote>
 </div>
-<div id="activity-3" class="section level2" number="5.10">
+<div id="activity" class="section level2" number="5.10">
 <h2><span class="header-section-number">5.10</span> Activity</h2>
 <blockquote>
 <p>Slect one gene of interest and find the enrichment score.
@@ -1136,7 +1146,7 @@ Load the aligned data in IGV and look at the peaks. Data is available in the boo
 Do the same analysis in, Cyc, the other protein of interest in the paper. Data is available in the book repository.</p>
 </blockquote>
 </div>
-<div id="resources-and-bibliography-1" class="section level2" number="5.11">
+<div id="resources-and-bibliography" class="section level2" number="5.11">
 <h2><span class="header-section-number">5.11</span> Resources and Bibliography</h2>
 <p>Dubowy C, Sehgal A. Circadian Rhythms and Sleep in Drosophila melanogaster. Genetics. 2017;205(4):1373-1397. <a href="doi:10.1534/genetics.115.185157" class="uri">doi:10.1534/genetics.115.185157</a></p>
 <p>MEIRELES-FILHO, Antonio Carlos Alves and KYRIACOU, Charalambos Panayiotis. Circadian rhythms in insect disease vectors. Mem. Inst. Oswaldo Cruz [online]. 2013, vol.108, suppl.1 [cited 2020-07-08], pp.48-58.</p>
@@ -1164,52 +1174,52 @@ Curr Biol, 24 (2014), pp. 1-10</p>
 ##     methods, parallel, stats, stats4, utils
 ##   \item Other packages: AnnotationDbi~1.48.0, BCRANK~1.48.0,
 ##     Biobase~2.46.0, BiocGenerics~0.32.0, Biostrings~2.54.0,
-##     ChIPpeakAnno~3.20.1, ChIPseeker~1.22.1, devtools~2.3.0,
-##     dplyr~1.0.0, forcats~0.5.0, futile.logger~1.4.3,
+##     ChIPpeakAnno~3.20.1, ChIPseeker~1.22.1, devtools~2.3.1,
+##     dplyr~1.0.2, forcats~0.5.0, futile.logger~1.4.3,
 ##     GenomeInfoDb~1.22.1, GenomicFeatures~1.38.2, GenomicRanges~1.38.0,
 ##     ggplot2~3.3.2, ggseqlogo~0.1, gridExtra~2.3, IRanges~2.20.2,
 ##     org.Dm.eg.db~3.10.0, purrr~0.3.4, readr~1.3.1, Rsamtools~2.2.3,
 ##     S4Vectors~0.24.4, seqLogo~1.52.0, stringr~1.4.0, tibble~3.0.3,
-##     tidyr~1.1.0, tidyverse~1.3.0, usethis~1.6.1, VennDiagram~1.6.20,
+##     tidyr~1.1.2, tidyverse~1.3.0, usethis~1.6.1, VennDiagram~1.6.20,
 ##     webex~0.9.1, XVector~0.26.0
 ##   \item Loaded via a namespace (and not attached): ade4~1.7-15,
 ##     AnnotationFilter~1.10.0, askpass~1.1, assertthat~0.2.1,
-##     backports~1.1.8, BiocFileCache~1.10.2, BiocManager~1.30.10,
-##     BiocParallel~1.20.1, biomaRt~2.42.1, bit~1.1-15.2, bit64~0.9-7.1,
-##     bitops~1.0-6, blob~1.2.1, bookdown~0.19, boot~1.3-25, broom~0.5.6,
+##     backports~1.1.9, BiocFileCache~1.10.2, BiocManager~1.30.10,
+##     BiocParallel~1.20.1, biomaRt~2.42.1, bit~4.0.4, bit64~4.0.5,
+##     bitops~1.0-6, blob~1.2.1, bookdown~0.20, boot~1.3-25, broom~0.7.0,
 ##     BSgenome~1.54.0, callr~3.4.3, caTools~1.18.0, cellranger~1.1.0,
 ##     cli~2.0.2, colorspace~1.4-1, compiler~3.6.2, cowplot~1.0.0,
-##     crayon~1.3.4, curl~4.3, data.table~1.12.8, DBI~1.1.0, dbplyr~1.4.4,
+##     crayon~1.3.4, curl~4.3, data.table~1.13.0, DBI~1.1.0, dbplyr~1.4.4,
 ##     DelayedArray~0.12.3, desc~1.2.0, digest~0.6.25, DO.db~2.9,
 ##     DOSE~3.12.0, ellipsis~0.3.1, enrichplot~1.6.1, ensembldb~2.10.2,
 ##     europepmc~0.4, evaluate~0.14, fansi~0.4.1, farver~2.0.3,
-##     fastmatch~1.1-0, fgsea~1.12.0, formatR~1.7, fs~1.4.1,
+##     fastmatch~1.1-0, fgsea~1.12.0, formatR~1.7, fs~1.5.0,
 ##     futile.options~1.0.1, gdata~2.18.0, generics~0.0.2,
-##     GenomeInfoDbData~1.2.2, GenomicAlignments~1.22.1, ggforce~0.3.1,
+##     GenomeInfoDbData~1.2.2, GenomicAlignments~1.22.1, ggforce~0.3.2,
 ##     ggplotify~0.0.5, ggraph~2.0.3, ggrepel~0.8.2, ggridges~0.5.2,
-##     glue~1.4.1, GO.db~3.10.0, GOSemSim~2.12.1, gplots~3.0.3,
+##     glue~1.4.2, GO.db~3.10.0, GOSemSim~2.12.1, gplots~3.0.4,
 ##     graph~1.64.0, graphlayouts~0.7.0, gridGraphics~0.5-0, gtable~0.3.0,
 ##     gtools~3.8.2, haven~2.3.1, highr~0.8, hms~0.5.3, htmltools~0.5.0,
 ##     httr~1.4.2, idr~1.2, igraph~1.2.5, jsonlite~1.7.0,
-##     KernSmooth~2.23-17, knitr~1.28, labeling~0.3, lambda.r~1.2.4,
+##     KernSmooth~2.23-17, knitr~1.29, labeling~0.3, lambda.r~1.2.4,
 ##     lattice~0.20-41, lazyeval~0.2.2, lifecycle~0.2.0, limma~3.42.2,
-##     lubridate~1.7.9, magrittr~1.5, MASS~7.3-51.6, Matrix~1.2-18,
+##     lubridate~1.7.9, magrittr~1.5, MASS~7.3-52, Matrix~1.2-18,
 ##     matrixStats~0.56.0, memoise~1.1.0, modelr~0.1.8, multtest~2.42.0,
-##     munsell~0.5.0, nlme~3.1-148, openssl~1.4.2, pillar~1.4.6,
-##     pkgbuild~1.1.0, pkgconfig~2.0.3, pkgload~1.1.0, plotrix~3.7-8,
-##     plyr~1.8.6, polyclip~1.10-0, prettyunits~1.1.1, processx~3.4.3,
-##     progress~1.2.2, ProtGenerics~1.18.0, ps~1.3.3, qvalue~2.18.0,
-##     R6~2.4.1, rappdirs~0.3.1, RBGL~1.62.1, RColorBrewer~1.1-2,
-##     Rcpp~1.0.5, RCurl~1.98-1.2, readxl~1.3.1.9000, regioneR~1.18.1,
-##     remotes~2.1.1, reprex~0.3.0, reshape2~1.4.4, rlang~0.4.7,
-##     rmarkdown~2.2, rprojroot~1.3-2, RSQLite~2.2.0, rstudioapi~0.11,
-##     rtracklayer~1.46.0, rvcheck~0.1.8, rvest~0.3.5, scales~1.1.1,
+##     munsell~0.5.0, openssl~1.4.2, pillar~1.4.6, pkgbuild~1.1.0,
+##     pkgconfig~2.0.3, pkgload~1.1.0, plotrix~3.7-8, plyr~1.8.6,
+##     polyclip~1.10-0, prettyunits~1.1.1, processx~3.4.3, progress~1.2.2,
+##     ProtGenerics~1.18.0, ps~1.3.4, qvalue~2.18.0, R6~2.4.1,
+##     rappdirs~0.3.1, RBGL~1.62.1, RColorBrewer~1.1-2, Rcpp~1.0.5,
+##     RCurl~1.98-1.2, readxl~1.3.1.9000, regioneR~1.18.1, remotes~2.2.0,
+##     reprex~0.3.0, reshape2~1.4.4, rlang~0.4.7, rmarkdown~2.3,
+##     rprojroot~1.3-2, RSQLite~2.2.0, rstudioapi~0.11,
+##     rtracklayer~1.46.0, rvcheck~0.1.8, rvest~0.3.6, scales~1.1.1,
 ##     seqinr~3.6-1, sessioninfo~1.1.1, splines~3.6.2, stringi~1.4.6,
-##     SummarizedExperiment~1.16.1, survival~3.1-12, testthat~2.3.2,
+##     SummarizedExperiment~1.16.1, survival~3.2-3, testthat~2.3.2,
 ##     tidygraph~1.2.0, tidyselect~1.1.0, tools~3.6.2, triebeard~0.3.0,
 ##     tweenr~1.0.1, TxDb.Hsapiens.UCSC.hg19.knownGene~3.2.2,
-##     urltools~1.7.3, vctrs~0.3.2, viridis~0.5.1, viridisLite~0.3.0,
-##     withr~2.2.0, xfun~0.14, XML~3.99-0.3, xml2~1.3.2, yaml~2.2.1,
+##     urltools~1.7.3, vctrs~0.3.4, viridis~0.5.1, viridisLite~0.3.0,
+##     withr~2.2.0, xfun~0.16, XML~3.99-0.3, xml2~1.3.2, yaml~2.2.1,
 ##     zlibbioc~1.32.0
 ## \end{itemize}</code></pre>
 

@@ -152,6 +152,16 @@ str(ChickWeight)
 ##  $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...
 ##  $ Chick : Ord.factor w/ 50 levels "18"<"16"<"15"<..: 15 15 15 15 15 15 15 15 15 15 ...
 ##  $ Diet  : Factor w/ 4 levels "1","2","3","4": 1 1 1 1 1 1 1 1 1 1 ...
+##  - attr(*, "formula")=Class 'formula'  language weight ~ Time | Chick
+##   .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+##  - attr(*, "outer")=Class 'formula'  language ~Diet
+##   .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+##  - attr(*, "labels")=List of 2
+##   ..$ x: chr "Time"
+##   ..$ y: chr "Body weight"
+##  - attr(*, "units")=List of 2
+##   ..$ x: chr "(days)"
+##   ..$ y: chr "(gm)"
 ```
 
 With the **$ operator** we can explore the columns
@@ -528,6 +538,16 @@ str(ChickWeight) #structure of the data frame
 ##  $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...
 ##  $ Chick : Ord.factor w/ 50 levels "18"<"16"<"15"<..: 15 15 15 15 15 15 15 15 15 15 ...
 ##  $ Diet  : Factor w/ 4 levels "1","2","3","4": 1 1 1 1 1 1 1 1 1 1 ...
+##  - attr(*, "formula")=Class 'formula'  language weight ~ Time | Chick
+##   .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+##  - attr(*, "outer")=Class 'formula'  language ~Diet
+##   .. ..- attr(*, ".Environment")=<environment: R_EmptyEnv> 
+##  - attr(*, "labels")=List of 2
+##   ..$ x: chr "Time"
+##   ..$ y: chr "Body weight"
+##  - attr(*, "units")=List of 2
+##   ..$ x: chr "(days)"
+##   ..$ y: chr "(gm)"
 ```
 
 ### Line and points
@@ -542,7 +562,7 @@ qplot(data=ChickWeight,x = weight, y=Time, geom = c("line","point"))
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-35-1.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-351)Point and line plots</p>
+<p class="caption">(\#fig:unnamed-chunk-35-1)Point and line plots</p>
 </div>
 
 ```r
@@ -551,7 +571,7 @@ qplot(data=ChickWeight,x = weight, y=Time, geom = c("line","point"), colour=Diet
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-35-2.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-352)Point and line plots</p>
+<p class="caption">(\#fig:unnamed-chunk-35-2)Point and line plots</p>
 </div>
 The same using ggplot:
 
@@ -563,7 +583,7 @@ ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-36-1.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-361)Point and line plots</p>
+<p class="caption">(\#fig:unnamed-chunk-36-1)Point and line plots</p>
 </div>
 
 ```r
@@ -575,7 +595,7 @@ ggplot(data = ChickWeight, aes(y = weight, x=Time,colour=Diet))+ #data and basic
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-36-2.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-362)Point and line plots</p>
+<p class="caption">(\#fig:unnamed-chunk-36-2)Point and line plots</p>
 </div>
 ### Historgam and density plots
 
@@ -590,7 +610,7 @@ qplot(data = ChickWeight,x=weight, binwith=10)
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-37-1.png" alt="Histogram and Density plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-371)Histogram and Density plots</p>
+<p class="caption">(\#fig:unnamed-chunk-37-1)Histogram and Density plots</p>
 </div>
 
 ```r
@@ -599,7 +619,7 @@ qplot(data = ChickWeight,x=weight, binwith=10, colour=Diet) #the color separates
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-37-2.png" alt="Histogram and Density plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-372)Histogram and Density plots</p>
+<p class="caption">(\#fig:unnamed-chunk-37-2)Histogram and Density plots</p>
 </div>
 
 ```r
@@ -608,7 +628,7 @@ qplot(data = ChickWeight,x=weight, geom = "density", colour=Diet)
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-37-3.png" alt="Histogram and Density plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-373)Histogram and Density plots</p>
+<p class="caption">(\#fig:unnamed-chunk-37-3)Histogram and Density plots</p>
 </div>
 With ggplot
 
@@ -620,7 +640,7 @@ ggplot(data = ChickWeight, aes(x=weight,color=Diet))+
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-38-1.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-381)Point and line plots</p>
+<p class="caption">(\#fig:unnamed-chunk-38-1)Point and line plots</p>
 </div>
 
 ```r
@@ -631,7 +651,7 @@ ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-38-2.png" alt="Point and line plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-382)Point and line plots</p>
+<p class="caption">(\#fig:unnamed-chunk-38-2)Point and line plots</p>
 </div>
 ### Boxplot
 
@@ -679,7 +699,7 @@ ggplot(data = ChickWeight, aes(x=weight,fill=Diet))+
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-42-1.png" alt="Plot separating by age of the chicken" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-421)Plot separating by age of the chicken</p>
+<p class="caption">(\#fig:unnamed-chunk-42-1)Plot separating by age of the chicken</p>
 </div>
 
 ```r
@@ -690,7 +710,7 @@ ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-42-2.png" alt="Plot separating by age of the chicken" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-422)Plot separating by age of the chicken</p>
+<p class="caption">(\#fig:unnamed-chunk-42-2)Plot separating by age of the chicken</p>
 </div>
 
 ```r
@@ -702,7 +722,7 @@ ggplot(data = ChickWeight, aes(y=weight,x=as.factor(Time),fill=Diet))+
 
 <div class="figure" style="text-align: center">
 <img src="02-introduction-to-R_files/figure-html/unnamed-chunk-42-3.png" alt="Plot separating by age of the chicken" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-423)Plot separating by age of the chicken</p>
+<p class="caption">(\#fig:unnamed-chunk-42-3)Plot separating by age of the chicken</p>
 </div>
 
 
@@ -873,8 +893,8 @@ qplot(data=ChickWeight, x = weight, facets = "Diet",geom = "density")
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-50-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-50)**CAPTION THIS FIGURE!!**</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-50-1.png" alt="Density plot sepparated by Diet type" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-50)Density plot sepparated by Diet type</p>
 </div>
 
 *Assumption 3*: Do the two populations have the same variances?
@@ -974,8 +994,8 @@ plot(res.aov, 1)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-55-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-55)**CAPTION THIS FIGURE!!**</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-55-1.png" alt="Residuals vs Fitted" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-55)Residuals vs Fitted</p>
 </div>
 
 
@@ -1003,8 +1023,8 @@ plot(res.aov, 2)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-57-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-57)**CAPTION THIS FIGURE!!**</p>
+<img src="02-introduction-to-R_files/figure-html/unnamed-chunk-57-1.png" alt="QQ plot" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-57)QQ plot</p>
 </div>
 
 

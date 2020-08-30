@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 7 Circadian analysis | Genomics with R for biologists</title>
+  <meta name="description" content="This is the index for the coursebook" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lab 7 Circadian analysis | Genomics with R for biologists" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the index for the coursebook" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lab 7 Circadian analysis | Genomics with R for biologists" />
+  
+  <meta name="twitter:description" content="This is the index for the coursebook" />
+  
+
+<meta name="author" content="Ines Lucia Patop inespatop@brandeis.edu" />
+
+
+<meta name="date" content="2020-08-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rna-seq-analysis.html"/>
+
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Genomics with R for biologists</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-aims"><i class="fa fa-check"></i><b>0.1</b> Course Aims</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>0.2</b> Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#next-steps"><i class="fa fa-check"></i><b>0.3</b> Next steps</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>0.4</b> Data availability</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.5</b> Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>1.2</b> Introduction</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#rstudio-world"><i class="fa fa-check"></i><b>1.3</b> RStudio world</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#create-a-project"><i class="fa fa-check"></i><b>1.4</b> Create a project</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-shortcuts-in-rstudio"><i class="fa fa-check"></i><b>1.5</b> Useful shortcuts in RStudio:</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-and-loading-packages"><i class="fa fa-check"></i><b>1.6</b> Installing and loading packages</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-objects"><i class="fa fa-check"></i><b>1.7</b> Creating objects</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-as-a-calculator"><i class="fa fa-check"></i><b>1.8</b> R as a calculator</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#functions"><i class="fa fa-check"></i><b>1.9</b> Functions</a></li>
+<li class="chapter" data-level="1.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#loops"><i class="fa fa-check"></i><b>1.10</b> Loops</a></li>
+<li class="chapter" data-level="1.11" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#conditions"><i class="fa fa-check"></i><b>1.11</b> Conditions</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#character-objects"><i class="fa fa-check"></i><b>1.12</b> Character objects</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#identify"><i class="fa fa-check"></i><b>1.13</b> Identify</a></li>
+<li class="chapter" data-level="1.14" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#modify"><i class="fa fa-check"></i><b>1.14</b> Modify</a></li>
+<li class="chapter" data-level="1.15" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-resources"><i class="fa fa-check"></i><b>1.15</b> Useful resources</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>1.16</b> Activity:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>2.1</b> Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#load-data"><i class="fa fa-check"></i><b>2.3</b> Load data</a></li>
+<li class="chapter" data-level="2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#data-exploration"><i class="fa fa-check"></i><b>2.4</b> Data exploration</a></li>
+<li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#subsetting"><i class="fa fa-check"></i><b>2.5</b> Subsetting</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>2.6</b> Activity:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html"><i class="fa fa-check"></i><b>3</b> Visualization and Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>3.1</b> Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>3.3</b> Plots</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.3.1</b> Line and points</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.3.2</b> Historgam and density plots</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.3.3</b> Boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#saving-plots"><i class="fa fa-check"></i><b>3.3.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.4</b> Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.4.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.4.2</b> T-test/Wilcoxon</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.4.3</b> Anova/Kruskal–Wallis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>3.5</b> Activity:</a></li>
+<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocessing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#different-type-of-data-dna-rna-splicing-single-end-paired-end"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing, single-end paired-end)</a></li>
+<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From the sequencer machine to the sequence</a></li>
+<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#general-processing"><i class="fa fa-check"></i><b>4.5</b> General processing</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#visualization-of-alignment-igv"><i class="fa fa-check"></i><b>4.5.1</b> Visualization of alignment (IGV)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#gene-counts-read-esat-feature-counts-peak-calling"><i class="fa fa-check"></i><b>4.5.2</b> Gene counts / read (esat feature counts) /peak calling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
+<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#a-bit-of-shell-commands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell commands</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>4.8</b> Resources and Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#data-pre-processing-peak-calling"><i class="fa fa-check"></i><b>5.3</b> Data pre-processing (peak-calling):</a></li>
+<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.4</b> Exploring the results:</a></li>
+<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.5</b> Annotating the peaks.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#read-the-annotation-file"><i class="fa fa-check"></i><b>5.5.1</b> Read the annotation file</a></li>
+<li class="chapter" data-level="5.5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#get-the-genes-from-this-annotation-data-base"><i class="fa fa-check"></i><b>5.5.2</b> Get the genes from this annotation data base</a></li>
+<li class="chapter" data-level="5.5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#get-the-genomic-ranges-of-the-peaks-from-macs-and-find-which-gene-is-closer-to-them-ie.-annotate-them"><i class="fa fa-check"></i><b>5.5.3</b> Get the genomic ranges of the peaks from MACS and find which gene is closer to them (ie. Annotate them)</a></li>
+<li class="chapter" data-level="5.5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#change-the-gene-format."><i class="fa fa-check"></i><b>5.5.4</b> Change the gene format.</a></li>
+<li class="chapter" data-level="5.5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-and-export-the-table"><i class="fa fa-check"></i><b>5.5.5</b> Explore and export the table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.6</b> Annotate with <code>ChIPseeker</code></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-and-export-the-output"><i class="fa fa-check"></i><b>5.6.1</b> Explore and Export the output</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#positive-controls."><i class="fa fa-check"></i><b>5.6.2</b> Positive controls.</a></li>
+<li class="chapter" data-level="5.6.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>5.6.3</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#put-the-peak-sequences-in-fasta-format"><i class="fa fa-check"></i><b>5.7.1</b> Put the peak sequences in fasta format</a></li>
+<li class="chapter" data-level="5.7.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#find-the-motifs"><i class="fa fa-check"></i><b>5.7.2</b> Find the MOTIFS</a></li>
+<li class="chapter" data-level="5.7.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-results"><i class="fa fa-check"></i><b>5.7.3</b> Explore the results</a></li>
+<li class="chapter" data-level="5.7.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plot-the-results"><i class="fa fa-check"></i><b>5.7.4</b> Plot the results</a></li>
+<li class="chapter" data-level="5.7.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>5.7.5</b> Plotting with Ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-how-to-solve-some-common-annotation-issues."><i class="fa fa-check"></i><b>5.8</b> Extra: How to solve some common annotation issues.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-detailed-explanation-of-the-macs-output-files"><i class="fa fa-check"></i><b>5.9</b> Extra: Detailed explanation of the MACS output files</a></li>
+<li class="chapter" data-level="5.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>5.10</b> Activity</a></li>
+<li class="chapter" data-level="5.11" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>5.11</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="5.12" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.12</b> Session info: all the packages installed.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html"><i class="fa fa-check"></i><b>6</b> RNA-seq analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression"><i class="fa fa-check"></i><b>6.3</b> Differential gene expression</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#loading-the-tables"><i class="fa fa-check"></i><b>6.3.1</b> Loading the tables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#create-the-deseq2-count-matrix"><i class="fa fa-check"></i><b>6.3.2</b> Create the DeSeq2 count matrix</a></li>
+<li class="chapter" data-level="6.3.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#meta-data-coldata-preparation"><i class="fa fa-check"></i><b>6.3.3</b> Meta-data (colData) preparation</a></li>
+<li class="chapter" data-level="6.3.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#quality-filtering-distance-matrix-and-principal-component-analysis-pca"><i class="fa fa-check"></i><b>6.3.4</b> Quality filtering: Distance matrix and principal component analysis (PCA)</a></li>
+<li class="chapter" data-level="6.3.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression-analysis-between-zt."><i class="fa fa-check"></i><b>6.3.5</b> Differential gene expression analysis between ZT.</a></li>
+<li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#explore-results"><i class="fa fa-check"></i><b>6.3.6</b> Explore results</a></li>
+<li class="chapter" data-level="6.3.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.7</b> Plot counts using ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#gene-ontology-go-term-analysis"><i class="fa fa-check"></i><b>6.4</b> Gene Ontology (GO) term analysis:</a></li>
+<li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.5</b> Extra: negative binomial model</a></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>6.6</b> Activity</a></li>
+<li class="chapter" data-level="6.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>6.7</b> Resources and Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="circadian-analysis.html"><a href="circadian-analysis.html"><i class="fa fa-check"></i><b>7</b> Circadian analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>7.1</b> Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>7.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>7.3</b> Cycling genes analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis-normalizing-by-maximum"><i class="fa fa-check"></i><b>7.4</b> Cycling genes analysis normalizing by maximum</a></li>
+<li class="chapter" data-level="7.5" data-path="circadian-analysis.html"><a href="circadian-analysis.html#plot-the-data."><i class="fa fa-check"></i><b>7.5</b> Plot the data.</a></li>
+<li class="chapter" data-level="7.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.6</b> Activity</a></li>
+<li class="chapter" data-level="7.7" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.7</b> Resources and Bibliography</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genomics with R for biologists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="circadian-analysis" class="section level1" number="7">
+<h1><span class="header-section-number">Lab 7</span> Circadian analysis</h1>
+<div id="objectives-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Objectives</h2>
+<p>After this section you should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Analyze circadian data doing different normalization techniques.</li>
+<li>Plot circadian data in different formats.</li>
+</ol>
+</div>
+<div id="introduction-1" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Introduction</h2>
+<p>In this chapter we will continue re-analyzing some data from <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006613">Abruzzi et al, 2017</a>. These are data that explore gene expression in different neuronal cell types in a circadian layout.</p>
+<p><strong>Circadian behavior</strong></p>
+<p>Most living organisms change their behavior and metabolism over the day. Some animals like us have more activity over the day while others like mice have more activity over night. Flies in particular have a peak of activity the first hours of the morning and the last hours of the afternoon with a “siesta” (nap in Spanish) at the middle of the day.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
+<img src="RNAseq/circadianact.png" alt="Fly activity over the day. Adapted from Nicholas R. J Glossop et al 2011. To meassure fly activity each individual fly is monitored either by counting when they cross a red-light bim (regular activity monitors) of by software tracking (flyboxes)." width="500px" />
+<p class="caption">
+Figure 7.1: Fly activity over the day. Adapted from Nicholas R. J Glossop et al 2011. To meassure fly activity each individual fly is monitored either by counting when they cross a red-light bim (regular activity monitors) of by software tracking (flyboxes).
+</p>
+</div>
+<p>These changes in behavior are govern by changes in gene expression in particular cell-types in the brain called the pace-makers. If we look at gene expression in these cells over the day we will notice that some genes oscillate. Like <strong>Clk</strong> and <strong>tim</strong>, the proteins we analyzed in the previous Lab.</p>
+<p>In the circadian field time is reported as “hours after the light is ON”. This is zeitgeber time (ZT) and it is useful to have a unified measurement of time. Most animals in labs are kept in 12 hours of light followed by 12 hours of dark. Therefore, ZT0 is the “sunrise” or lights on and ZT12 is lights off in a light/dark (LD)12:12 cycle time.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
+<img src="RNAseq/cycwithzt.png" alt="Fly activity over the day with ZT scale. Figure adapted from Dubowy et al 2017" width="500px" />
+<p class="caption">
+Figure 7.2: Fly activity over the day with ZT scale. Figure adapted from Dubowy et al 2017
+</p>
+</div>
+<p>As stated before, circadian behaviors is generated by a small subset of neurons.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
+<img src="RNAseq/circadiancells.png" alt="Schematic representation of the circadian neural network. Four small ventrolateral neurons (s‐LNvs, red), the 5th s‐LNv (dark violet), four large ventrolateral neurons (l‐LNvs, brown), six dorsolateral neurons (LNds, orange), three lateral posterior neurons (LPN, green), and ca. 60 neurons per hemisphere in three dorsal groups (DN1–3, lilac, cyan, blue, respectively). Adapted from Schubert et al 2018" width="500px" />
+<p class="caption">
+Figure 3.17: Schematic representation of the circadian neural network. Four small ventrolateral neurons (s‐LNvs, red), the 5th s‐LNv (dark violet), four large ventrolateral neurons (l‐LNvs, brown), six dorsolateral neurons (LNds, orange), three lateral posterior neurons (LPN, green), and ca. 60 neurons per hemisphere in three dorsal groups (DN1–3, lilac, cyan, blue, respectively). Adapted from Schubert et al 2018
+</p>
+</div>
+<p>In the data analyzed in this lab, the authors collected RNA samples over 6 times of the day (ZT3, 7, 11, 15, 19, 23) from 4 cell-types: LNv, LNd, DN1 and Dopaminergic neurons (TH cells). This last group of cells are not part of the circadian core clock but in this study they see oscillating genes!</p>
+<p><strong>Packages:</strong></p>
+<p>We will use the following packages.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="circadian-analysis.html#cb410-1"></a><span class="kw">library</span>(ggplot2) <span class="co">#for 2D graph</span></span>
+<span id="cb410-2"><a href="circadian-analysis.html#cb410-2"></a><span class="kw">library</span>(ggrepel) <span class="co">#to get the names in ggplot graph </span></span>
+<span id="cb410-3"><a href="circadian-analysis.html#cb410-3"></a><span class="kw">library</span>(gridExtra) <span class="co">#to arrange the plots</span></span>
+<span id="cb410-4"><a href="circadian-analysis.html#cb410-4"></a><span class="kw">library</span>(factoextra) <span class="co">#extra plots</span></span>
+<span id="cb410-5"><a href="circadian-analysis.html#cb410-5"></a><span class="kw">library</span>(plyr) <span class="co">#table manipulation</span></span>
+<span id="cb410-6"><a href="circadian-analysis.html#cb410-6"></a><span class="kw">library</span>(dplyr)<span class="co">#table manipulation</span></span>
+<span id="cb410-7"><a href="circadian-analysis.html#cb410-7"></a><span class="kw">library</span>(tidyr)<span class="co">#table manipulation</span></span>
+<span id="cb410-8"><a href="circadian-analysis.html#cb410-8"></a><span class="kw">library</span>(<span class="st">&quot;RColorBrewer&quot;</span>) <span class="co">#extra color palettes</span></span>
+<span id="cb410-9"><a href="circadian-analysis.html#cb410-9"></a><span class="kw">library</span>(<span class="st">&quot;pheatmap&quot;</span>) <span class="co">#nice heatmaps</span></span>
+<span id="cb410-10"><a href="circadian-analysis.html#cb410-10"></a><span class="kw">library</span>(org.Dm.eg.db) <span class="co">#get annotation</span></span>
+<span id="cb410-11"><a href="circadian-analysis.html#cb410-11"></a><span class="kw">library</span>(MetaCycle) <span class="co"># to identify cycling genes, the successor of JTK according to JTK authors</span></span>
+<span id="cb410-12"><a href="circadian-analysis.html#cb410-12"></a><span class="kw">library</span>(pcaExplorer) <span class="co">#more PCA analysis</span></span></code></pre></div>
+</div>
+<div id="cycling-genes-analysis" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Cycling genes analysis</h2>
+<p>As stated before, if we want to see cycling we have to look at repetitive patterns in the data cross the day. To determine cycling genes, different approaches can be done. But basically, the idea is to assess for each gene:</p>
+<p>1.Identify cycling elements in the data. (ie which genes are changing between the timepoints)
+2.If so, in which time point that particular gene has its peak.
+3.Which is the amplitude and the period of the cycle: ie. how pronounced is the peak and how often it is cycling.</p>
+<p>One popular algorithm used is <a href="https://openwetware.org/wiki/HughesLab:JTK_Cycle">JTK</a>
+And its description says: “Its purpose is to identify rhythmic components in large, genome-scale data sets and estimate their period length, phase, and amplitude”</p>
+<p>We will use the library: <a href="https://academic.oup.com/bioinformatics/article/32/21/3351/2415176">MetaCycle</a>
+It is the successor of JTK according to JTK authors and it incorporates different approaches:</p>
+<p>“Using the same input file, MetaCycle::meta2d implements ARSER (ARS), JTK_CYCLE (JTK) and Lomb-Scargle (LS), from dramatically different disciplines, computer science, statistics and physics, respectively.
+Three independent algorithms (ARS, JTK and LS) were then selected from best of breed methods (Deckard et al., 2013; Wu et al., 2014). If set analysisStrategy as”auto“(default), it will automatically select proper method from cycMethod for each input dataset”</p>
+<p>There is a nice tutorial only from the <a href="https://cran.r-project.org/web/packages/MetaCycle/vignettes/implementation.html">CRAN repository</a></p>
+<p>And of course you can always use the internal R help <code>?meta2d</code></p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="circadian-analysis.html#cb411-1"></a><span class="co">#We already have the tables prepared</span></span>
+<span id="cb411-2"><a href="circadian-analysis.html#cb411-2"></a><span class="kw">head</span>(DN1_gene_expression)</span></code></pre></div>
+<pre><code>##        Symbol DN1_ZT3_1 DN1_ZT7_1 DN1_ZT11_1 DN1_ZT15_1 DN1_ZT19_1 DN1_ZT23_1
+## 1 FBtr0070202         0         0          0          0          0          0
+## 2 FBtr0070207         0         0          0          0         14          0
+## 3 FBtr0070238         0         0          0          0         21          0
+## 4 FBtr0070251         0         0          0          0          0          0
+## 5 FBtr0070484         0         0          0          0          0          0
+## 6 FBtr0070489         0         0          0          0          0          0
+##   DN1_ZT3_2 DN1_ZT7_2 DN1_ZT11_2 DN1_ZT15_2 DN1_ZT19_2 DN1_ZT23_2
+## 1         0         0          0          0          0          0
+## 2         0         0          0          0         16          7
+## 3         0         0          0          0         15          9
+## 4         0         0          1          0          2          0
+## 5         0         0          0          0          0          1
+## 6         0         0          0          0          0          0</code></pre>
+<p>This is the raw data, but we should use the normalized one</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="circadian-analysis.html#cb413-1"></a><span class="kw">head</span>(<span class="kw">counts</span>(dds.DN1, <span class="dt">normalized=</span>T))</span></code></pre></div>
+<pre><code>##             DN1_ZT3_1 DN1_ZT7_1 DN1_ZT11_1 DN1_ZT15_1 DN1_ZT19_1 DN1_ZT23_1
+## FBtr0070202         0         0          0          0   0.000000          0
+## FBtr0070207         0         0          0          0   7.039025          0
+## FBtr0070238         0         0          0          0  10.558537          0
+## FBtr0070251         0         0          0          0   0.000000          0
+## FBtr0070484         0         0          0          0   0.000000          0
+## FBtr0070489         0         0          0          0   0.000000          0
+##             DN1_ZT3_2 DN1_ZT7_2 DN1_ZT11_2 DN1_ZT15_2 DN1_ZT19_2 DN1_ZT23_2
+## FBtr0070202         0         0   0.000000          0  0.0000000   0.000000
+## FBtr0070207         0         0   0.000000          0  5.6437621  12.719245
+## FBtr0070238         0         0   0.000000          0  5.2910269  16.353315
+## FBtr0070251         0         0   2.947736          0  0.7054703   0.000000
+## FBtr0070484         0         0   0.000000          0  0.0000000   1.817035
+## FBtr0070489         0         0   0.000000          0  0.0000000   0.000000</code></pre>
+<p>If you read the specifications of meta2d, you need the first column to be the gene name. Lets do it. We can do it wiht base R or with specific packages.</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="circadian-analysis.html#cb415-1"></a>DN1_gene_expression_norm &lt;-<span class="kw">as.data.frame</span>(<span class="kw">counts</span>(dds.DN1, <span class="dt">normalized=</span>T))</span>
+<span id="cb415-2"><a href="circadian-analysis.html#cb415-2"></a></span>
+<span id="cb415-3"><a href="circadian-analysis.html#cb415-3"></a>DN1_gene_expression_norm &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Genes =</span> <span class="kw">rownames</span>(DN1_gene_expression_norm), DN1_gene_expression_norm)</span>
+<span id="cb415-4"><a href="circadian-analysis.html#cb415-4"></a></span>
+<span id="cb415-5"><a href="circadian-analysis.html#cb415-5"></a><span class="co">#We need now to write them in an outside file and run the command. </span></span>
+<span id="cb415-6"><a href="circadian-analysis.html#cb415-6"></a><span class="co">#Note that you might be able to use the original data, this is just to keep on learning how to manage the data</span></span>
+<span id="cb415-7"><a href="circadian-analysis.html#cb415-7"></a><span class="kw">write.csv</span>(DN1_gene_expression_norm, <span class="dt">file=</span><span class="st">&quot;cycDN1.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>)</span>
+<span id="cb415-8"><a href="circadian-analysis.html#cb415-8"></a></span>
+<span id="cb415-9"><a href="circadian-analysis.html#cb415-9"></a>DN1_cyc &lt;-<span class="st"> </span><span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;cycDN1.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">23</span>),<span class="dv">2</span>)),<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span></code></pre></div>
+<pre><code>## The JTK is in process from  18:17:02 08-30-2020 
+## Warning: the input &#39;maxper&#39; is not suitable for JTK, it was reset as  24 
+## The analysis by JTK is finished at  18:17:29 08-30-2020 
+## The LS is in process from  18:17:29 08-30-2020 
+## The analysis by LS is finished at  18:23:21 08-30-2020 
+## DONE! The analysis about &#39; cycDN1.csv &#39;  has been finished.
+##                 user.self     sys.self      elapsed   user.child    sys.child 
+## &quot;Time used:&quot;    &quot;377.513&quot;     &quot;15.223&quot;    &quot;402.926&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
+<p>As we can read in the help page <code>?meta2d</code> the output of this function is:</p>
+<p>meta2d will write analysis results in different files under output directory (outdir) if set outputFile = TRUE. Files named with “ARSresult”, “JTKresult” and “LSreult” store analysis results from ARS, JTK and LS respectively. The file named with “meta2d” is the integration file, and it stores integrated values in columns with a common name tag-“meta2d”. The integration file also contains p-value, FDR value, period, phase(adjusted phase if adjustedPhase = “predictedPer”) and amplitude values calculated by each method. If outputFile = FALSE is selected, meta2d will return a list containing the following components:</p>
+<p>ARS analysis results from ARS method
+JTK analysis results from JTK method
+LS analysis results from LS method
+meta the integrated analysis results as mentioned above</p>
+<p>Let’s explore the results</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="circadian-analysis.html#cb417-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>JTK)</span></code></pre></div>
+<pre><code>##         CycID BH.Q ADJ.P PER LAG AMP
+## 1 FBtr0070202    1     1   0   0   0
+## 2 FBtr0070207    1     1   0   0   0
+## 3 FBtr0070238    1     1   0   0   0
+## 4 FBtr0070251    1     1   0   0   0
+## 5 FBtr0070484    1     1   0   0   0
+## 6 FBtr0070489    1     1   0   0   0</code></pre>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="circadian-analysis.html#cb419-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>LS)</span></code></pre></div>
+<pre><code>##         CycID PhaseShift PhaseShiftHeight PeakIndex   PeakSPD Period         p
+## 1 FBtr0070202  22.999926         0.000000        NA        NA     NA 1.0000000
+## 2 FBtr0070207  22.999922         6.795629         1 2.5714094     28 0.4706206
+## 3 FBtr0070238  22.999926         8.713640         1 2.4520804     28 0.5134413
+## 4 FBtr0070251  10.999996         1.473868        48 0.9032149     20 0.9843473
+## 5 FBtr0070484   7.721415         0.000000         1 1.2731542     28 0.9277372
+## 6 FBtr0070489  22.999926         0.000000        NA        NA     NA 1.0000000
+##    N Nindependent Nyquist BH.Q
+## 1 12            8      NA    1
+## 2 12            8     0.3    1
+## 3 12            8     0.3    1
+## 4 12            8     0.3    1
+## 5 12            8     0.3    1
+## 6 12            8      NA    1</code></pre>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="circadian-analysis.html#cb421-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>meta)</span></code></pre></div>
+<pre><code>##         CycID JTK_pvalue JTK_BH.Q JTK_period JTK_adjphase JTK_amplitude
+## 1 FBtr0070202          1        1          0          NaN             0
+## 2 FBtr0070207          1        1          0          NaN             0
+## 3 FBtr0070238          1        1          0          NaN             0
+## 4 FBtr0070251          1        1          0          NaN             0
+## 5 FBtr0070484          1        1          0          NaN             0
+## 6 FBtr0070489          1        1          0          NaN             0
+##   LS_pvalue LS_BH.Q LS_period LS_adjphase LS_amplitude meta2d_pvalue
+## 1 1.0000000       1        NA          NA     0.000000     1.0000000
+## 2 0.4706206       1        28   22.999922     6.795629     0.8253288
+## 3 0.5134413       1        28   22.999926     8.713640     0.8557113
+## 4 0.9843473       1        20   10.999996     1.473868     0.9998769
+## 5 0.9277372       1        28    7.721415     0.000000     0.9973238
+## 6 1.0000000       1        NA          NA     0.000000     1.0000000
+##   meta2d_BH.Q meta2d_period meta2d_phase meta2d_Base meta2d_AMP meta2d_rAMP
+## 1           1            NA           NA   0.0000000         NA          NA
+## 2           1            28    22.999922   2.4093672 2.81516339  1.16842439
+## 3           1            28    22.999926   3.0549360 3.57379221  1.16984191
+## 4           1            20    10.999996   0.3720886 0.50175568  0.50175568
+## 5           1            28     7.721415   0.1560293 0.07341249  0.07341249
+## 6           1            NA           NA   0.0000000         NA          NA</code></pre>
+<p>Clearly the “meta” is what we want. We can store it in another object to explore it in R or just write a table</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="circadian-analysis.html#cb423-1"></a>DN1_cyc_meta&lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(DN1_cyc<span class="op">$</span>meta)</span>
+<span id="cb423-2"><a href="circadian-analysis.html#cb423-2"></a></span>
+<span id="cb423-3"><a href="circadian-analysis.html#cb423-3"></a><span class="co">#We will add the gene-names and then export it</span></span>
+<span id="cb423-4"><a href="circadian-analysis.html#cb423-4"></a>DN1_cyc_meta<span class="op">$</span>transcript_name=DN1_cyc_meta<span class="op">$</span>CycID</span>
+<span id="cb423-5"><a href="circadian-analysis.html#cb423-5"></a>DN1_cyc_meta=<span class="kw">merge</span>(DN1_cyc_meta,annotation_DN1,<span class="dt">by=</span><span class="st">&quot;transcript_name&quot;</span>)</span>
+<span id="cb423-6"><a href="circadian-analysis.html#cb423-6"></a></span>
+<span id="cb423-7"><a href="circadian-analysis.html#cb423-7"></a><span class="co">#the tim, clk and per:</span></span>
+<span id="cb423-8"><a href="circadian-analysis.html#cb423-8"></a>DN1_cyc_meta[<span class="kw">which</span>(DN1_cyc_meta<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;tim&quot;</span>,<span class="st">&quot;Clk&quot;</span>,<span class="st">&quot;per&quot;</span>)),]</span></code></pre></div>
+<pre><code>##       transcript_name       CycID   JTK_pvalue  JTK_BH.Q JTK_period
+## 368       FBtr0070477 FBtr0070477 0.0080482069 0.5867038         24
+## 5185      FBtr0076785 FBtr0076785 0.0285920047 0.8536843         20
+## 5743      FBtr0077567 FBtr0077567 0.0007025279 0.3232319         20
+## 15490     FBtr0100132 FBtr0100132 0.0285920047 0.8536843         20
+## 15491     FBtr0100134 FBtr0100134 0.0285920047 0.8536843         20
+## 26382     FBtr0332311 FBtr0332311 0.0285920047 0.8536843         24
+## 27307     FBtr0333252 FBtr0333252 0.0007025279 0.3232319         20
+## 27308     FBtr0333253 FBtr0333253 0.0007025279 0.3232319         20
+## 27309     FBtr0333254 FBtr0333254 0.0285920047 0.8536843         24
+## 27310     FBtr0333255 FBtr0333255 0.0285920047 0.8536843         24
+## 27311     FBtr0333256 FBtr0333256 0.0007025279 0.3232319         20
+## 27312     FBtr0333258 FBtr0333258 0.0007025279 0.3232319         20
+## 27313     FBtr0333259 FBtr0333259 0.0007025279 0.3232319         20
+##       JTK_adjphase JTK_amplitude LS_pvalue LS_BH.Q LS_period LS_adjphase
+## 368             13      305.3228 0.2045246       1  23.25088    12.95559
+## 5185             3      128.3993 0.4297392       1  27.76371    22.99993
+## 5743            13     1648.7247 0.0751332       1  23.08772    14.72816
+## 15490            3      128.3993 0.4297392       1  27.76371    22.99993
+## 15491            3      128.3993 0.4297392       1  27.76371    22.99993
+## 26382           13      318.0454 0.3542849       1  23.25088    14.29129
+## 27307           13     1648.7247 0.0751332       1  23.08772    14.72816
+## 27308           13     1648.7247 0.0751332       1  23.08772    14.72816
+## 27309           15      139.8126 0.1773643       1  22.15488    15.32424
+## 27310           15      139.8126 0.1773643       1  22.15488    15.32424
+## 27311           13     1648.7247 0.0751332       1  23.08772    14.72816
+## 27312           13     1648.7247 0.0751332       1  23.08772    14.72816
+## 27313           13     1648.7247 0.0751332       1  23.08772    14.72816
+##       LS_amplitude meta2d_pvalue meta2d_BH.Q meta2d_period meta2d_phase
+## 368       724.5210  0.0121962439   1.0000000      23.62544     12.98070
+## 5185      488.6181  0.0663405962   1.0000000      23.88186     23.62413
+## 5743     4366.7125  0.0005726614   0.4069818      21.54386     13.87341
+## 15490     488.6181  0.0663405962   1.0000000      23.88186     23.62413
+## 15491     488.6181  0.0663405962   1.0000000      23.88186     23.62413
+## 26382     790.6228  0.0566482210   1.0000000      23.62544     13.65932
+## 27307    4366.7125  0.0005726614   0.4069818      21.54386     13.87341
+## 27308    4366.7125  0.0005726614   0.4069818      21.54386     13.87341
+## 27309     320.8403  0.0318683270   1.0000000      23.07744     15.19288
+## 27310     320.8403  0.0318683270   1.0000000      23.07744     15.19288
+## 27311    4366.7125  0.0005726614   0.4069818      21.54386     13.87341
+## 27312    4366.7125  0.0005726614   0.4069818      21.54386     13.87341
+## 27313    4366.7125  0.0005726614   0.4069818      21.54386     13.87341
+##       meta2d_Base meta2d_AMP meta2d_rAMP gene_name
+## 368      404.2411   310.1832   0.7673221       per
+## 5185     428.9183   455.0223   1.0608602       Clk
+## 5743    1976.0053  1791.7205   0.9067387       tim
+## 15490    428.9183   455.0223   1.0608602       Clk
+## 15491    428.9183   455.0223   1.0608602       Clk
+## 26382    420.1319   314.4002   0.7483370       per
+## 27307   1976.0053  1791.7205   0.9067387       tim
+## 27308   1976.0053  1791.7205   0.9067387       tim
+## 27309    150.3703   156.7295   1.0422898       tim
+## 27310    150.3703   156.7295   1.0422898       tim
+## 27311   1976.0053  1791.7205   0.9067387       tim
+## 27312   1976.0053  1791.7205   0.9067387       tim
+## 27313   1976.0053  1791.7205   0.9067387       tim</code></pre>
+<p>Export the results in a table</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="circadian-analysis.html#cb425-1"></a><span class="kw">write.table</span>(<span class="dt">x =</span> DN1_cyc_meta, <span class="dt">file=</span><span class="st">&quot;cycDN1_reults.txt&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names =</span> F,<span class="dt">col.names =</span> T)</span></code></pre></div>
+</div>
+<div id="cycling-genes-analysis-normalizing-by-maximum" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Cycling genes analysis normalizing by maximum</h2>
+<p>This is a more complex set-up I arrived after many trials this is way I found to get more reliable results:</p>
+<p>Before doing the analysis, I normalize the expression by the maximum level in each replicate. This mean that for all the replicates the levels will be between 0 and 1.
+I calculate the amplitude manually: this is just Maximum/Minimum.</p>
+<p>I share here some of the code to do it.</p>
+<ol style="list-style-type: decimal">
+<li>I remove the genes that are all ceros</li>
+</ol>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="circadian-analysis.html#cb426-1"></a>x&lt;-DN1_gene_expression_norm <span class="co"># copy the DeSeq2 normalized reads</span></span>
+<span id="cb426-2"><a href="circadian-analysis.html#cb426-2"></a>ind=<span class="kw">apply</span>(x[<span class="op">-</span><span class="dv">1</span>], <span class="dv">1</span>, <span class="cf">function</span>(x)(<span class="kw">sum</span>(x)<span class="op">&gt;</span><span class="dv">0</span>)) <span class="co"># remove the genes that are not expressed at all</span></span>
+<span id="cb426-3"><a href="circadian-analysis.html#cb426-3"></a>x=x[ind,] </span>
+<span id="cb426-4"><a href="circadian-analysis.html#cb426-4"></a></span>
+<span id="cb426-5"><a href="circadian-analysis.html#cb426-5"></a><span class="kw">names</span>(x)</span></code></pre></div>
+<pre><code>##  [1] &quot;Genes&quot;      &quot;DN1_ZT3_1&quot;  &quot;DN1_ZT7_1&quot;  &quot;DN1_ZT11_1&quot; &quot;DN1_ZT15_1&quot;
+##  [6] &quot;DN1_ZT19_1&quot; &quot;DN1_ZT23_1&quot; &quot;DN1_ZT3_2&quot;  &quot;DN1_ZT7_2&quot;  &quot;DN1_ZT11_2&quot;
+## [11] &quot;DN1_ZT15_2&quot; &quot;DN1_ZT19_2&quot; &quot;DN1_ZT23_2&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>I separate by replicate</li>
+</ol>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="circadian-analysis.html#cb428-1"></a>x1&lt;-x[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;_1&quot;</span>,<span class="kw">names</span>(x)))]</span>
+<span id="cb428-2"><a href="circadian-analysis.html#cb428-2"></a>x2&lt;-x[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="kw">grep</span>(<span class="st">&quot;_2&quot;</span>,<span class="kw">names</span>(x)))]</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>I then do the normalization by max</li>
+</ol>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="circadian-analysis.html#cb429-1"></a>x1&lt;-<span class="kw">t</span>(<span class="kw">apply</span>((x1[,<span class="op">-</span><span class="dv">1</span>]), <span class="dv">1</span>, <span class="cf">function</span>(x)(x<span class="op">/</span><span class="kw">max</span>(x)))) <span class="co">#this is the function that normalize each gene by its maximum</span></span>
+<span id="cb429-2"><a href="circadian-analysis.html#cb429-2"></a>x1&lt;-<span class="kw">cbind</span>(<span class="kw">as.data.frame</span>(x<span class="op">$</span>Gene),x1)</span>
+<span id="cb429-3"><a href="circadian-analysis.html#cb429-3"></a><span class="kw">names</span>(x1)[<span class="dv">1</span>]=<span class="st">&quot;Gene&quot;</span></span>
+<span id="cb429-4"><a href="circadian-analysis.html#cb429-4"></a>x2&lt;-<span class="kw">t</span>(<span class="kw">apply</span>((x2[,<span class="op">-</span><span class="dv">1</span>]), <span class="dv">1</span>, <span class="cf">function</span>(x)(x<span class="op">/</span><span class="kw">max</span>(x))))</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>I bind the replicates and run the meta2d</li>
+</ol>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="circadian-analysis.html#cb430-1"></a>x&lt;-<span class="kw">cbind</span>(x1,x2)</span>
+<span id="cb430-2"><a href="circadian-analysis.html#cb430-2"></a>x&lt;-x[<span class="kw">complete.cases</span>(x),]</span>
+<span id="cb430-3"><a href="circadian-analysis.html#cb430-3"></a></span>
+<span id="cb430-4"><a href="circadian-analysis.html#cb430-4"></a><span class="kw">write.table</span>(x, <span class="dt">file=</span><span class="st">&quot;normtomax.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb430-5"><a href="circadian-analysis.html#cb430-5"></a></span>
+<span id="cb430-6"><a href="circadian-analysis.html#cb430-6"></a><span class="co"># Extract the times from the colnames</span></span>
+<span id="cb430-7"><a href="circadian-analysis.html#cb430-7"></a>timepoints=<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;ZT&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="kw">sapply</span>(<span class="kw">strsplit</span>(<span class="kw">names</span>(x)[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;_&quot;</span>),<span class="st">&quot;[[&quot;</span>,<span class="dv">2</span>))) </span>
+<span id="cb430-8"><a href="circadian-analysis.html#cb430-8"></a></span>
+<span id="cb430-9"><a href="circadian-analysis.html#cb430-9"></a>DN1_cyc_norm &lt;-<span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;normtomax.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>timepoints,<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span>
+<span id="cb430-10"><a href="circadian-analysis.html#cb430-10"></a></span>
+<span id="cb430-11"><a href="circadian-analysis.html#cb430-11"></a>DN1_cyc_norm_meta2d &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(DN1_cyc_norm<span class="op">$</span>meta)</span></code></pre></div>
+<pre><code>## The JTK is in process from  18:23:47 08-30-2020 
+## Warning: the input &#39;maxper&#39; is not suitable for JTK, it was reset as  24 
+## The analysis by JTK is finished at  18:24:09 08-30-2020 
+## The LS is in process from  18:24:09 08-30-2020 
+## The analysis by LS is finished at  18:28:55 08-30-2020 
+## DONE! The analysis about &#39; normtomax.csv &#39;  has been finished.
+##                 user.self     sys.self      elapsed   user.child    sys.child 
+## &quot;Time used:&quot;    &quot;299.796&quot;     &quot;12.004&quot;    &quot;331.045&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Calculate the amplitude manually for each replicate</li>
+</ol>
+<p>For this I create a function that merge the results from the cycling analysis and the read counts and calculates the amplitude manually.</p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="circadian-analysis.html#cb432-1"></a>mean_nona=<span class="cf">function</span>(x){</span>
+<span id="cb432-2"><a href="circadian-analysis.html#cb432-2"></a>  <span class="kw">mean</span>(x,<span class="dt">na.rm =</span><span class="ot">TRUE</span>)</span>
+<span id="cb432-3"><a href="circadian-analysis.html#cb432-3"></a>}</span>
+<span id="cb432-4"><a href="circadian-analysis.html#cb432-4"></a></span>
+<span id="cb432-5"><a href="circadian-analysis.html#cb432-5"></a>merge_counts=<span class="cf">function</span>(cyc,cs){</span>
+<span id="cb432-6"><a href="circadian-analysis.html#cb432-6"></a>  </span>
+<span id="cb432-7"><a href="circadian-analysis.html#cb432-7"></a>  cs<span class="op">$</span>mean.exp=<span class="kw">apply</span>(cs[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>)],<span class="dv">1</span>,mean_nona)</span>
+<span id="cb432-8"><a href="circadian-analysis.html#cb432-8"></a>  cs=cs[<span class="kw">order</span>(cs<span class="op">$</span>Gene),]</span>
+<span id="cb432-9"><a href="circadian-analysis.html#cb432-9"></a>  cyc=cyc[<span class="kw">order</span>(cyc<span class="op">$</span>CycID),]</span>
+<span id="cb432-10"><a href="circadian-analysis.html#cb432-10"></a>  <span class="kw">print</span>(<span class="kw">unique</span>(cyc<span class="op">$</span>CycID<span class="op">==</span>cs<span class="op">$</span>Gene)) <span class="co">#make sure the we are merging the same genes</span></span>
+<span id="cb432-11"><a href="circadian-analysis.html#cb432-11"></a>  cyc&lt;-<span class="kw">cbind</span>(cyc, cs)</span>
+<span id="cb432-12"><a href="circadian-analysis.html#cb432-12"></a>  </span>
+<span id="cb432-13"><a href="circadian-analysis.html#cb432-13"></a>  toMatch &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;_1&quot;</span>, <span class="st">&quot;_2&quot;</span>)</span>
+<span id="cb432-14"><a href="circadian-analysis.html#cb432-14"></a>  cyc<span class="op">$</span>zero=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="kw">paste</span>(toMatch,<span class="dt">collapse=</span><span class="st">&quot;|&quot;</span>),<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="kw">length</span>(<span class="kw">which</span>(x <span class="op">%in%</span><span class="st"> </span><span class="dv">0</span>))<span class="op">&gt;</span><span class="dv">1</span>)))</span>
+<span id="cb432-15"><a href="circadian-analysis.html#cb432-15"></a>  cyc=cyc[cyc<span class="op">$</span>zero<span class="op">==</span>F,]</span>
+<span id="cb432-16"><a href="circadian-analysis.html#cb432-16"></a>  </span>
+<span id="cb432-17"><a href="circadian-analysis.html#cb432-17"></a>  cyc<span class="op">$</span>AMP_<span class="dv">1</span>=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;_1&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="dv">1</span><span class="op">/</span><span class="kw">min</span>(x)))) <span class="co"># amplitude for replicate 1</span></span>
+<span id="cb432-18"><a href="circadian-analysis.html#cb432-18"></a>  cyc<span class="op">$</span>AMP_<span class="dv">2</span>=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;_2&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="dv">1</span><span class="op">/</span><span class="kw">min</span>(x)))) <span class="co"># amplitude for replicate 2</span></span>
+<span id="cb432-19"><a href="circadian-analysis.html#cb432-19"></a>  cyc<span class="op">$</span>AMP_min=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;^AMP&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="kw">min</span>(x)))) <span class="co"># get the minimum amplitude </span></span>
+<span id="cb432-20"><a href="circadian-analysis.html#cb432-20"></a>  cyc<span class="op">$</span>AMP_min[cyc<span class="op">$</span>AMP_min<span class="op">==</span><span class="st">&quot;Inf&quot;</span>]=<span class="dv">10</span> <span class="co"># if the minimum is infinite (ie the minimum is cero), I set an arbitrary amplitude</span></span>
+<span id="cb432-21"><a href="circadian-analysis.html#cb432-21"></a>  </span>
+<span id="cb432-22"><a href="circadian-analysis.html#cb432-22"></a>  <span class="kw">return</span>(cyc)</span>
+<span id="cb432-23"><a href="circadian-analysis.html#cb432-23"></a>}</span>
+<span id="cb432-24"><a href="circadian-analysis.html#cb432-24"></a></span>
+<span id="cb432-25"><a href="circadian-analysis.html#cb432-25"></a>DN1_cyc_norm_meta2d_mergecounts&lt;-<span class="kw">merge_counts</span>(<span class="dt">cyc =</span> DN1_cyc_norm_meta2d,<span class="dt">cs =</span> x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="plot-the-data." class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Plot the data.</h2>
+<p>This it really useful to make plots. We will use the object created before.</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="circadian-analysis.html#cb434-1"></a><span class="co">#And plot</span></span>
+<span id="cb434-2"><a href="circadian-analysis.html#cb434-2"></a>genes.cyc =<span class="st"> </span>DN1_cyc_meta<span class="op">$</span>gene_name[<span class="kw">c</span>(DN1_cyc_meta<span class="op">$</span>JTK_pvalue<span class="op">&lt;</span><span class="fl">0.05</span> <span class="op">&amp;</span><span class="st"> </span>DN1_cyc_meta<span class="op">$</span>JTK_amplitude<span class="op">&gt;</span><span class="fl">128.3</span>)]<span class="co">#you can put here as many genes as you want, I am seleceting genes with amplitud bigger than clocl (Clk)</span></span>
+<span id="cb434-3"><a href="circadian-analysis.html#cb434-3"></a></span>
+<span id="cb434-4"><a href="circadian-analysis.html#cb434-4"></a><span class="co">#I pick the first 8 genes, but you can look at all of them.</span></span>
+<span id="cb434-5"><a href="circadian-analysis.html#cb434-5"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.numeric</span>(ztime),<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() </span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-65-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">
+Figure 7.3: Cycling genes.
+</p>
+</div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="circadian-analysis.html#cb435-1"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span>ztime_<span class="dv">2</span>,<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-66"></span>
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-66-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">
+Figure 7.4: Cycling genes.
+</p>
+</div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="circadian-analysis.html#cb436-1"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span>ztime_<span class="dv">2</span>,<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>,<span class="dt">facets =</span> <span class="op">~</span>gene_name )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-67-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">
+Figure 7.5: Cycling genes.
+</p>
+</div>
+</div>
+<div id="activity-1" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Activity</h2>
+<blockquote>
+<p>Finish the analysis for the other cell-types.
+Find a way to compare the results (hint: look at dendrograms)
+Plot the data for the results of the normalized expression.</p>
+</blockquote>
+</div>
+<div id="resources-and-bibliography-1" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> Resources and Bibliography</h2>
+<p>Dubowy C, Sehgal A. Circadian Rhythms and Sleep in Drosophila melanogaster. Genetics. 2017;205(4):1373-1397. <a href="doi:10.1534/genetics.115.185157" class="uri">doi:10.1534/genetics.115.185157</a></p>
+<p>MEIRELES-FILHO, Antonio Carlos Alves and KYRIACOU, Charalambos Panayiotis. Circadian rhythms in insect disease vectors. Mem. Inst. Oswaldo Cruz [online]. 2013, vol.108, suppl.1 [cited 2020-07-08], pp.48-58.</p>
+<p>Abruzzi KC, Zadina A, Luo W, Wiyanto E, Rahman R, Guo F, et al. (2017) RNA-seq analysis of Drosophila clock and non-clock neurons reveals neuron-specific cycling and novel candidate neuropeptides. PLoS Genet 13(2): e1006613. <a href="https://doi.org/10.1371/journal.pgen.1006613" class="uri">https://doi.org/10.1371/journal.pgen.1006613</a></p>
+<p>Schubert FK, Hagedorn N, Yoshii T, Helfrich-Förster C, Rieger D. Neuroanatomical details of the lateral neurons of Drosophila melanogaster support their functional role in the circadian system. J Comp Neurol. 2018;526(7):1209-1231. <a href="doi:10.1002/cne.24406" class="uri">doi:10.1002/cne.24406</a></p>
+<p>DeSeq2 documentations: <a href="http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html" class="uri">http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html</a></p>
+<p>Introduction to implementation steps of MetaCycle
+Gang Wu, Ron Anafi, Michael Hughes, Karl Kornacker, and John Hogenesch
+2015-12-04
+<a href="https://cran.r-project.org/web/packages/MetaCycle/vignettes/implementation.html" class="uri">https://cran.r-project.org/web/packages/MetaCycle/vignettes/implementation.html</a></p>
+<p>Gene Ontology overview <a href="http://geneontology.org/docs/ontology-documentation/" class="uri">http://geneontology.org/docs/ontology-documentation/</a></p>
+
+</div>
+</div>
+
+
+
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rna-seq-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

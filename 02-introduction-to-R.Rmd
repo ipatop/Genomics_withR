@@ -487,7 +487,7 @@ with(ChickWeight, shapiro.test(weight[Diet == 2]))
 
 pvalue < 0.05, these are not normally distributed. We can NOT use t-test here. If we remember the histograms, this makes sense.
 
-```{r warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE,fig.cap="Density plot sepparated by Diet type"}
 qplot(data=ChickWeight, x = weight, facets = "Diet",geom = "density")
 ```
 
@@ -531,7 +531,7 @@ However, you should be screaming at me now: I did not check the assumptions!
 
 1. *Homogeneity of variances*:
 
-```{r warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE,fig.cap="Residuals vs Fitted"}
 plot(res.aov, 1)
 ```
 
@@ -544,7 +544,7 @@ We have just found what we already know. The variance is not homogeneous. The va
 
 2. *Normality of the residuals*:
 
-```{r warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE,fig.cap="QQ plot"}
 plot(res.aov, 2)
 ```
 
