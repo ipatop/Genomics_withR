@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#explore-results"><i class="fa fa-check"></i><b>6.3.6</b> Explore results</a></li>
 <li class="chapter" data-level="6.3.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.7</b> Plot counts using ggplot</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#gene-ontology-go-term-analysis"><i class="fa fa-check"></i><b>6.4</b> Gene Ontology (GO) term analysis:</a></li>
+<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#gene-ontology-go-term-analysis"><i class="fa fa-check"></i><b>6.4</b> Gene Ontology (GO) term analysis</a></li>
 <li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.5</b> Extra: negative binomial model</a></li>
 <li class="chapter" data-level="6.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>6.6</b> Activity</a></li>
 <li class="chapter" data-level="6.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>6.7</b> Resources and Bibliography</a></li>
@@ -263,11 +263,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>7.1</b> Objectives</a></li>
 <li class="chapter" data-level="7.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>7.2</b> Introduction</a></li>
-<li class="chapter" data-level="7.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>7.3</b> Cycling genes analysis</a></li>
+<li class="chapter" data-level="7.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>7.3</b> Cycling genes analysis</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="circadian-analysis.html"><a href="circadian-analysis.html#prepare-the-tables"><i class="fa fa-check"></i><b>7.3.1</b> Prepare the tables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="circadian-analysis.html"><a href="circadian-analysis.html#meta2d"><i class="fa fa-check"></i><b>7.3.2</b> Meta2d</a></li>
+<li class="chapter" data-level="7.3.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#plot-the-data."><i class="fa fa-check"></i><b>7.3.3</b> Plot the data.</a></li>
+</ul></li>
 <li class="chapter" data-level="7.4" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis-normalizing-by-maximum"><i class="fa fa-check"></i><b>7.4</b> Cycling genes analysis normalizing by maximum</a></li>
-<li class="chapter" data-level="7.5" data-path="circadian-analysis.html"><a href="circadian-analysis.html#plot-the-data."><i class="fa fa-check"></i><b>7.5</b> Plot the data.</a></li>
-<li class="chapter" data-level="7.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.6</b> Activity</a></li>
-<li class="chapter" data-level="7.7" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.7</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="7.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.5</b> Activity</a></li>
+<li class="chapter" data-level="7.6" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.6</b> Resources and Bibliography</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -1125,7 +1129,7 @@ Figure 3.16: Count plots with ggplot sepparating by gene name
 </div>
 </div>
 <div id="gene-ontology-go-term-analysis" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Gene Ontology (GO) term analysis:</h2>
+<h2><span class="header-section-number">6.4</span> Gene Ontology (GO) term analysis</h2>
 <p>The main objective of GO term analysis is to identify common features in a list of gene shared feature that might be “enriched” when compared with the background list of of genes. There are 3 GO term sets:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Molecular Function</strong>(MF): Molecular function or activities performed by gene product. Examples can be for example <em>catalysis</em> or <em>transport</em>.</li>
@@ -1144,200 +1148,44 @@ CC: <em>cytosol</em></p>
 <p><code>topGO</code> requires a list of genes with an indicator of 1 for the genes that should be taken into the analysis and the rest with 0. The full list of genes will be used as background.</p>
 <p>To get the list of expressed genes we will use the fact that DeSeq2 actually puts NA in the padjusted column to the lowly expressed genes.</p>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="rna-seq-analysis.html#cb338-1"></a><span class="co">#Libraries</span></span>
-<span id="cb338-2"><a href="rna-seq-analysis.html#cb338-2"></a><span class="kw">library</span>(<span class="st">&quot;topGO&quot;</span>)</span></code></pre></div>
-<pre><code>## Loading required package: graph</code></pre>
-<pre><code>## 
-## Attaching package: &#39;graph&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:plyr&#39;:
-## 
-##     join</code></pre>
-<pre><code>## The following object is masked from &#39;package:stringr&#39;:
-## 
-##     boundary</code></pre>
-<pre><code>## Loading required package: GO.db</code></pre>
-<pre><code>## Loading required package: SparseM</code></pre>
-<pre><code>## 
-## Attaching package: &#39;SparseM&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:base&#39;:
-## 
-##     backsolve</code></pre>
-<pre><code>## 
-## groupGOTerms: 	GOBPTerm, GOMFTerm, GOCCTerm environments built.</code></pre>
-<pre><code>## 
-## Attaching package: &#39;topGO&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:IRanges&#39;:
-## 
-##     members</code></pre>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="rna-seq-analysis.html#cb350-1"></a><span class="kw">library</span>(<span class="st">&quot;org.Dm.eg.db&quot;</span>)</span>
-<span id="cb350-2"><a href="rna-seq-analysis.html#cb350-2"></a></span>
-<span id="cb350-3"><a href="rna-seq-analysis.html#cb350-3"></a><span class="co">#Prepare list of genes that are expressed, complete cases will get rid of the genes with NAs</span></span>
-<span id="cb350-4"><a href="rna-seq-analysis.html#cb350-4"></a>genes&lt;-<span class="kw">as.data.frame</span>(res.ZT3vsZT15.DN1_df<span class="op">$</span>gene_name[<span class="kw">complete.cases</span>(res.ZT3vsZT15.DN1_df)])</span>
-<span id="cb350-5"><a href="rna-seq-analysis.html#cb350-5"></a><span class="kw">names</span>(genes)&lt;-<span class="st">&quot;gene_name&quot;</span></span>
-<span id="cb350-6"><a href="rna-seq-analysis.html#cb350-6"></a></span>
-<span id="cb350-7"><a href="rna-seq-analysis.html#cb350-7"></a><span class="co">#Add the indicator</span></span>
-<span id="cb350-8"><a href="rna-seq-analysis.html#cb350-8"></a>genes<span class="op">$</span>ind=<span class="dv">0</span></span>
-<span id="cb350-9"><a href="rna-seq-analysis.html#cb350-9"></a>genes<span class="op">$</span>ind[genes<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>sig_up] =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb350-10"><a href="rna-seq-analysis.html#cb350-10"></a></span>
-<span id="cb350-11"><a href="rna-seq-analysis.html#cb350-11"></a>alg &lt;-<span class="st"> </span><span class="kw">factor</span>( <span class="kw">as.integer</span>( genes<span class="op">$</span>ind ) )</span>
-<span id="cb350-12"><a href="rna-seq-analysis.html#cb350-12"></a><span class="kw">names</span>(alg) &lt;-<span class="st"> </span>genes<span class="op">$</span>gene_name</span>
-<span id="cb350-13"><a href="rna-seq-analysis.html#cb350-13"></a>onts =<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;MF&quot;</span>, <span class="st">&quot;BP&quot;</span>, <span class="st">&quot;CC&quot;</span> )</span>
-<span id="cb350-14"><a href="rna-seq-analysis.html#cb350-14"></a></span>
-<span id="cb350-15"><a href="rna-seq-analysis.html#cb350-15"></a>tab =<span class="st"> </span><span class="kw">as.list</span>(onts)</span>
-<span id="cb350-16"><a href="rna-seq-analysis.html#cb350-16"></a>listGOtab =<span class="st">  </span><span class="kw">as.list</span>(onts)</span>
-<span id="cb350-17"><a href="rna-seq-analysis.html#cb350-17"></a><span class="kw">names</span>(tab) =<span class="st"> </span>onts</span>
-<span id="cb350-18"><a href="rna-seq-analysis.html#cb350-18"></a></span>
-<span id="cb350-19"><a href="rna-seq-analysis.html#cb350-19"></a><span class="co">#For loop going over the 3 GO term sets</span></span>
-<span id="cb350-20"><a href="rna-seq-analysis.html#cb350-20"></a><span class="cf">for</span>(e <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</span>
-<span id="cb350-21"><a href="rna-seq-analysis.html#cb350-21"></a>  </span>
-<span id="cb350-22"><a href="rna-seq-analysis.html#cb350-22"></a>  <span class="co">#start topGO data</span></span>
-<span id="cb350-23"><a href="rna-seq-analysis.html#cb350-23"></a>  tgd &lt;-<span class="st"> </span><span class="kw">new</span>( <span class="st">&quot;topGOdata&quot;</span>, <span class="dt">ontology=</span>onts[e], <span class="dt">allGenes =</span> alg, <span class="dt">nodeSize=</span><span class="dv">5</span>,</span>
-<span id="cb350-24"><a href="rna-seq-analysis.html#cb350-24"></a>              <span class="dt">annot=</span>annFUN.org, <span class="dt">mapping=</span><span class="st">&quot;org.Dm.eg.db&quot;</span>, <span class="dt">ID =</span> <span class="st">&quot;symbol&quot;</span> )</span>
-<span id="cb350-25"><a href="rna-seq-analysis.html#cb350-25"></a>  listGO =<span class="st"> </span><span class="kw">genesInTerm</span>(tgd)</span>
-<span id="cb350-26"><a href="rna-seq-analysis.html#cb350-26"></a>  </span>
-<span id="cb350-27"><a href="rna-seq-analysis.html#cb350-27"></a>  resultTopGO.elim &lt;-<span class="st"> </span><span class="kw">runTest</span>(tgd, <span class="dt">algorithm =</span> <span class="st">&quot;elim&quot;</span>, <span class="dt">statistic =</span> <span class="st">&quot;Fisher&quot;</span> )</span>
-<span id="cb350-28"><a href="rna-seq-analysis.html#cb350-28"></a>  resultTopGO.classic &lt;-<span class="st"> </span><span class="kw">runTest</span>(tgd, <span class="dt">algorithm =</span> <span class="st">&quot;classic&quot;</span>, <span class="dt">statistic =</span> <span class="st">&quot;Fisher&quot;</span> )</span>
-<span id="cb350-29"><a href="rna-seq-analysis.html#cb350-29"></a>  tab[[e]] &lt;-<span class="st"> </span><span class="kw">GenTable</span>( tgd, <span class="dt">Fisher.elim =</span> resultTopGO.elim, </span>
-<span id="cb350-30"><a href="rna-seq-analysis.html#cb350-30"></a>                        <span class="dt">Fisher.classic =</span> resultTopGO.classic,</span>
-<span id="cb350-31"><a href="rna-seq-analysis.html#cb350-31"></a>                        <span class="dt">orderBy =</span> <span class="st">&quot;Fisher.classic&quot;</span>,  <span class="dt">topNodes =</span>  <span class="dv">100</span>)</span>
-<span id="cb350-32"><a href="rna-seq-analysis.html#cb350-32"></a>  tab[[e]]<span class="op">$</span>FDR&lt;-<span class="kw">p.adjust</span>(tab[[e]]<span class="op">$</span>Fisher.classic,<span class="dt">method =</span> <span class="st">&quot;fdr&quot;</span>) <span class="co">#I correct the pvalues </span></span>
-<span id="cb350-33"><a href="rna-seq-analysis.html#cb350-33"></a>  tab[[e]]<span class="op">$</span>ontology=onts[e]</span>
-<span id="cb350-34"><a href="rna-seq-analysis.html#cb350-34"></a>}</span></code></pre></div>
-<pre><code>## 
-## Building most specific GOs .....</code></pre>
-<pre><code>## 	( 2203 GO terms found. )</code></pre>
-<pre><code>## 
-## Build GO DAG topology ..........</code></pre>
-<pre><code>## 	( 2722 GO terms and 3589 relations. )</code></pre>
-<pre><code>## 
-## Annotating nodes ...............</code></pre>
-<pre><code>## 	( 7751 genes annotated to the GO terms. )</code></pre>
-<pre><code>## 
-## 			 -- Elim Algorithm -- 
-## 
-## 		 the algorithm is scoring 92 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-## 			 cutOff: 0.01</code></pre>
-<pre><code>## 
-## 	 Level 9:	1 nodes to be scored	(0 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 8:	4 nodes to be scored	(5 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 7:	8 nodes to be scored	(5 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 6:	16 nodes to be scored	(40 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 5:	17 nodes to be scored	(73 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 4:	19 nodes to be scored	(89 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 3:	20 nodes to be scored	(89 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 2:	6 nodes to be scored	(89 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 1:	1 nodes to be scored	(89 eliminated genes)</code></pre>
-<pre><code>## 
-## 			 -- Classic Algorithm -- 
-## 
-## 		 the algorithm is scoring 92 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher</code></pre>
-<pre><code>## 
-## Building most specific GOs .....</code></pre>
-<pre><code>## 	( 4860 GO terms found. )</code></pre>
-<pre><code>## 
-## Build GO DAG topology ..........</code></pre>
-<pre><code>## 	( 7760 GO terms and 17510 relations. )</code></pre>
-<pre><code>## 
-## Annotating nodes ...............</code></pre>
-<pre><code>## 	( 8025 genes annotated to the GO terms. )</code></pre>
-<pre><code>## 
-## 			 -- Elim Algorithm -- 
-## 
-## 		 the algorithm is scoring 517 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-## 			 cutOff: 0.01</code></pre>
-<pre><code>## 
-## 	 Level 14:	1 nodes to be scored	(0 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 13:	3 nodes to be scored	(0 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 12:	5 nodes to be scored	(0 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 11:	9 nodes to be scored	(0 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 10:	14 nodes to be scored	(10 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 9:	29 nodes to be scored	(15 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 8:	47 nodes to be scored	(110 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 7:	66 nodes to be scored	(287 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 6:	92 nodes to be scored	(379 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 5:	110 nodes to be scored	(692 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 4:	78 nodes to be scored	(777 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 3:	46 nodes to be scored	(780 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 2:	16 nodes to be scored	(800 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 1:	1 nodes to be scored	(3775 eliminated genes)</code></pre>
-<pre><code>## 
-## 			 -- Classic Algorithm -- 
-## 
-## 		 the algorithm is scoring 517 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher</code></pre>
-<pre><code>## 
-## Building most specific GOs .....</code></pre>
-<pre><code>## 	( 1062 GO terms found. )</code></pre>
-<pre><code>## 
-## Build GO DAG topology ..........</code></pre>
-<pre><code>## 	( 1363 GO terms and 2640 relations. )</code></pre>
-<pre><code>## 
-## Annotating nodes ...............</code></pre>
-<pre><code>## 	( 7699 genes annotated to the GO terms. )</code></pre>
-<pre><code>## 
-## 			 -- Elim Algorithm -- 
-## 
-## 		 the algorithm is scoring 80 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-## 			 cutOff: 0.01</code></pre>
-<pre><code>## 
-## 	 Level 11:	3 nodes to be scored	(0 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 10:	3 nodes to be scored	(64 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 9:	5 nodes to be scored	(64 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 8:	11 nodes to be scored	(64 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 7:	11 nodes to be scored	(418 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 6:	7 nodes to be scored	(418 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 5:	8 nodes to be scored	(418 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 4:	12 nodes to be scored	(418 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 3:	11 nodes to be scored	(779 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 2:	8 nodes to be scored	(779 eliminated genes)</code></pre>
-<pre><code>## 
-## 	 Level 1:	1 nodes to be scored	(779 eliminated genes)</code></pre>
-<pre><code>## 
-## 			 -- Classic Algorithm -- 
-## 
-## 		 the algorithm is scoring 80 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher</code></pre>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="rna-seq-analysis.html#cb409-1"></a>allGO =<span class="st"> </span><span class="kw">rbind</span> (<span class="kw">as.data.frame</span>(tab[[<span class="dv">2</span>]]),<span class="kw">as.data.frame</span>(tab[[<span class="dv">1</span>]]),<span class="kw">as.data.frame</span>(tab[[<span class="dv">3</span>]]))</span>
-<span id="cb409-2"><a href="rna-seq-analysis.html#cb409-2"></a><span class="kw">write.table</span>(allGO, <span class="kw">paste0</span>(<span class="st">&quot;GOterm.txt&quot;</span>),<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span> , <span class="dt">row.names=</span>F)</span></code></pre></div>
+<span id="cb338-2"><a href="rna-seq-analysis.html#cb338-2"></a><span class="kw">library</span>(<span class="st">&quot;topGO&quot;</span>)</span>
+<span id="cb338-3"><a href="rna-seq-analysis.html#cb338-3"></a><span class="kw">library</span>(<span class="st">&quot;org.Dm.eg.db&quot;</span>)</span>
+<span id="cb338-4"><a href="rna-seq-analysis.html#cb338-4"></a></span>
+<span id="cb338-5"><a href="rna-seq-analysis.html#cb338-5"></a><span class="co">#Prepare list of genes that are expressed, complete cases will get rid of the genes with NAs</span></span>
+<span id="cb338-6"><a href="rna-seq-analysis.html#cb338-6"></a>genes&lt;-<span class="kw">as.data.frame</span>(res.ZT3vsZT15.DN1_df<span class="op">$</span>gene_name[<span class="kw">complete.cases</span>(res.ZT3vsZT15.DN1_df)])</span>
+<span id="cb338-7"><a href="rna-seq-analysis.html#cb338-7"></a><span class="kw">names</span>(genes)&lt;-<span class="st">&quot;gene_name&quot;</span></span>
+<span id="cb338-8"><a href="rna-seq-analysis.html#cb338-8"></a></span>
+<span id="cb338-9"><a href="rna-seq-analysis.html#cb338-9"></a><span class="co">#Add the indicator</span></span>
+<span id="cb338-10"><a href="rna-seq-analysis.html#cb338-10"></a>genes<span class="op">$</span>ind=<span class="dv">0</span></span>
+<span id="cb338-11"><a href="rna-seq-analysis.html#cb338-11"></a>genes<span class="op">$</span>ind[genes<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>sig_up] =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb338-12"><a href="rna-seq-analysis.html#cb338-12"></a></span>
+<span id="cb338-13"><a href="rna-seq-analysis.html#cb338-13"></a>alg &lt;-<span class="st"> </span><span class="kw">factor</span>( <span class="kw">as.integer</span>( genes<span class="op">$</span>ind ) )</span>
+<span id="cb338-14"><a href="rna-seq-analysis.html#cb338-14"></a><span class="kw">names</span>(alg) &lt;-<span class="st"> </span>genes<span class="op">$</span>gene_name</span>
+<span id="cb338-15"><a href="rna-seq-analysis.html#cb338-15"></a>onts =<span class="st"> </span><span class="kw">c</span>( <span class="st">&quot;MF&quot;</span>, <span class="st">&quot;BP&quot;</span>, <span class="st">&quot;CC&quot;</span> )</span>
+<span id="cb338-16"><a href="rna-seq-analysis.html#cb338-16"></a></span>
+<span id="cb338-17"><a href="rna-seq-analysis.html#cb338-17"></a>tab =<span class="st"> </span><span class="kw">as.list</span>(onts)</span>
+<span id="cb338-18"><a href="rna-seq-analysis.html#cb338-18"></a>listGOtab =<span class="st">  </span><span class="kw">as.list</span>(onts)</span>
+<span id="cb338-19"><a href="rna-seq-analysis.html#cb338-19"></a><span class="kw">names</span>(tab) =<span class="st"> </span>onts</span>
+<span id="cb338-20"><a href="rna-seq-analysis.html#cb338-20"></a></span>
+<span id="cb338-21"><a href="rna-seq-analysis.html#cb338-21"></a><span class="co">#For loop going over the 3 GO term sets</span></span>
+<span id="cb338-22"><a href="rna-seq-analysis.html#cb338-22"></a><span class="cf">for</span>(e <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</span>
+<span id="cb338-23"><a href="rna-seq-analysis.html#cb338-23"></a>  </span>
+<span id="cb338-24"><a href="rna-seq-analysis.html#cb338-24"></a>  <span class="co">#start topGO data</span></span>
+<span id="cb338-25"><a href="rna-seq-analysis.html#cb338-25"></a>  tgd &lt;-<span class="st"> </span><span class="kw">new</span>( <span class="st">&quot;topGOdata&quot;</span>, <span class="dt">ontology=</span>onts[e], <span class="dt">allGenes =</span> alg, <span class="dt">nodeSize=</span><span class="dv">5</span>,</span>
+<span id="cb338-26"><a href="rna-seq-analysis.html#cb338-26"></a>              <span class="dt">annot=</span>annFUN.org, <span class="dt">mapping=</span><span class="st">&quot;org.Dm.eg.db&quot;</span>, <span class="dt">ID =</span> <span class="st">&quot;symbol&quot;</span> )</span>
+<span id="cb338-27"><a href="rna-seq-analysis.html#cb338-27"></a>  listGO =<span class="st"> </span><span class="kw">genesInTerm</span>(tgd)</span>
+<span id="cb338-28"><a href="rna-seq-analysis.html#cb338-28"></a>  </span>
+<span id="cb338-29"><a href="rna-seq-analysis.html#cb338-29"></a>  resultTopGO.elim &lt;-<span class="st"> </span><span class="kw">runTest</span>(tgd, <span class="dt">algorithm =</span> <span class="st">&quot;elim&quot;</span>, <span class="dt">statistic =</span> <span class="st">&quot;Fisher&quot;</span> )</span>
+<span id="cb338-30"><a href="rna-seq-analysis.html#cb338-30"></a>  resultTopGO.classic &lt;-<span class="st"> </span><span class="kw">runTest</span>(tgd, <span class="dt">algorithm =</span> <span class="st">&quot;classic&quot;</span>, <span class="dt">statistic =</span> <span class="st">&quot;Fisher&quot;</span> )</span>
+<span id="cb338-31"><a href="rna-seq-analysis.html#cb338-31"></a>  tab[[e]] &lt;-<span class="st"> </span><span class="kw">GenTable</span>( tgd, <span class="dt">Fisher.elim =</span> resultTopGO.elim, </span>
+<span id="cb338-32"><a href="rna-seq-analysis.html#cb338-32"></a>                        <span class="dt">Fisher.classic =</span> resultTopGO.classic,</span>
+<span id="cb338-33"><a href="rna-seq-analysis.html#cb338-33"></a>                        <span class="dt">orderBy =</span> <span class="st">&quot;Fisher.classic&quot;</span>,  <span class="dt">topNodes =</span>  <span class="dv">100</span>)</span>
+<span id="cb338-34"><a href="rna-seq-analysis.html#cb338-34"></a>  tab[[e]]<span class="op">$</span>FDR&lt;-<span class="kw">p.adjust</span>(tab[[e]]<span class="op">$</span>Fisher.classic,<span class="dt">method =</span> <span class="st">&quot;fdr&quot;</span>) <span class="co">#I correct the pvalues </span></span>
+<span id="cb338-35"><a href="rna-seq-analysis.html#cb338-35"></a>  tab[[e]]<span class="op">$</span>ontology=onts[e]</span>
+<span id="cb338-36"><a href="rna-seq-analysis.html#cb338-36"></a>}</span>
+<span id="cb338-37"><a href="rna-seq-analysis.html#cb338-37"></a></span>
+<span id="cb338-38"><a href="rna-seq-analysis.html#cb338-38"></a>allGO =<span class="st"> </span><span class="kw">rbind</span> (<span class="kw">as.data.frame</span>(tab[[<span class="dv">2</span>]]),<span class="kw">as.data.frame</span>(tab[[<span class="dv">1</span>]]),<span class="kw">as.data.frame</span>(tab[[<span class="dv">3</span>]]))</span>
+<span id="cb338-39"><a href="rna-seq-analysis.html#cb338-39"></a><span class="kw">write.table</span>(allGO, <span class="kw">paste0</span>(<span class="st">&quot;GOterm.txt&quot;</span>),<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span> , <span class="dt">row.names=</span>F)</span></code></pre></div>
 </div>
 <div id="extra-negative-binomial-model" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Extra: negative binomial model</h2>

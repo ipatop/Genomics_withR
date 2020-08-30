@@ -658,7 +658,7 @@ ggplot(toplot[toplot$gene_name %in% genes.cyc ,],aes(x =ztime_2,y = value,color=
 ggplot(toplot[toplot$gene_name %in% genes.cyc ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() + facet_wrap(scales = "free",facets = ~gene_name )
 ```
 
-## Gene Ontology (GO) term analysis:
+## Gene Ontology (GO) term analysis
 
 The main objective of GO term analysis is to identify common features in a list of gene shared feature that might be "enriched" when compared with the background list of of genes. There are 3 GO term sets:
 
@@ -685,7 +685,7 @@ We will analyze the results from the RNA seq. It is important to know what to us
 
 To get the list of expressed genes we will use the fact that DeSeq2 actually puts NA in the padjusted column to the lowly expressed genes.
 
-```{r, fig.cap="Count plots with ggplot separating by gene name"}
+```{r,fig.cap="Count plots with ggplot separating by gene name",message=FALSE,warning=FALSE}
 #Libraries
 library("topGO")
 library("org.Dm.eg.db")
@@ -846,20 +846,29 @@ And of course you can always use the internal R help `?meta2d`
 #We already have the tables prepared
 head(DN1_gene_expression)
 ```
-This is the raw data, but we should use the normalized one
+
+This is the raw data, but we should use the normalized one.
 ```{r}
 head(counts(dds.DN1, normalized=T))
 ```
+
 If you read the specifications of meta2d, you need the first column to be the gene name. Lets do it. We can do it wiht base R or with specific packages.
+
+### Prepare the tables
+
+We need now to write them in an outside file and run the command. 
+Note that you might be able to use the original data, this is just to keep on learning how to manage the data.
+
 ```{r}
 DN1_gene_expression_norm <-as.data.frame(counts(dds.DN1, normalized=T))
-
 DN1_gene_expression_norm <- cbind(Genes = rownames(DN1_gene_expression_norm), DN1_gene_expression_norm)
 
-#We need now to write them in an outside file and run the command. 
-#Note that you might be able to use the original data, this is just to keep on learning how to manage the data
 write.csv(DN1_gene_expression_norm, file="cycDN1.csv", row.names=FALSE)
+```
 
+### Meta2d
+
+```{r}
 DN1_cyc <- meta2d(infile="cycDN1.csv",filestyle="csv", timepoints=(rep(c(3,7,11,15,19,23),2)),outputFile=FALSE,outRawData=F)
 ```
 
@@ -899,6 +908,22 @@ Export the results in a table
 write.table(x = DN1_cyc_meta, file="cycDN1_reults.txt",sep = "\t",row.names = F,col.names = T)
 ```
 
+### Plot the data.
+
+This it really useful to make plots. We will use the object created before.
+
+```{r, fig.cap="Cycling genes."}
+genes.cyc = DN1_cyc_meta$gene_name[c(DN1_cyc_meta$JTK_pvalue<0.05 & DN1_cyc_meta$JTK_amplitude>128.3)]#you can put here as many genes as you want, I am seleceting genes with amplitud bigger than clock (Clk)
+
+#I pick the first 8 genes, but you can look at all of them.
+ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x = as.numeric(ztime),y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() 
+```
+```{r, fig.cap="Cycling genes."}
+ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line()
+```
+```{r, fig.cap="Cycling genes."}
+ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() + facet_wrap(scales = "free",facets = ~gene_name )
+```
 
 ## Cycling genes analysis normalizing by maximum
 
@@ -909,24 +934,26 @@ I calculate the amplitude manually: this is just Maximum/Minimum.
 
 I share here some of the code to do it.
 
-1. I remove the genes that are all ceros
+1. Remove the genes that are all zeros
 
 ```{r, fig.cap="Cycling genes."}
 x<-DN1_gene_expression_norm # copy the DeSeq2 normalized reads
+
 ind=apply(x[-1], 1, function(x)(sum(x)>0)) # remove the genes that are not expressed at all
 x=x[ind,] 
 
 names(x)
 ```  
 
-2. I separate by replicate
+2. Separate by replicate
 
 ```{r, fig.cap="Cycling genes."}
 x1<-x[,c(1,grep(pattern = "_1",names(x)))]
 x2<-x[,c(1,grep("_2",names(x)))]
 ```
 
-3. I then do the normalization by max
+3. Normalization by max
+
 ```{r, fig.cap="Cycling genes."}
 x1<-t(apply((x1[,-1]), 1, function(x)(x/max(x)))) #this is the function that normalize each gene by its maximum
 x1<-cbind(as.data.frame(x$Gene),x1)
@@ -934,7 +961,8 @@ names(x1)[1]="Gene"
 x2<-t(apply((x2[,-1]), 1, function(x)(x/max(x))))
 ```
 
-4. I bind the replicates and run the meta2d 
+4. Bind the replicates and run the meta2d 
+
 ```{r, fig.cap="Cycling genes."}
 x<-cbind(x1,x2)
 x<-x[complete.cases(x),]
@@ -951,7 +979,7 @@ DN1_cyc_norm_meta2d <- as.data.frame(DN1_cyc_norm$meta)
 
 5. Calculate the amplitude manually for each replicate
 
-For this I create a function that merge the results from the cycling analysis and the read counts and calculates the amplitude manually.
+For this, create a function that merge the results from the cycling analysis and the read counts and calculates the amplitude manually.
 
 ```{r, fig.cap="Cycling genes."}
 mean_nona=function(x){
@@ -982,23 +1010,7 @@ DN1_cyc_norm_meta2d_mergecounts<-merge_counts(cyc = DN1_cyc_norm_meta2d,cs = x)
 
 ```
 
-## Plot the data.
 
-This it really useful to make plots. We will use the object created before.
-
-```{r, fig.cap="Cycling genes."}
-#And plot
-genes.cyc = DN1_cyc_meta$gene_name[c(DN1_cyc_meta$JTK_pvalue<0.05 & DN1_cyc_meta$JTK_amplitude>128.3)]#you can put here as many genes as you want, I am seleceting genes with amplitud bigger than clocl (Clk)
-
-#I pick the first 8 genes, but you can look at all of them.
-ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x = as.numeric(ztime),y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() 
-```
-```{r, fig.cap="Cycling genes."}
-ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line()
-```
-```{r, fig.cap="Cycling genes."}
-ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() + facet_wrap(scales = "free",facets = ~gene_name )
-```
 
 ## Activity
 

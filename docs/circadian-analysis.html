@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#explore-results"><i class="fa fa-check"></i><b>6.3.6</b> Explore results</a></li>
 <li class="chapter" data-level="6.3.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.7</b> Plot counts using ggplot</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#gene-ontology-go-term-analysis"><i class="fa fa-check"></i><b>6.4</b> Gene Ontology (GO) term analysis:</a></li>
+<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#gene-ontology-go-term-analysis"><i class="fa fa-check"></i><b>6.4</b> Gene Ontology (GO) term analysis</a></li>
 <li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.5</b> Extra: negative binomial model</a></li>
 <li class="chapter" data-level="6.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>6.6</b> Activity</a></li>
 <li class="chapter" data-level="6.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>6.7</b> Resources and Bibliography</a></li>
@@ -263,11 +263,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>7.1</b> Objectives</a></li>
 <li class="chapter" data-level="7.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>7.2</b> Introduction</a></li>
-<li class="chapter" data-level="7.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>7.3</b> Cycling genes analysis</a></li>
+<li class="chapter" data-level="7.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>7.3</b> Cycling genes analysis</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="circadian-analysis.html"><a href="circadian-analysis.html#prepare-the-tables"><i class="fa fa-check"></i><b>7.3.1</b> Prepare the tables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="circadian-analysis.html"><a href="circadian-analysis.html#meta2d"><i class="fa fa-check"></i><b>7.3.2</b> Meta2d</a></li>
+<li class="chapter" data-level="7.3.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#plot-the-data."><i class="fa fa-check"></i><b>7.3.3</b> Plot the data.</a></li>
+</ul></li>
 <li class="chapter" data-level="7.4" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis-normalizing-by-maximum"><i class="fa fa-check"></i><b>7.4</b> Cycling genes analysis normalizing by maximum</a></li>
-<li class="chapter" data-level="7.5" data-path="circadian-analysis.html"><a href="circadian-analysis.html#plot-the-data."><i class="fa fa-check"></i><b>7.5</b> Plot the data.</a></li>
-<li class="chapter" data-level="7.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.6</b> Activity</a></li>
-<li class="chapter" data-level="7.7" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.7</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="7.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.5</b> Activity</a></li>
+<li class="chapter" data-level="7.6" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.6</b> Resources and Bibliography</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
@@ -333,18 +337,18 @@ Figure 3.17: Schematic representation of the circadian neural network. Four smal
 <p>In the data analyzed in this lab, the authors collected RNA samples over 6 times of the day (ZT3, 7, 11, 15, 19, 23) from 4 cell-types: LNv, LNd, DN1 and Dopaminergic neurons (TH cells). This last group of cells are not part of the circadian core clock but in this study they see oscillating genes!</p>
 <p><strong>Packages:</strong></p>
 <p>We will use the following packages.</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="circadian-analysis.html#cb410-1"></a><span class="kw">library</span>(ggplot2) <span class="co">#for 2D graph</span></span>
-<span id="cb410-2"><a href="circadian-analysis.html#cb410-2"></a><span class="kw">library</span>(ggrepel) <span class="co">#to get the names in ggplot graph </span></span>
-<span id="cb410-3"><a href="circadian-analysis.html#cb410-3"></a><span class="kw">library</span>(gridExtra) <span class="co">#to arrange the plots</span></span>
-<span id="cb410-4"><a href="circadian-analysis.html#cb410-4"></a><span class="kw">library</span>(factoextra) <span class="co">#extra plots</span></span>
-<span id="cb410-5"><a href="circadian-analysis.html#cb410-5"></a><span class="kw">library</span>(plyr) <span class="co">#table manipulation</span></span>
-<span id="cb410-6"><a href="circadian-analysis.html#cb410-6"></a><span class="kw">library</span>(dplyr)<span class="co">#table manipulation</span></span>
-<span id="cb410-7"><a href="circadian-analysis.html#cb410-7"></a><span class="kw">library</span>(tidyr)<span class="co">#table manipulation</span></span>
-<span id="cb410-8"><a href="circadian-analysis.html#cb410-8"></a><span class="kw">library</span>(<span class="st">&quot;RColorBrewer&quot;</span>) <span class="co">#extra color palettes</span></span>
-<span id="cb410-9"><a href="circadian-analysis.html#cb410-9"></a><span class="kw">library</span>(<span class="st">&quot;pheatmap&quot;</span>) <span class="co">#nice heatmaps</span></span>
-<span id="cb410-10"><a href="circadian-analysis.html#cb410-10"></a><span class="kw">library</span>(org.Dm.eg.db) <span class="co">#get annotation</span></span>
-<span id="cb410-11"><a href="circadian-analysis.html#cb410-11"></a><span class="kw">library</span>(MetaCycle) <span class="co"># to identify cycling genes, the successor of JTK according to JTK authors</span></span>
-<span id="cb410-12"><a href="circadian-analysis.html#cb410-12"></a><span class="kw">library</span>(pcaExplorer) <span class="co">#more PCA analysis</span></span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="circadian-analysis.html#cb339-1"></a><span class="kw">library</span>(ggplot2) <span class="co">#for 2D graph</span></span>
+<span id="cb339-2"><a href="circadian-analysis.html#cb339-2"></a><span class="kw">library</span>(ggrepel) <span class="co">#to get the names in ggplot graph </span></span>
+<span id="cb339-3"><a href="circadian-analysis.html#cb339-3"></a><span class="kw">library</span>(gridExtra) <span class="co">#to arrange the plots</span></span>
+<span id="cb339-4"><a href="circadian-analysis.html#cb339-4"></a><span class="kw">library</span>(factoextra) <span class="co">#extra plots</span></span>
+<span id="cb339-5"><a href="circadian-analysis.html#cb339-5"></a><span class="kw">library</span>(plyr) <span class="co">#table manipulation</span></span>
+<span id="cb339-6"><a href="circadian-analysis.html#cb339-6"></a><span class="kw">library</span>(dplyr)<span class="co">#table manipulation</span></span>
+<span id="cb339-7"><a href="circadian-analysis.html#cb339-7"></a><span class="kw">library</span>(tidyr)<span class="co">#table manipulation</span></span>
+<span id="cb339-8"><a href="circadian-analysis.html#cb339-8"></a><span class="kw">library</span>(<span class="st">&quot;RColorBrewer&quot;</span>) <span class="co">#extra color palettes</span></span>
+<span id="cb339-9"><a href="circadian-analysis.html#cb339-9"></a><span class="kw">library</span>(<span class="st">&quot;pheatmap&quot;</span>) <span class="co">#nice heatmaps</span></span>
+<span id="cb339-10"><a href="circadian-analysis.html#cb339-10"></a><span class="kw">library</span>(org.Dm.eg.db) <span class="co">#get annotation</span></span>
+<span id="cb339-11"><a href="circadian-analysis.html#cb339-11"></a><span class="kw">library</span>(MetaCycle) <span class="co"># to identify cycling genes, the successor of JTK according to JTK authors</span></span>
+<span id="cb339-12"><a href="circadian-analysis.html#cb339-12"></a><span class="kw">library</span>(pcaExplorer) <span class="co">#more PCA analysis</span></span></code></pre></div>
 </div>
 <div id="cycling-genes-analysis" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Cycling genes analysis</h2>
@@ -360,8 +364,8 @@ It is the successor of JTK according to JTK authors and it incorporates differen
 Three independent algorithms (ARS, JTK and LS) were then selected from best of breed methods (Deckard et al., 2013; Wu et al., 2014). If set analysisStrategy as”auto“(default), it will automatically select proper method from cycMethod for each input dataset”</p>
 <p>There is a nice tutorial only from the <a href="https://cran.r-project.org/web/packages/MetaCycle/vignettes/implementation.html">CRAN repository</a></p>
 <p>And of course you can always use the internal R help <code>?meta2d</code></p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="circadian-analysis.html#cb411-1"></a><span class="co">#We already have the tables prepared</span></span>
-<span id="cb411-2"><a href="circadian-analysis.html#cb411-2"></a><span class="kw">head</span>(DN1_gene_expression)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="circadian-analysis.html#cb340-1"></a><span class="co">#We already have the tables prepared</span></span>
+<span id="cb340-2"><a href="circadian-analysis.html#cb340-2"></a><span class="kw">head</span>(DN1_gene_expression)</span></code></pre></div>
 <pre><code>##        Symbol DN1_ZT3_1 DN1_ZT7_1 DN1_ZT11_1 DN1_ZT15_1 DN1_ZT19_1 DN1_ZT23_1
 ## 1 FBtr0070202         0         0          0          0          0          0
 ## 2 FBtr0070207         0         0          0          0         14          0
@@ -376,8 +380,8 @@ Three independent algorithms (ARS, JTK and LS) were then selected from best of b
 ## 4         0         0          1          0          2          0
 ## 5         0         0          0          0          0          1
 ## 6         0         0          0          0          0          0</code></pre>
-<p>This is the raw data, but we should use the normalized one</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="circadian-analysis.html#cb413-1"></a><span class="kw">head</span>(<span class="kw">counts</span>(dds.DN1, <span class="dt">normalized=</span>T))</span></code></pre></div>
+<p>This is the raw data, but we should use the normalized one.</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="circadian-analysis.html#cb342-1"></a><span class="kw">head</span>(<span class="kw">counts</span>(dds.DN1, <span class="dt">normalized=</span>T))</span></code></pre></div>
 <pre><code>##             DN1_ZT3_1 DN1_ZT7_1 DN1_ZT11_1 DN1_ZT15_1 DN1_ZT19_1 DN1_ZT23_1
 ## FBtr0070202         0         0          0          0   0.000000          0
 ## FBtr0070207         0         0          0          0   7.039025          0
@@ -393,23 +397,26 @@ Three independent algorithms (ARS, JTK and LS) were then selected from best of b
 ## FBtr0070484         0         0   0.000000          0  0.0000000   1.817035
 ## FBtr0070489         0         0   0.000000          0  0.0000000   0.000000</code></pre>
 <p>If you read the specifications of meta2d, you need the first column to be the gene name. Lets do it. We can do it wiht base R or with specific packages.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="circadian-analysis.html#cb415-1"></a>DN1_gene_expression_norm &lt;-<span class="kw">as.data.frame</span>(<span class="kw">counts</span>(dds.DN1, <span class="dt">normalized=</span>T))</span>
-<span id="cb415-2"><a href="circadian-analysis.html#cb415-2"></a></span>
-<span id="cb415-3"><a href="circadian-analysis.html#cb415-3"></a>DN1_gene_expression_norm &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Genes =</span> <span class="kw">rownames</span>(DN1_gene_expression_norm), DN1_gene_expression_norm)</span>
-<span id="cb415-4"><a href="circadian-analysis.html#cb415-4"></a></span>
-<span id="cb415-5"><a href="circadian-analysis.html#cb415-5"></a><span class="co">#We need now to write them in an outside file and run the command. </span></span>
-<span id="cb415-6"><a href="circadian-analysis.html#cb415-6"></a><span class="co">#Note that you might be able to use the original data, this is just to keep on learning how to manage the data</span></span>
-<span id="cb415-7"><a href="circadian-analysis.html#cb415-7"></a><span class="kw">write.csv</span>(DN1_gene_expression_norm, <span class="dt">file=</span><span class="st">&quot;cycDN1.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>)</span>
-<span id="cb415-8"><a href="circadian-analysis.html#cb415-8"></a></span>
-<span id="cb415-9"><a href="circadian-analysis.html#cb415-9"></a>DN1_cyc &lt;-<span class="st"> </span><span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;cycDN1.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">23</span>),<span class="dv">2</span>)),<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span></code></pre></div>
-<pre><code>## The JTK is in process from  18:17:02 08-30-2020 
+<div id="prepare-the-tables" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Prepare the tables</h3>
+<p>We need now to write them in an outside file and run the command.
+Note that you might be able to use the original data, this is just to keep on learning how to manage the data.</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="circadian-analysis.html#cb344-1"></a>DN1_gene_expression_norm &lt;-<span class="kw">as.data.frame</span>(<span class="kw">counts</span>(dds.DN1, <span class="dt">normalized=</span>T))</span>
+<span id="cb344-2"><a href="circadian-analysis.html#cb344-2"></a>DN1_gene_expression_norm &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Genes =</span> <span class="kw">rownames</span>(DN1_gene_expression_norm), DN1_gene_expression_norm)</span>
+<span id="cb344-3"><a href="circadian-analysis.html#cb344-3"></a></span>
+<span id="cb344-4"><a href="circadian-analysis.html#cb344-4"></a><span class="kw">write.csv</span>(DN1_gene_expression_norm, <span class="dt">file=</span><span class="st">&quot;cycDN1.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+</div>
+<div id="meta2d" class="section level3" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Meta2d</h3>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="circadian-analysis.html#cb345-1"></a>DN1_cyc &lt;-<span class="st"> </span><span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;cycDN1.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">23</span>),<span class="dv">2</span>)),<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span></code></pre></div>
+<pre><code>## The JTK is in process from  19:01:13 08-30-2020 
 ## Warning: the input &#39;maxper&#39; is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  18:17:29 08-30-2020 
-## The LS is in process from  18:17:29 08-30-2020 
-## The analysis by LS is finished at  18:23:21 08-30-2020 
+## The analysis by JTK is finished at  19:01:39 08-30-2020 
+## The LS is in process from  19:01:39 08-30-2020 
+## The analysis by LS is finished at  19:07:05 08-30-2020 
 ## DONE! The analysis about &#39; cycDN1.csv &#39;  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## &quot;Time used:&quot;    &quot;377.513&quot;     &quot;15.223&quot;    &quot;402.926&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
+## &quot;Time used:&quot;    &quot;357.752&quot;     &quot;12.235&quot;    &quot;373.826&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
 <p>As we can read in the help page <code>?meta2d</code> the output of this function is:</p>
 <p>meta2d will write analysis results in different files under output directory (outdir) if set outputFile = TRUE. Files named with “ARSresult”, “JTKresult” and “LSreult” store analysis results from ARS, JTK and LS respectively. The file named with “meta2d” is the integration file, and it stores integrated values in columns with a common name tag-“meta2d”. The integration file also contains p-value, FDR value, period, phase(adjusted phase if adjustedPhase = “predictedPer”) and amplitude values calculated by each method. If outputFile = FALSE is selected, meta2d will return a list containing the following components:</p>
 <p>ARS analysis results from ARS method
@@ -417,7 +424,7 @@ JTK analysis results from JTK method
 LS analysis results from LS method
 meta the integrated analysis results as mentioned above</p>
 <p>Let’s explore the results</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="circadian-analysis.html#cb417-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>JTK)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="circadian-analysis.html#cb347-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>JTK)</span></code></pre></div>
 <pre><code>##         CycID BH.Q ADJ.P PER LAG AMP
 ## 1 FBtr0070202    1     1   0   0   0
 ## 2 FBtr0070207    1     1   0   0   0
@@ -425,7 +432,7 @@ meta the integrated analysis results as mentioned above</p>
 ## 4 FBtr0070251    1     1   0   0   0
 ## 5 FBtr0070484    1     1   0   0   0
 ## 6 FBtr0070489    1     1   0   0   0</code></pre>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="circadian-analysis.html#cb419-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>LS)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="circadian-analysis.html#cb349-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>LS)</span></code></pre></div>
 <pre><code>##         CycID PhaseShift PhaseShiftHeight PeakIndex   PeakSPD Period         p
 ## 1 FBtr0070202  22.999926         0.000000        NA        NA     NA 1.0000000
 ## 2 FBtr0070207  22.999922         6.795629         1 2.5714094     28 0.4706206
@@ -440,7 +447,7 @@ meta the integrated analysis results as mentioned above</p>
 ## 4 12            8     0.3    1
 ## 5 12            8     0.3    1
 ## 6 12            8      NA    1</code></pre>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="circadian-analysis.html#cb421-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>meta)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="circadian-analysis.html#cb351-1"></a><span class="kw">head</span>(DN1_cyc<span class="op">$</span>meta)</span></code></pre></div>
 <pre><code>##         CycID JTK_pvalue JTK_BH.Q JTK_period JTK_adjphase JTK_amplitude
 ## 1 FBtr0070202          1        1          0          NaN             0
 ## 2 FBtr0070207          1        1          0          NaN             0
@@ -463,14 +470,14 @@ meta the integrated analysis results as mentioned above</p>
 ## 5           1            28     7.721415   0.1560293 0.07341249  0.07341249
 ## 6           1            NA           NA   0.0000000         NA          NA</code></pre>
 <p>Clearly the “meta” is what we want. We can store it in another object to explore it in R or just write a table</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="circadian-analysis.html#cb423-1"></a>DN1_cyc_meta&lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(DN1_cyc<span class="op">$</span>meta)</span>
-<span id="cb423-2"><a href="circadian-analysis.html#cb423-2"></a></span>
-<span id="cb423-3"><a href="circadian-analysis.html#cb423-3"></a><span class="co">#We will add the gene-names and then export it</span></span>
-<span id="cb423-4"><a href="circadian-analysis.html#cb423-4"></a>DN1_cyc_meta<span class="op">$</span>transcript_name=DN1_cyc_meta<span class="op">$</span>CycID</span>
-<span id="cb423-5"><a href="circadian-analysis.html#cb423-5"></a>DN1_cyc_meta=<span class="kw">merge</span>(DN1_cyc_meta,annotation_DN1,<span class="dt">by=</span><span class="st">&quot;transcript_name&quot;</span>)</span>
-<span id="cb423-6"><a href="circadian-analysis.html#cb423-6"></a></span>
-<span id="cb423-7"><a href="circadian-analysis.html#cb423-7"></a><span class="co">#the tim, clk and per:</span></span>
-<span id="cb423-8"><a href="circadian-analysis.html#cb423-8"></a>DN1_cyc_meta[<span class="kw">which</span>(DN1_cyc_meta<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;tim&quot;</span>,<span class="st">&quot;Clk&quot;</span>,<span class="st">&quot;per&quot;</span>)),]</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="circadian-analysis.html#cb353-1"></a>DN1_cyc_meta&lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(DN1_cyc<span class="op">$</span>meta)</span>
+<span id="cb353-2"><a href="circadian-analysis.html#cb353-2"></a></span>
+<span id="cb353-3"><a href="circadian-analysis.html#cb353-3"></a><span class="co">#We will add the gene-names and then export it</span></span>
+<span id="cb353-4"><a href="circadian-analysis.html#cb353-4"></a>DN1_cyc_meta<span class="op">$</span>transcript_name=DN1_cyc_meta<span class="op">$</span>CycID</span>
+<span id="cb353-5"><a href="circadian-analysis.html#cb353-5"></a>DN1_cyc_meta=<span class="kw">merge</span>(DN1_cyc_meta,annotation_DN1,<span class="dt">by=</span><span class="st">&quot;transcript_name&quot;</span>)</span>
+<span id="cb353-6"><a href="circadian-analysis.html#cb353-6"></a></span>
+<span id="cb353-7"><a href="circadian-analysis.html#cb353-7"></a><span class="co">#the tim, clk and per:</span></span>
+<span id="cb353-8"><a href="circadian-analysis.html#cb353-8"></a>DN1_cyc_meta[<span class="kw">which</span>(DN1_cyc_meta<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;tim&quot;</span>,<span class="st">&quot;Clk&quot;</span>,<span class="st">&quot;per&quot;</span>)),]</span></code></pre></div>
 <pre><code>##       transcript_name       CycID   JTK_pvalue  JTK_BH.Q JTK_period
 ## 368       FBtr0070477 FBtr0070477 0.0080482069 0.5867038         24
 ## 5185      FBtr0076785 FBtr0076785 0.0285920047 0.8536843         20
@@ -528,7 +535,36 @@ meta the integrated analysis results as mentioned above</p>
 ## 27312   1976.0053  1791.7205   0.9067387       tim
 ## 27313   1976.0053  1791.7205   0.9067387       tim</code></pre>
 <p>Export the results in a table</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="circadian-analysis.html#cb425-1"></a><span class="kw">write.table</span>(<span class="dt">x =</span> DN1_cyc_meta, <span class="dt">file=</span><span class="st">&quot;cycDN1_reults.txt&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names =</span> F,<span class="dt">col.names =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="circadian-analysis.html#cb355-1"></a><span class="kw">write.table</span>(<span class="dt">x =</span> DN1_cyc_meta, <span class="dt">file=</span><span class="st">&quot;cycDN1_reults.txt&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names =</span> F,<span class="dt">col.names =</span> T)</span></code></pre></div>
+</div>
+<div id="plot-the-data." class="section level3" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Plot the data.</h3>
+<p>This it really useful to make plots. We will use the object created before.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="circadian-analysis.html#cb356-1"></a>genes.cyc =<span class="st"> </span>DN1_cyc_meta<span class="op">$</span>gene_name[<span class="kw">c</span>(DN1_cyc_meta<span class="op">$</span>JTK_pvalue<span class="op">&lt;</span><span class="fl">0.05</span> <span class="op">&amp;</span><span class="st"> </span>DN1_cyc_meta<span class="op">$</span>JTK_amplitude<span class="op">&gt;</span><span class="fl">128.3</span>)]<span class="co">#you can put here as many genes as you want, I am seleceting genes with amplitud bigger than clock (Clk)</span></span>
+<span id="cb356-2"><a href="circadian-analysis.html#cb356-2"></a></span>
+<span id="cb356-3"><a href="circadian-analysis.html#cb356-3"></a><span class="co">#I pick the first 8 genes, but you can look at all of them.</span></span>
+<span id="cb356-4"><a href="circadian-analysis.html#cb356-4"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.numeric</span>(ztime),<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() </span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-61"></span>
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-61-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">
+Figure 7.3: Cycling genes.
+</p>
+</div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="circadian-analysis.html#cb357-1"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span>ztime_<span class="dv">2</span>,<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-62"></span>
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-62-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">
+Figure 7.4: Cycling genes.
+</p>
+</div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="circadian-analysis.html#cb358-1"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span>ztime_<span class="dv">2</span>,<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>,<span class="dt">facets =</span> <span class="op">~</span>gene_name )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-63"></span>
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-63-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">
+Figure 7.5: Cycling genes.
+</p>
+</div>
+</div>
 </div>
 <div id="cycling-genes-analysis-normalizing-by-maximum" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Cycling genes analysis normalizing by maximum</h2>
@@ -537,120 +573,92 @@ meta the integrated analysis results as mentioned above</p>
 I calculate the amplitude manually: this is just Maximum/Minimum.</p>
 <p>I share here some of the code to do it.</p>
 <ol style="list-style-type: decimal">
-<li>I remove the genes that are all ceros</li>
+<li>Remove the genes that are all zeros</li>
 </ol>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="circadian-analysis.html#cb426-1"></a>x&lt;-DN1_gene_expression_norm <span class="co"># copy the DeSeq2 normalized reads</span></span>
-<span id="cb426-2"><a href="circadian-analysis.html#cb426-2"></a>ind=<span class="kw">apply</span>(x[<span class="op">-</span><span class="dv">1</span>], <span class="dv">1</span>, <span class="cf">function</span>(x)(<span class="kw">sum</span>(x)<span class="op">&gt;</span><span class="dv">0</span>)) <span class="co"># remove the genes that are not expressed at all</span></span>
-<span id="cb426-3"><a href="circadian-analysis.html#cb426-3"></a>x=x[ind,] </span>
-<span id="cb426-4"><a href="circadian-analysis.html#cb426-4"></a></span>
-<span id="cb426-5"><a href="circadian-analysis.html#cb426-5"></a><span class="kw">names</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="circadian-analysis.html#cb359-1"></a>x&lt;-DN1_gene_expression_norm <span class="co"># copy the DeSeq2 normalized reads</span></span>
+<span id="cb359-2"><a href="circadian-analysis.html#cb359-2"></a></span>
+<span id="cb359-3"><a href="circadian-analysis.html#cb359-3"></a>ind=<span class="kw">apply</span>(x[<span class="op">-</span><span class="dv">1</span>], <span class="dv">1</span>, <span class="cf">function</span>(x)(<span class="kw">sum</span>(x)<span class="op">&gt;</span><span class="dv">0</span>)) <span class="co"># remove the genes that are not expressed at all</span></span>
+<span id="cb359-4"><a href="circadian-analysis.html#cb359-4"></a>x=x[ind,] </span>
+<span id="cb359-5"><a href="circadian-analysis.html#cb359-5"></a></span>
+<span id="cb359-6"><a href="circadian-analysis.html#cb359-6"></a><span class="kw">names</span>(x)</span></code></pre></div>
 <pre><code>##  [1] &quot;Genes&quot;      &quot;DN1_ZT3_1&quot;  &quot;DN1_ZT7_1&quot;  &quot;DN1_ZT11_1&quot; &quot;DN1_ZT15_1&quot;
 ##  [6] &quot;DN1_ZT19_1&quot; &quot;DN1_ZT23_1&quot; &quot;DN1_ZT3_2&quot;  &quot;DN1_ZT7_2&quot;  &quot;DN1_ZT11_2&quot;
 ## [11] &quot;DN1_ZT15_2&quot; &quot;DN1_ZT19_2&quot; &quot;DN1_ZT23_2&quot;</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>I separate by replicate</li>
+<li>Separate by replicate</li>
 </ol>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="circadian-analysis.html#cb428-1"></a>x1&lt;-x[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;_1&quot;</span>,<span class="kw">names</span>(x)))]</span>
-<span id="cb428-2"><a href="circadian-analysis.html#cb428-2"></a>x2&lt;-x[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="kw">grep</span>(<span class="st">&quot;_2&quot;</span>,<span class="kw">names</span>(x)))]</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="circadian-analysis.html#cb361-1"></a>x1&lt;-x[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;_1&quot;</span>,<span class="kw">names</span>(x)))]</span>
+<span id="cb361-2"><a href="circadian-analysis.html#cb361-2"></a>x2&lt;-x[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="kw">grep</span>(<span class="st">&quot;_2&quot;</span>,<span class="kw">names</span>(x)))]</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li>I then do the normalization by max</li>
+<li>Normalization by max</li>
 </ol>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="circadian-analysis.html#cb429-1"></a>x1&lt;-<span class="kw">t</span>(<span class="kw">apply</span>((x1[,<span class="op">-</span><span class="dv">1</span>]), <span class="dv">1</span>, <span class="cf">function</span>(x)(x<span class="op">/</span><span class="kw">max</span>(x)))) <span class="co">#this is the function that normalize each gene by its maximum</span></span>
-<span id="cb429-2"><a href="circadian-analysis.html#cb429-2"></a>x1&lt;-<span class="kw">cbind</span>(<span class="kw">as.data.frame</span>(x<span class="op">$</span>Gene),x1)</span>
-<span id="cb429-3"><a href="circadian-analysis.html#cb429-3"></a><span class="kw">names</span>(x1)[<span class="dv">1</span>]=<span class="st">&quot;Gene&quot;</span></span>
-<span id="cb429-4"><a href="circadian-analysis.html#cb429-4"></a>x2&lt;-<span class="kw">t</span>(<span class="kw">apply</span>((x2[,<span class="op">-</span><span class="dv">1</span>]), <span class="dv">1</span>, <span class="cf">function</span>(x)(x<span class="op">/</span><span class="kw">max</span>(x))))</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="circadian-analysis.html#cb362-1"></a>x1&lt;-<span class="kw">t</span>(<span class="kw">apply</span>((x1[,<span class="op">-</span><span class="dv">1</span>]), <span class="dv">1</span>, <span class="cf">function</span>(x)(x<span class="op">/</span><span class="kw">max</span>(x)))) <span class="co">#this is the function that normalize each gene by its maximum</span></span>
+<span id="cb362-2"><a href="circadian-analysis.html#cb362-2"></a>x1&lt;-<span class="kw">cbind</span>(<span class="kw">as.data.frame</span>(x<span class="op">$</span>Gene),x1)</span>
+<span id="cb362-3"><a href="circadian-analysis.html#cb362-3"></a><span class="kw">names</span>(x1)[<span class="dv">1</span>]=<span class="st">&quot;Gene&quot;</span></span>
+<span id="cb362-4"><a href="circadian-analysis.html#cb362-4"></a>x2&lt;-<span class="kw">t</span>(<span class="kw">apply</span>((x2[,<span class="op">-</span><span class="dv">1</span>]), <span class="dv">1</span>, <span class="cf">function</span>(x)(x<span class="op">/</span><span class="kw">max</span>(x))))</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>I bind the replicates and run the meta2d</li>
+<li>Bind the replicates and run the meta2d</li>
 </ol>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="circadian-analysis.html#cb430-1"></a>x&lt;-<span class="kw">cbind</span>(x1,x2)</span>
-<span id="cb430-2"><a href="circadian-analysis.html#cb430-2"></a>x&lt;-x[<span class="kw">complete.cases</span>(x),]</span>
-<span id="cb430-3"><a href="circadian-analysis.html#cb430-3"></a></span>
-<span id="cb430-4"><a href="circadian-analysis.html#cb430-4"></a><span class="kw">write.table</span>(x, <span class="dt">file=</span><span class="st">&quot;normtomax.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb430-5"><a href="circadian-analysis.html#cb430-5"></a></span>
-<span id="cb430-6"><a href="circadian-analysis.html#cb430-6"></a><span class="co"># Extract the times from the colnames</span></span>
-<span id="cb430-7"><a href="circadian-analysis.html#cb430-7"></a>timepoints=<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;ZT&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="kw">sapply</span>(<span class="kw">strsplit</span>(<span class="kw">names</span>(x)[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;_&quot;</span>),<span class="st">&quot;[[&quot;</span>,<span class="dv">2</span>))) </span>
-<span id="cb430-8"><a href="circadian-analysis.html#cb430-8"></a></span>
-<span id="cb430-9"><a href="circadian-analysis.html#cb430-9"></a>DN1_cyc_norm &lt;-<span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;normtomax.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>timepoints,<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span>
-<span id="cb430-10"><a href="circadian-analysis.html#cb430-10"></a></span>
-<span id="cb430-11"><a href="circadian-analysis.html#cb430-11"></a>DN1_cyc_norm_meta2d &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(DN1_cyc_norm<span class="op">$</span>meta)</span></code></pre></div>
-<pre><code>## The JTK is in process from  18:23:47 08-30-2020 
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="circadian-analysis.html#cb363-1"></a>x&lt;-<span class="kw">cbind</span>(x1,x2)</span>
+<span id="cb363-2"><a href="circadian-analysis.html#cb363-2"></a>x&lt;-x[<span class="kw">complete.cases</span>(x),]</span>
+<span id="cb363-3"><a href="circadian-analysis.html#cb363-3"></a></span>
+<span id="cb363-4"><a href="circadian-analysis.html#cb363-4"></a><span class="kw">write.table</span>(x, <span class="dt">file=</span><span class="st">&quot;normtomax.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb363-5"><a href="circadian-analysis.html#cb363-5"></a></span>
+<span id="cb363-6"><a href="circadian-analysis.html#cb363-6"></a><span class="co"># Extract the times from the colnames</span></span>
+<span id="cb363-7"><a href="circadian-analysis.html#cb363-7"></a>timepoints=<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;ZT&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, <span class="kw">sapply</span>(<span class="kw">strsplit</span>(<span class="kw">names</span>(x)[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;_&quot;</span>),<span class="st">&quot;[[&quot;</span>,<span class="dv">2</span>))) </span>
+<span id="cb363-8"><a href="circadian-analysis.html#cb363-8"></a></span>
+<span id="cb363-9"><a href="circadian-analysis.html#cb363-9"></a>DN1_cyc_norm &lt;-<span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;normtomax.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>timepoints,<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span>
+<span id="cb363-10"><a href="circadian-analysis.html#cb363-10"></a></span>
+<span id="cb363-11"><a href="circadian-analysis.html#cb363-11"></a>DN1_cyc_norm_meta2d &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(DN1_cyc_norm<span class="op">$</span>meta)</span></code></pre></div>
+<pre><code>## The JTK is in process from  19:07:36 08-30-2020 
 ## Warning: the input &#39;maxper&#39; is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  18:24:09 08-30-2020 
-## The LS is in process from  18:24:09 08-30-2020 
-## The analysis by LS is finished at  18:28:55 08-30-2020 
+## The analysis by JTK is finished at  19:07:57 08-30-2020 
+## The LS is in process from  19:07:57 08-30-2020 
+## The analysis by LS is finished at  19:12:01 08-30-2020 
 ## DONE! The analysis about &#39; normtomax.csv &#39;  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## &quot;Time used:&quot;    &quot;299.796&quot;     &quot;12.004&quot;    &quot;331.045&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
+## &quot;Time used:&quot;    &quot;274.151&quot;      &quot;9.056&quot;    &quot;283.749&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Calculate the amplitude manually for each replicate</li>
 </ol>
-<p>For this I create a function that merge the results from the cycling analysis and the read counts and calculates the amplitude manually.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="circadian-analysis.html#cb432-1"></a>mean_nona=<span class="cf">function</span>(x){</span>
-<span id="cb432-2"><a href="circadian-analysis.html#cb432-2"></a>  <span class="kw">mean</span>(x,<span class="dt">na.rm =</span><span class="ot">TRUE</span>)</span>
-<span id="cb432-3"><a href="circadian-analysis.html#cb432-3"></a>}</span>
-<span id="cb432-4"><a href="circadian-analysis.html#cb432-4"></a></span>
-<span id="cb432-5"><a href="circadian-analysis.html#cb432-5"></a>merge_counts=<span class="cf">function</span>(cyc,cs){</span>
-<span id="cb432-6"><a href="circadian-analysis.html#cb432-6"></a>  </span>
-<span id="cb432-7"><a href="circadian-analysis.html#cb432-7"></a>  cs<span class="op">$</span>mean.exp=<span class="kw">apply</span>(cs[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>)],<span class="dv">1</span>,mean_nona)</span>
-<span id="cb432-8"><a href="circadian-analysis.html#cb432-8"></a>  cs=cs[<span class="kw">order</span>(cs<span class="op">$</span>Gene),]</span>
-<span id="cb432-9"><a href="circadian-analysis.html#cb432-9"></a>  cyc=cyc[<span class="kw">order</span>(cyc<span class="op">$</span>CycID),]</span>
-<span id="cb432-10"><a href="circadian-analysis.html#cb432-10"></a>  <span class="kw">print</span>(<span class="kw">unique</span>(cyc<span class="op">$</span>CycID<span class="op">==</span>cs<span class="op">$</span>Gene)) <span class="co">#make sure the we are merging the same genes</span></span>
-<span id="cb432-11"><a href="circadian-analysis.html#cb432-11"></a>  cyc&lt;-<span class="kw">cbind</span>(cyc, cs)</span>
-<span id="cb432-12"><a href="circadian-analysis.html#cb432-12"></a>  </span>
-<span id="cb432-13"><a href="circadian-analysis.html#cb432-13"></a>  toMatch &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;_1&quot;</span>, <span class="st">&quot;_2&quot;</span>)</span>
-<span id="cb432-14"><a href="circadian-analysis.html#cb432-14"></a>  cyc<span class="op">$</span>zero=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="kw">paste</span>(toMatch,<span class="dt">collapse=</span><span class="st">&quot;|&quot;</span>),<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="kw">length</span>(<span class="kw">which</span>(x <span class="op">%in%</span><span class="st"> </span><span class="dv">0</span>))<span class="op">&gt;</span><span class="dv">1</span>)))</span>
-<span id="cb432-15"><a href="circadian-analysis.html#cb432-15"></a>  cyc=cyc[cyc<span class="op">$</span>zero<span class="op">==</span>F,]</span>
-<span id="cb432-16"><a href="circadian-analysis.html#cb432-16"></a>  </span>
-<span id="cb432-17"><a href="circadian-analysis.html#cb432-17"></a>  cyc<span class="op">$</span>AMP_<span class="dv">1</span>=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;_1&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="dv">1</span><span class="op">/</span><span class="kw">min</span>(x)))) <span class="co"># amplitude for replicate 1</span></span>
-<span id="cb432-18"><a href="circadian-analysis.html#cb432-18"></a>  cyc<span class="op">$</span>AMP_<span class="dv">2</span>=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;_2&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="dv">1</span><span class="op">/</span><span class="kw">min</span>(x)))) <span class="co"># amplitude for replicate 2</span></span>
-<span id="cb432-19"><a href="circadian-analysis.html#cb432-19"></a>  cyc<span class="op">$</span>AMP_min=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;^AMP&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="kw">min</span>(x)))) <span class="co"># get the minimum amplitude </span></span>
-<span id="cb432-20"><a href="circadian-analysis.html#cb432-20"></a>  cyc<span class="op">$</span>AMP_min[cyc<span class="op">$</span>AMP_min<span class="op">==</span><span class="st">&quot;Inf&quot;</span>]=<span class="dv">10</span> <span class="co"># if the minimum is infinite (ie the minimum is cero), I set an arbitrary amplitude</span></span>
-<span id="cb432-21"><a href="circadian-analysis.html#cb432-21"></a>  </span>
-<span id="cb432-22"><a href="circadian-analysis.html#cb432-22"></a>  <span class="kw">return</span>(cyc)</span>
-<span id="cb432-23"><a href="circadian-analysis.html#cb432-23"></a>}</span>
-<span id="cb432-24"><a href="circadian-analysis.html#cb432-24"></a></span>
-<span id="cb432-25"><a href="circadian-analysis.html#cb432-25"></a>DN1_cyc_norm_meta2d_mergecounts&lt;-<span class="kw">merge_counts</span>(<span class="dt">cyc =</span> DN1_cyc_norm_meta2d,<span class="dt">cs =</span> x)</span></code></pre></div>
+<p>For this, create a function that merge the results from the cycling analysis and the read counts and calculates the amplitude manually.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="circadian-analysis.html#cb365-1"></a>mean_nona=<span class="cf">function</span>(x){</span>
+<span id="cb365-2"><a href="circadian-analysis.html#cb365-2"></a>  <span class="kw">mean</span>(x,<span class="dt">na.rm =</span><span class="ot">TRUE</span>)</span>
+<span id="cb365-3"><a href="circadian-analysis.html#cb365-3"></a>}</span>
+<span id="cb365-4"><a href="circadian-analysis.html#cb365-4"></a></span>
+<span id="cb365-5"><a href="circadian-analysis.html#cb365-5"></a>merge_counts=<span class="cf">function</span>(cyc,cs){</span>
+<span id="cb365-6"><a href="circadian-analysis.html#cb365-6"></a>  </span>
+<span id="cb365-7"><a href="circadian-analysis.html#cb365-7"></a>  cs<span class="op">$</span>mean.exp=<span class="kw">apply</span>(cs[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>)],<span class="dv">1</span>,mean_nona)</span>
+<span id="cb365-8"><a href="circadian-analysis.html#cb365-8"></a>  cs=cs[<span class="kw">order</span>(cs<span class="op">$</span>Gene),]</span>
+<span id="cb365-9"><a href="circadian-analysis.html#cb365-9"></a>  cyc=cyc[<span class="kw">order</span>(cyc<span class="op">$</span>CycID),]</span>
+<span id="cb365-10"><a href="circadian-analysis.html#cb365-10"></a>  <span class="kw">print</span>(<span class="kw">unique</span>(cyc<span class="op">$</span>CycID<span class="op">==</span>cs<span class="op">$</span>Gene)) <span class="co">#make sure the we are merging the same genes</span></span>
+<span id="cb365-11"><a href="circadian-analysis.html#cb365-11"></a>  cyc&lt;-<span class="kw">cbind</span>(cyc, cs)</span>
+<span id="cb365-12"><a href="circadian-analysis.html#cb365-12"></a>  </span>
+<span id="cb365-13"><a href="circadian-analysis.html#cb365-13"></a>  toMatch &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;_1&quot;</span>, <span class="st">&quot;_2&quot;</span>)</span>
+<span id="cb365-14"><a href="circadian-analysis.html#cb365-14"></a>  cyc<span class="op">$</span>zero=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="kw">paste</span>(toMatch,<span class="dt">collapse=</span><span class="st">&quot;|&quot;</span>),<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="kw">length</span>(<span class="kw">which</span>(x <span class="op">%in%</span><span class="st"> </span><span class="dv">0</span>))<span class="op">&gt;</span><span class="dv">1</span>)))</span>
+<span id="cb365-15"><a href="circadian-analysis.html#cb365-15"></a>  cyc=cyc[cyc<span class="op">$</span>zero<span class="op">==</span>F,]</span>
+<span id="cb365-16"><a href="circadian-analysis.html#cb365-16"></a>  </span>
+<span id="cb365-17"><a href="circadian-analysis.html#cb365-17"></a>  cyc<span class="op">$</span>AMP_<span class="dv">1</span>=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;_1&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="dv">1</span><span class="op">/</span><span class="kw">min</span>(x)))) <span class="co"># amplitude for replicate 1</span></span>
+<span id="cb365-18"><a href="circadian-analysis.html#cb365-18"></a>  cyc<span class="op">$</span>AMP_<span class="dv">2</span>=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;_2&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="dv">1</span><span class="op">/</span><span class="kw">min</span>(x)))) <span class="co"># amplitude for replicate 2</span></span>
+<span id="cb365-19"><a href="circadian-analysis.html#cb365-19"></a>  cyc<span class="op">$</span>AMP_min=(<span class="kw">apply</span>((cyc)[,<span class="kw">grep</span>(<span class="st">&quot;^AMP&quot;</span>,<span class="kw">names</span>(cyc))],<span class="dv">1</span>,<span class="cf">function</span>(x)(<span class="kw">min</span>(x)))) <span class="co"># get the minimum amplitude </span></span>
+<span id="cb365-20"><a href="circadian-analysis.html#cb365-20"></a>  cyc<span class="op">$</span>AMP_min[cyc<span class="op">$</span>AMP_min<span class="op">==</span><span class="st">&quot;Inf&quot;</span>]=<span class="dv">10</span> <span class="co"># if the minimum is infinite (ie the minimum is cero), I set an arbitrary amplitude</span></span>
+<span id="cb365-21"><a href="circadian-analysis.html#cb365-21"></a>  </span>
+<span id="cb365-22"><a href="circadian-analysis.html#cb365-22"></a>  <span class="kw">return</span>(cyc)</span>
+<span id="cb365-23"><a href="circadian-analysis.html#cb365-23"></a>}</span>
+<span id="cb365-24"><a href="circadian-analysis.html#cb365-24"></a></span>
+<span id="cb365-25"><a href="circadian-analysis.html#cb365-25"></a>DN1_cyc_norm_meta2d_mergecounts&lt;-<span class="kw">merge_counts</span>(<span class="dt">cyc =</span> DN1_cyc_norm_meta2d,<span class="dt">cs =</span> x)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="plot-the-data." class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Plot the data.</h2>
-<p>This it really useful to make plots. We will use the object created before.</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="circadian-analysis.html#cb434-1"></a><span class="co">#And plot</span></span>
-<span id="cb434-2"><a href="circadian-analysis.html#cb434-2"></a>genes.cyc =<span class="st"> </span>DN1_cyc_meta<span class="op">$</span>gene_name[<span class="kw">c</span>(DN1_cyc_meta<span class="op">$</span>JTK_pvalue<span class="op">&lt;</span><span class="fl">0.05</span> <span class="op">&amp;</span><span class="st"> </span>DN1_cyc_meta<span class="op">$</span>JTK_amplitude<span class="op">&gt;</span><span class="fl">128.3</span>)]<span class="co">#you can put here as many genes as you want, I am seleceting genes with amplitud bigger than clocl (Clk)</span></span>
-<span id="cb434-3"><a href="circadian-analysis.html#cb434-3"></a></span>
-<span id="cb434-4"><a href="circadian-analysis.html#cb434-4"></a><span class="co">#I pick the first 8 genes, but you can look at all of them.</span></span>
-<span id="cb434-5"><a href="circadian-analysis.html#cb434-5"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.numeric</span>(ztime),<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() </span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
-<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-65-1.png" alt="Cycling genes." width="100%" />
-<p class="caption">
-Figure 7.3: Cycling genes.
-</p>
-</div>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="circadian-analysis.html#cb435-1"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span>ztime_<span class="dv">2</span>,<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-66"></span>
-<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-66-1.png" alt="Cycling genes." width="100%" />
-<p class="caption">
-Figure 7.4: Cycling genes.
-</p>
-</div>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="circadian-analysis.html#cb436-1"></a><span class="kw">ggplot</span>(toplot[toplot<span class="op">$</span>gene_name <span class="op">%in%</span><span class="st"> </span>genes.cyc[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>] ,],<span class="kw">aes</span>(<span class="dt">x =</span>ztime_<span class="dv">2</span>,<span class="dt">y =</span> value,<span class="dt">color=</span>gene_name,<span class="dt">shape=</span>rep)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>,<span class="dt">facets =</span> <span class="op">~</span>gene_name )</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
-<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-67-1.png" alt="Cycling genes." width="100%" />
-<p class="caption">
-Figure 7.5: Cycling genes.
-</p>
-</div>
-</div>
-<div id="activity-1" class="section level2" number="7.6">
-<h2><span class="header-section-number">7.6</span> Activity</h2>
+<div id="activity-1" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Activity</h2>
 <blockquote>
 <p>Finish the analysis for the other cell-types.
 Find a way to compare the results (hint: look at dendrograms)
 Plot the data for the results of the normalized expression.</p>
 </blockquote>
 </div>
-<div id="resources-and-bibliography-1" class="section level2" number="7.7">
-<h2><span class="header-section-number">7.7</span> Resources and Bibliography</h2>
+<div id="resources-and-bibliography-1" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Resources and Bibliography</h2>
 <p>Dubowy C, Sehgal A. Circadian Rhythms and Sleep in Drosophila melanogaster. Genetics. 2017;205(4):1373-1397. <a href="doi:10.1534/genetics.115.185157" class="uri">doi:10.1534/genetics.115.185157</a></p>
 <p>MEIRELES-FILHO, Antonio Carlos Alves and KYRIACOU, Charalambos Panayiotis. Circadian rhythms in insect disease vectors. Mem. Inst. Oswaldo Cruz [online]. 2013, vol.108, suppl.1 [cited 2020-07-08], pp.48-58.</p>
 <p>Abruzzi KC, Zadina A, Luo W, Wiyanto E, Rahman R, Guo F, et al. (2017) RNA-seq analysis of Drosophila clock and non-clock neurons reveals neuron-specific cycling and novel candidate neuropeptides. PLoS Genet 13(2): e1006613. <a href="https://doi.org/10.1371/journal.pgen.1006613" class="uri">https://doi.org/10.1371/journal.pgen.1006613</a></p>

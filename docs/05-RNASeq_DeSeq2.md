@@ -1019,7 +1019,7 @@ ggplot(toplot[toplot$gene_name %in% genes.cyc ,],aes(x =ztime_2,y = value,color=
 <p class="caption">(\#fig:unnamed-chunk-46)Count plots with ggplot sepparating by gene name</p>
 </div>
 
-## Gene Ontology (GO) term analysis:
+## Gene Ontology (GO) term analysis
 
 The main objective of GO term analysis is to identify common features in a list of gene shared feature that might be "enriched" when compared with the background list of of genes. There are 3 GO term sets:
 
@@ -1050,65 +1050,6 @@ To get the list of expressed genes we will use the fact that DeSeq2 actually put
 ```r
 #Libraries
 library("topGO")
-```
-
-```
-## Loading required package: graph
-```
-
-```
-## 
-## Attaching package: 'graph'
-```
-
-```
-## The following object is masked from 'package:plyr':
-## 
-##     join
-```
-
-```
-## The following object is masked from 'package:stringr':
-## 
-##     boundary
-```
-
-```
-## Loading required package: GO.db
-```
-
-```
-## Loading required package: SparseM
-```
-
-```
-## 
-## Attaching package: 'SparseM'
-```
-
-```
-## The following object is masked from 'package:base':
-## 
-##     backsolve
-```
-
-```
-## 
-## groupGOTerms: 	GOBPTerm, GOMFTerm, GOCCTerm environments built.
-```
-
-```
-## 
-## Attaching package: 'topGO'
-```
-
-```
-## The following object is masked from 'package:IRanges':
-## 
-##     members
-```
-
-```r
 library("org.Dm.eg.db")
 
 #Prepare list of genes that are expressed, complete cases will get rid of the genes with NAs
@@ -1143,317 +1084,7 @@ for(e in 1:3){
   tab[[e]]$FDR<-p.adjust(tab[[e]]$Fisher.classic,method = "fdr") #I correct the pvalues 
   tab[[e]]$ontology=onts[e]
 }
-```
 
-```
-## 
-## Building most specific GOs .....
-```
-
-```
-## 	( 2203 GO terms found. )
-```
-
-```
-## 
-## Build GO DAG topology ..........
-```
-
-```
-## 	( 2722 GO terms and 3589 relations. )
-```
-
-```
-## 
-## Annotating nodes ...............
-```
-
-```
-## 	( 7751 genes annotated to the GO terms. )
-```
-
-```
-## 
-## 			 -- Elim Algorithm -- 
-## 
-## 		 the algorithm is scoring 92 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-## 			 cutOff: 0.01
-```
-
-```
-## 
-## 	 Level 9:	1 nodes to be scored	(0 eliminated genes)
-```
-
-```
-## 
-## 	 Level 8:	4 nodes to be scored	(5 eliminated genes)
-```
-
-```
-## 
-## 	 Level 7:	8 nodes to be scored	(5 eliminated genes)
-```
-
-```
-## 
-## 	 Level 6:	16 nodes to be scored	(40 eliminated genes)
-```
-
-```
-## 
-## 	 Level 5:	17 nodes to be scored	(73 eliminated genes)
-```
-
-```
-## 
-## 	 Level 4:	19 nodes to be scored	(89 eliminated genes)
-```
-
-```
-## 
-## 	 Level 3:	20 nodes to be scored	(89 eliminated genes)
-```
-
-```
-## 
-## 	 Level 2:	6 nodes to be scored	(89 eliminated genes)
-```
-
-```
-## 
-## 	 Level 1:	1 nodes to be scored	(89 eliminated genes)
-```
-
-```
-## 
-## 			 -- Classic Algorithm -- 
-## 
-## 		 the algorithm is scoring 92 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-```
-
-```
-## 
-## Building most specific GOs .....
-```
-
-```
-## 	( 4860 GO terms found. )
-```
-
-```
-## 
-## Build GO DAG topology ..........
-```
-
-```
-## 	( 7760 GO terms and 17510 relations. )
-```
-
-```
-## 
-## Annotating nodes ...............
-```
-
-```
-## 	( 8025 genes annotated to the GO terms. )
-```
-
-```
-## 
-## 			 -- Elim Algorithm -- 
-## 
-## 		 the algorithm is scoring 517 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-## 			 cutOff: 0.01
-```
-
-```
-## 
-## 	 Level 14:	1 nodes to be scored	(0 eliminated genes)
-```
-
-```
-## 
-## 	 Level 13:	3 nodes to be scored	(0 eliminated genes)
-```
-
-```
-## 
-## 	 Level 12:	5 nodes to be scored	(0 eliminated genes)
-```
-
-```
-## 
-## 	 Level 11:	9 nodes to be scored	(0 eliminated genes)
-```
-
-```
-## 
-## 	 Level 10:	14 nodes to be scored	(10 eliminated genes)
-```
-
-```
-## 
-## 	 Level 9:	29 nodes to be scored	(15 eliminated genes)
-```
-
-```
-## 
-## 	 Level 8:	47 nodes to be scored	(110 eliminated genes)
-```
-
-```
-## 
-## 	 Level 7:	66 nodes to be scored	(287 eliminated genes)
-```
-
-```
-## 
-## 	 Level 6:	92 nodes to be scored	(379 eliminated genes)
-```
-
-```
-## 
-## 	 Level 5:	110 nodes to be scored	(692 eliminated genes)
-```
-
-```
-## 
-## 	 Level 4:	78 nodes to be scored	(777 eliminated genes)
-```
-
-```
-## 
-## 	 Level 3:	46 nodes to be scored	(780 eliminated genes)
-```
-
-```
-## 
-## 	 Level 2:	16 nodes to be scored	(800 eliminated genes)
-```
-
-```
-## 
-## 	 Level 1:	1 nodes to be scored	(3775 eliminated genes)
-```
-
-```
-## 
-## 			 -- Classic Algorithm -- 
-## 
-## 		 the algorithm is scoring 517 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-```
-
-```
-## 
-## Building most specific GOs .....
-```
-
-```
-## 	( 1062 GO terms found. )
-```
-
-```
-## 
-## Build GO DAG topology ..........
-```
-
-```
-## 	( 1363 GO terms and 2640 relations. )
-```
-
-```
-## 
-## Annotating nodes ...............
-```
-
-```
-## 	( 7699 genes annotated to the GO terms. )
-```
-
-```
-## 
-## 			 -- Elim Algorithm -- 
-## 
-## 		 the algorithm is scoring 80 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-## 			 cutOff: 0.01
-```
-
-```
-## 
-## 	 Level 11:	3 nodes to be scored	(0 eliminated genes)
-```
-
-```
-## 
-## 	 Level 10:	3 nodes to be scored	(64 eliminated genes)
-```
-
-```
-## 
-## 	 Level 9:	5 nodes to be scored	(64 eliminated genes)
-```
-
-```
-## 
-## 	 Level 8:	11 nodes to be scored	(64 eliminated genes)
-```
-
-```
-## 
-## 	 Level 7:	11 nodes to be scored	(418 eliminated genes)
-```
-
-```
-## 
-## 	 Level 6:	7 nodes to be scored	(418 eliminated genes)
-```
-
-```
-## 
-## 	 Level 5:	8 nodes to be scored	(418 eliminated genes)
-```
-
-```
-## 
-## 	 Level 4:	12 nodes to be scored	(418 eliminated genes)
-```
-
-```
-## 
-## 	 Level 3:	11 nodes to be scored	(779 eliminated genes)
-```
-
-```
-## 
-## 	 Level 2:	8 nodes to be scored	(779 eliminated genes)
-```
-
-```
-## 
-## 	 Level 1:	1 nodes to be scored	(779 eliminated genes)
-```
-
-```
-## 
-## 			 -- Classic Algorithm -- 
-## 
-## 		 the algorithm is scoring 80 nontrivial nodes
-## 		 parameters: 
-## 			 test statistic: fisher
-```
-
-```r
 allGO = rbind (as.data.frame(tab[[2]]),as.data.frame(tab[[1]]),as.data.frame(tab[[3]]))
 write.table(allGO, paste0("GOterm.txt"),sep = "\t" , row.names=F)
 ```
@@ -1598,7 +1229,8 @@ head(DN1_gene_expression)
 ## 5         0         0          0          0          0          1
 ## 6         0         0          0          0          0          0
 ```
-This is the raw data, but we should use the normalized one
+
+This is the raw data, but we should use the normalized one.
 
 ```r
 head(counts(dds.DN1, normalized=T))
@@ -1620,29 +1252,38 @@ head(counts(dds.DN1, normalized=T))
 ## FBtr0070484         0         0   0.000000          0  0.0000000   1.817035
 ## FBtr0070489         0         0   0.000000          0  0.0000000   0.000000
 ```
+
 If you read the specifications of meta2d, you need the first column to be the gene name. Lets do it. We can do it wiht base R or with specific packages.
+
+### Prepare the tables
+
+We need now to write them in an outside file and run the command. 
+Note that you might be able to use the original data, this is just to keep on learning how to manage the data.
+
 
 ```r
 DN1_gene_expression_norm <-as.data.frame(counts(dds.DN1, normalized=T))
-
 DN1_gene_expression_norm <- cbind(Genes = rownames(DN1_gene_expression_norm), DN1_gene_expression_norm)
 
-#We need now to write them in an outside file and run the command. 
-#Note that you might be able to use the original data, this is just to keep on learning how to manage the data
 write.csv(DN1_gene_expression_norm, file="cycDN1.csv", row.names=FALSE)
+```
 
+### Meta2d
+
+
+```r
 DN1_cyc <- meta2d(infile="cycDN1.csv",filestyle="csv", timepoints=(rep(c(3,7,11,15,19,23),2)),outputFile=FALSE,outRawData=F)
 ```
 
 ```
-## The JTK is in process from  18:17:02 08-30-2020 
+## The JTK is in process from  19:01:13 08-30-2020 
 ## Warning: the input 'maxper' is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  18:17:29 08-30-2020 
-## The LS is in process from  18:17:29 08-30-2020 
-## The analysis by LS is finished at  18:23:21 08-30-2020 
+## The analysis by JTK is finished at  19:01:39 08-30-2020 
+## The LS is in process from  19:01:39 08-30-2020 
+## The analysis by LS is finished at  19:07:05 08-30-2020 
 ## DONE! The analysis about ' cycDN1.csv '  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## "Time used:"    "377.513"     "15.223"    "402.926"          "0"          "0"
+## "Time used:"    "357.752"     "12.235"    "373.826"          "0"          "0"
 ```
 
 As we can read in the help page `?meta2d` the output of this function is:
@@ -1796,6 +1437,40 @@ Export the results in a table
 write.table(x = DN1_cyc_meta, file="cycDN1_reults.txt",sep = "\t",row.names = F,col.names = T)
 ```
 
+### Plot the data.
+
+This it really useful to make plots. We will use the object created before.
+
+
+```r
+genes.cyc = DN1_cyc_meta$gene_name[c(DN1_cyc_meta$JTK_pvalue<0.05 & DN1_cyc_meta$JTK_amplitude>128.3)]#you can put here as many genes as you want, I am seleceting genes with amplitud bigger than clock (Clk)
+
+#I pick the first 8 genes, but you can look at all of them.
+ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x = as.numeric(ztime),y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() 
+```
+
+<div class="figure" style="text-align: center">
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-61-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-61)Cycling genes.</p>
+</div>
+
+```r
+ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line()
+```
+
+<div class="figure" style="text-align: center">
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-62-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-62)Cycling genes.</p>
+</div>
+
+```r
+ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() + facet_wrap(scales = "free",facets = ~gene_name )
+```
+
+<div class="figure" style="text-align: center">
+<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-63-1.png" alt="Cycling genes." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-63)Cycling genes.</p>
+</div>
 
 ## Cycling genes analysis normalizing by maximum
 
@@ -1806,11 +1481,12 @@ I calculate the amplitude manually: this is just Maximum/Minimum.
 
 I share here some of the code to do it.
 
-1. I remove the genes that are all ceros
+1. Remove the genes that are all zeros
 
 
 ```r
 x<-DN1_gene_expression_norm # copy the DeSeq2 normalized reads
+
 ind=apply(x[-1], 1, function(x)(sum(x)>0)) # remove the genes that are not expressed at all
 x=x[ind,] 
 
@@ -1823,7 +1499,7 @@ names(x)
 ## [11] "DN1_ZT15_2" "DN1_ZT19_2" "DN1_ZT23_2"
 ```
 
-2. I separate by replicate
+2. Separate by replicate
 
 
 ```r
@@ -1831,7 +1507,8 @@ x1<-x[,c(1,grep(pattern = "_1",names(x)))]
 x2<-x[,c(1,grep("_2",names(x)))]
 ```
 
-3. I then do the normalization by max
+3. Normalization by max
+
 
 ```r
 x1<-t(apply((x1[,-1]), 1, function(x)(x/max(x)))) #this is the function that normalize each gene by its maximum
@@ -1840,7 +1517,8 @@ names(x1)[1]="Gene"
 x2<-t(apply((x2[,-1]), 1, function(x)(x/max(x))))
 ```
 
-4. I bind the replicates and run the meta2d 
+4. Bind the replicates and run the meta2d 
+
 
 ```r
 x<-cbind(x1,x2)
@@ -1857,19 +1535,19 @@ DN1_cyc_norm_meta2d <- as.data.frame(DN1_cyc_norm$meta)
 ```
 
 ```
-## The JTK is in process from  18:23:47 08-30-2020 
+## The JTK is in process from  19:07:36 08-30-2020 
 ## Warning: the input 'maxper' is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  18:24:09 08-30-2020 
-## The LS is in process from  18:24:09 08-30-2020 
-## The analysis by LS is finished at  18:28:55 08-30-2020 
+## The analysis by JTK is finished at  19:07:57 08-30-2020 
+## The LS is in process from  19:07:57 08-30-2020 
+## The analysis by LS is finished at  19:12:01 08-30-2020 
 ## DONE! The analysis about ' normtomax.csv '  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## "Time used:"    "299.796"     "12.004"    "331.045"          "0"          "0"
+## "Time used:"    "274.151"      "9.056"    "283.749"          "0"          "0"
 ```
 
 5. Calculate the amplitude manually for each replicate
 
-For this I create a function that merge the results from the cycling analysis and the read counts and calculates the amplitude manually.
+For this, create a function that merge the results from the cycling analysis and the read counts and calculates the amplitude manually.
 
 
 ```r
@@ -1904,41 +1582,7 @@ DN1_cyc_norm_meta2d_mergecounts<-merge_counts(cyc = DN1_cyc_norm_meta2d,cs = x)
 ## [1] TRUE
 ```
 
-## Plot the data.
 
-This it really useful to make plots. We will use the object created before.
-
-
-```r
-#And plot
-genes.cyc = DN1_cyc_meta$gene_name[c(DN1_cyc_meta$JTK_pvalue<0.05 & DN1_cyc_meta$JTK_amplitude>128.3)]#you can put here as many genes as you want, I am seleceting genes with amplitud bigger than clocl (Clk)
-
-#I pick the first 8 genes, but you can look at all of them.
-ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x = as.numeric(ztime),y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() 
-```
-
-<div class="figure" style="text-align: center">
-<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-65-1.png" alt="Cycling genes." width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-65)Cycling genes.</p>
-</div>
-
-```r
-ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line()
-```
-
-<div class="figure" style="text-align: center">
-<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-66-1.png" alt="Cycling genes." width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-66)Cycling genes.</p>
-</div>
-
-```r
-ggplot(toplot[toplot$gene_name %in% genes.cyc[1:8] ,],aes(x =ztime_2,y = value,color=gene_name,shape=rep)) + geom_point() + geom_line() + facet_wrap(scales = "free",facets = ~gene_name )
-```
-
-<div class="figure" style="text-align: center">
-<img src="05-RNASeq_DeSeq2_files/figure-html/unnamed-chunk-67-1.png" alt="Cycling genes." width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-67)Cycling genes.</p>
-</div>
 
 ## Activity
 
