@@ -11,6 +11,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
 library(DESeq2) #for differential expression analysis
 library(ggplot2) #for 2D graph

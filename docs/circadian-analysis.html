@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="rna-seq-analysis.html"/>
-
+<link rel="next" href="single-cell-rna-seq.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -273,6 +273,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.5</b> Activity</a></li>
 <li class="chapter" data-level="7.6" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.6</b> Resources and Bibliography</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html"><i class="fa fa-check"></i><b>8</b> Single cell RNA-seq</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>8.1</b> Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#packages-used"><i class="fa fa-check"></i><b>8.3</b> Packages used</a></li>
+<li class="chapter" data-level="8.4" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#initialize-the-data"><i class="fa fa-check"></i><b>8.4</b> Initialize the data</a></li>
+<li class="chapter" data-level="8.5" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#quality-filtering"><i class="fa fa-check"></i><b>8.5</b> Quality filtering</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#get-number-of-genes-captured-and-number-of-umi-remember-the-difference-between-reads-and-umi"><i class="fa fa-check"></i><b>8.5.1</b> Get number of genes captured and number of UMI (remember the difference between reads and UMI)</a></li>
+<li class="chapter" data-level="8.5.2" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#calculate-percentage-of-mitochondrial-genes"><i class="fa fa-check"></i><b>8.5.2</b> Calculate percentage of mitochondrial genes:</a></li>
+<li class="chapter" data-level="8.5.3" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#removing-low-quality-cells"><i class="fa fa-check"></i><b>8.5.3</b> Removing low quality cells</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#normalizing-the-data"><i class="fa fa-check"></i><b>8.6</b> Normalizing the data</a></li>
+<li class="chapter" data-level="8.7" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#detection-of-variable-genes-across-the-single-cells"><i class="fa fa-check"></i><b>8.7</b> Detection of variable genes across the single cells</a></li>
+<li class="chapter" data-level="8.8" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#integrating-all-the-samples."><i class="fa fa-check"></i><b>8.8</b> Integrating ALL the samples.</a></li>
+<li class="chapter" data-level="8.9" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#scaling-the-data-and-removing-unwanted-sources-of-variation"><i class="fa fa-check"></i><b>8.9</b> Scaling the data and removing unwanted sources of variation</a></li>
+<li class="chapter" data-level="8.10" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#perform-linear-dimensional-reduction"><i class="fa fa-check"></i><b>8.10</b> Perform linear dimensional reduction</a></li>
+<li class="chapter" data-level="8.11" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#clustering"><i class="fa fa-check"></i><b>8.11</b> Clustering</a></li>
+<li class="chapter" data-level="8.12" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#visualization"><i class="fa fa-check"></i><b>8.12</b> Visualization</a></li>
+<li class="chapter" data-level="8.13" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#finding-differentially-expressed-features-cluster-biomarkers"><i class="fa fa-check"></i><b>8.13</b> Finding differentially expressed features (cluster biomarkers)</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
 <li class="divider"></li>
 <li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
@@ -409,14 +430,14 @@ Note that you might be able to use the original data, this is just to keep on le
 <div id="meta2d" class="section level3" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> Meta2d</h3>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="circadian-analysis.html#cb345-1"></a>DN1_cyc &lt;-<span class="st"> </span><span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;cycDN1.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">23</span>),<span class="dv">2</span>)),<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span></code></pre></div>
-<pre><code>## The JTK is in process from  19:01:13 08-30-2020 
+<pre><code>## The JTK is in process from  21:14:19 08-30-2020 
 ## Warning: the input &#39;maxper&#39; is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  19:01:39 08-30-2020 
-## The LS is in process from  19:01:39 08-30-2020 
-## The analysis by LS is finished at  19:07:05 08-30-2020 
+## The analysis by JTK is finished at  21:14:45 08-30-2020 
+## The LS is in process from  21:14:45 08-30-2020 
+## The analysis by LS is finished at  21:20:08 08-30-2020 
 ## DONE! The analysis about &#39; cycDN1.csv &#39;  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## &quot;Time used:&quot;    &quot;357.752&quot;     &quot;12.235&quot;    &quot;373.826&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
+## &quot;Time used:&quot;    &quot;356.725&quot;     &quot;12.003&quot;    &quot;370.861&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
 <p>As we can read in the help page <code>?meta2d</code> the output of this function is:</p>
 <p>meta2d will write analysis results in different files under output directory (outdir) if set outputFile = TRUE. Files named with “ARSresult”, “JTKresult” and “LSreult” store analysis results from ARS, JTK and LS respectively. The file named with “meta2d” is the integration file, and it stores integrated values in columns with a common name tag-“meta2d”. The integration file also contains p-value, FDR value, period, phase(adjusted phase if adjustedPhase = “predictedPer”) and amplitude values calculated by each method. If outputFile = FALSE is selected, meta2d will return a list containing the following components:</p>
 <p>ARS analysis results from ARS method
@@ -610,14 +631,14 @@ I calculate the amplitude manually: this is just Maximum/Minimum.</p>
 <span id="cb363-9"><a href="circadian-analysis.html#cb363-9"></a>DN1_cyc_norm &lt;-<span class="kw">meta2d</span>(<span class="dt">infile=</span><span class="st">&quot;normtomax.csv&quot;</span>,<span class="dt">filestyle=</span><span class="st">&quot;csv&quot;</span>, <span class="dt">timepoints=</span>timepoints,<span class="dt">outputFile=</span><span class="ot">FALSE</span>,<span class="dt">outRawData=</span>F)</span>
 <span id="cb363-10"><a href="circadian-analysis.html#cb363-10"></a></span>
 <span id="cb363-11"><a href="circadian-analysis.html#cb363-11"></a>DN1_cyc_norm_meta2d &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(DN1_cyc_norm<span class="op">$</span>meta)</span></code></pre></div>
-<pre><code>## The JTK is in process from  19:07:36 08-30-2020 
+<pre><code>## The JTK is in process from  21:20:39 08-30-2020 
 ## Warning: the input &#39;maxper&#39; is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  19:07:57 08-30-2020 
-## The LS is in process from  19:07:57 08-30-2020 
-## The analysis by LS is finished at  19:12:01 08-30-2020 
+## The analysis by JTK is finished at  21:21:01 08-30-2020 
+## The LS is in process from  21:21:01 08-30-2020 
+## The analysis by LS is finished at  21:25:12 08-30-2020 
 ## DONE! The analysis about &#39; normtomax.csv &#39;  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## &quot;Time used:&quot;    &quot;274.151&quot;      &quot;9.056&quot;    &quot;283.749&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
+## &quot;Time used:&quot;    &quot;279.973&quot;      &quot;10.08&quot;    &quot;293.003&quot;          &quot;0&quot;          &quot;0&quot;</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Calculate the amplitude manually for each replicate</li>
 </ol>
@@ -671,10 +692,6 @@ Gang Wu, Ron Anafi, Michael Hughes, Karl Kornacker, and John Hogenesch
 <p>Gene Ontology overview <a href="http://geneontology.org/docs/ontology-documentation/" class="uri">http://geneontology.org/docs/ontology-documentation/</a></p>
 
 </div>
-</div>
-
-
-
 </div>
 <div class="psyteachr_footer">
   
@@ -786,8 +803,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="rna-seq-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="rna-seq-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="single-cell-rna-seq.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

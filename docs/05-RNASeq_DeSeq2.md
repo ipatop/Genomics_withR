@@ -11,6 +11,7 @@ output:
 
 
 
+
 # RNA-seq analysis
 
 ## Objectives
@@ -1276,14 +1277,14 @@ DN1_cyc <- meta2d(infile="cycDN1.csv",filestyle="csv", timepoints=(rep(c(3,7,11,
 ```
 
 ```
-## The JTK is in process from  19:01:13 08-30-2020 
+## The JTK is in process from  21:14:19 08-30-2020 
 ## Warning: the input 'maxper' is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  19:01:39 08-30-2020 
-## The LS is in process from  19:01:39 08-30-2020 
-## The analysis by LS is finished at  19:07:05 08-30-2020 
+## The analysis by JTK is finished at  21:14:45 08-30-2020 
+## The LS is in process from  21:14:45 08-30-2020 
+## The analysis by LS is finished at  21:20:08 08-30-2020 
 ## DONE! The analysis about ' cycDN1.csv '  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## "Time used:"    "357.752"     "12.235"    "373.826"          "0"          "0"
+## "Time used:"    "356.725"     "12.003"    "370.861"          "0"          "0"
 ```
 
 As we can read in the help page `?meta2d` the output of this function is:
@@ -1535,14 +1536,14 @@ DN1_cyc_norm_meta2d <- as.data.frame(DN1_cyc_norm$meta)
 ```
 
 ```
-## The JTK is in process from  19:07:36 08-30-2020 
+## The JTK is in process from  21:20:39 08-30-2020 
 ## Warning: the input 'maxper' is not suitable for JTK, it was reset as  24 
-## The analysis by JTK is finished at  19:07:57 08-30-2020 
-## The LS is in process from  19:07:57 08-30-2020 
-## The analysis by LS is finished at  19:12:01 08-30-2020 
+## The analysis by JTK is finished at  21:21:01 08-30-2020 
+## The LS is in process from  21:21:01 08-30-2020 
+## The analysis by LS is finished at  21:25:12 08-30-2020 
 ## DONE! The analysis about ' normtomax.csv '  has been finished.
 ##                 user.self     sys.self      elapsed   user.child    sys.child 
-## "Time used:"    "274.151"      "9.056"    "283.749"          "0"          "0"
+## "Time used:"    "279.973"      "10.08"    "293.003"          "0"          "0"
 ```
 
 5. Calculate the amplitude manually for each replicate

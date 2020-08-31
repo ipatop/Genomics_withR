@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 8 Single cell RNA-seq | Genomics with R for biologists</title>
+  <meta name="description" content="This is the index for the coursebook" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lab 8 Single cell RNA-seq | Genomics with R for biologists" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the index for the coursebook" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lab 8 Single cell RNA-seq | Genomics with R for biologists" />
+  
+  <meta name="twitter:description" content="This is the index for the coursebook" />
+  
+
+<meta name="author" content="Ines Lucia Patop inespatop@brandeis.edu" />
+
+
+<meta name="date" content="2020-08-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="circadian-analysis.html"/>
+
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Genomics with R for biologists</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#course-aims"><i class="fa fa-check"></i><b>0.1</b> Course Aims</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#intended-learning-outcomes"><i class="fa fa-check"></i><b>0.2</b> Intended Learning Outcomes</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#next-steps"><i class="fa fa-check"></i><b>0.3</b> Next steps</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>0.4</b> Data availability</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>0.5</b> Acknowledgments</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>1.2</b> Introduction</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#rstudio-world"><i class="fa fa-check"></i><b>1.3</b> RStudio world</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#create-a-project"><i class="fa fa-check"></i><b>1.4</b> Create a project</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-shortcuts-in-rstudio"><i class="fa fa-check"></i><b>1.5</b> Useful shortcuts in RStudio:</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#installing-and-loading-packages"><i class="fa fa-check"></i><b>1.6</b> Installing and loading packages</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#creating-objects"><i class="fa fa-check"></i><b>1.7</b> Creating objects</a></li>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-as-a-calculator"><i class="fa fa-check"></i><b>1.8</b> R as a calculator</a></li>
+<li class="chapter" data-level="1.9" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#functions"><i class="fa fa-check"></i><b>1.9</b> Functions</a></li>
+<li class="chapter" data-level="1.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#loops"><i class="fa fa-check"></i><b>1.10</b> Loops</a></li>
+<li class="chapter" data-level="1.11" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#conditions"><i class="fa fa-check"></i><b>1.11</b> Conditions</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#character-objects"><i class="fa fa-check"></i><b>1.12</b> Character objects</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#identify"><i class="fa fa-check"></i><b>1.13</b> Identify</a></li>
+<li class="chapter" data-level="1.14" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#modify"><i class="fa fa-check"></i><b>1.14</b> Modify</a></li>
+<li class="chapter" data-level="1.15" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#useful-resources"><i class="fa fa-check"></i><b>1.15</b> Useful resources</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>1.16</b> Activity:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>2</b> Data manipulation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>2.1</b> Objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#load-data"><i class="fa fa-check"></i><b>2.3</b> Load data</a></li>
+<li class="chapter" data-level="2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#data-exploration"><i class="fa fa-check"></i><b>2.4</b> Data exploration</a></li>
+<li class="chapter" data-level="2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#subsetting"><i class="fa fa-check"></i><b>2.5</b> Subsetting</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>2.6</b> Activity:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html"><i class="fa fa-check"></i><b>3</b> Visualization and Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>3.1</b> Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>3.3</b> Plots</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#line-and-points"><i class="fa fa-check"></i><b>3.3.1</b> Line and points</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#historgam-and-density-plots"><i class="fa fa-check"></i><b>3.3.2</b> Historgam and density plots</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#boxplot"><i class="fa fa-check"></i><b>3.3.3</b> Boxplot</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#saving-plots"><i class="fa fa-check"></i><b>3.3.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#statistical-test"><i class="fa fa-check"></i><b>3.4</b> Statistical test</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.4.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#t-testwilcoxon"><i class="fa fa-check"></i><b>3.4.2</b> T-test/Wilcoxon</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#anovakruskalwallis"><i class="fa fa-check"></i><b>3.4.3</b> Anova/Kruskal–Wallis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>3.5</b> Activity:</a></li>
+<li class="chapter" data-level="3.6" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#resources"><i class="fa fa-check"></i><b>3.6</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html"><i class="fa fa-check"></i><b>4</b> Sequencing techniques and preprocessing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#different-type-of-data-dna-rna-splicing-single-end-paired-end"><i class="fa fa-check"></i><b>4.3</b> Different type of data (DNA, RNA, splicing, single-end paired-end)</a></li>
+<li class="chapter" data-level="4.4" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#from-the-sequencer-machine-to-the-sequence"><i class="fa fa-check"></i><b>4.4</b> From the sequencer machine to the sequence</a></li>
+<li class="chapter" data-level="4.5" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#general-processing"><i class="fa fa-check"></i><b>4.5</b> General processing</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#visualization-of-alignment-igv"><i class="fa fa-check"></i><b>4.5.1</b> Visualization of alignment (IGV)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#gene-counts-read-esat-feature-counts-peak-calling"><i class="fa fa-check"></i><b>4.5.2</b> Gene counts / read (esat feature counts) /peak calling</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#using-the-terminal"><i class="fa fa-check"></i><b>4.6</b> Using the terminal</a></li>
+<li class="chapter" data-level="4.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#a-bit-of-shell-commands"><i class="fa fa-check"></i><b>4.7</b> A bit of shell commands</a></li>
+<li class="chapter" data-level="4.8" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>4.8</b> Resources and Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html"><i class="fa fa-check"></i><b>5</b> Chip Sequencing Analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>5.1</b> Objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#data-pre-processing-peak-calling"><i class="fa fa-check"></i><b>5.3</b> Data pre-processing (peak-calling):</a></li>
+<li class="chapter" data-level="5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#exploring-the-results"><i class="fa fa-check"></i><b>5.4</b> Exploring the results:</a></li>
+<li class="chapter" data-level="5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotating-the-peaks."><i class="fa fa-check"></i><b>5.5</b> Annotating the peaks.</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#read-the-annotation-file"><i class="fa fa-check"></i><b>5.5.1</b> Read the annotation file</a></li>
+<li class="chapter" data-level="5.5.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#get-the-genes-from-this-annotation-data-base"><i class="fa fa-check"></i><b>5.5.2</b> Get the genes from this annotation data base</a></li>
+<li class="chapter" data-level="5.5.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#get-the-genomic-ranges-of-the-peaks-from-macs-and-find-which-gene-is-closer-to-them-ie.-annotate-them"><i class="fa fa-check"></i><b>5.5.3</b> Get the genomic ranges of the peaks from MACS and find which gene is closer to them (ie. Annotate them)</a></li>
+<li class="chapter" data-level="5.5.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#change-the-gene-format."><i class="fa fa-check"></i><b>5.5.4</b> Change the gene format.</a></li>
+<li class="chapter" data-level="5.5.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-and-export-the-table"><i class="fa fa-check"></i><b>5.5.5</b> Explore and export the table</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#annotate-with-chipseeker"><i class="fa fa-check"></i><b>5.6</b> Annotate with <code>ChIPseeker</code></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-and-export-the-output"><i class="fa fa-check"></i><b>5.6.1</b> Explore and Export the output</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#positive-controls."><i class="fa fa-check"></i><b>5.6.2</b> Positive controls.</a></li>
+<li class="chapter" data-level="5.6.3" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#plots"><i class="fa fa-check"></i><b>5.6.3</b> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#sequence-motif-analysis"><i class="fa fa-check"></i><b>5.7</b> Sequence Motif analysis</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#put-the-peak-sequences-in-fasta-format"><i class="fa fa-check"></i><b>5.7.1</b> Put the peak sequences in fasta format</a></li>
+<li class="chapter" data-level="5.7.2" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#find-the-motifs"><i class="fa fa-check"></i><b>5.7.2</b> Find the MOTIFS</a></li>
+<li class="chapter" data-level="5.7.3" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#explore-the-results"><i class="fa fa-check"></i><b>5.7.3</b> Explore the results</a></li>
+<li class="chapter" data-level="5.7.4" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plot-the-results"><i class="fa fa-check"></i><b>5.7.4</b> Plot the results</a></li>
+<li class="chapter" data-level="5.7.5" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>5.7.5</b> Plotting with Ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-how-to-solve-some-common-annotation-issues."><i class="fa fa-check"></i><b>5.8</b> Extra: How to solve some common annotation issues.</a></li>
+<li class="chapter" data-level="5.9" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#extra-detailed-explanation-of-the-macs-output-files"><i class="fa fa-check"></i><b>5.9</b> Extra: Detailed explanation of the MACS output files</a></li>
+<li class="chapter" data-level="5.10" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>5.10</b> Activity</a></li>
+<li class="chapter" data-level="5.11" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>5.11</b> Resources and Bibliography</a></li>
+<li class="chapter" data-level="5.12" data-path="chip-sequencing-analysis.html"><a href="chip-sequencing-analysis.html#session-info-all-the-packages-installed."><i class="fa fa-check"></i><b>5.12</b> Session info: all the packages installed.</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html"><i class="fa fa-check"></i><b>6</b> RNA-seq analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression"><i class="fa fa-check"></i><b>6.3</b> Differential gene expression</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#loading-the-tables"><i class="fa fa-check"></i><b>6.3.1</b> Loading the tables</a></li>
+<li class="chapter" data-level="6.3.2" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#create-the-deseq2-count-matrix"><i class="fa fa-check"></i><b>6.3.2</b> Create the DeSeq2 count matrix</a></li>
+<li class="chapter" data-level="6.3.3" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#meta-data-coldata-preparation"><i class="fa fa-check"></i><b>6.3.3</b> Meta-data (colData) preparation</a></li>
+<li class="chapter" data-level="6.3.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#quality-filtering-distance-matrix-and-principal-component-analysis-pca"><i class="fa fa-check"></i><b>6.3.4</b> Quality filtering: Distance matrix and principal component analysis (PCA)</a></li>
+<li class="chapter" data-level="6.3.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#differential-gene-expression-analysis-between-zt."><i class="fa fa-check"></i><b>6.3.5</b> Differential gene expression analysis between ZT.</a></li>
+<li class="chapter" data-level="6.3.6" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#explore-results"><i class="fa fa-check"></i><b>6.3.6</b> Explore results</a></li>
+<li class="chapter" data-level="6.3.7" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#plot-counts-using-ggplot"><i class="fa fa-check"></i><b>6.3.7</b> Plot counts using ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#gene-ontology-go-term-analysis"><i class="fa fa-check"></i><b>6.4</b> Gene Ontology (GO) term analysis</a></li>
+<li class="chapter" data-level="6.5" data-path="rna-seq-analysis.html"><a href="rna-seq-analysis.html#extra-negative-binomial-model"><i class="fa fa-check"></i><b>6.5</b> Extra: negative binomial model</a></li>
+<li class="chapter" data-level="6.6" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#activity"><i class="fa fa-check"></i><b>6.6</b> Activity</a></li>
+<li class="chapter" data-level="6.7" data-path="sequencing-techniques-and-preprocessing.html"><a href="sequencing-techniques-and-preprocessing.html#resources-and-bibliography"><i class="fa fa-check"></i><b>6.7</b> Resources and Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="circadian-analysis.html"><a href="circadian-analysis.html"><i class="fa fa-check"></i><b>7</b> Circadian analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#objectives-1"><i class="fa fa-check"></i><b>7.1</b> Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#introduction-1"><i class="fa fa-check"></i><b>7.2</b> Introduction</a></li>
+<li class="chapter" data-level="7.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis"><i class="fa fa-check"></i><b>7.3</b> Cycling genes analysis</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="circadian-analysis.html"><a href="circadian-analysis.html#prepare-the-tables"><i class="fa fa-check"></i><b>7.3.1</b> Prepare the tables</a></li>
+<li class="chapter" data-level="7.3.2" data-path="circadian-analysis.html"><a href="circadian-analysis.html#meta2d"><i class="fa fa-check"></i><b>7.3.2</b> Meta2d</a></li>
+<li class="chapter" data-level="7.3.3" data-path="circadian-analysis.html"><a href="circadian-analysis.html#plot-the-data."><i class="fa fa-check"></i><b>7.3.3</b> Plot the data.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="circadian-analysis.html"><a href="circadian-analysis.html#cycling-genes-analysis-normalizing-by-maximum"><i class="fa fa-check"></i><b>7.4</b> Cycling genes analysis normalizing by maximum</a></li>
+<li class="chapter" data-level="7.5" data-path="visualization-and-statistical-test.html"><a href="visualization-and-statistical-test.html#activity-1"><i class="fa fa-check"></i><b>7.5</b> Activity</a></li>
+<li class="chapter" data-level="7.6" data-path="circadian-analysis.html"><a href="circadian-analysis.html#resources-and-bibliography-1"><i class="fa fa-check"></i><b>7.6</b> Resources and Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html"><i class="fa fa-check"></i><b>8</b> Single cell RNA-seq</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#objectives"><i class="fa fa-check"></i><b>8.1</b> Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#introduction"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#packages-used"><i class="fa fa-check"></i><b>8.3</b> Packages used</a></li>
+<li class="chapter" data-level="8.4" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#initialize-the-data"><i class="fa fa-check"></i><b>8.4</b> Initialize the data</a></li>
+<li class="chapter" data-level="8.5" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#quality-filtering"><i class="fa fa-check"></i><b>8.5</b> Quality filtering</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#get-number-of-genes-captured-and-number-of-umi-remember-the-difference-between-reads-and-umi"><i class="fa fa-check"></i><b>8.5.1</b> Get number of genes captured and number of UMI (remember the difference between reads and UMI)</a></li>
+<li class="chapter" data-level="8.5.2" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#calculate-percentage-of-mitochondrial-genes"><i class="fa fa-check"></i><b>8.5.2</b> Calculate percentage of mitochondrial genes:</a></li>
+<li class="chapter" data-level="8.5.3" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#removing-low-quality-cells"><i class="fa fa-check"></i><b>8.5.3</b> Removing low quality cells</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#normalizing-the-data"><i class="fa fa-check"></i><b>8.6</b> Normalizing the data</a></li>
+<li class="chapter" data-level="8.7" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#detection-of-variable-genes-across-the-single-cells"><i class="fa fa-check"></i><b>8.7</b> Detection of variable genes across the single cells</a></li>
+<li class="chapter" data-level="8.8" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#integrating-all-the-samples."><i class="fa fa-check"></i><b>8.8</b> Integrating ALL the samples.</a></li>
+<li class="chapter" data-level="8.9" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#scaling-the-data-and-removing-unwanted-sources-of-variation"><i class="fa fa-check"></i><b>8.9</b> Scaling the data and removing unwanted sources of variation</a></li>
+<li class="chapter" data-level="8.10" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#perform-linear-dimensional-reduction"><i class="fa fa-check"></i><b>8.10</b> Perform linear dimensional reduction</a></li>
+<li class="chapter" data-level="8.11" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#clustering"><i class="fa fa-check"></i><b>8.11</b> Clustering</a></li>
+<li class="chapter" data-level="8.12" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#visualization"><i class="fa fa-check"></i><b>8.12</b> Visualization</a></li>
+<li class="chapter" data-level="8.13" data-path="single-cell-rna-seq.html"><a href="single-cell-rna-seq.html#finding-differentially-expressed-features-cluster-biomarkers"><i class="fa fa-check"></i><b>8.13</b> Finding differentially expressed features (cluster biomarkers)</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genomics with R for biologists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="single-cell-rna-seq" class="section level1" number="8">
+<h1><span class="header-section-number">Lab 8</span> Single cell RNA-seq</h1>
+<div id="objectives" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Objectives</h2>
+<p>After this section you should be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Understand single cell RNA sequencing data.</li>
+<li>Do quality filtering.</li>
+<li>Perform clustering analysis and plots using Seurat.</li>
+</ol>
+</div>
+<div id="introduction" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Introduction</h2>
+<p>In this class we will reanalyze single cell data on fruit fly brain from <a href="https://elifesciences.org/articles/34550">Cellular diversity in the Drosophila midbrain revealed by single-cell transcriptomics. Croset et al. elife 2018</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="SingleCell_2/lax_34550_elife-34550-fig1-v2.jpg" alt="Drop-seq reveals neuronal clusters in the Drosophila brain. (A) Schematic of the experimental procedure. Drosophila brains were dissected and dissociated prior to Drop-seq. After sequencing and alignment, a digital expression matrix containing information about the number of UMIs found for each gene, in each cell, was generated and used for PCA and subsequent analyses. See Materials and methods section for details. (B) Two-dimensional representation (t-SNE) of 10,286 Drosophila brain cells, manually classified into 28 clusters. Based on the recovery of cell-types of known abundance in the brain, we estimate that there are 45,000 cells in the fly midbrain." width="500px" />
+<p class="caption">
+Figure 4.1: Drop-seq reveals neuronal clusters in the Drosophila brain. (A) Schematic of the experimental procedure. Drosophila brains were dissected and dissociated prior to Drop-seq. After sequencing and alignment, a digital expression matrix containing information about the number of UMIs found for each gene, in each cell, was generated and used for PCA and subsequent analyses. See Materials and methods section for details. (B) Two-dimensional representation (t-SNE) of 10,286 Drosophila brain cells, manually classified into 28 clusters. Based on the recovery of cell-types of known abundance in the brain, we estimate that there are 45,000 cells in the fly midbrain.
+</p>
+</div>
+<p>We will analyze only three of the samples so everything is easier to run. We will use the package <a href="https://satijalab.org/seurat/v3.1/pbmc3k_tutorial.html">Seurat</a> that allows us to do everything in a user-friendly way.</p>
+<p>The single cell data structure is exactly like the RNA-seq data we saw in last chapter but in this case each sample is one individual cell.</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="single-cell-rna-seq.html#cb367-1"></a>sc.small</span></code></pre></div>
+<pre><code>##      cell1 cell2 cell3 ...
+## genA     0    43    22  92
+## genB     0    21    68  22
+## genC     9    10    54  36
+## ...      0     0     0   0</code></pre>
+<p>Other difference is that in this case we do not have a meta data file, we do not know anything about each cell before starting the analysis. And that is a key about our objectives with this data:</p>
+<ol style="list-style-type: decimal">
+<li>Quality filtering</li>
+<li>Clustering analysis</li>
+<li>Cell type identification</li>
+</ol>
+</div>
+<div id="packages-used" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Packages used</h2>
+<p>Remember that if you need to install them you will have to try with <code>install.packages()</code> or <code>BiocManager::install()</code> before loading the library.</p>
+<p>In this case you will have to install Seurat for sure: <code>BiocManager::install("Seurat")</code></p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="single-cell-rna-seq.html#cb369-1"></a><span class="kw">library</span>(Seurat)</span>
+<span id="cb369-2"><a href="single-cell-rna-seq.html#cb369-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb369-3"><a href="single-cell-rna-seq.html#cb369-3"></a><span class="kw">library</span>(Matrix)</span>
+<span id="cb369-4"><a href="single-cell-rna-seq.html#cb369-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb369-5"><a href="single-cell-rna-seq.html#cb369-5"></a><span class="kw">library</span>(cowplot)</span>
+<span id="cb369-6"><a href="single-cell-rna-seq.html#cb369-6"></a><span class="kw">library</span>(patchwork)</span></code></pre></div>
+</div>
+<div id="initialize-the-data" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Initialize the data</h2>
+<p>We need to load the table and create the Seurat object.</p>
+<pre><code>## Initialize the Seurat object with the raw (non-normalized data)
+
+#We need to read the tables, change the file path accordingly
+dm.1&lt;- read.delim(file = &quot;./single_cell_WT/REPLICATE1.dge.txt.gz&quot;, header=T)
+dm.2&lt;- read.delim(file = &quot;./single_cell_WT/REPLICATE2.dge.txt.gz&quot;, header=T)
+dm.3&lt;- read.delim(file = &quot;./single_cell_WT/REPLICATE3.dge.txt.gz&quot;, header=T)
+
+#And do some manipulation. This is to put the data in the right format. 
+
+#First, we remove the NA and replace it with 0.
+dm.1[is.na(dm.1)] =0
+dm.2[is.na(dm.2)] =0
+dm.3[is.na(dm.3)] =0
+
+#Then, we store the data in another object and modify that. We put then the &quot;Gene&quot; column as rowname. 
+d.dm.1 =dm.1
+row.names(d.dm.1) = d.dm.1$GENE
+d.dm.1 = d.dm.1[,-1]
+d.dm.2 =dm.2
+row.names(d.dm.2) = d.dm.2$GENE
+d.dm.2 = d.dm.2[,-1]
+d.dm.3 =dm.3
+row.names(d.dm.3) = d.dm.3$GENE
+d.dm.3 = d.dm.3[,-1]
+
+#We finally initialize the Seurat object using this function:
+DM.1&lt;- CreateSeuratObject(counts = d.dm.1, project =&quot;DM.1&quot;, min.cells = 3, min.features = 200)
+DM.2&lt;- CreateSeuratObject(counts  = d.dm.2, project =&quot;DM.2&quot;, min.cells = 3, min.features = 200)
+DM.3&lt;- CreateSeuratObject(counts =  d.dm.3, project =&quot;DM.3&quot;, min.cells = 3, min.features = 200)
+
+#lets see what is this
+DM.1
+</code></pre>
+<blockquote>
+<p>What is min.cells = 3 and min.features = 200 doing? Why do you think this is important?</p>
+</blockquote>
+</div>
+<div id="quality-filtering" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Quality filtering</h2>
+<p>All data that you work with needs to be <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4758103/">curated</a>. This means to be <strong>filtered</strong> in a controlled and user-managed way.</p>
+<p>Not only in this type of data this is done. Any of you that has done a q-rt-pcr knows that some points are taken out.</p>
+<p>I will use a nice image from the internet:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="SingleCell_2/poop.png" alt="Why we should do quality filtering to the data. Origin unknown." width="500px" />
+<p class="caption">
+Figure 4.5: Why we should do quality filtering to the data. Origin unknown.
+</p>
+</div>
+<p>So, which is the idea, what are the concerns we have with this type of data?</p>
+<ol style="list-style-type: decimal">
+<li>Cells are no really cells (empty droplets).</li>
+<li>Cells are not sequenced deeply enough to get an idea of which separates one cell from another.</li>
+<li>Cells are broken.</li>
+<li>Doublets: More than two cells in one droplet.</li>
+</ol>
+<p>To solve each of these problems we have different strategies.</p>
+<ol style="list-style-type: decimal">
+<li>This is usually discarded before the alignment. Cells with too low reads are not taken forward.</li>
+<li>We will select reads with more than certain amount of UMIs, in this case: 500UMIs per cells.</li>
+<li>This is usually addressed in the field by counting % of mitochondrial genes. If a cell is broken, many mRNAs will fall out but the mitochondrial RNA will stay.</li>
+<li>This is a tough one. Usually in the field people sequence cells from two different organisms and see how many cells have genes from both organisms, and say that they do not have a high percentage of Doublets.</li>
+</ol>
+<div id="get-number-of-genes-captured-and-number-of-umi-remember-the-difference-between-reads-and-umi" class="section level3" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Get number of genes captured and number of UMI (remember the difference between reads and UMI)</h3>
+<p>They are both calculated automatically by Seurat and stored in an object called meta.data. In the new version of Seurat, they call <code>features</code> to genes and <code>counts</code> to the UMIs. This is because more and more the single cell data became not only RNA sequencing data but also images, DNA, etc. However, I will call them genes because we are only using RNA data.</p>
+<p>You can access that object using the @ simbol and runing in this case:</p>
+<pre class="dm.x@meta.data```"><code>
+We will use this object to inspect the data and see the distribution of them.
+
+
+```r
+#Lets see how is it organized:
+head(DM.1@meta.data)</code></pre>
+<pre><code>##              orig.ident nCount_RNA nFeature_RNA
+## CAAGAATTTTTC       DM.1      21318         3001
+## AAAAAAAAAAAA       DM.1       1339         1316
+## AGTCATCCGAGC       DM.1      16101         2802
+## CAACACATGTAT       DM.1       8323         2001
+## ATCTTTTTTTCG       DM.1       4426         2178
+## TGAACTCTTGTC       DM.1       6896         1946</code></pre>
+<blockquote>
+<p>What is each row? And each column?</p>
+</blockquote>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="single-cell-rna-seq.html#cb373-1"></a><span class="co">#We can explore the columns of this data, as any other data frame, with the $ sign.</span></span>
+<span id="cb373-2"><a href="single-cell-rna-seq.html#cb373-2"></a><span class="kw">unique</span>(DM<span class="fl">.1</span><span class="op">@</span>meta.data<span class="op">$</span>orig.ident)</span>
+<span id="cb373-3"><a href="single-cell-rna-seq.html#cb373-3"></a></span>
+<span id="cb373-4"><a href="single-cell-rna-seq.html#cb373-4"></a><span class="co">#We can also see the distribution of the variables</span></span>
+<span id="cb373-5"><a href="single-cell-rna-seq.html#cb373-5"></a><span class="kw">summary</span>(DM<span class="fl">.1</span><span class="op">@</span>meta.data)</span>
+<span id="cb373-6"><a href="single-cell-rna-seq.html#cb373-6"></a></span>
+<span id="cb373-7"><a href="single-cell-rna-seq.html#cb373-7"></a><span class="co">#We can plot now the distribution of all the interesting things</span></span>
+<span id="cb373-8"><a href="single-cell-rna-seq.html#cb373-8"></a>p1=<span class="kw">ggplot</span>(<span class="dt">data=</span>DM<span class="fl">.1</span><span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x=</span>nCount_RNA, <span class="dt">fill=</span>orig.ident)) <span class="op">+</span></span>
+<span id="cb373-9"><a href="single-cell-rna-seq.html#cb373-9"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb373-10"><a href="single-cell-rna-seq.html#cb373-10"></a><span class="st">  </span><span class="co">#xlim(c(0,2000))+</span></span>
+<span id="cb373-11"><a href="single-cell-rna-seq.html#cb373-11"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb373-12"><a href="single-cell-rna-seq.html#cb373-12"></a><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></span>
+<span id="cb373-13"><a href="single-cell-rna-seq.html#cb373-13"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">main=</span><span class="st">&quot;nUMI&quot;</span>)</span>
+<span id="cb373-14"><a href="single-cell-rna-seq.html#cb373-14"></a>p2=<span class="kw">ggplot</span>(<span class="dt">data=</span>DM<span class="fl">.1</span><span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x=</span>nFeature_RNA, <span class="dt">fill=</span>orig.ident)) <span class="op">+</span></span>
+<span id="cb373-15"><a href="single-cell-rna-seq.html#cb373-15"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb373-16"><a href="single-cell-rna-seq.html#cb373-16"></a><span class="st">  </span><span class="co">#xlim(c(0,500))+</span></span>
+<span id="cb373-17"><a href="single-cell-rna-seq.html#cb373-17"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb373-18"><a href="single-cell-rna-seq.html#cb373-18"></a><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></span>
+<span id="cb373-19"><a href="single-cell-rna-seq.html#cb373-19"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">main=</span><span class="st">&quot;nGene&quot;</span>)</span>
+<span id="cb373-20"><a href="single-cell-rna-seq.html#cb373-20"></a></span>
+<span id="cb373-21"><a href="single-cell-rna-seq.html#cb373-21"></a><span class="kw">plot_grid</span>(p1,p2)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8-1"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 8.1: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="single-cell-rna-seq.html#cb374-1"></a><span class="co">#We can also see how is the realtion between nGenes and nUMI</span></span>
+<span id="cb374-2"><a href="single-cell-rna-seq.html#cb374-2"></a>p3=<span class="kw">ggplot</span>(<span class="dt">data =</span> DM<span class="fl">.1</span><span class="op">@</span>meta.data ,<span class="kw">aes</span>(<span class="dt">y =</span> nFeature_RNA, <span class="dt">x =</span> nCount_RNA,<span class="dt">color=</span>orig.ident)) <span class="op">+</span><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">dotsize=</span><span class="fl">0.5</span>, <span class="dt">alpha=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb374-3"><a href="single-cell-rna-seq.html#cb374-3"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</span>
+<span id="cb374-4"><a href="single-cell-rna-seq.html#cb374-4"></a></span>
+<span id="cb374-5"><a href="single-cell-rna-seq.html#cb374-5"></a>p4=<span class="kw">ggplot</span>(<span class="dt">data =</span> DM<span class="fl">.1</span><span class="op">@</span>meta.data ,<span class="kw">aes</span>(<span class="dt">y =</span>nFeature_RNA, <span class="dt">x =</span> nCount_RNA,<span class="dt">color=</span>orig.ident)) <span class="op">+</span><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">dotsize=</span><span class="fl">0.5</span>, <span class="dt">alpha=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb374-6"><a href="single-cell-rna-seq.html#cb374-6"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb374-7"><a href="single-cell-rna-seq.html#cb374-7"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="dv">0</span>,<span class="dv">1000</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">1000</span>)</span>
+<span id="cb374-8"><a href="single-cell-rna-seq.html#cb374-8"></a></span>
+<span id="cb374-9"><a href="single-cell-rna-seq.html#cb374-9"></a><span class="kw">plot_grid</span>(p3,p4,<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;nGene_vs_nUMI&quot;</span>,<span class="st">&quot;zoom&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8-2"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-8-2.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 8.2: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<pre><code>## [1] DM.1
+## Levels: DM.1
+##  orig.ident   nCount_RNA     nFeature_RNA   
+##  DM.1:907   Min.   :  702   Min.   : 200.0  
+##             1st Qu.:  967   1st Qu.: 545.0  
+##             Median : 1443   Median : 724.0  
+##             Mean   : 1928   Mean   : 816.8  
+##             3rd Qu.: 2383   3rd Qu.: 997.5  
+##             Max.   :21318   Max.   :3001.0</code></pre>
+<blockquote>
+<p>What is each point? How did we achieve the zoom? Why is there is cut at 200? Try it with the other replicates, what do you see? Can you think of a way to have them all together in the same plot?</p>
+</blockquote>
+</div>
+<div id="calculate-percentage-of-mitochondrial-genes" class="section level3" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Calculate percentage of mitochondrial genes:</h3>
+<p>We calculate it as the proportion. Unfortunately we can see in our data that the mitochondrial genes are not included in the gene mapping.</p>
+<p>We are interested in the genes encoded by the mitochondrial genome. These are named in a particular way. You can explore them in <a href="http://flybase.org/reports/FBgn0013676">FlyBase</a> and in <a href="https://genome.ucsc.edu/cgi-bin/hgTracks?db=dm6&amp;lastVirtModeType=default&amp;lastVirtModeExtraState=&amp;virtModeType=default&amp;virtMode=0&amp;nonVirtPosition=&amp;position=chrM%3A1%2D19524&amp;hgsid=816569087_Gcgg8v6VAM8DUYmIEUPWWGYPnXxJ">UCSC</a></p>
+<p>For this we will use a function named <code>grep</code> that is used to extract elements that contain certain pattern from a vector or list.</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="single-cell-rna-seq.html#cb376-1"></a><span class="co">#nGene and nUMI are automatically calculated for every object by Seurat. For non-UMI data.</span></span>
+<span id="cb376-2"><a href="single-cell-rna-seq.html#cb376-2"></a><span class="co">## We calculate the percentage of mitochondrial genes here and store it in percent.mito using the AddMetaData. The % of UMI mapping to MT-genes is a common scRNA-seq QC metric.</span></span>
+<span id="cb376-3"><a href="single-cell-rna-seq.html#cb376-3"></a></span>
+<span id="cb376-4"><a href="single-cell-rna-seq.html#cb376-4"></a><span class="co">#We can explore the genes in each object</span></span>
+<span id="cb376-5"><a href="single-cell-rna-seq.html#cb376-5"></a><span class="kw">rownames</span>(DM<span class="fl">.1</span><span class="op">@</span>assays<span class="op">$</span>RNA)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb376-6"><a href="single-cell-rna-seq.html#cb376-6"></a></span>
+<span id="cb376-7"><a href="single-cell-rna-seq.html#cb376-7"></a><span class="co">#mitochondrial genes have certain pattern</span></span>
+<span id="cb376-8"><a href="single-cell-rna-seq.html#cb376-8"></a><span class="kw">grep</span>(<span class="dt">pattern =</span> <span class="st">&quot;^mt-&quot;</span>,<span class="dt">x=</span> <span class="kw">rownames</span>(DM<span class="fl">.1</span><span class="op">@</span>assays<span class="op">$</span>RNA), <span class="dt">value =</span> T) <span class="co">#Here we are taking the data that actually is mitochondrial genes</span></span>
+<span id="cb376-9"><a href="single-cell-rna-seq.html#cb376-9"></a></span>
+<span id="cb376-10"><a href="single-cell-rna-seq.html#cb376-10"></a><span class="co">#We will try with some other names for the mitochondrial genes: http://flybase.org/reports/FBgn0013676 for example</span></span>
+<span id="cb376-11"><a href="single-cell-rna-seq.html#cb376-11"></a><span class="kw">grep</span>(<span class="st">&quot;CO&quot;</span>,<span class="dt">x=</span> <span class="kw">rownames</span>(DM<span class="fl">.1</span><span class="op">@</span>assays<span class="op">$</span>RNA), <span class="dt">value =</span> T)</span>
+<span id="cb376-12"><a href="single-cell-rna-seq.html#cb376-12"></a><span class="kw">grep</span>(<span class="st">&quot;co&quot;</span>,<span class="dt">x=</span> <span class="kw">rownames</span>(DM<span class="fl">.1</span><span class="op">@</span>assays<span class="op">$</span>RNA), <span class="dt">value =</span> T)</span></code></pre></div>
+<pre><code>## [1] &quot;128up&quot;               &quot;14-3-3epsilon&quot;       &quot;14-3-3zeta&quot;         
+## [4] &quot;140up&quot;               &quot;18SrRNA-Psi:CR41602&quot;
+## character(0)
+##  [1] &quot;COQ7&quot;       &quot;COX4&quot;       &quot;COX5A&quot;      &quot;COX5B&quot;      &quot;COX6B&quot;     
+##  [6] &quot;COX7A&quot;      &quot;COX7C&quot;      &quot;COX8&quot;       &quot;SCOT&quot;       &quot;alphaCOP&quot;  
+## [11] &quot;betaCOP&quot;    &quot;betapCOP&quot;   &quot;deltaCOP&quot;   &quot;epsilonCOP&quot; &quot;gammaCOP&quot;  
+## [16] &quot;zetaCOP&quot;   
+##  [1] &quot;Acon&quot;       &quot;Acox57D-p&quot;  &quot;Glycogenin&quot; &quot;Mco1&quot;       &quot;Ncoa6&quot;     
+##  [6] &quot;Orco&quot;       &quot;Orcokinin&quot;  &quot;Picot&quot;      &quot;Scox&quot;       &quot;chico&quot;     
+## [11] &quot;coil&quot;       &quot;cold&quot;       &quot;colt&quot;       &quot;comm&quot;       &quot;comt&quot;      
+## [16] &quot;conu&quot;       &quot;cora&quot;       &quot;corn&quot;       &quot;coro&quot;       &quot;cort&quot;      
+## [21] &quot;corto&quot;      &quot;cos&quot;        &quot;dco&quot;        &quot;disco&quot;      &quot;disco-r&quot;   
+## [26] &quot;eco&quot;        &quot;loco&quot;       &quot;pico&quot;</code></pre>
+<pre><code>#The CO3 is not there, you can try this for all of the mitochondrial genes. 
+#Anyways, once you have a list this is the way to proceed (we will not do this because we do not have the genes in the annotation):
+percent.mito &lt;- grep(&quot;^mt-&quot;,x= rownames(DM.1@assays$RNA), value = T)
+percent.mito &lt;- colSums(DM.1@raw.data[mito.genes, ])/colSums(ALL@raw.data)
+
+DM.1[[&quot;percent.mt&quot;]] &lt;- AddMetaData(DM.1, percent.mito, &quot;percent.mito&quot;)
+
+#Or this other way
+DM.1[[&quot;percent.mt&quot;]] &lt;- PercentageFeatureSet(DM.1, pattern = &quot;^mt-&quot;)</code></pre>
+</div>
+<div id="removing-low-quality-cells" class="section level3" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> Removing low quality cells</h3>
+<p>We will do the same cutoff as the paper: nUMI&gt;700, I added the nGene&gt;100</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="single-cell-rna-seq.html#cb379-1"></a><span class="co">#How many cells there are?</span></span>
+<span id="cb379-2"><a href="single-cell-rna-seq.html#cb379-2"></a><span class="kw">nrow</span>(DM<span class="fl">.1</span><span class="op">@</span>meta.data)</span>
+<span id="cb379-3"><a href="single-cell-rna-seq.html#cb379-3"></a></span>
+<span id="cb379-4"><a href="single-cell-rna-seq.html#cb379-4"></a><span class="co">#Subset in ALL the data sets</span></span>
+<span id="cb379-5"><a href="single-cell-rna-seq.html#cb379-5"></a>DM<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">subset</span>(DM<span class="fl">.1</span>, <span class="dt">subset =</span> nFeature_RNA <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>nCount_RNA<span class="op">&gt;</span><span class="st"> </span><span class="dv">700</span>)</span>
+<span id="cb379-6"><a href="single-cell-rna-seq.html#cb379-6"></a></span>
+<span id="cb379-7"><a href="single-cell-rna-seq.html#cb379-7"></a><span class="co">#How many cells are now?</span></span>
+<span id="cb379-8"><a href="single-cell-rna-seq.html#cb379-8"></a><span class="kw">nrow</span>(DM<span class="fl">.1</span><span class="op">@</span>meta.data)</span></code></pre></div>
+<pre><code>## [1] 907
+## [1] 907</code></pre>
+</div>
+</div>
+<div id="normalizing-the-data" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Normalizing the data</h2>
+<p>Now we want to normalize the data. Remember that in the previous chapter we normalized by library depth to able to compare the different samples. For single cell we do the same but a different way.
+Seurat uses a global-scaling normalization method “LogNormalize” that normalizes the feature expression measurements for each cell by the total expression (like library depth), multiplies this by a scale factor (this helps to increase the level, as in single cell the gene expression is really low), and log-transforms the result (this helps reduce the variability).</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="single-cell-rna-seq.html#cb381-1"></a>DM<span class="fl">.1</span> &lt;-<span class="st">  </span><span class="kw">NormalizeData</span>(<span class="dt">object =</span> DM<span class="fl">.1</span>, <span class="dt">normalization.method =</span> <span class="st">&quot;LogNormalize&quot;</span>, <span class="dt">scale.factor =</span> <span class="dv">10000</span>,<span class="dt">verbose =</span> F)</span></code></pre></div>
+</div>
+<div id="detection-of-variable-genes-across-the-single-cells" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Detection of variable genes across the single cells</h2>
+<p>To be able to differentiate once cell from another we need to focus in the genes that are different between cells and not in the ones that are similar. For example, if we want to differentiate two neurons from each other looking at the levels of actin makes no much sense, but looking at the genes that have different levels in these neurons can be indicative of the identity of them.</p>
+<p>Seurat calculates highly variable genes and focuses on these for downstream analysis. <code>FindVariableGenes</code> calculates the average expression and dispersion for each gene. This helps control for the relationship between variability and average expression. Then we decide how many genes to get. The default is 2000.</p>
+<p>Please look at the data and try to understand what each axis means.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="single-cell-rna-seq.html#cb382-1"></a>DM<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">FindVariableFeatures</span>(DM<span class="fl">.1</span>, <span class="dt">selection.method =</span> <span class="st">&quot;vst&quot;</span>, <span class="dt">nfeatures =</span> <span class="dv">2000</span>,<span class="dt">verbose =</span> F)</span>
+<span id="cb382-2"><a href="single-cell-rna-seq.html#cb382-2"></a></span>
+<span id="cb382-3"><a href="single-cell-rna-seq.html#cb382-3"></a><span class="co">## Identify the 10 most highly variable genes</span></span>
+<span id="cb382-4"><a href="single-cell-rna-seq.html#cb382-4"></a>top10 &lt;-<span class="st"> </span><span class="kw">head</span>(<span class="kw">VariableFeatures</span>(DM<span class="fl">.1</span>), <span class="dv">10</span>)</span>
+<span id="cb382-5"><a href="single-cell-rna-seq.html#cb382-5"></a></span>
+<span id="cb382-6"><a href="single-cell-rna-seq.html#cb382-6"></a><span class="co">## plot variable features with and without labels</span></span>
+<span id="cb382-7"><a href="single-cell-rna-seq.html#cb382-7"></a>plot1 &lt;-<span class="st"> </span><span class="kw">VariableFeaturePlot</span>(DM<span class="fl">.1</span>)</span>
+<span id="cb382-8"><a href="single-cell-rna-seq.html#cb382-8"></a>plot2 &lt;-<span class="st"> </span><span class="kw">LabelPoints</span>(<span class="dt">plot =</span> plot1, <span class="dt">points =</span> top10, <span class="dt">repel =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb382-9"><a href="single-cell-rna-seq.html#cb382-9"></a>plot2</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-12-1.png" alt="Variable genes plot" width="100%" />
+<p class="caption">
+Figure 8.3: Variable genes plot
+</p>
+</div>
+<blockquote>
+<p>What are the top 10 genes? Make sense that they appear in this data?</p>
+</blockquote>
+</div>
+<div id="integrating-all-the-samples." class="section level2" number="8.8">
+<h2><span class="header-section-number">8.8</span> Integrating ALL the samples.</h2>
+<p>We have more than one replicate. Seurat has recently implemented a new way to integrate different data sets. This imply looking at the similitude between cells after normalization and variable genes. For that they create a set of <code>anchores</code> between the cells. This is used to integrate replicates, different data types, etc.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="SingleCell_2/seurat.jpg" alt="Figure from: Comprehensive Integration of Single-Cell Data, Stuart et al. Cell 2019" width="500px" />
+<p class="caption">
+Figure 8.4: Figure from: Comprehensive Integration of Single-Cell Data, Stuart et al. Cell 2019
+</p>
+</div>
+<p>Therefore, to integrate this data we will:
+1. Do the same processing we just did for all of them (normalization and variable genes).
+2. Find the anchors and create a new integrated object.</p>
+<p>This integrated object has a new Assay with the integrated (or ‘batch-corrected’) expression matrix for all cells. This allows for an easier and better joint analysis.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="single-cell-rna-seq.html#cb383-1"></a><span class="co">#create a list</span></span>
+<span id="cb383-2"><a href="single-cell-rna-seq.html#cb383-2"></a>dm.list&lt;-<span class="kw">list</span>(DM<span class="fl">.1</span>,DM<span class="fl">.2</span>,DM<span class="fl">.3</span>)</span>
+<span id="cb383-3"><a href="single-cell-rna-seq.html#cb383-3"></a></span>
+<span id="cb383-4"><a href="single-cell-rna-seq.html#cb383-4"></a><span class="co">#do a FOR loop to loop over all of them</span></span>
+<span id="cb383-5"><a href="single-cell-rna-seq.html#cb383-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(dm.list)) {</span>
+<span id="cb383-6"><a href="single-cell-rna-seq.html#cb383-6"></a>    dm.list[[i]] &lt;-<span class="st"> </span><span class="kw">subset</span>(dm.list[[i]], <span class="dt">subset =</span> nFeature_RNA <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>nCount_RNA<span class="op">&gt;</span><span class="st"> </span><span class="dv">700</span>)</span>
+<span id="cb383-7"><a href="single-cell-rna-seq.html#cb383-7"></a>    dm.list[[i]] &lt;-<span class="st"> </span><span class="kw">NormalizeData</span>(dm.list[[i]], <span class="dt">verbose =</span> <span class="ot">FALSE</span>) <span class="co">#normalize</span></span>
+<span id="cb383-8"><a href="single-cell-rna-seq.html#cb383-8"></a>    dm.list[[i]] &lt;-<span class="st"> </span><span class="kw">FindVariableFeatures</span>(dm.list[[i]], <span class="dt">selection.method =</span> <span class="st">&quot;vst&quot;</span>, </span>
+<span id="cb383-9"><a href="single-cell-rna-seq.html#cb383-9"></a>        <span class="dt">nfeatures =</span> <span class="dv">2000</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>) <span class="co">#find variable genes</span></span>
+<span id="cb383-10"><a href="single-cell-rna-seq.html#cb383-10"></a>}</span>
+<span id="cb383-11"><a href="single-cell-rna-seq.html#cb383-11"></a></span>
+<span id="cb383-12"><a href="single-cell-rna-seq.html#cb383-12"></a><span class="co">#Find anchors</span></span>
+<span id="cb383-13"><a href="single-cell-rna-seq.html#cb383-13"></a>anchors &lt;-<span class="st"> </span><span class="kw">FindIntegrationAnchors</span>(<span class="dt">object.list =</span> dm.list, <span class="dt">dims =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">30</span>,<span class="dt">verbose =</span> F)</span>
+<span id="cb383-14"><a href="single-cell-rna-seq.html#cb383-14"></a>ALL &lt;-<span class="st"> </span><span class="kw">IntegrateData</span>(<span class="dt">anchorset =</span> anchors, <span class="dt">dims =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">30</span>,<span class="dt">verbose =</span> F)</span>
+<span id="cb383-15"><a href="single-cell-rna-seq.html#cb383-15"></a></span>
+<span id="cb383-16"><a href="single-cell-rna-seq.html#cb383-16"></a><span class="co">#remove the anchors, they are too big and we will not use them anymore</span></span>
+<span id="cb383-17"><a href="single-cell-rna-seq.html#cb383-17"></a><span class="kw">rm</span>(anchors)</span>
+<span id="cb383-18"><a href="single-cell-rna-seq.html#cb383-18"></a></span>
+<span id="cb383-19"><a href="single-cell-rna-seq.html#cb383-19"></a><span class="kw">head</span>(<span class="kw">as.data.frame</span>(ALL<span class="op">@</span>meta.data))</span>
+<span id="cb383-20"><a href="single-cell-rna-seq.html#cb383-20"></a><span class="kw">head</span>(<span class="kw">unique</span>(ALL<span class="op">@</span>meta.data<span class="op">$</span>orig.ident))</span></code></pre></div>
+<pre><code>##                orig.ident nCount_RNA nFeature_RNA
+## CAAGAATTTTTC_1       DM.1      21318         3001
+## AAAAAAAAAAAA_1       DM.1       1339         1316
+## AGTCATCCGAGC_1       DM.1      16101         2802
+## CAACACATGTAT_1       DM.1       8323         2001
+## ATCTTTTTTTCG_1       DM.1       4426         2178
+## TGAACTCTTGTC_1       DM.1       6896         1946
+## [1] &quot;DM.1&quot; &quot;DM.2&quot; &quot;DM.3&quot;</code></pre>
+<blockquote>
+<p>How does the meta.data looks like now? how many “orig.ident” there are?</p>
+</blockquote>
+<p>We can plot the quality plots now and compare the replicates</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="single-cell-rna-seq.html#cb385-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> ALL<span class="op">@</span>meta.data ,<span class="kw">aes</span>(<span class="dt">y =</span>nFeature_RNA, <span class="dt">x =</span> nCount_RNA,<span class="dt">color=</span>orig.ident)) <span class="op">+</span><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">dotsize=</span><span class="fl">0.5</span>, <span class="dt">alpha=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb385-2"><a href="single-cell-rna-seq.html#cb385-2"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() </span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15-1"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-15-1.png" alt="Number of Genes and Number of UMIs" width="100%" />
+<p class="caption">
+Figure 8.5: Number of Genes and Number of UMIs
+</p>
+</div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="single-cell-rna-seq.html#cb386-1"></a>p1=<span class="kw">ggplot</span>(<span class="dt">data=</span>ALL<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x=</span>nCount_RNA, <span class="dt">fill=</span>orig.ident)) <span class="op">+</span></span>
+<span id="cb386-2"><a href="single-cell-rna-seq.html#cb386-2"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb386-3"><a href="single-cell-rna-seq.html#cb386-3"></a><span class="st">  </span><span class="co">#xlim(c(0,2000))+</span></span>
+<span id="cb386-4"><a href="single-cell-rna-seq.html#cb386-4"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb386-5"><a href="single-cell-rna-seq.html#cb386-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></span>
+<span id="cb386-6"><a href="single-cell-rna-seq.html#cb386-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">main=</span><span class="st">&quot;nUMI&quot;</span>)</span>
+<span id="cb386-7"><a href="single-cell-rna-seq.html#cb386-7"></a>p2=<span class="kw">ggplot</span>(<span class="dt">data=</span>ALL<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x=</span>nFeature_RNA, <span class="dt">fill=</span>orig.ident)) <span class="op">+</span></span>
+<span id="cb386-8"><a href="single-cell-rna-seq.html#cb386-8"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span></span>
+<span id="cb386-9"><a href="single-cell-rna-seq.html#cb386-9"></a><span class="st">  </span><span class="co">#xlim(c(0,500))+</span></span>
+<span id="cb386-10"><a href="single-cell-rna-seq.html#cb386-10"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette=</span><span class="st">&quot;Dark2&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb386-11"><a href="single-cell-rna-seq.html#cb386-11"></a><span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span></span>
+<span id="cb386-12"><a href="single-cell-rna-seq.html#cb386-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">main=</span><span class="st">&quot;nGene&quot;</span>)</span>
+<span id="cb386-13"><a href="single-cell-rna-seq.html#cb386-13"></a></span>
+<span id="cb386-14"><a href="single-cell-rna-seq.html#cb386-14"></a><span class="kw">plot_grid</span>(p1,p2)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15-2"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-15-2.png" alt="Number of Genes and Number of UMIs" width="100%" />
+<p class="caption">
+Figure 8.6: Number of Genes and Number of UMIs
+</p>
+</div>
+<blockquote>
+<p>Try to describe in your own words what is this for loop doing. What are the dimensions in the integration?</p>
+</blockquote>
+</div>
+<div id="scaling-the-data-and-removing-unwanted-sources-of-variation" class="section level2" number="8.9">
+<h2><span class="header-section-number">8.9</span> Scaling the data and removing unwanted sources of variation</h2>
+<p>Scale the data allows for better comparison. Basically, it takes care of the differences between genes that are highly expressed and lowly expressed. <a href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/z-score/">Z-score</a> is a commonly used method to scale the data. To sum up:
+1. Shifts the expression of each gene, so that the mean expression across cells is 0
+2. Scales the expression of each gene, so that the variance across cells is 1</p>
+<p>This step gives equal weight in downstream analyses, so that highly-expressed genes do not dominate.</p>
+<p>Single-cell data has sources of variation that are not biologically interesting. For example, each sample was prepared in a different batch (batch effect, already reduced by the integration), some cells are just more deeply sequenced (we already took care of these with normalization) or some cells are just healthier than others or in another cell cycle state (not important for brain data but super important for other data sets).
+We can regress out cell-cell variation in gene expression driven by batch (if applicable), cell alignment rate (as provided by Drop-seq tools for Drop-seq data), the number of detected molecules, and mitochondrial gene expression. As we just said, we took care of most of the problems. But if you want, there is an option in this function that allows you to do that.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="single-cell-rna-seq.html#cb387-1"></a>ALL &lt;-<span class="kw">ScaleData</span>(<span class="dt">object =</span> ALL,<span class="dt">verbose =</span> F)</span></code></pre></div>
+</div>
+<div id="perform-linear-dimensional-reduction" class="section level2" number="8.10">
+<h2><span class="header-section-number">8.10</span> Perform linear dimensional reduction</h2>
+<p>Dimensional reduction literally means that: reduce dimensions. This means that we will use less variables. This was already done by reducing the number of genes we will use for downstream analysis. Now we apply another one that you already saw and that is useful for clustering: PCA.</p>
+<p>So, we will perform PCA on the scaled data using the 2000 more variable genes. You can play with the number of genes using the <code>feature</code> option.</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="single-cell-rna-seq.html#cb388-1"></a><span class="co">## switch to integrated assay. The variable features of this assay are automatically</span></span>
+<span id="cb388-2"><a href="single-cell-rna-seq.html#cb388-2"></a><span class="co">## set during IntegrateData</span></span>
+<span id="cb388-3"><a href="single-cell-rna-seq.html#cb388-3"></a><span class="kw">DefaultAssay</span>(ALL) &lt;-<span class="st"> &quot;integrated&quot;</span></span>
+<span id="cb388-4"><a href="single-cell-rna-seq.html#cb388-4"></a></span>
+<span id="cb388-5"><a href="single-cell-rna-seq.html#cb388-5"></a><span class="co">## Run the standard workflow for visualization and clustering</span></span>
+<span id="cb388-6"><a href="single-cell-rna-seq.html#cb388-6"></a>ALL &lt;-<span class="st"> </span><span class="kw">ScaleData</span>(ALL, <span class="dt">verbose =</span> <span class="ot">FALSE</span>) <span class="co">#The scaling is now done on the integrated data</span></span>
+<span id="cb388-7"><a href="single-cell-rna-seq.html#cb388-7"></a></span>
+<span id="cb388-8"><a href="single-cell-rna-seq.html#cb388-8"></a><span class="co">#Run the PCA, npcs is the maximum PCs computed</span></span>
+<span id="cb388-9"><a href="single-cell-rna-seq.html#cb388-9"></a>ALL &lt;-<span class="st"> </span><span class="kw">RunPCA</span>(ALL, <span class="dt">npcs =</span> <span class="dv">30</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="single-cell-rna-seq.html#cb389-1"></a><span class="co">## Visualizing the PCs and determine the significance</span></span>
+<span id="cb389-2"><a href="single-cell-rna-seq.html#cb389-2"></a><span class="kw">ElbowPlot</span>(ALL,<span class="dt">ndims =</span> <span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">2</span>,<span class="dt">linetype=</span><span class="dv">2</span>) </span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-18-1.png" alt="PCA plots" width="100%" />
+<p class="caption">
+Figure 8.7: PCA plots
+</p>
+</div>
+<blockquote>
+<p>does this plot ring any bell? How many PCs would you select?</p>
+</blockquote>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="single-cell-rna-seq.html#cb390-1"></a>p1=<span class="kw">DimPlot</span>(ALL, <span class="dt">reduction =</span> <span class="st">&quot;pca&quot;</span>,<span class="dt">dims =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb390-2"><a href="single-cell-rna-seq.html#cb390-2"></a>p2=<span class="kw">DimPlot</span>(ALL, <span class="dt">reduction =</span> <span class="st">&quot;pca&quot;</span>,<span class="dt">dims =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb390-3"><a href="single-cell-rna-seq.html#cb390-3"></a>p3=<span class="kw">DimPlot</span>(ALL, <span class="dt">reduction =</span> <span class="st">&quot;pca&quot;</span>,<span class="dt">dims =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>))</span>
+<span id="cb390-4"><a href="single-cell-rna-seq.html#cb390-4"></a>p4=<span class="kw">DimPlot</span>(ALL, <span class="dt">reduction =</span> <span class="st">&quot;pca&quot;</span>,<span class="dt">dims =</span> <span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">3</span>))</span>
+<span id="cb390-5"><a href="single-cell-rna-seq.html#cb390-5"></a>p1<span class="op">+</span>p2<span class="op">+</span>p3<span class="op">+</span>p4</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-19-1.png" alt="PCA plots" width="100%" />
+<p class="caption">
+Figure 8.8: PCA plots
+</p>
+</div>
+<blockquote>
+<p>What about this? What are we looking for here?</p>
+</blockquote>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="single-cell-rna-seq.html#cb391-1"></a><span class="co">#Other way to see this</span></span>
+<span id="cb391-2"><a href="single-cell-rna-seq.html#cb391-2"></a><span class="kw">DimHeatmap</span>(ALL, <span class="dt">dims =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">cells =</span> <span class="dv">500</span>, <span class="dt">balanced =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-20-1.png" alt="PCA heatmap plots" width="100%" />
+<p class="caption">
+Figure 8.9: PCA heatmap plots
+</p>
+</div>
+<blockquote>
+<p>Are 2 dimensions enough to descrive the data?</p>
+</blockquote>
+</div>
+<div id="clustering" class="section level2" number="8.11">
+<h2><span class="header-section-number">8.11</span> Clustering</h2>
+<p>Once you have explored the PCs, you can do the clustering an visualization. We will use all the 30 PCs.
+There are many ways to cluster data. The main idea is to be able to identify the points that are more similar to each other and the ones that are more different from each other.</p>
+<p>Seurat calculates the distance/similarity between cells in the function <code>FindNeighbors</code>. This performs a <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">KNN graph</a> based on the Euclidean distance in PCA space (this means using the PCs values and NOT the gene values), and refine the edge weights between any two cells based on the shared overlap in their local neighborhoods (Jaccard similarity).</p>
+<p>To cluster the cells Surat can use different algorithms in the function <code>FindClusters</code>. As default it uses Louvain algorithm. The main idea is to iteratively group cells together. One of the most important things to tune in this function is the <code>resolution</code>. This will impact the number of final clusters. In out case we expect to have a LOT of clusters because we are working with a complex tissue.</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="single-cell-rna-seq.html#cb392-1"></a>ALL &lt;-<span class="st"> </span><span class="kw">FindNeighbors</span>(ALL, <span class="dt">dims =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">30</span>,<span class="dt">reduction =</span> <span class="st">&quot;pca&quot;</span>) <span class="co">#What are these dimensions?</span></span>
+<span id="cb392-2"><a href="single-cell-rna-seq.html#cb392-2"></a>ALL &lt;-<span class="st"> </span><span class="kw">FindClusters</span>(ALL, <span class="dt">resolution =</span> <span class="dv">3</span>)</span>
+<span id="cb392-3"><a href="single-cell-rna-seq.html#cb392-3"></a></span>
+<span id="cb392-4"><a href="single-cell-rna-seq.html#cb392-4"></a><span class="co">#explore the meta data now, what is new now?</span></span>
+<span id="cb392-5"><a href="single-cell-rna-seq.html#cb392-5"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ALL<span class="op">@</span>meta.data))</span></code></pre></div>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+## 
+## Number of nodes: 2573
+## Number of edges: 123835
+## 
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.5747
+## Number of communities: 27
+## Elapsed time: 0 seconds
+##                orig.ident nCount_RNA nFeature_RNA integrated_snn_res.3
+## CAAGAATTTTTC_1       DM.1      21318         3001                   14
+## AAAAAAAAAAAA_1       DM.1       1339         1316                   26
+## AGTCATCCGAGC_1       DM.1      16101         2802                    8
+## CAACACATGTAT_1       DM.1       8323         2001                   21
+## ATCTTTTTTTCG_1       DM.1       4426         2178                   12
+## TGAACTCTTGTC_1       DM.1       6896         1946                   10
+##                seurat_clusters
+## CAAGAATTTTTC_1              14
+## AAAAAAAAAAAA_1              26
+## AGTCATCCGAGC_1               8
+## CAACACATGTAT_1              21
+## ATCTTTTTTTCG_1              12
+## TGAACTCTTGTC_1              10</code></pre>
+</div>
+<div id="visualization" class="section level2" number="8.12">
+<h2><span class="header-section-number">8.12</span> Visualization</h2>
+<p>To visualize this data, as we already saw, PC is not enough. So, we need to find a way to visualize the clusters in the 30! PCs we used for clustering. For this we will use UMAP. You can think of it as a compressed version of the 30PCs.</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="single-cell-rna-seq.html#cb394-1"></a>ALL &lt;-<span class="st"> </span><span class="kw">RunUMAP</span>(ALL, <span class="dt">reduction =</span> <span class="st">&quot;pca&quot;</span>, <span class="dt">dims =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)</span>
+<span id="cb394-2"><a href="single-cell-rna-seq.html#cb394-2"></a></span>
+<span id="cb394-3"><a href="single-cell-rna-seq.html#cb394-3"></a><span class="co">#explore the meta data now, what is new now?</span></span>
+<span id="cb394-4"><a href="single-cell-rna-seq.html#cb394-4"></a><span class="kw">as.data.frame</span>(<span class="kw">head</span>(ALL<span class="op">@</span>meta.data))</span>
+<span id="cb394-5"><a href="single-cell-rna-seq.html#cb394-5"></a></span>
+<span id="cb394-6"><a href="single-cell-rna-seq.html#cb394-6"></a><span class="co">#Plot</span></span>
+<span id="cb394-7"><a href="single-cell-rna-seq.html#cb394-7"></a><span class="kw">DimPlot</span>(<span class="dt">object =</span> ALL,<span class="dt">label =</span> T)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22-1"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-22-1.png" alt="UMAP plot" width="100%" />
+<p class="caption">
+Figure 8.10: UMAP plot
+</p>
+</div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="single-cell-rna-seq.html#cb395-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">DimPlot</span>(ALL, <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>, <span class="dt">group.by =</span> <span class="st">&quot;orig.ident&quot;</span>) <span class="co">#we can color the cells based on any of the things in the meta.data</span></span>
+<span id="cb395-2"><a href="single-cell-rna-seq.html#cb395-2"></a>p2 &lt;-<span class="st"> </span><span class="kw">DimPlot</span>(ALL, <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>, <span class="dt">label =</span> T,<span class="dt">repel =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">NoLegend</span>()</span>
+<span id="cb395-3"><a href="single-cell-rna-seq.html#cb395-3"></a>p1 <span class="op">+</span><span class="st"> </span>p2</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22-2"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-22-2.png" alt="UMAP plot" width="100%" />
+<p class="caption">
+Figure 8.11: UMAP plot
+</p>
+</div>
+<pre><code>##                orig.ident nCount_RNA nFeature_RNA integrated_snn_res.3
+## CAAGAATTTTTC_1       DM.1      21318         3001                   14
+## AAAAAAAAAAAA_1       DM.1       1339         1316                   26
+## AGTCATCCGAGC_1       DM.1      16101         2802                    8
+## CAACACATGTAT_1       DM.1       8323         2001                   21
+## ATCTTTTTTTCG_1       DM.1       4426         2178                   12
+## TGAACTCTTGTC_1       DM.1       6896         1946                   10
+##                seurat_clusters
+## CAAGAATTTTTC_1              14
+## AAAAAAAAAAAA_1              26
+## AGTCATCCGAGC_1               8
+## CAACACATGTAT_1              21
+## ATCTTTTTTTCG_1              12
+## TGAACTCTTGTC_1              10</code></pre>
+<blockquote>
+<p>How many clusters we have? Do you think this is enough? Any explanation?</p>
+</blockquote>
+</div>
+<div id="finding-differentially-expressed-features-cluster-biomarkers" class="section level2" number="8.13">
+<h2><span class="header-section-number">8.13</span> Finding differentially expressed features (cluster biomarkers)</h2>
+<p>What is missing now? Basically, we want to identify the genes that makes one cluster different from the rest. How would you do it?
+<code>FindAllMarkers</code> is the function that does the job. Is basically doing a differential gene expression between the clusters.
+Important parameters:
+1. The <code>min.pct</code> argument determines that the genes reported have to be detected at a minimum percentage in either of the two groups of cells
+2. The <code>logfc.threshold</code> is setting a threshold in the foldchange of he reported genes.
+3. The <code>only.pos</code> argument determine if the reported genes will be only the ones with a positive foldchange in the cluster (important for markers).</p>
+<p>There is an option to compare cluster by cluster. This is useful for example if you want to focus in one cluster for some reason.
+<code>FindMarkers</code> function where <code>ident.1</code> and <code>ident.2</code> will be compared.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="single-cell-rna-seq.html#cb397-1"></a><span class="co">## find markers for every cluster compared to all remaining cells, report only the positive ones</span></span>
+<span id="cb397-2"><a href="single-cell-rna-seq.html#cb397-2"></a>markers.all &lt;-<span class="st"> </span><span class="kw">FindAllMarkers</span>(ALL, <span class="dt">only.pos =</span> <span class="ot">TRUE</span>, <span class="dt">min.pct =</span> <span class="fl">0.25</span>, <span class="dt">logfc.threshold  =</span> <span class="fl">0.25</span>,<span class="dt">verbose =</span> F)</span>
+<span id="cb397-3"><a href="single-cell-rna-seq.html#cb397-3"></a>top10.markers.all &lt;-<span class="st"> </span>markers.all <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(cluster) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">wt =</span> avg_logFC) <span class="co">#what do you think this is doing?</span></span>
+<span id="cb397-4"><a href="single-cell-rna-seq.html#cb397-4"></a></span>
+<span id="cb397-5"><a href="single-cell-rna-seq.html#cb397-5"></a><span class="co">#Visualization</span></span>
+<span id="cb397-6"><a href="single-cell-rna-seq.html#cb397-6"></a><span class="kw">DoHeatmap</span>(ALL, <span class="dt">features =</span> top10.markers.all<span class="op">$</span>gene) <span class="op">+</span><span class="st"> </span><span class="kw">NoLegend</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<img src="06-SingleCellAnalysis_files/figure-html/unnamed-chunk-23-1.png" alt="Heatmap of marker genes per cluster" width="100%" />
+<p class="caption">
+Figure 6.2: Heatmap of marker genes per cluster
+</p>
+</div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="single-cell-rna-seq.html#cb398-1"></a><span class="co">#If you want to save ALL the data in an object you can share with anyone and with yourself in the future :)</span></span>
+<span id="cb398-2"><a href="single-cell-rna-seq.html#cb398-2"></a><span class="co">#save.image(file = &quot;sc_class.RData&quot;)</span></span></code></pre></div>
+<blockquote>
+<p>What are the colors representing here? Try to play with them.</p>
+</blockquote>
+<blockquote>
+<p>Do you think all the clusters are equally important? What happens in cluster 0?</p>
+</blockquote>
+<blockquote>
+<p>There are other ways to visualize this. Please go to <a href="https://satijalab.org/seurat/v3.1/pbmc3k_tutorial.html" class="uri">https://satijalab.org/seurat/v3.1/pbmc3k_tutorial.html</a> and explore other options.</p>
+</blockquote>
+<blockquote>
+<p>Pickup one cluster and determine the cell identity in biological terms. How do think this can be done?</p>
+</blockquote>
+<blockquote>
+<p>As a note of color: Who was Seurat and why do you think the single cell package is names after him?</p>
+</blockquote>
+<p>Here a small hint.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="SingleCell_2/seuratpic.jpg" alt="A Sunday Afternoon on the Island of La Grande Jatte or Un dimanche après-midi à l'Île de la Grande Jatte, Georges Seurat, Oil on canvas, 1884–1886 " width="500px" />
+<p class="caption">
+Figure 5.2: A Sunday Afternoon on the Island of La Grande Jatte or Un dimanche après-midi à l’Île de la Grande Jatte, Georges Seurat, Oil on canvas, 1884–1886
+</p>
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol){
+    var tol = JSON.parse(this.dataset.tol);  
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("correct");
+    } else {
+      cl.remove("correct");
+    }  
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("correct");
+    }  
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="circadian-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"google": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
